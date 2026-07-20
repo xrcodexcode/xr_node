@@ -1,0 +1,361 @@
+{
+  "generated_at": "2026-07-19T12:39:34.664751Z",
+  "vault_root": "C:\\Users\\offic\\OneDrive\\Desktop\\obsidean\\nexusdb",
+  "active_nodes": 339,
+  "authority_nodes": [
+    {
+      "slug": "books-cheatsheet",
+      "inbound": 79,
+      "title": "Books Cheatsheet"
+    },
+    {
+      "slug": "capital-allocation",
+      "inbound": 45,
+      "title": "Capital Allocation"
+    },
+    {
+      "slug": "value-investing",
+      "inbound": 39,
+      "title": "Value Investing"
+    },
+    {
+      "slug": "habit-loop",
+      "inbound": 29,
+      "title": "Habit Loop"
+    },
+    {
+      "slug": "habit-tracking",
+      "inbound": 27,
+      "title": "Habit Tracking"
+    },
+    {
+      "slug": "sees-candies-investment-case-study",
+      "inbound": 25,
+      "title": "Sees Candies Investment Case Study"
+    },
+    {
+      "slug": "identity-based-habits",
+      "inbound": 24,
+      "title": "Identity Based Habits"
+    },
+    {
+      "slug": "buffett-decision-making-framework",
+      "inbound": 24,
+      "title": "Buffett Decision Making Framework"
+    },
+    {
+      "slug": "margin-of-safety",
+      "inbound": 24,
+      "title": "Margin Of Safety"
+    },
+    {
+      "slug": "economic-moat",
+      "inbound": 23,
+      "title": "Economic Moat"
+    }
+  ],
+  "hub_nodes": [
+    {
+      "slug": "books-cheatsheet",
+      "outbound": 82,
+      "title": "Books Cheatsheet"
+    },
+    {
+      "slug": "capital-allocation",
+      "outbound": 38,
+      "title": "Capital Allocation"
+    },
+    {
+      "slug": "value-investing",
+      "outbound": 34,
+      "title": "Value Investing"
+    },
+    {
+      "slug": "atomic-habit",
+      "outbound": 21,
+      "title": "Atomic Habit"
+    },
+    {
+      "slug": "economic-moat",
+      "outbound": 20,
+      "title": "Economic Moat"
+    },
+    {
+      "slug": "berkshire-shareholder-letters",
+      "outbound": 19,
+      "title": "Berkshire Shareholder Letters"
+    },
+    {
+      "slug": "buffett-decision-making-framework",
+      "outbound": 17,
+      "title": "Buffett Decision Making Framework"
+    },
+    {
+      "slug": "apple-investment-case-study",
+      "outbound": 17,
+      "title": "Apple Investment Case Study"
+    },
+    {
+      "slug": "berkshire-hathaway-acquisition",
+      "outbound": 17,
+      "title": "Berkshire Hathaway Acquisition"
+    },
+    {
+      "slug": "margin-of-safety",
+      "outbound": 17,
+      "title": "Margin Of Safety"
+    }
+  ],
+  "bridge_nodes": [
+    {
+      "slug": "yt-moc",
+      "betweenness": 48865.63,
+      "title": "Yt Moc"
+    },
+    {
+      "slug": "study-moc",
+      "betweenness": 43328.04,
+      "title": "Study Moc"
+    },
+    {
+      "slug": "elon-musk-moc",
+      "betweenness": 31225.97,
+      "title": "Elon Musk Moc"
+    },
+    {
+      "slug": "warren-buffett-moc",
+      "betweenness": 30239.55,
+      "title": "Warren Buffett Moc"
+    },
+    {
+      "slug": "home-base",
+      "betweenness": 15026.12,
+      "title": "Home Base"
+    },
+    {
+      "slug": "prompt-engineering-moc",
+      "betweenness": 12803.95,
+      "title": "Prompt Engineering Moc"
+    },
+    {
+      "slug": "books-moc",
+      "betweenness": 10397.88,
+      "title": "Books Moc"
+    },
+    {
+      "slug": "warren-buffett-profile",
+      "betweenness": 8120.52,
+      "title": "Warren Buffett Profile"
+    },
+    {
+      "slug": "python-for-ai-beginner-course-moc",
+      "betweenness": 7443.11,
+      "title": "Python For Ai Beginner Course Moc"
+    },
+    {
+      "slug": "why-you-are-feeling-stuck-in-your-20s-moc",
+      "betweenness": 6841.23,
+      "title": "Why You Are Feeling Stuck In Your 20S Moc"
+    }
+  ],
+  "disconnected_clusters": [
+    {
+      "size": 37,
+      "sample": [
+        "speed-of-iteration-principle",
+        "question-every-requirement",
+        "musk-working-hours-expectation",
+        "musk-ai-risk-philosophy",
+        "talent-density-principle"
+      ]
+    },
+    {
+      "size": 10,
+      "sample": [
+        "python-virtual-environment",
+        "ruff-linter-formatter",
+        "python-object-oriented-programming",
+        "interactive-python-jupyter",
+        "python-package-installer"
+      ]
+    },
+    {
+      "size": 2,
+      "sample": [
+        "e20-fuel-policy-india",
+        "ethanol-blending-economic-inefficiency"
+      ]
+    },
+    {
+      "size": 2,
+      "sample": [
+        "state-intervention-hunger-strikes",
+        "state-tactics-protest-containment"
+      ]
+    },
+    {
+      "size": 2,
+      "sample": [
+        "environment-variables-python",
+        "git-version-control-system"
+      ]
+    },
+    {
+      "size": 2,
+      "sample": [
+        "moral-sacrifice-social-protests",
+        "citizen-exit-vs-voice"
+      ]
+    }
+  ],
+  "emerging_topics": [
+    {
+      "domain": "general",
+      "new_notes_last_30d": 309
+    },
+    {
+      "domain": "tools",
+      "new_notes_last_30d": 12
+    },
+    {
+      "domain": "ai",
+      "new_notes_last_30d": 6
+    },
+    {
+      "domain": "self-improvement",
+      "new_notes_last_30d": 6
+    },
+    {
+      "domain": "philosophy",
+      "new_notes_last_30d": 2
+    },
+    {
+      "domain": "business",
+      "new_notes_last_30d": 2
+    },
+    {
+      "domain": "risk",
+      "new_notes_last_30d": 1
+    },
+    {
+      "domain": "strategy",
+      "new_notes_last_30d": 1
+    }
+  ],
+  "knowledge_gaps": [],
+  "most_reused_concepts": [
+    {
+      "slug": "books-cheatsheet",
+      "reference_count": 79,
+      "title": "Books Cheatsheet"
+    },
+    {
+      "slug": "capital-allocation",
+      "reference_count": 45,
+      "title": "Capital Allocation"
+    },
+    {
+      "slug": "value-investing",
+      "reference_count": 39,
+      "title": "Value Investing"
+    },
+    {
+      "slug": "habit-loop",
+      "reference_count": 29,
+      "title": "Habit Loop"
+    },
+    {
+      "slug": "habit-tracking",
+      "reference_count": 27,
+      "title": "Habit Tracking"
+    },
+    {
+      "slug": "sees-candies-investment-case-study",
+      "reference_count": 25,
+      "title": "Sees Candies Investment Case Study"
+    },
+    {
+      "slug": "identity-based-habits",
+      "reference_count": 24,
+      "title": "Identity Based Habits"
+    },
+    {
+      "slug": "buffett-decision-making-framework",
+      "reference_count": 24,
+      "title": "Buffett Decision Making Framework"
+    },
+    {
+      "slug": "margin-of-safety",
+      "reference_count": 24,
+      "title": "Margin Of Safety"
+    },
+    {
+      "slug": "economic-moat",
+      "reference_count": 23,
+      "title": "Economic Moat"
+    }
+  ],
+  "most_cited_sources": [
+    {
+      "source": "[['warren-buffett-profile']]",
+      "citation_count": 102
+    },
+    {
+      "source": "[['48-laws-of-power']]",
+      "citation_count": 70
+    },
+    {
+      "source": "[['atomic-habits']]",
+      "citation_count": 59
+    },
+    {
+      "source": "python-ai-ml-projects']",
+      "citation_count": 33
+    },
+    {
+      "source": "THIS IS WHY PEOPLE HURT YOU.md",
+      "citation_count": 16
+    },
+    {
+      "source": "[['prompt-codes-reference']]",
+      "citation_count": 16
+    },
+    {
+      "source": "python-for-ai-beginner-course.md",
+      "citation_count": 12
+    },
+    {
+      "source": "Uncomfortable Truths 2 Sonam Wangchuk's Hunger Strike, Jantar Mantar Protests and Indian State.md",
+      "citation_count": 7
+    },
+    {
+      "source": "finally-agent-loops-clearly-explained.md",
+      "citation_count": 6
+    },
+    {
+      "source": "[['learn-99-percent-claude-and-codex-in-25-mins']]",
+      "citation_count": 6
+    }
+  ],
+  "graph_growth_by_week": {
+    "2026-07-12": 314,
+    "2026-07-05": 0,
+    "2026-06-28": 0,
+    "2026-06-21": 0,
+    "2026-06-14": 0,
+    "2026-06-07": 0,
+    "2026-05-31": 0,
+    "2026-05-24": 0
+  },
+  "domain_distribution": {
+    "general": 309,
+    "tools": 12,
+    "ai": 6,
+    "self-improvement": 6,
+    "philosophy": 2,
+    "business": 2,
+    "risk": 1,
+    "strategy": 1
+  },
+  "knowledge_velocity_notes_per_week": 84.75
+}

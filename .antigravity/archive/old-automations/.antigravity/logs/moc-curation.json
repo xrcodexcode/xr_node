@@ -1,0 +1,106 @@
+{
+  "status": "success",
+  "timestamp": "2026-07-18T13:02:27.374464",
+  "soft_limit": 50,
+  "hard_limit": 100,
+  "analyses": [
+    {
+      "moc_file": "48-laws-of-power-moc.md",
+      "title": "\u26a1 48 Laws of Power Map of Content",
+      "link_count": 73,
+      "status": "warning",
+      "suggestions": []
+    },
+    {
+      "moc_file": "ai-ml-moc.md",
+      "title": "\ud83e\udd16 AI & Machine Learning Map of Content",
+      "link_count": 31,
+      "status": "healthy",
+      "suggestions": []
+    },
+    {
+      "moc_file": "atomic-habits-moc.md",
+      "title": "\u26a1 Atomic Habits Map of Content",
+      "link_count": 47,
+      "status": "healthy",
+      "suggestions": []
+    },
+    {
+      "moc_file": "books-moc.md",
+      "title": "\ud83d\udcd6 Books Map of Content",
+      "link_count": 1,
+      "status": "healthy",
+      "suggestions": []
+    },
+    {
+      "moc_file": "elon-musk-moc.md",
+      "title": "\ud83d\ude80 Elon Musk Map of Content",
+      "link_count": 37,
+      "status": "healthy",
+      "suggestions": []
+    },
+    {
+      "moc_file": "finally-agent-loops-clearly-explained-moc.md",
+      "title": "Finally. Agent Loops Clearly Explained MOC",
+      "link_count": 0,
+      "status": "healthy",
+      "suggestions": []
+    },
+    {
+      "moc_file": "learn-99-percent-claude-and-codex-in-25-mins-moc.md",
+      "title": "learn-99-percent-claude-and-codex-in-25-mins-moc",
+      "link_count": 0,
+      "status": "healthy",
+      "suggestions": []
+    },
+    {
+      "moc_file": "people-moc.md",
+      "title": "\ud83d\udc65 People Map of Content",
+      "link_count": 1,
+      "status": "healthy",
+      "suggestions": []
+    },
+    {
+      "moc_file": "prompt-engineering-moc.md",
+      "title": "\ud83e\udde0 Prompt Engineering MOC",
+      "link_count": 36,
+      "status": "healthy",
+      "suggestions": []
+    },
+    {
+      "moc_file": "study-moc.md",
+      "title": "\ud83d\udcda Study Map of Content",
+      "link_count": 78,
+      "status": "warning",
+      "suggestions": []
+    },
+    {
+      "moc_file": "THIS IS WHY PEOPLE HURT YOU.md",
+      "title": "THIS IS WHY PEOPLE HURT YOU",
+      "link_count": 0,
+      "status": "healthy",
+      "suggestions": []
+    },
+    {
+      "moc_file": "tools-moc.md",
+      "title": "\ud83d\udee0\ufe0f Tools Map of Content",
+      "link_count": 1,
+      "status": "healthy",
+      "suggestions": []
+    },
+    {
+      "moc_file": "warren-buffett-moc.md",
+      "title": "Warren Buffett MOC",
+      "link_count": 0,
+      "status": "healthy",
+      "suggestions": []
+    },
+    {
+      "moc_file": "yt-moc.md",
+      "title": "\ud83d\udcfa YouTube Map of Content",
+      "link_count": 29,
+      "status": "healthy",
+      "suggestions": []
+    }
+  ]
+}

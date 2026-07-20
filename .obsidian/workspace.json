@@ -1,0 +1,258 @@
+{
+  "main": {
+    "id": "513a82758e37ff49",
+    "type": "split",
+    "children": [
+      {
+        "id": "def04ed6ead9ff75",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3181e36289667b65",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "03_MOC/prompt-engineering-moc.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "prompt-engineering-moc"
+            }
+          },
+          {
+            "id": "a022f70007ab09cc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "VAULT-STRUCTURE.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "VAULT-STRUCTURE"
+            }
+          },
+          {
+            "id": "c4cd2100d2ec9f12",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b55220af04535fab",
+    "type": "split",
+    "children": [
+      {
+        "id": "b0d97d5a85f6f11b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1a698b583bbbe23f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "0f18462a633f6597",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "2d4255ae95689a52",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "43d09af49b9b51ad",
+    "type": "split",
+    "children": [
+      {
+        "id": "fbdc3a743d2961d9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "351a3892f1c18a4b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "7d0844b20523a670",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "2106e7507e79a5ab",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "9d0fd8b987589e90",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "e38a086e6966e6cb",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          },
+          {
+            "id": "0b426ac338bec004",
+            "type": "leaf",
+            "state": {
+              "type": "file-properties",
+              "state": {},
+              "icon": "lucide-info",
+              "title": "File properties"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "c4cd2100d2ec9f12",
+  "lastOpenFiles": [
+    "03_MOC/prompt-engineering-moc.md",
+    "03_MOC/neural-network-moc.md",
+    "VAULT-STRUCTURE.md",
+    "NODES/neural-network.md",
+    "03_MOC/ai-ml-moc.md",
+    "03_MOC/_orphans.md",
+    "GEMINI.md",
+    "NODES/authority-bias-investing.md",
+    "NODES/atomic-habit.md",
+    "NODES/apple-investment-case-study.md",
+    "NODES/amex-salad-oil-investment.md",
+    "NODES/ajit-jain-successor.md",
+    "NODES/agent-loop-mechanics.md",
+    "NODES/activation-function.md",
+    "03_MOC/48-laws-of-power-moc.md",
+    "NODES/cnn.md",
+    "NODES/overfitting.md",
+    "NODES/backpropagation.md",
+    "NODES/loss-function.md",
+    "NODES/gradient-descent.md",
+    "AGENT.md",
+    "CHATGPT-TEMP/GEMINI.md",
+    "01_RAW/SOURCE/atomic-habits.md",
+    "CHATGPT-TEMP/automation.md",
+    "CHATGPT-TEMP/agents.md",
+    "CHATGPT-TEMP/template.md",
+    "CHATGPT-TEMP",
+    "01_RAW/SOURCE/Prompt Codes Setup Guide.pdf",
+    "ALWAYS-WITHIN-ME/QUOTES",
+    "ALWAYS-WITHIN-ME/💡 Ideas",
+    "ALWAYS-WITHIN-ME",
+    "tests/test_moc.py",
+    "tests/test_links.py",
+    "tests/test_graph.py",
+    "tests/test_tags.py",
+    "tests/test_ingestion.py"
+  ]
+}

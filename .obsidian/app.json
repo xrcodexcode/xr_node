@@ -1,0 +1,12 @@
+{
+  "strictLineBreaks": false,
+  "showLineNumber": false,
+  "rightToLeft": false,
+  "vimMode": false,
+  "readableLineLength": false,
+  "alwaysUpdateLinks": true,
+  "defaultViewMode": "preview",
+  "propertiesInDocument": "hidden",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "01_RAW/CAPTURE"
+}

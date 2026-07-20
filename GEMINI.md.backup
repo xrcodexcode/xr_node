@@ -1,0 +1,179 @@
+# GEMINI
+
+This file provides system/agent context for Antigravity AI pair programming sessions.
+
+- **Codename**: XR_node / "Infinity Brain"
+- **Architecture**: Flat, tag-based Zettelkasten.
+- **Rule**: `02_NODES/` must remain completely flat with no subfolders.
+- **Automations**: MOCs are rebuilt using `.antigravity/automations/generate_mocs.py`.
+
+---
+
+# System Enforcement
+
+The Infinity Brain is a self-maintaining knowledge system. All policies described in this document should be enforced automatically through scripts, hooks, and agents.
+
+> [!IMPORTANT]
+> Documentation is not the source of truth. **Automation is.**
+
+---
+
+# Single Sources of Truth
+
+To prevent inconsistencies, rules must never be duplicated across multiple files. The system is defined by the following directory and schema files:
+
+```
+.antigravity/
+├── rules/
+│   ├── tag-schema.md          # All allowed tags
+│   ├── promotion-rules.md     # Node promotion policy
+│   ├── node-schema.md         # Atomic note structure
+│   ├── moc-schema.md          # MOC structure
+│   └── source-schema.md       # Source metadata
+├── logs/
+│   └── moc-health.md          # MOC and knowledge graph health reports
+└── automations/               # Automation scripts
+```
+
+Whenever any of these schema files change, all automation must immediately adapt to follow the updated rules.
+
+---
+
+# Controlled Tag Schema
+
+Tags are a strictly controlled vocabulary. **Never invent tags.** Every tag used in the vault must exist inside `.antigravity/rules/tag-schema.md`.
+
+### Tag Categories
+
+| Category           | Allowed Tags                                                                                                                          | Description / Rule                                                                          |
+| :----------------- | :------------------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------ |
+| **Source**         | `#youtube`, `#podcast`, `#book`, `#article`, `#paper`, `#newletter`, `#substack`                                                      | Permanent source tags (`#youtube`, `#podcast`, `#book`, `#newletter) must never be removed. |
+| **Knowledge Type** | `#concept`, `#fact`, `#principle`, `#framework`, `#workflow`, `#mental-model`, `#definition`, `#law`, `#question`, `#universal-truth` | Specifies the cognitive type of the note.                                                   |
+| **Status**         | `#processed`, `#draft`, `#evergreen`                                                                                                  | The maturity/lifecycle stage of the note.                                                   |
+| **Domain**         | `#ai`, `#ml`, `#psychology`, `#productivity`, ...                                                                                     | Subject area tags defined in the schema.                                                    |
+
+---
+
+# Duplicate Prevention
+
+Before creating any node, check for existing knowledge to prevent redundancy:
+
+1. **Search Title:** Find matching or synonymous note names.
+2. **Search Aliases:** Check alternate names in note frontmatter.
+3. **Search Semantic Similarity:** Scan for conceptually matching topics.
+4. **Search Backlinks:** Check incoming references.
+
+```
+If equivalent node exists  ──► Update the existing node.
+If partially related       ──► Create new node AND cross-link both.
+```
+
+> [!WARNING]
+> Duplicate knowledge must never exist in the vault.
+
+---
+
+# Node Validation
+
+Every atomic note in `02_NODES/` must satisfy the following checklist. Reject incomplete or non-compliant notes.
+
+- [ ] **One Concept Only:** The note contains exactly one atomic concept.
+- [ ] **MOC Association:** Belongs to at least one Map of Content (MOC).
+- [ ] **Connected:** Has at least one backlink (incoming link).
+- [ ] **Sourced:** Contains a valid reference to its source.
+- [ ] **Valid Tags:** Contains only tags listed in `tag-schema.md`.
+- [ ] **No Broken Links:** All internal links must resolve.
+
+---
+
+# Source Lifecycle
+
+Raw files move through a structured ingestion pipeline. This process should be entirely automated.
+
+```
+ 01_RAW/capture/ (Raw content captured by human)
+       │
+       ▼
+ [Knowledge Ingestion]
+       │
+       ▼
+ [Atomic Notes Created] (Written to 02_NODES/)
+       │
+       ▼
+ [All Notes Linked] (MOCs rebuilt, notes cross-linked)
+       │
+       ▼
+ 01_RAW/source/ (Raw source file archived)
+```
+
+> [!IMPORTANT]
+> Processed sources must never remain inside `01_RAW/capture/`. They must be moved to `01_RAW/source/` automatically upon successful ingestion.
+
+---
+
+# MOC Rules
+
+- Every node must belong to at least one Map of Content (MOC).
+- Nodes may belong to multiple MOCs.
+- Orphan nodes are not allowed.
+- Large MOCs should be split into domain-specific MOCs when navigation becomes difficult.
+
+---
+
+# Knowledge Graph Health & Reporting
+
+After every MOC rebuild, the system automatically checks graph health and writes a report to `.antigravity/logs/moc-health.md`.
+
+### Health Check Tasks
+- **Orphan Detection:** Detects nodes with backlinks below the configured threshold.
+- **Duplicate Detection:** Flags candidate duplicate concepts.
+- **Broken Link Detection:** Identifies links pointing to non-existent files.
+- **Invalid Tag Detection:** Flags tags not registered in `tag-schema.md`.
+- **Empty MOC Detection:** Flags MOCs with no registered nodes.
+- **Promotion Evaluation:** Evaluates candidate nodes for promotion.
+
+### Orphan Mitigation
+For every orphan detected, append details to `03_MOC/_orphans.md`:
+- Title
+- Backlink Count
+- Suggested MOC
+- Suggested Related Notes
+- Suggested Merge Candidates
+
+### Rebuild Log Metrics
+The health report logs the following metrics:
+- Date of check
+- Node Count & MOC Count
+- Orphan Count & Broken Link Count
+- Duplicate Candidates
+- Unknown Tags
+- Average Backlinks per Node
+- Largest MOCs & Fastest Growing Domains
+
+---
+
+# Promotion Rules
+
+Promotion rules are defined only inside `.antigravity/rules/promotion-rules.md`. Automation should enforce them. Documentation should never be the enforcement mechanism.
+
+---
+
+# Quality Principles
+
+- **Connection over Volume:** Better-connected knowledge is preferred over more knowledge. A vault containing 1,000 highly connected notes is superior to 10,000 isolated notes.
+- **Automation over Memory:** Humans capture knowledge; automation maintains it. If a process is repeated more than once, it should eventually become automated.
+
+---
+
+# Success Criteria
+
+The Infinity Brain is successful when:
+1. Every source has been fully atomized.
+2. Every node is discoverable through MOCs.
+3. Every node is connected to related knowledge.
+4. Every source is archived.
+5. No duplicate concepts exist.
+6. No invalid tags exist.
+7. No orphan nodes remain unresolved.
+8. Navigation never requires browsing folders.
+9. The knowledge graph continuously improves with each ingestion.

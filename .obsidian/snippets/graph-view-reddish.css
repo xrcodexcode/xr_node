@@ -1,0 +1,36 @@
+/*
+  Reddish Knowledge Graph Snippet
+  Gives a premium, warm, cohesive reddish styling to the entire Obsidian graph view.
+*/
+
+.theme-dark {
+  --graph-node: #e63946;                 /* Warm crimson red for default nodes */
+  --graph-node-unresolved: #b56576;      /* Muted rose-pink for unresolved files */
+  --graph-node-focused: #ff3366;         /* Bright neon pink-red for hovered/focused node */
+  --graph-node-tag: #e07a5f;             /* Terracotta orange-red for tags */
+  --graph-node-attachment: #a4133c;      /* Deep burgundy for attachments */
+  --graph-line: rgba(230, 57, 70, 0.15); /* Transparent crimson lines */
+  --graph-line-highlight: #ff3366;       /* Highlighted/hovered connection lines */
+  --graph-text: #e0e0e0;                 /* Soft warm gray for node text labels */
+}
+
+.theme-light {
+  --graph-node: #d62828;                 /* Deep primary red for contrast on light mode */
+  --graph-node-unresolved: #9e2a2b;      /* Muted wine red for unresolved files */
+  --graph-node-focused: #9b2226;         /* Dark blood red for hovered/focused node */
+  --graph-node-tag: #e07a5f;             /* Terracotta orange-red for tags */
+  --graph-node-attachment: #6f1d1b;      /* Dark chocolate-maroon for attachments */
+  --graph-line: rgba(214, 40, 40, 0.12); /* Subtle dark red connection lines */
+  --graph-line-highlight: #9b2226;       /* Highlighted connection lines */
+  --graph-text: #2b2d42;                 /* Dark slate gray for node text labels */
+}
+
+/* Enforce the colors directly to override any default WebGL shader properties */
+.graph-view.color-fill { color: var(--graph-node) !important; }
+.graph-view.color-fill-unresolved { color: var(--graph-node-unresolved) !important; }
+.graph-view.color-fill-highlight { color: var(--graph-node-focused) !important; }
+.graph-view.color-fill-tag { color: var(--graph-node-tag) !important; }
+.graph-view.color-fill-attachment { color: var(--graph-node-attachment) !important; }
+.graph-view.color-line { color: var(--graph-line) !important; }
+.graph-view.color-line-highlight { color: var(--graph-line-highlight) !important; }
+.graph-view.color-text { color: var(--graph-text) !important; }

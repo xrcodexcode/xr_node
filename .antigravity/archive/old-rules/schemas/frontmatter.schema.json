@@ -1,0 +1,227 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "NexusDB Frontmatter Schema",
+  "description": "Validates all note frontmatter. Schema version 3 and 4 are both accepted.",
+  "type": "object",
+  "if": {
+    "properties": { "schema_version": { "const": 4 } },
+    "required": ["schema_version"]
+  },
+  "then": {
+    "properties": {
+      "tags": {
+        "maxItems": 5
+      }
+    },
+    "required": [
+      "id",
+      "title",
+      "type",
+      "status",
+      "domain",
+      "created",
+      "updated",
+      "confidence",
+      "version",
+      "aliases",
+      "tags",
+      "owner_moc",
+      "sources",
+      "related",
+      "schema_version"
+    ]
+  },
+  "else": {
+    "required": [
+      "type"
+    ]
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[45][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+    },
+    "concept_id": {
+      "type": ["string", "null"],
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*-v[0-9]+(-.+)?$",
+      "description": "Immutable human-readable slug. Set at creation and never changed."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "raw-source", "knowledge-document", "evergreen-note", "atomic-note", "moc", "governance-rule", "log",
+        "concept", "fact", "glossary", "example", "quote", "method", "biography", "framework",
+        "principle", "person", "source", "book", "mega-source"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "incubating",
+        "captured",
+        "processed",
+        "learning",
+        "verified",
+        "evergreen",
+        "canonical",
+        "maintained",
+        "archived",
+        "atomic",
+        "linked",
+        "curated",
+        "active"
+      ],
+      "description": "8-stage maturity model. atomic/linked/curated/active are legacy values still accepted."
+    },
+    "domain": {
+      "type": "string",
+      "enum": ["ai", "ml", "llm", "psychology", "productivity", "philosophy", "business", "study", "research", "writing", "tools", "habits", "strategy", "leadership", "self-improvement", "dsa", "engineering", "manufacturing", "innovation", "risk", "general"]
+    },
+    "source_type": {
+      "type": ["string", "null"],
+      "enum": ["book", "article", "paper", "youtube", "podcast", "web-clip", "transcript", "course", "interview", "dataset", "original-observation", "misc", null]
+    },
+    "created": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "updated": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "review": {
+      "type": ["string", "null"],
+      "pattern": "^(\\d{4}-\\d{2}-\\d{2})?$"
+    },
+    "last_verified": {
+      "type": ["string", "null"],
+      "pattern": "^(\\d{4}-\\d{2}-\\d{2})?$",
+      "description": "Date when claims were last verified against source. Human-set only."
+    },
+    "confidence": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "version": {
+      "type": ["integer", "string"],
+      "minimum": 1
+    },
+    "verification_interval": {
+      "type": ["integer", "null"],
+      "minimum": 1,
+      "description": "Days between required verifications. null = no decay tracking."
+    },
+    "stale_after": {
+      "type": ["string", "null"],
+      "pattern": "^(\\d{4}-\\d{2}-\\d{2})?$",
+      "description": "Computed by decay_scheduler.py. Do not edit manually."
+    },
+    "review_priority": {
+      "type": ["string", "null"],
+      "enum": ["low", "normal", "high", "critical", null]
+    },
+    "confidence_decay": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 50,
+      "description": "Points lost per 365 overdue days. Applied in reports only."
+    },
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "owner_moc": {
+      "type": ["string", "null"]
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          { "type": "string" },
+          {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                { "type": "string" },
+                {
+                  "type": "array",
+                  "items": { "type": "string" }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "related": {
+      "type": "array",
+      "description": "Legacy relation list. Treated as related_to with no confidence.",
+      "items": {
+        "anyOf": [
+          { "type": "string" },
+          {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                { "type": "string" },
+                {
+                  "type": "array",
+                  "items": { "type": "string" }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "relations": {
+      "type": "array",
+      "description": "Typed semantic relationships. Max 15 entries. See relations.schema.json for entry schema.",
+      "maxItems": 15,
+      "items": {
+        "type": "object",
+        "properties": {
+          "target": { "type": "string", "minLength": 1 },
+          "type": {
+            "type": "string",
+            "enum": ["supports", "contradicts", "depends_on", "implements", "extends", "generalizes", "specializes", "causes", "effect_of", "example_of", "instance_of", "part_of", "related_to", "compares_with", "prerequisite_for", "derived_from", "inspired_by", "references"]
+          },
+          "confidence": { "type": "integer", "minimum": 0, "maximum": 100 },
+          "reason": { "type": "string" },
+          "evidence": { "type": "string" },
+          "source": { "type": "string" },
+          "creation_method": { "type": "string", "enum": ["human", "ai-suggested", "ai-auto"] },
+          "human_verified": { "type": "boolean" }
+        },
+        "required": ["target", "type"]
+      }
+    },
+    "decision_context": {
+      "type": ["object", "null"],
+      "description": "Optional human-authored reasoning block. Never overwritten by automation.",
+      "properties": {
+        "why_created": { "type": ["string", "null"] },
+        "decision": { "type": ["string", "null"] },
+        "assumptions": { "type": "array", "items": { "type": "string" } },
+        "tradeoffs": { "type": "array", "items": { "type": "string" } },
+        "importance": { "type": ["string", "null"], "enum": ["low", "normal", "high", "critical", null] },
+        "context": { "type": ["string", "null"] },
+        "future_work": { "type": ["string", "null"] }
+      }
+    },
+    "schema_version": {
+      "type": "integer",
+      "enum": [3, 4],
+      "description": "Schema version. 3 = legacy (still accepted), 4 = current."
+    }
+  }
+}

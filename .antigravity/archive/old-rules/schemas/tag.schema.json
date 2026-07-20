@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "NexusDB Tag Schema",
+  "type": "array",
+  "items": {
+    "type": "string",
+    "enum": [
+      "beginner",
+      "advanced",
+      "comparison",
+      "case-study",
+      "implementation",
+      "reference",
+      "history",
+      "decision",
+      "example",
+      "checklist",
+      "open-question",
+      "contrarian",
+      "case_study",
+      "open_question"
+    ]
+  }
+}

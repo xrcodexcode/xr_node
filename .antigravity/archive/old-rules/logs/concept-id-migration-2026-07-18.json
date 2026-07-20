@@ -1,0 +1,1986 @@
+{
+  "generated_at": "2026-07-18T13:24:27.509523Z",
+  "mode": "dry-run",
+  "stats": {
+    "total_processed": 329,
+    "updated": 0,
+    "skipped_already_set": 0,
+    "collisions_resolved": 0
+  },
+  "entries": [
+    {
+      "path": "NODES\\agent-loop-architectures.md",
+      "stem": "agent-loop-architectures",
+      "concept_id": "agent-loop-architectures-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\agent-loop-done-criteria.md",
+      "stem": "agent-loop-done-criteria",
+      "concept_id": "agent-loop-done-criteria-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\agent-loop-mechanics.md",
+      "stem": "agent-loop-mechanics",
+      "concept_id": "agent-loop-mechanics-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\ajit-jain-successor.md",
+      "stem": "ajit-jain-successor",
+      "concept_id": "ajit-jain-successor-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\algorithm-design-sequence.md",
+      "stem": "algorithm-design-sequence",
+      "concept_id": "algorithm-design-sequence-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\amex-salad-oil-investment.md",
+      "stem": "amex-salad-oil-investment",
+      "concept_id": "amex-salad-oil-investment-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\anne-thorndike-cafeteria-study.md",
+      "stem": "anne-thorndike-cafeteria-study",
+      "concept_id": "anne-thorndike-cafeteria-study-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\apple-investment-case-study.md",
+      "stem": "apple-investment-case-study",
+      "concept_id": "apple-investment-case-study-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\arbitrage-workouts.md",
+      "stem": "arbitrage-workouts",
+      "concept_id": "arbitrage-workouts-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\atomic-habit.md",
+      "stem": "atomic-habit",
+      "concept_id": "atomic-habit-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\authority-bias-investing.md",
+      "stem": "authority-bias-investing",
+      "concept_id": "authority-bias-investing-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\availability-bias-investing.md",
+      "stem": "availability-bias-investing",
+      "concept_id": "availability-bias-investing-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\bayesian-decision-making.md",
+      "stem": "bayesian-decision-making",
+      "concept_id": "bayesian-decision-making-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\be-mentally-strong.md",
+      "stem": "be-mentally-strong",
+      "concept_id": "be-mentally-strong-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\beating-the-odds-when-things-get-hard.md",
+      "stem": "beating-the-odds-when-things-get-hard",
+      "concept_id": "beating-the-odds-when-things-get-hard-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\benjamin-moore-acquisition.md",
+      "stem": "benjamin-moore-acquisition",
+      "concept_id": "benjamin-moore-acquisition-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\berkshire-hathaway-acquisition.md",
+      "stem": "berkshire-hathaway-acquisition",
+      "concept_id": "berkshire-hathaway-acquisition-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\berkshire-hathaway-energy.md",
+      "stem": "berkshire-hathaway-energy",
+      "concept_id": "berkshire-hathaway-energy-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\berkshire-insurance-businesses.md",
+      "stem": "berkshire-insurance-businesses",
+      "concept_id": "berkshire-insurance-businesses-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\berkshire-shareholder-letters.md",
+      "stem": "berkshire-shareholder-letters",
+      "concept_id": "berkshire-shareholder-letters-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\bias-from-association.md",
+      "stem": "bias-from-association",
+      "concept_id": "bias-from-association-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\bill-gates-friendship.md",
+      "stem": "bill-gates-friendship",
+      "concept_id": "bill-gates-friendship-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\bismarck-realpolitik.md",
+      "stem": "bismarck-realpolitik",
+      "concept_id": "bismarck-realpolitik-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\blue-chip-stamps-investment.md",
+      "stem": "blue-chip-stamps-investment",
+      "concept_id": "blue-chip-stamps-investment-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\bnsf-railway-acquisition.md",
+      "stem": "bnsf-railway-acquisition",
+      "concept_id": "bnsf-railway-acquisition-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\books-cheatsheet.md",
+      "stem": "books-cheatsheet",
+      "concept_id": "books-cheatsheet-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\brain-as-a-prediction-machine.md",
+      "stem": "brain-as-a-prediction-machine",
+      "concept_id": "brain-as-a-prediction-machine-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\brian-clark-fingernail-biting.md",
+      "stem": "brian-clark-fingernail-biting",
+      "concept_id": "brian-clark-fingernail-biting-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\bryan-harris-habit-contract.md",
+      "stem": "bryan-harris-habit-contract",
+      "concept_id": "bryan-harris-habit-contract-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\buffett-childhood-entrepreneurship.md",
+      "stem": "buffett-childhood-entrepreneurship",
+      "concept_id": "buffett-childhood-entrepreneurship-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\buffett-decision-making-framework.md",
+      "stem": "buffett-decision-making-framework",
+      "concept_id": "buffett-decision-making-framework-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\buffett-delegation-model.md",
+      "stem": "buffett-delegation-model",
+      "concept_id": "buffett-delegation-model-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\buffett-education-and-graham-influence.md",
+      "stem": "buffett-education-and-graham-influence",
+      "concept_id": "buffett-education-and-graham-influence-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\buffett-foundation.md",
+      "stem": "buffett-foundation",
+      "concept_id": "buffett-foundation-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\buffett-frugal-lifestyle.md",
+      "stem": "buffett-frugal-lifestyle",
+      "concept_id": "buffett-frugal-lifestyle-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\buffett-reading-habit.md",
+      "stem": "buffett-reading-habit",
+      "concept_id": "buffett-reading-habit-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\building-resilience-and-grit.md",
+      "stem": "building-resilience-and-grit",
+      "concept_id": "building-resilience-and-grit-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\bypass-ask-permissions-mode.md",
+      "stem": "bypass-ask-permissions-mode",
+      "concept_id": "bypass-ask-permissions-mode-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\capital-allocation.md",
+      "stem": "capital-allocation",
+      "concept_id": "capital-allocation-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\capital-intensity.md",
+      "stem": "capital-intensity",
+      "concept_id": "capital-intensity-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\cardinal-rule-of-behavior-change.md",
+      "stem": "cardinal-rule-of-behavior-change",
+      "concept_id": "cardinal-rule-of-behavior-change-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\cash-register-automation.md",
+      "stem": "cash-register-automation",
+      "concept_id": "cash-register-automation-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\cesare-borgia.md",
+      "stem": "cesare-borgia",
+      "concept_id": "cesare-borgia-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\charlie-munger-influence-on-buffett.md",
+      "stem": "charlie-munger-influence-on-buffett",
+      "concept_id": "charlie-munger-influence-on-buffett-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\cigar-butt-investing.md",
+      "stem": "cigar-butt-investing",
+      "concept_id": "cigar-butt-investing-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\circle-of-competence.md",
+      "stem": "circle-of-competence",
+      "concept_id": "circle-of-competence-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\claude-second-brain-levels.md",
+      "stem": "claude-second-brain-levels",
+      "concept_id": "claude-second-brain-levels-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\clayton-homes-acquisition.md",
+      "stem": "clayton-homes-acquisition",
+      "concept_id": "clayton-homes-acquisition-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\coca-cola-investment-case-study.md",
+      "stem": "coca-cola-investment-case-study",
+      "concept_id": "coca-cola-investment-case-study-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\commitment-consistency-bias.md",
+      "stem": "commitment-consistency-bias",
+      "concept_id": "commitment-consistency-bias-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\commitment-devices.md",
+      "stem": "commitment-devices",
+      "concept_id": "commitment-devices-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\compounding-interest.md",
+      "stem": "compounding-interest",
+      "concept_id": "compounding-interest-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\con-artist-yellow-kid-weil.md",
+      "stem": "con-artist-yellow-kid-weil",
+      "concept_id": "con-artist-yellow-kid-weil-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\contrast-effect-bias.md",
+      "stem": "contrast-effect-bias",
+      "concept_id": "contrast-effect-bias-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\court-power.md",
+      "stem": "court-power",
+      "concept_id": "court-power-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\dairy-queen-acquisition.md",
+      "stem": "dairy-queen-acquisition",
+      "concept_id": "dairy-queen-acquisition-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\dealing-with-failure-and-bouncing-back.md",
+      "stem": "dealing-with-failure-and-bouncing-back",
+      "concept_id": "dealing-with-failure-and-bouncing-back-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\debt-aversion-principle.md",
+      "stem": "debt-aversion-principle",
+      "concept_id": "debt-aversion-principle-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\decisive-moments.md",
+      "stem": "decisive-moments",
+      "concept_id": "decisive-moments-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\delayed-return-environment.md",
+      "stem": "delayed-return-environment",
+      "concept_id": "delayed-return-environment-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\delete-before-optimize.md",
+      "stem": "delete-before-optimize",
+      "concept_id": "delete-before-optimize-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\delete-then-optimize-loop.md",
+      "stem": "delete-then-optimize-loop",
+      "concept_id": "delete-then-optimize-loop-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\dempster-mill-investment.md",
+      "stem": "dempster-mill-investment",
+      "concept_id": "dempster-mill-investment-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\developing-mental-toughness.md",
+      "stem": "developing-mental-toughness",
+      "concept_id": "developing-mental-toughness-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\dexter-shoe-investment-mistake.md",
+      "stem": "dexter-shoe-investment-mistake",
+      "concept_id": "dexter-shoe-investment-mistake-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\diderot-effect.md",
+      "stem": "diderot-effect",
+      "concept_id": "diderot-effect-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\disliking-hating-tendency.md",
+      "stem": "disliking-hating-tendency",
+      "concept_id": "disliking-hating-tendency-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\dopamine-driven-feedback-loop.md",
+      "stem": "dopamine-driven-feedback-loop",
+      "concept_id": "dopamine-driven-feedback-loop-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\economic-moat.md",
+      "stem": "economic-moat",
+      "concept_id": "economic-moat-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\elon-musk-childhood.md",
+      "stem": "elon-musk-childhood",
+      "concept_id": "elon-musk-childhood-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\elon-musk-education.md",
+      "stem": "elon-musk-education",
+      "concept_id": "elon-musk-education-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\elon-musk-hiring-philosophy.md",
+      "stem": "elon-musk-hiring-philosophy",
+      "concept_id": "elon-musk-hiring-philosophy-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\elon-musk-neuralink.md",
+      "stem": "elon-musk-neuralink",
+      "concept_id": "elon-musk-neuralink-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\elon-musk-spacex-founding.md",
+      "stem": "elon-musk-spacex-founding",
+      "concept_id": "elon-musk-spacex-founding-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\elon-musk-starlink.md",
+      "stem": "elon-musk-starlink",
+      "concept_id": "elon-musk-starlink-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\elon-musk-tesla-founding.md",
+      "stem": "elon-musk-tesla-founding",
+      "concept_id": "elon-musk-tesla-founding-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\elon-musk-the-boring-company.md",
+      "stem": "elon-musk-the-boring-company",
+      "concept_id": "elon-musk-the-boring-company-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\elon-musk-xai.md",
+      "stem": "elon-musk-xai",
+      "concept_id": "elon-musk-xai-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\elon-musk-xcom-paypal.md",
+      "stem": "elon-musk-xcom-paypal",
+      "concept_id": "elon-musk-xcom-paypal-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\elon-musk-zip2.md",
+      "stem": "elon-musk-zip2",
+      "concept_id": "elon-musk-zip2-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\emotional-healing-and-moving-forward.md",
+      "stem": "emotional-healing-and-moving-forward",
+      "concept_id": "emotional-healing-and-moving-forward-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\emotional-strength.md",
+      "stem": "emotional-strength",
+      "concept_id": "emotional-strength-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\environment-design.md",
+      "stem": "environment-design",
+      "concept_id": "environment-design-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\environment-priming.md",
+      "stem": "environment-priming",
+      "concept_id": "environment-priming-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\estate-tax-support.md",
+      "stem": "estate-tax-support",
+      "concept_id": "estate-tax-support-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\external-code-review-guardrails.md",
+      "stem": "external-code-review-guardrails",
+      "concept_id": "external-code-review-guardrails-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\failure-is-innovation-required.md",
+      "stem": "failure-is-innovation-required",
+      "concept_id": "failure-is-innovation-required-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\fermi-estimation.md",
+      "stem": "fermi-estimation",
+      "concept_id": "fermi-estimation-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\fewshot-vs-zeroshot-prompting.md",
+      "stem": "fewshot-vs-zeroshot-prompting",
+      "concept_id": "fewshot-vs-zeroshot-prompting-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\finally-agent-loops-clearly-explained-cheatsheet.md",
+      "stem": "finally-agent-loops-clearly-explained-cheatsheet",
+      "concept_id": "finally-agent-loops-clearly-explained-cheatsheet-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\finding-your-inner-strength.md",
+      "stem": "finding-your-inner-strength",
+      "concept_id": "finding-your-inner-strength-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\first-principles-build-rule.md",
+      "stem": "first-principles-build-rule",
+      "concept_id": "first-principles-build-rule-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\first-principles-prompting.md",
+      "stem": "first-principles-prompting",
+      "concept_id": "first-principles-prompting-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\first-principles-thinking.md",
+      "stem": "first-principles-thinking",
+      "concept_id": "first-principles-thinking-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\five-twenty-five-rule.md",
+      "stem": "five-twenty-five-rule",
+      "concept_id": "five-twenty-five-rule-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\flightsafety-acquisition.md",
+      "stem": "flightsafety-acquisition",
+      "concept_id": "flightsafety-acquisition-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\fruit-of-the-loom-acquisition.md",
+      "stem": "fruit-of-the-loom-acquisition",
+      "concept_id": "fruit-of-the-loom-acquisition-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\geeks-bearing-formulas.md",
+      "stem": "geeks-bearing-formulas",
+      "concept_id": "geeks-bearing-formulas-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\geico-acquisition.md",
+      "stem": "geico-acquisition",
+      "concept_id": "geico-acquisition-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\gen-re-acquisition.md",
+      "stem": "gen-re-acquisition",
+      "concept_id": "gen-re-acquisition-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\genetics-and-environment.md",
+      "stem": "genetics-and-environment",
+      "concept_id": "genetics-and-environment-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\gillette-investment.md",
+      "stem": "gillette-investment",
+      "concept_id": "gillette-investment-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\giving-pledge.md",
+      "stem": "giving-pledge",
+      "concept_id": "giving-pledge-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\goldilocks-rule.md",
+      "stem": "goldilocks-rule",
+      "concept_id": "goldilocks-rule-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\greg-abel-successor.md",
+      "stem": "greg-abel-successor",
+      "concept_id": "greg-abel-successor-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\growth-mindset.md",
+      "stem": "growth-mindset",
+      "concept_id": "growth-mindset-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\habit-contracts.md",
+      "stem": "habit-contracts",
+      "concept_id": "habit-contracts-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\habit-loop.md",
+      "stem": "habit-loop",
+      "concept_id": "habit-loop-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\habit-stacking.md",
+      "stem": "habit-stacking",
+      "concept_id": "habit-stacking-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\habit-tracking.md",
+      "stem": "habit-tracking",
+      "concept_id": "habit-tracking-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\habits-plus-deliberate-practice.md",
+      "stem": "habits-plus-deliberate-practice",
+      "concept_id": "habits-plus-deliberate-practice-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\habits-scorecard.md",
+      "stem": "habits-scorecard",
+      "concept_id": "habits-scorecard-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\haile-selassie-court.md",
+      "stem": "haile-selassie-court",
+      "concept_id": "haile-selassie-court-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\hebbs-law.md",
+      "stem": "hebbs-law",
+      "concept_id": "hebbs-law-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\honesty-expensive-gift.md",
+      "stem": "honesty-expensive-gift",
+      "concept_id": "honesty-expensive-gift-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\howard-buffett-influence.md",
+      "stem": "howard-buffett-influence",
+      "concept_id": "howard-buffett-influence-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\hyperbolic-discounting.md",
+      "stem": "hyperbolic-discounting",
+      "concept_id": "hyperbolic-discounting-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\identity-based-habits.md",
+      "stem": "identity-based-habits",
+      "concept_id": "identity-based-habits-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\idiot-index.md",
+      "stem": "idiot-index",
+      "concept_id": "idiot-index-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\immediate-return-environment.md",
+      "stem": "immediate-return-environment",
+      "concept_id": "immediate-return-environment-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\implementation-intentions.md",
+      "stem": "implementation-intentions",
+      "concept_id": "implementation-intentions-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\intrinsic-value.md",
+      "stem": "intrinsic-value",
+      "concept_id": "intrinsic-value-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\inversion-mental-model.md",
+      "stem": "inversion-mental-model",
+      "concept_id": "inversion-mental-model-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\james-clear-injury-recovery.md",
+      "stem": "james-clear-injury-recovery",
+      "concept_id": "james-clear-injury-recovery-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\jerry-uelsmann-photography.md",
+      "stem": "jerry-uelsmann-photography",
+      "concept_id": "jerry-uelsmann-photography-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-01-never-outshine-the-master.md",
+      "stem": "law-01-never-outshine-the-master",
+      "concept_id": "law-01-never-outshine-the-master-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-02-never-trust-friends-use-enemies.md",
+      "stem": "law-02-never-trust-friends-use-enemies",
+      "concept_id": "law-02-never-trust-friends-use-enemies-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-03-conceal-your-intentions.md",
+      "stem": "law-03-conceal-your-intentions",
+      "concept_id": "law-03-conceal-your-intentions-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-04-say-less-than-necessary.md",
+      "stem": "law-04-say-less-than-necessary",
+      "concept_id": "law-04-say-less-than-necessary-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-05-guard-your-reputation.md",
+      "stem": "law-05-guard-your-reputation",
+      "concept_id": "law-05-guard-your-reputation-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-06-court-attention.md",
+      "stem": "law-06-court-attention",
+      "concept_id": "law-06-court-attention-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-07-get-others-to-do-the-work.md",
+      "stem": "law-07-get-others-to-do-the-work",
+      "concept_id": "law-07-get-others-to-do-the-work-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-08-make-others-come-to-you.md",
+      "stem": "law-08-make-others-come-to-you",
+      "concept_id": "law-08-make-others-come-to-you-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-09-win-through-actions.md",
+      "stem": "law-09-win-through-actions",
+      "concept_id": "law-09-win-through-actions-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-10-avoid-the-unhappy-and-unlucky.md",
+      "stem": "law-10-avoid-the-unhappy-and-unlucky",
+      "concept_id": "law-10-avoid-the-unhappy-and-unlucky-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-11-keep-people-dependent.md",
+      "stem": "law-11-keep-people-dependent",
+      "concept_id": "law-11-keep-people-dependent-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-12-selective-honesty-to-disarm.md",
+      "stem": "law-12-selective-honesty-to-disarm",
+      "concept_id": "law-12-selective-honesty-to-disarm-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-13-appeal-to-self-interest.md",
+      "stem": "law-13-appeal-to-self-interest",
+      "concept_id": "law-13-appeal-to-self-interest-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-14-pose-as-friend-work-as-spy.md",
+      "stem": "law-14-pose-as-friend-work-as-spy",
+      "concept_id": "law-14-pose-as-friend-work-as-spy-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-15-crush-your-enemy-totally.md",
+      "stem": "law-15-crush-your-enemy-totally",
+      "concept_id": "law-15-crush-your-enemy-totally-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-16-use-absence.md",
+      "stem": "law-16-use-absence",
+      "concept_id": "law-16-use-absence-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-17-cultivate-unpredictability.md",
+      "stem": "law-17-cultivate-unpredictability",
+      "concept_id": "law-17-cultivate-unpredictability-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-18-isolation-is-dangerous.md",
+      "stem": "law-18-isolation-is-dangerous",
+      "concept_id": "law-18-isolation-is-dangerous-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-19-know-who-youre-dealing-with.md",
+      "stem": "law-19-know-who-youre-dealing-with",
+      "concept_id": "law-19-know-who-youre-dealing-with-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-20-do-not-commit-to-anyone.md",
+      "stem": "law-20-do-not-commit-to-anyone",
+      "concept_id": "law-20-do-not-commit-to-anyone-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-21-play-a-sucker.md",
+      "stem": "law-21-play-a-sucker",
+      "concept_id": "law-21-play-a-sucker-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-22-surrender-tactic.md",
+      "stem": "law-22-surrender-tactic",
+      "concept_id": "law-22-surrender-tactic-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-23-concentrate-your-forces.md",
+      "stem": "law-23-concentrate-your-forces",
+      "concept_id": "law-23-concentrate-your-forces-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-24-play-the-perfect-courtier.md",
+      "stem": "law-24-play-the-perfect-courtier",
+      "concept_id": "law-24-play-the-perfect-courtier-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-25-recreate-yourself.md",
+      "stem": "law-25-recreate-yourself",
+      "concept_id": "law-25-recreate-yourself-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-26-keep-your-hands-clean.md",
+      "stem": "law-26-keep-your-hands-clean",
+      "concept_id": "law-26-keep-your-hands-clean-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-27-create-a-cultlike-following.md",
+      "stem": "law-27-create-a-cultlike-following",
+      "concept_id": "law-27-create-a-cultlike-following-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-28-enter-action-with-boldness.md",
+      "stem": "law-28-enter-action-with-boldness",
+      "concept_id": "law-28-enter-action-with-boldness-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-29-plan-to-the-end.md",
+      "stem": "law-29-plan-to-the-end",
+      "concept_id": "law-29-plan-to-the-end-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-30-make-accomplishments-seem-effortless.md",
+      "stem": "law-30-make-accomplishments-seem-effortless",
+      "concept_id": "law-30-make-accomplishments-seem-effortless-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-31-control-the-options.md",
+      "stem": "law-31-control-the-options",
+      "concept_id": "law-31-control-the-options-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-32-play-to-peoples-fantasies.md",
+      "stem": "law-32-play-to-peoples-fantasies",
+      "concept_id": "law-32-play-to-peoples-fantasies-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-33-discover-each-mans-thumbscrew.md",
+      "stem": "law-33-discover-each-mans-thumbscrew",
+      "concept_id": "law-33-discover-each-mans-thumbscrew-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-34-be-royal.md",
+      "stem": "law-34-be-royal",
+      "concept_id": "law-34-be-royal-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-35-master-the-art-of-timing.md",
+      "stem": "law-35-master-the-art-of-timing",
+      "concept_id": "law-35-master-the-art-of-timing-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-36-disdain-things-you-cannot-have.md",
+      "stem": "law-36-disdain-things-you-cannot-have",
+      "concept_id": "law-36-disdain-things-you-cannot-have-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-37-create-compelling-spectacles.md",
+      "stem": "law-37-create-compelling-spectacles",
+      "concept_id": "law-37-create-compelling-spectacles-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-38-think-as-you-like-behave-like-others.md",
+      "stem": "law-38-think-as-you-like-behave-like-others",
+      "concept_id": "law-38-think-as-you-like-behave-like-others-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-39-stir-up-waters.md",
+      "stem": "law-39-stir-up-waters",
+      "concept_id": "law-39-stir-up-waters-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-40-despise-the-free-lunch.md",
+      "stem": "law-40-despise-the-free-lunch",
+      "concept_id": "law-40-despise-the-free-lunch-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-41-avoid-stepping-into-great-mans-shoes.md",
+      "stem": "law-41-avoid-stepping-into-great-mans-shoes",
+      "concept_id": "law-41-avoid-stepping-into-great-mans-shoes-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-42-strike-the-shepherd.md",
+      "stem": "law-42-strike-the-shepherd",
+      "concept_id": "law-42-strike-the-shepherd-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-43-work-on-hearts-and-minds.md",
+      "stem": "law-43-work-on-hearts-and-minds",
+      "concept_id": "law-43-work-on-hearts-and-minds-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-44-mirror-effect.md",
+      "stem": "law-44-mirror-effect",
+      "concept_id": "law-44-mirror-effect-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-45-preach-change-reform-slowly.md",
+      "stem": "law-45-preach-change-reform-slowly",
+      "concept_id": "law-45-preach-change-reform-slowly-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-46-never-appear-too-perfect.md",
+      "stem": "law-46-never-appear-too-perfect",
+      "concept_id": "law-46-never-appear-too-perfect-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-47-learn-when-to-stop.md",
+      "stem": "law-47-learn-when-to-stop",
+      "concept_id": "law-47-learn-when-to-stop-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-48-assume-formlessness.md",
+      "stem": "law-48-assume-formlessness",
+      "concept_id": "law-48-assume-formlessness-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\law-of-least-effort.md",
+      "stem": "law-of-least-effort",
+      "concept_id": "law-of-least-effort-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\learn-99-percent-claude-and-codex-in-25-mins-cheatsheet.md",
+      "stem": "learn-99-percent-claude-and-codex-in-25-mins-cheatsheet",
+      "concept_id": "learn-99-percent-claude-and-codex-in-25-mins-cheatsheet-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\liking-loving-tendency.md",
+      "stem": "liking-loving-tendency",
+      "concept_id": "liking-loving-tendency-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\local-filesystem-agent-advantage.md",
+      "stem": "local-filesystem-agent-advantage",
+      "concept_id": "local-filesystem-agent-advantage-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\lollapalooza-effect.md",
+      "stem": "lollapalooza-effect",
+      "concept_id": "lollapalooza-effect-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\long-term-time-horizon.md",
+      "stem": "long-term-time-horizon",
+      "concept_id": "long-term-time-horizon-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\loop-engineering.md",
+      "stem": "loop-engineering",
+      "concept_id": "loop-engineering-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\loop-verification-importance.md",
+      "stem": "loop-verification-importance",
+      "concept_id": "loop-verification-importance-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\louis-xiv-versailles.md",
+      "stem": "louis-xiv-versailles",
+      "concept_id": "louis-xiv-versailles-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\lubrizol-acquisition.md",
+      "stem": "lubrizol-acquisition",
+      "concept_id": "lubrizol-acquisition-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\machiavelli-and-the-prince.md",
+      "stem": "machiavelli-and-the-prince",
+      "concept_id": "machiavelli-and-the-prince-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\make-it-invisible.md",
+      "stem": "make-it-invisible",
+      "concept_id": "make-it-invisible-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\make-money-while-you-sleep.md",
+      "stem": "make-money-while-you-sleep",
+      "concept_id": "make-money-while-you-sleep-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\mao-zedong-formlessness.md",
+      "stem": "mao-zedong-formlessness",
+      "concept_id": "mao-zedong-formlessness-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\margin-of-safety.md",
+      "stem": "margin-of-safety",
+      "concept_id": "margin-of-safety-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\marginal-gains-british-cycling.md",
+      "stem": "marginal-gains-british-cycling",
+      "concept_id": "marginal-gains-british-cycling-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\marmon-group-acquisition.md",
+      "stem": "marmon-group-acquisition",
+      "concept_id": "marmon-group-acquisition-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\moral-nobility-as-tactical-vulnerability.md",
+      "stem": "moral-nobility-as-tactical-vulnerability",
+      "concept_id": "moral-nobility-as-tactical-vulnerability-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\motivation-and-inspiration.md",
+      "stem": "motivation-and-inspiration",
+      "concept_id": "motivation-and-inspiration-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\motivation-ritual.md",
+      "stem": "motivation-ritual",
+      "concept_id": "motivation-ritual-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\musk-ai-risk-philosophy.md",
+      "stem": "musk-ai-risk-philosophy",
+      "concept_id": "musk-ai-risk-philosophy-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\musk-communication-pattern.md",
+      "stem": "musk-communication-pattern",
+      "concept_id": "musk-communication-pattern-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\musk-mars-colonization-vision.md",
+      "stem": "musk-mars-colonization-vision",
+      "concept_id": "musk-mars-colonization-vision-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\musk-on-failure-quote.md",
+      "stem": "musk-on-failure-quote",
+      "concept_id": "musk-on-failure-quote-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\musk-on-first-principles-quote.md",
+      "stem": "musk-on-first-principles-quote",
+      "concept_id": "musk-on-first-principles-quote-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\musk-time-blocking-habit.md",
+      "stem": "musk-time-blocking-habit",
+      "concept_id": "musk-time-blocking-habit-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\musk-working-hours-expectation.md",
+      "stem": "musk-working-hours-expectation",
+      "concept_id": "musk-working-hours-expectation-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\national-indemnity-acquisition.md",
+      "stem": "national-indemnity-acquisition",
+      "concept_id": "national-indemnity-acquisition-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\netjets-acquisition.md",
+      "stem": "netjets-acquisition",
+      "concept_id": "netjets-acquisition-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\nicolas-fouquet-downfall.md",
+      "stem": "nicolas-fouquet-downfall",
+      "concept_id": "nicolas-fouquet-downfall-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\nols-tax-shield.md",
+      "stem": "nols-tax-shield",
+      "concept_id": "nols-tax-shield-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\one-percent-better-every-day.md",
+      "stem": "one-percent-better-every-day",
+      "concept_id": "one-percent-better-every-day-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\operating-leverage.md",
+      "stem": "operating-leverage",
+      "concept_id": "operating-leverage-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\opportunity-cost-heuristic.md",
+      "stem": "opportunity-cost-heuristic",
+      "concept_id": "opportunity-cost-heuristic-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\overcoming-obstacles-and-adversity.md",
+      "stem": "overcoming-obstacles-and-adversity",
+      "concept_id": "overcoming-obstacles-and-adversity-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\owner-earnings.md",
+      "stem": "owner-earnings",
+      "concept_id": "owner-earnings-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\pampered-chef-acquisition.md",
+      "stem": "pampered-chef-acquisition",
+      "concept_id": "pampered-chef-acquisition-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\pavlovian-association.md",
+      "stem": "pavlovian-association",
+      "concept_id": "pavlovian-association-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\personal-growth-and-development.md",
+      "stem": "personal-growth-and-development",
+      "concept_id": "personal-growth-and-development-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\phelps-and-el-guerrouj.md",
+      "stem": "phelps-and-el-guerrouj",
+      "concept_id": "phelps-and-el-guerrouj-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\phil-carret-influence.md",
+      "stem": "phil-carret-influence",
+      "concept_id": "phil-carret-influence-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\physics-constraint-test.md",
+      "stem": "physics-constraint-test",
+      "concept_id": "physics-constraint-test-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\pilot-flying-j-acquisition.md",
+      "stem": "pilot-flying-j-acquisition",
+      "concept_id": "pilot-flying-j-acquisition-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\pkm-development-phases.md",
+      "stem": "pkm-development-phases",
+      "concept_id": "pkm-development-phases-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\plateau-of-latent-potential.md",
+      "stem": "plateau-of-latent-potential",
+      "concept_id": "plateau-of-latent-potential-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\pointing-and-calling.md",
+      "stem": "pointing-and-calling",
+      "concept_id": "pointing-and-calling-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\polgar-sisters-chess.md",
+      "stem": "polgar-sisters-chess",
+      "concept_id": "polgar-sisters-chess-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\power-abhors-a-vacuum.md",
+      "stem": "power-abhors-a-vacuum",
+      "concept_id": "power-abhors-a-vacuum-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\power-as-a-social-game.md",
+      "stem": "power-as-a-social-game",
+      "concept_id": "power-as-a-social-game-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\powerful-mindset-shifts.md",
+      "stem": "powerful-mindset-shifts",
+      "concept_id": "powerful-mindset-shifts-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\precision-castparts-acquisition.md",
+      "stem": "precision-castparts-acquisition",
+      "concept_id": "precision-castparts-acquisition-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\premacks-principle.md",
+      "stem": "premacks-principle",
+      "concept_id": "premacks-principle-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\price-vs-value.md",
+      "stem": "price-vs-value",
+      "concept_id": "price-vs-value-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\prompt-combination-codes.md",
+      "stem": "prompt-combination-codes",
+      "concept_id": "prompt-combination-codes-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\prompt-honesty-codes.md",
+      "stem": "prompt-honesty-codes",
+      "concept_id": "prompt-honesty-codes-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\prompt-learning-codes.md",
+      "stem": "prompt-learning-codes",
+      "concept_id": "prompt-learning-codes-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\prompt-meta-announce.md",
+      "stem": "prompt-meta-announce",
+      "concept_id": "prompt-meta-announce-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\prompt-output-control-codes.md",
+      "stem": "prompt-output-control-codes",
+      "concept_id": "prompt-output-control-codes-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\prompt-reasoning-codes.md",
+      "stem": "prompt-reasoning-codes",
+      "concept_id": "prompt-reasoning-codes-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\prompt-simplification-codes.md",
+      "stem": "prompt-simplification-codes",
+      "concept_id": "prompt-simplification-codes-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\prompt-strategy-codes.md",
+      "stem": "prompt-strategy-codes",
+      "concept_id": "prompt-strategy-codes-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\prompt-thinking-codes.md",
+      "stem": "prompt-thinking-codes",
+      "concept_id": "prompt-thinking-codes-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\prompt-voice-format-codes.md",
+      "stem": "prompt-voice-format-codes",
+      "concept_id": "prompt-voice-format-codes-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\prototype-then-iterate.md",
+      "stem": "prototype-then-iterate",
+      "concept_id": "prototype-then-iterate-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\queen-elizabeth-i-power-image.md",
+      "stem": "queen-elizabeth-i-power-image",
+      "concept_id": "queen-elizabeth-i-power-image-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\question-every-requirement.md",
+      "stem": "question-every-requirement",
+      "concept_id": "question-every-requirement-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\quiet-thinking-habit.md",
+      "stem": "quiet-thinking-habit",
+      "concept_id": "quiet-thinking-habit-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\quote-genes-predispose.md",
+      "stem": "quote-genes-predispose",
+      "concept_id": "quote-genes-predispose-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\quote-james-clear-clarity.md",
+      "stem": "quote-james-clear-clarity",
+      "concept_id": "quote-james-clear-clarity-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\quote-what-is-rewarded-is-repeated.md",
+      "stem": "quote-what-is-rewarded-is-repeated",
+      "concept_id": "quote-what-is-rewarded-is-repeated-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\race-prompt-framework.md",
+      "stem": "race-prompt-framework",
+      "concept_id": "race-prompt-framework-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\reasoning-by-analogy.md",
+      "stem": "reasoning-by-analogy",
+      "concept_id": "reasoning-by-analogy-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\reciprocity-tendency.md",
+      "stem": "reciprocity-tendency",
+      "concept_id": "reciprocity-tendency-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\reclaiming-your-personal-power.md",
+      "stem": "reclaiming-your-personal-power",
+      "concept_id": "reclaiming-your-personal-power-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\red-team-technique.md",
+      "stem": "red-team-technique",
+      "concept_id": "red-team-technique-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\reflection-and-review.md",
+      "stem": "reflection-and-review",
+      "concept_id": "reflection-and-review-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\reframing-hard-habits.md",
+      "stem": "reframing-hard-habits",
+      "concept_id": "reframing-hard-habits-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\regret-minimization-framework.md",
+      "stem": "regret-minimization-framework",
+      "concept_id": "regret-minimization-framework-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\reinforcement.md",
+      "stem": "reinforcement",
+      "concept_id": "reinforcement-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\reinvestment-moat.md",
+      "stem": "reinvestment-moat",
+      "concept_id": "reinvestment-moat-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\relationships.md",
+      "stem": "relationships",
+      "concept_id": "relationships-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\reputation-protection-heuristic.md",
+      "stem": "reputation-protection-heuristic",
+      "concept_id": "reputation-protection-heuristic-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\reputation-twenty-years-to-build.md",
+      "stem": "reputation-twenty-years-to-build",
+      "concept_id": "reputation-twenty-years-to-build-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\return-on-equity.md",
+      "stem": "return-on-equity",
+      "concept_id": "return-on-equity-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\risk-free-rate-hurdle.md",
+      "stem": "risk-free-rate-hurdle",
+      "concept_id": "risk-free-rate-hurdle-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\roger-fisher-nuclear-button.md",
+      "stem": "roger-fisher-nuclear-button",
+      "concept_id": "roger-fisher-nuclear-button-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\rolls-royce-subway-analogy.md",
+      "stem": "rolls-royce-subway-analogy",
+      "concept_id": "rolls-royce-subway-analogy-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\rule-one-never-lose-money.md",
+      "stem": "rule-one-never-lose-money",
+      "concept_id": "rule-one-never-lose-money-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\safeguard-soap-handwashing-study.md",
+      "stem": "safeguard-soap-handwashing-study",
+      "concept_id": "safeguard-soap-handwashing-study-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\salomon-brothers-intervention.md",
+      "stem": "salomon-brothers-intervention",
+      "concept_id": "salomon-brothers-intervention-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\sanborn-map-investment.md",
+      "stem": "sanborn-map-investment",
+      "concept_id": "sanborn-map-investment-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\scarcity-bias-investing.md",
+      "stem": "scarcity-bias-investing",
+      "concept_id": "scarcity-bias-investing-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\sees-candies-investment-case-study.md",
+      "stem": "sees-candies-investment-case-study",
+      "concept_id": "sees-candies-investment-case-study-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\self-fixing-code-loops.md",
+      "stem": "self-fixing-code-loops",
+      "concept_id": "self-fixing-code-loops-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\self-improvement-strategies.md",
+      "stem": "self-improvement-strategies",
+      "concept_id": "self-improvement-strategies-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\shaw-industries-acquisition.md",
+      "stem": "shaw-industries-acquisition",
+      "concept_id": "shaw-industries-acquisition-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\skinner-box-variable-rewards.md",
+      "stem": "skinner-box-variable-rewards",
+      "concept_id": "skinner-box-variable-rewards-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\social-norms-and-habits.md",
+      "stem": "social-norms-and-habits",
+      "concept_id": "social-norms-and-habits-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\social-proof-bias.md",
+      "stem": "social-proof-bias",
+      "concept_id": "social-proof-bias-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\socratic-prompting.md",
+      "stem": "socratic-prompting",
+      "concept_id": "socratic-prompting-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\solomon-asch-conformity.md",
+      "stem": "solomon-asch-conformity",
+      "concept_id": "solomon-asch-conformity-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\sorites-paradox.md",
+      "stem": "sorites-paradox",
+      "concept_id": "sorites-paradox-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\spacex-falcon-1-failures.md",
+      "stem": "spacex-falcon-1-failures",
+      "concept_id": "spacex-falcon-1-failures-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\special-situations.md",
+      "stem": "special-situations",
+      "concept_id": "special-situations-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\speed-of-iteration-principle.md",
+      "stem": "speed-of-iteration-principle",
+      "concept_id": "speed-of-iteration-principle-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\sprezzatura.md",
+      "stem": "sprezzatura",
+      "concept_id": "sprezzatura-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\steelman-technique.md",
+      "stem": "steelman-technique",
+      "concept_id": "steelman-technique-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\strategic-deception.md",
+      "stem": "strategic-deception",
+      "concept_id": "strategic-deception-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\supernormal-stimulus.md",
+      "stem": "supernormal-stimulus",
+      "concept_id": "supernormal-stimulus-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\susan-buffett-influence.md",
+      "stem": "susan-buffett-influence",
+      "concept_id": "susan-buffett-influence-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\systems-vs-goals.md",
+      "stem": "systems-vs-goals",
+      "concept_id": "systems-vs-goals-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\talent-density-principle.md",
+      "stem": "talent-density-principle",
+      "concept_id": "talent-density-principle-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\talleyrand-survival.md",
+      "stem": "talleyrand-survival",
+      "concept_id": "talleyrand-survival-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\ted-weschler-successor.md",
+      "stem": "ted-weschler-successor",
+      "concept_id": "ted-weschler-successor-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\temptation-bundling.md",
+      "stem": "temptation-bundling",
+      "concept_id": "temptation-bundling-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\tesla-production-hell.md",
+      "stem": "tesla-production-hell",
+      "concept_id": "tesla-production-hell-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\the-courtier-archetype.md",
+      "stem": "the-courtier-archetype",
+      "concept_id": "the-courtier-archetype-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\the-futility-of-gratitude.md",
+      "stem": "the-futility-of-gratitude",
+      "concept_id": "the-futility-of-gratitude-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\the-illusion-of-equality.md",
+      "stem": "the-illusion-of-equality",
+      "concept_id": "the-illusion-of-equality-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\the-law-of-reversal.md",
+      "stem": "the-law-of-reversal",
+      "concept_id": "the-law-of-reversal-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\the-myth-of-sincerity.md",
+      "stem": "the-myth-of-sincerity",
+      "concept_id": "the-myth-of-sincerity-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\the-reality-of-human-envy.md",
+      "stem": "the-reality-of-human-envy",
+      "concept_id": "the-reality-of-human-envy-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\tide-goes-out-naked-swimming.md",
+      "stem": "tide-goes-out-naked-swimming",
+      "concept_id": "tide-goes-out-naked-swimming-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\todd-combs-successor.md",
+      "stem": "todd-combs-successor",
+      "concept_id": "todd-combs-successor-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\tom-murphy-influence.md",
+      "stem": "tom-murphy-influence",
+      "concept_id": "tom-murphy-influence-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\trent-dyrsmid-paperclips.md",
+      "stem": "trent-dyrsmid-paperclips",
+      "concept_id": "trent-dyrsmid-paperclips-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\twenty-punches-card-rule.md",
+      "stem": "twenty-punches-card-rule",
+      "concept_id": "twenty-punches-card-rule-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\two-minute-rule.md",
+      "stem": "two-minute-rule",
+      "concept_id": "two-minute-rule-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\two-slot-punch-card.md",
+      "stem": "two-slot-punch-card",
+      "concept_id": "two-slot-punch-card-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\two-step-identity-change.md",
+      "stem": "two-step-identity-change",
+      "concept_id": "two-step-identity-change-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\us-air-investment-mistake.md",
+      "stem": "us-air-investment-mistake",
+      "concept_id": "us-air-investment-mistake-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\value-investing.md",
+      "stem": "value-investing",
+      "concept_id": "value-investing-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\vertical-integration-calculus.md",
+      "stem": "vertical-integration-calculus",
+      "concept_id": "vertical-integration-calculus-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\victor-hugo-closet-lock.md",
+      "stem": "victor-hugo-closet-lock",
+      "concept_id": "victor-hugo-closet-lock-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\vietnam-veterans-heroin-study.md",
+      "stem": "vietnam-veterans-heroin-study",
+      "concept_id": "vietnam-veterans-heroin-study-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\walter-schloss-contrast.md",
+      "stem": "walter-schloss-contrast",
+      "concept_id": "walter-schloss-contrast-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\warren-buffett-biography.md",
+      "stem": "warren-buffett-biography",
+      "concept_id": "warren-buffett-biography-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\warren-buffett-quotes.md",
+      "stem": "warren-buffett-quotes",
+      "concept_id": "warren-buffett-quotes-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\washington-post-investment.md",
+      "stem": "washington-post-investment",
+      "concept_id": "washington-post-investment-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\wesco-financial-acquisition.md",
+      "stem": "wesco-financial-acquisition",
+      "concept_id": "wesco-financial-acquisition-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "NODES\\you-do-not-rise-to-the-level-of-your-goals.md",
+      "stem": "you-do-not-rise-to-the-level-of-your-goals",
+      "concept_id": "you-do-not-rise-to-the-level-of-your-goals-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "03_MOC\\48-laws-of-power-moc.md",
+      "stem": "48-laws-of-power-moc",
+      "concept_id": "48-laws-of-power-moc-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "03_MOC\\_orphans.md",
+      "stem": "_orphans",
+      "concept_id": "orphans-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "03_MOC\\ai-ml-moc.md",
+      "stem": "ai-ml-moc",
+      "concept_id": "ai-ml-moc-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "03_MOC\\atomic-habits-moc.md",
+      "stem": "atomic-habits-moc",
+      "concept_id": "atomic-habits-moc-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "03_MOC\\books-moc.md",
+      "stem": "books-moc",
+      "concept_id": "books-moc-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "03_MOC\\elon-musk-moc.md",
+      "stem": "elon-musk-moc",
+      "concept_id": "elon-musk-moc-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "03_MOC\\finally-agent-loops-clearly-explained-moc.md",
+      "stem": "finally-agent-loops-clearly-explained-moc",
+      "concept_id": "finally-agent-loops-clearly-explained-moc-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "03_MOC\\learn-99-percent-claude-and-codex-in-25-mins-moc.md",
+      "stem": "learn-99-percent-claude-and-codex-in-25-mins-moc",
+      "concept_id": "learn-99-percent-claude-and-codex-in-25-mins-moc-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "03_MOC\\people-moc.md",
+      "stem": "people-moc",
+      "concept_id": "people-moc-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "03_MOC\\prompt-engineering-moc.md",
+      "stem": "prompt-engineering-moc",
+      "concept_id": "prompt-engineering-moc-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "03_MOC\\study-moc.md",
+      "stem": "study-moc",
+      "concept_id": "study-moc-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "03_MOC\\THIS IS WHY PEOPLE HURT YOU.md",
+      "stem": "THIS IS WHY PEOPLE HURT YOU",
+      "concept_id": "this-is-why-people-hurt-you-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "03_MOC\\tools-moc.md",
+      "stem": "tools-moc",
+      "concept_id": "tools-moc-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "03_MOC\\warren-buffett-moc.md",
+      "stem": "warren-buffett-moc",
+      "concept_id": "warren-buffett-moc-v1",
+      "collision_resolved": false
+    },
+    {
+      "path": "03_MOC\\yt-moc.md",
+      "stem": "yt-moc",
+      "concept_id": "yt-moc-v1",
+      "collision_resolved": false
+    }
+  ]
+}

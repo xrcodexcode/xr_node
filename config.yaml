@@ -1,0 +1,14 @@
+# Semantic Linker Configuration Settings
+semantic_linker:
+  enabled: true
+  confidence_threshold: 0.95
+  suggestion_threshold: 0.80
+  require_relationship_type: true
+  allow_low_priority_auto_links: false
+  auto_link_relationships: part_of,depends_on,prerequisite,causes,effect_of,specializes,generalizes
+  max_links_per_note: 8
+  embedding_model: local
+  fallback: bm25
+  update_frontmatter: true
+  generate_report: true
+  append_related_section: true
