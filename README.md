@@ -1,160 +1,441 @@
-# Infinity Brain (nexusdb) — System Architecture & Knowledge Pipeline Guide
+# Vault Structure
 
-Welcome to the **Infinity Brain** (`nexusdb`), a long-term personal knowledge vault designed as a **flat atomic knowledge system**. The system is built to convert raw information into durable, traceable, and highly reusable knowledge, governed by strict rule-based and AI-driven governance policies.
+This file is a structural map only. All governance, enforcement, confidence thresholds, and decision rules live in GEMINI.md and the rule files under .antigravity/rules/. Do not treat this file as authoritative for AI behavior.
 
-This document serves as the developer and architect reference manual, explaining the vault's structure, ingestion workflow, and governance mechanisms.
+## Directory Layout
 
----
-
-## 1. Vault Directory Structure
-
-The repository is structured to separate raw inputs, active learning spaces, evergreen synthesis, atomic concepts, and system infrastructure.
-
-```text
+```
 nexusdb/
-├── 01_RAW/                 # Preserved original files and early-stage processing
-│   ├── CAPTURE/            # Raw incoming clipper files, transcripts, PDFs (read-only)
-│   ├── PROCESS/            # Temporary derived cleanup copies (formatting, OCR correction)
-│   └── SOURCE/             # Permanent archive of original sources after successful ingestion
-├── 02_NEW-KNOWLEDGE/       # Active learning space to build exhaustive source-derived understanding
-├── NOTES/                  # Durable, human-friendly, personalized synthesis notes
-├── NODES/                  # Flat, permanent atomic notes (strictly no subfolders)
-├── 03_MOC/                 # Navigation-only Maps of Content (strictly no explanations)
-├── tests/                  # Vault unit and integration tests (fixtures & sample-vault)
-└── .antigravity/           # System governance, rules, schemas, and automation
-    ├── rules/              # Canonical rule markdown files (governance, naming, schemas)
-    ├── schemas/            # JSON validation schemas for metadata frontmatter
-    ├── logs/               # Append-only audit history (`audit-log.md`)
-    ├── templates/          # Standard starting structures for different note types
-    └── skills/             # Specialized AI subagent skills (e.g., ingestion, research)
+
+.antigravity/
+    archive/
+        old-automations/
+        old-rules/
+        old-prompts/
+        CLAUDE.md
+    automations/
+        lib/
+            constants.py
+            vault_paths.py
+            vault_utils.py
+        duplicate_detector.py
+        generate_mocs.py
+        raw_lifecycle.py
+        validate_tags.py
+    rules/
+        frontmatter-schema.md
+        ingestion-rules.md
+        naming-rules.md
+        node-schema.md
+        tag-schema.md
+    skills/
+        biography-research/
+        ingestion/
+        youtube-ingestion/
+    templates/
+        atomic-note.md
+        moc.md
+    GEMINI.md
+
+.antigravity_backup/
+
+.agents/
+
+.obsidian/
+
+.venv/ (Flagged: tooling dependency living inside vault root — recommend migrating to a sibling repo. See audit log for date flagged.)
+
+01_RAW/
+    CAPTURE/    # Incubating ideas (status: incubating) also live here
+    PROCESS/
+    SOURCE/
+
+02_NEW-KNOWLEDGE/
+
+03_MOC/          # Flat MOCs; no INDEX.md or domain subfolders yet
+
+NODES/          # Flat. No subfolders. One file = one atomic concept.
+
+NOTES/
+
+tests/
+    conftest.py
+    test_graph.py
+    test_ingestion.py
+    test_links.py
+    test_moc.py
+    test_tags.py
+
+AGENT.md
+config.yaml
+GEMINI.md
+GEMINI.md.backup
+HOME-BASE.md
+README.md
+requirements.txt
+VAULT-STRUCTURE.md
 ```
 
 ---
 
-## 2. The Knowledge Ingestion Pipeline
+## MOC Hierarchy
 
-Information moves through a strict 6-stage ingestion pipeline designed to ensure high fidelity, complete provenance, and non-redundancy.
+The vault uses a 4-level navigation hierarchy. All knowledge stays flat in `NODES/`; only navigation is hierarchical.
 
-```mermaid
-graph TD
-    A["Internet / Clippings"] -->|Web Clipper| B("01_RAW/CAPTURE")
-    B -->|Create Working Copy| C("01_RAW/PROCESS")
-    C -->|User Approval & Promotion| E("02_NEW-KNOWLEDGE")
-    B -->|Move Original after Promotion| D("01_RAW/SOURCE")
-    
-    E -->|Promote to Wiki| F["NOTES (Synthesis)"]
-    F -->|Extract Atomic Concepts| G["NODES (Atomic Concepts)"]
-    
-    F -->|Reference link| H["03_MOC (Map of Content)"]
-    G -->|Index entry| H
-    
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style D fill:#bbf,stroke:#333,stroke-width:1px
-    style F fill:#bfb,stroke:#333,stroke-width:2px
-    style G fill:#bfb,stroke:#333,stroke-width:2px
-    style H fill:#fbb,stroke:#333,stroke-width:2px
+```
+INDEX.md (moc_level: index)
+  └── Domain MOC (moc_level: domain)        — one per knowledge domain
+        └── Topic MOC (moc_level: topic)    — primary working level; links to nodes
+              └── [Subtopic MOC]            — optional; created when topic overflows
+                    └── NODE               — flat atomic note in NODES/
 ```
 
-### Stage Explanations
+| Level | File pattern | Node links? | Size limit |
+|-------|-------------|-------------|------------|
+| `index` | `03_MOC/INDEX.md` | ❌ Never | 30 domains |
+| `domain` | `03_MOC/<domain>/<domain>-moc.md` | ❌ Never | 50 topics |
+| `topic` | `03_MOC/<domain>/<topic>-moc.md` | ✅ Yes | 100 nodes |
+| `subtopic` | `03_MOC/<domain>/<subtopic>-moc.md` | ✅ Yes | 80 nodes |
 
-1. **Capture (`01_RAW/CAPTURE/`):** Raw files are saved here exactly as captured. This folder is read-only; files are immutable and must never be edited, renamed, or moved directly to process.
-2. **Process (`01_RAW/PROCESS/`):** Create a working copy here. Clean up advertisements, reformat headers, and isolate core topics. This is the only writable workspace during ingestion.
-3. **New Knowledge (`02_NEW-KNOWLEDGE/`):** After user approval, the working copy is promoted here. This is an active learning playground for deep study of the material.
-4. **Source Archive (`01_RAW/SOURCE/`):** Once promoted to `02_NEW-KNOWLEDGE/`, the original source is archived here by moving it from `01_RAW/CAPTURE/` to preserve provenance.
-5. **Wiki Promotion (`NOTES/`):** Once the material in `02_NEW-KNOWLEDGE/` is understood and the user issues **Promote to Wiki**, the document is moved to `NOTES/`.
-6. **Atomicity (`NODES/`):** Atomic notes are extracted and created here *only after* the document is in `NOTES/`.
-7. **Curate (`03_MOC/`):** The notes are linked inside Map of Content (MOC) index files to allow easy browsing.
-
----
-
-## 3. Non-Negotiable Graph Laws
-
-To keep the vault from degenerating into a chaotic file dump, all actors (human or AI) must strictly obey the **Eight Graph Laws**:
-
-*   **Law 1: No Orphan Nodes.** Every active note must be linked to at least one MOC and have at least one inbound or outbound link.
-*   **Law 2: Unique Identity.** Every node must have exactly one canonical title and reside in exactly one canonical file.
-*   **Law 3: Explicit Ownership.** Every active knowledge note belongs to exactly one owner MOC (`owner_moc`).
-*   **Law 4: Recoverable Provenance.** Every factual claim must have a reference source path or URL, or be explicitly labeled as an "unsupported observation".
-*   **Law 5: Ingestion Outcome.** Every ingested source must either produce reusable knowledge or be explicitly logged with a `no_reusable_knowledge` disposition.
-*   **Law 6: Archival Consolidation.** Confirmed duplicate notes are merged through archival consolidation (preserving predecessor aliases and content in archives), never via simple deletion.
-*   **Law 7: Navigation Only MOCs.** MOCs only map links and build indexes; they must never contain inline explanations or copy-pasted details.
-*   **Law 8: No Raw Data Leaks.** No raw information can exist outside `01_RAW/` except as explicitly quoted and attributed excerpts.
+Existing flat MOCs in `03_MOC/` are treated as `moc_level: topic` by default.
 
 ---
 
-## 4. The AI Decision Engine & Confidence Policy
+## Knowledge Pipeline
 
-The AI operates under a **Confidence Policy** that quantifies the confidence of proposed changes from `0` to `100` before acting.
+```
+Internet
+    │
+    ▼
+Web Clipper
+    │
+    ▼
+01_RAW/CAPTURE
+(immutable source)
+    │
+(create working copy)
+    ▼
+01_RAW/PROCESS
+(iterative processing)
+    │
+(user approval)
+    ▼
+02_NEW-KNOWLEDGE
+    │
+(move original source)
+    ├──────────────► 01_RAW/SOURCE
+    │
+(user learns)
+    ▼
+NOTES (Wiki)
+    │
+(extract atomic knowledge)
+    ▼
+NODES
+```
 
-| Confidence Range | Action Policy |
-| :--- | :--- |
-| **95 – 100% (Safe)** | Apply the reversible, rule-compliant action immediately and log it in the audit log. |
-| **80 – 94% (Suggest)** | Propose the change to the user. Do not make any auto-edits. |
-| **60 – 79% (Ask)** | Request explicit confirmation before editing metadata or files. |
-| **< 60% (Do Nothing)** | Abandon the operation and do not execute. Log an optional observation. |
+### Core Rule
+A file must **not move or change state** from its current location until the user gives explicit permission.
 
-### Confidence Calibration Formulas
+### Hard Constraints
+- **Never move or edit a file in CAPTURE automatically.**
+- **Never edit or move the original file while processing.**
+- **01_RAW/PROCESS is the only writable workspace during ingestion and refinement.**
+- **Never assume approval.**
+- **Never skip a stage.**
 
-To prevent arbitrary subjective scoring, confidence is mathematically calculated based on context and similarity thresholds:
+### Ingestion & Movement Rules
+1. **CAPTURE is Read-Only:** `01_RAW/CAPTURE` is read-only. Original files are immutable and must never be edited, renamed, deleted, overwritten, or moved to `01_RAW/PROCESS`.
+2. **Process Workspace Constraint:** Create a working copy inside `01_RAW/PROCESS`. All files created during processing (working copies, drafts, processed versions, temporary files, AI-generated outputs, intermediate revisions, supporting artifacts) must remain inside `01_RAW/PROCESS/`.
+3. **Iterative Refinement:** Iterate on files in `01_RAW/PROCESS` until the user explicitly approves promotion.
+4. **New Knowledge Promotion:** After the user explicitly approves promotion, promote the document to `02_NEW-KNOWLEDGE`.
+5. **Original Archival:** After promotion to `02_NEW-KNOWLEDGE`, archive the original file by moving it from `01_RAW/CAPTURE` to `01_RAW/SOURCE`.
+6. **Promote to Wiki:** Only after the user later issues **Promote to Wiki** should the document move from `02_NEW-KNOWLEDGE` to `NOTES`.
+7. **Atomic Note Generation:** Atomic note generation in `NODES` occurs only after the document is in `NOTES`.
+8. **MOC Curation:** Every mature note must eventually connect to `03_MOC` (INDEX → Domain → Topic → Node).
 
-1. **Merge Decisions:**
-   $$Confidence_{\text{merge}} = \begin{cases} (0.4 \cdot S_{\text{title}} + 0.6 \cdot S_{\text{semantic}}) \times 100 & \text{if } S_{\text{title}} \ge 0.90 \text{ and } S_{\text{semantic}} \ge 0.90 \\ 0 & \text{otherwise} \end{cases}$$
-   Where $S_{\text{title}}$ is title similarity and $S_{\text{semantic}}$ is semantic text similarity.
+### Decision Policy & Expected Behavior
+Before any movement or promotion, the agent must ask:
+- Is the content still raw in CAPTURE?
+- Is it a working copy undergoing refinement in PROCESS?
+- Is it ready for deep study in 02_NEW-KNOWLEDGE?
+- Is it in NOTES ready for atomic extraction?
+- Is the final note verified and evergreen enough for the NODES layer?
 
-2. **Note-Creation Decisions:**
-   $$Confidence_{\text{creation}} = (0.4 \cdot U + 0.4 \cdot G + 0.2 \cdot C) \times 100$$
-   - $U = 1.0 - \text{maximum semantic similarity to any existing node}$ (conceptual uniqueness).
-   - $G = \text{fraction of claims supported by explicit citations in the raw source}$ (source grounding).
-   - $C = \text{fraction of required frontmatter schema fields populated}$ (schema completeness).
-
-3. **Relationship Link Decisions:**
-   $$Confidence_{\text{link}} = (0.5 \cdot P + 0.5 \cdot R) \times 100$$
-   - $P = \text{semantic closeness of the target note topic to the source note topic}$.
-   - $R = \text{strength of explicit causal connection or direct citation in source text}$.
+If any answer is unclear, stop and ask for permission. When responding, state:
+- Current stage
+- Suggested next stage
+- Reason
+- Permission needed before movement
+- Any risks, gaps, or missing context
 
 ---
 
-## 5. Frontmatter Metadata Schema
+## Folder Responsibilities
 
-Every note in the vault must strictly implement the standard YAML metadata block at the top of the file:
+| Folder | Purpose |
+|--------|---------|
+| `01_RAW/` | Input only. Raw captured information. Incubating ideas (`status: incubating`) also live in `CAPTURE/`. |
+| `01_RAW/CAPTURE/` | Store raw information exactly as captured. Immutable source files. |
+| `01_RAW/PROCESS/` | Transform working copy into refined knowledge. Only writable workspace during ingestion. |
+| `01_RAW/SOURCE/` | Archive original source materials after promotion. |
+| `02_NEW-KNOWLEDGE/` | Active learning space to build exhaustive source-derived understanding (`status: learning`). |
+| `NOTES/` | Durable evergreen synthesis promoted from understood knowledge. |
+| `NODES/` | Flat atomic notes created from understood knowledge. One note = One idea. No subfolders. |
+| `03_MOC/` | Navigation only. Never store knowledge here. 4-level hierarchy: INDEX → Domain → Topic → Node. |
 
+---
+
+## Stage Details
+
+### Stage 1: CAPTURE
+
+**Folder:** `01_RAW/CAPTURE`
+
+**Purpose:** Store raw information exactly as captured.
+
+**Allowed:**
+- Web Clipper
+- PDFs
+- Articles
+- Books
+- YouTube transcripts
+- Podcasts
+- Research papers
+
+**Rules:**
+- Never edit
+- Never summarize
+- Never reorganize
+- Always preserve the original
+
+---
+
+### Stage 2: PROCESS
+
+**Folder:** `01_RAW/PROCESS`
+
+**Purpose:** Transform raw information into understandable knowledge.
+
+**Tasks:**
+- Remove junk
+- Fix formatting
+- Remove advertisements
+- Organize headings
+- Correct OCR
+- Separate topics
+- Preserve every important fact
+
+The goal is maximum information quality until the favorable output. The file is store temporary for ingestion(process).
+
+---
+
+### Stage 3: NEW KNOWLEDGE
+
+**Folder:** `02_NEW-KNOWLEDGE`
+
+**Purpose:** Active learning for exhaustive source-derived understanding.
+
+**Requirements:**
+- Definitions
+- Concepts
+- Examples
+- Analogies
+- Explanations
+- Facts
+- Tables
+- Lists
+- Processes
+- Formulas
+- Diagrams (Markdown)
+- Relationships
+- References
+
+This document is used for active learning to build exhaustive source-derived understanding. Once understood, it will promote to polished synthesis notes in `NOTES/` and its atomic notes are created in `NODES/`.
+
+---
+
+### Stage 4: NOTES
+
+**Folder:** `NOTES`
+
+**Purpose:** Create polished evergreen synthesis notes promoted from understood `02_NEW-KNOWLEDGE`.
+
+**Characteristics:**
+- Readable
+- Well structured
+- Future-proof
+- Personalized
+- Human-friendly
+
+These are the notes you will actually study.
+
+---
+
+### Stage 5: NODES
+
+**Folder:** `NODES`
+
+**Purpose:** Convert understood `02_NEW-KNOWLEDGE` into atomic notes.
+
+**Rules:**
+- One note = One idea
+- Every note must be independently understandable
+- Each note should answer one question
+- Maximum reuse
+- Maximum linking
+
+**Each note should contain:**
+- Definition
+- Explanation
+- Example
+- Related Notes
+- Tags
+
+---
+
+### Stage 6: MOC
+
+**Folder:** `03_MOC`
+
+**Purpose:** Navigation only. Never store knowledge here.
+
+**MOCs organize atomic notes (NODES) and detailed notes (NOTES) into a 4-level hierarchy.**
+
+**Hierarchy:**
+```
+INDEX (03_MOC/INDEX.md)
+  └── Domain MOC (03_MOC/ai/ai-moc.md)
+        └── Topic MOC (03_MOC/ai/machine-learning-moc.md)
+              └── [Subtopic MOC] → Nodes
+```
+
+**MOC Level Rules:**
+- `index` → links only to Domain MOCs
+- `domain` → links only to Topic MOCs
+- `topic` → links to individual nodes (primary working level)
+- `subtopic` → links to individual nodes (created when topic overflows)
+
+Existing MOCs without `moc_level` are treated as `topic` level.
+
+**Example Topic MOC:**
+```
+Machine Learning Topic MOC
+├── [[Linear Regression]]
+├── [[Logistic Regression]]
+├── [[Neural Networks]]
+├── [[Transformers]]
+└── [[Reinforcement Learning]]
+```
+
+---
+
+## Atomic Note Rules
+
+Every atomic note must:
+- Have exactly one idea
+- Be evergreen
+- Be understandable alone
+- Contain links
+- Contain tags
+- Avoid unnecessary duplication
+
+---
+
+## Note Maturity States
+
+Every active note progresses through the 8-stage maturity model (see `maturity-model.md`):
+
+```
+[incubating] → captured → processed → learning → verified → evergreen → canonical → maintained → archived
+```
+
+- `incubating` — rough idea in `01_RAW/CAPTURE/`; not yet validated
+- `captured` — received, not yet interpreted
+- `processed` — cleaned; provenance retained
+- `learning` — in `02_NEW-KNOWLEDGE/`; active study
+- `verified` — claims checked against source
+- `evergreen` — stable, reusable, atomic
+- `canonical` — single vault authority; `concept_id` set; no duplicate
+- `maintained` — reviewed within cadence; still accurate
+- `archived` — historical reference only
+
+---
+
+## Linking Rules
+
+Always create links whenever concepts are related. Prefer the structured `relations` block in frontmatter for machine-readable typed relationships.
+
+**Relationship types (18 controlled vocabulary):**
+`depends_on`, `implements`, `causes`, `effect_of`, `example_of`, `instance_of`, `part_of`, `prerequisite_for` (HIGH priority) · `supports`, `contradicts`, `extends`, `generalizes`, `specializes`, `compares_with`, `derived_from`, `references` (MEDIUM) · `related_to`, `inspired_by` (LOW)
+
+**Example `relations` block:**
 ```yaml
----
-id: 123e4567-e89b-42d3-a456-426614174000 # UUID v4; immutable
-title: Canonical Title
-type: atomic-note # atomic-note, evergreen-note, knowledge-document, raw-source, moc, governance-rule, log
-status: linked # captured, processed, verified, evergreen, atomic, linked, curated, maintained, archived
-domain: ai # canonical domain from tag-schema.md
-source_type: paper # book, article, paper, youtube, podcast, web-clip, transcript, course, original-observation, null
-created: YYYY-MM-DD
-updated: YYYY-MM-DD
-review: YYYY-MM-DD # next review date
-confidence: 95 # integer 0-100
-version: 1
-aliases: []
-tags: [] # discovery facets only (no status, type, or domain tags)
-owner_moc: AI MOC # exactly one canonical MOC title string
-sources: [] # source paths, URLs, or source IDs
-related: [] # related note titles or IDs
-schema_version: 3 # note frontmatter structure version
----
+relations:
+  - target: "Backpropagation"
+    type: "depends_on"
+    confidence: 98
+    reason: "Gradient descent uses gradients from backprop"
+    creation_method: "human"
+    human_verified: true
 ```
 
----
-
-## 6. Verification and Audit Standard
-
-Every meaningful action (promotions, merges, creation) is recorded in the append-only audit file located at [.antigravity/logs/audit-log.md](file:///c:/Users/offic/OneDrive/Desktop/obsidean/nexusdb/.antigravity/logs/audit-log.md).
-
-The table follows this format:
+**Example body links (prose layer):**
 ```markdown
-| timestamp | actor | action | target | reason | rule | sources | confidence | result | rollback | exception_id |
-| --- | --- | --- | --- | --- | --- | --- | ---: | --- | --- | --- |
+## Relations
+- [[Backpropagation]] — `depends_on`
+- [[Learning Rate]] — `part_of`
 ```
 
-### Irreversible-Action Protection
-Any action categorized as protected (deleting files, overwriting prose, changing canonical titles, merging uncertain nodes) requires:
-1. Explicit user authorization.
-2. A backup snapshot.
-3. An audit log entry.
-4. A concrete, documented rollback path.
+---
+
+## MOC Rules
+
+MOCs never explain. They only navigate.
+
+**Bad:** Domain MOC containing node links directly.
+**Good:** Domain MOC linking only to Topic MOCs.
+
+**Bad:** Topic MOC with 200 nodes listed flat.
+**Good:** Topic MOC split into Subtopic MOCs when > 100 nodes.
+
+---
+
+## Naming Rules
+
+Use Title Case.
+
+**Examples:**
+- `Gradient Descent`
+- `Loss Function`
+- `Neural Network`
+- `Decision Tree`
+
+**concept_id (immutable slug):** `gradient-descent-v1`
+- Derived from filename stem at creation
+- Never changes even if file is renamed
+- Used by AI systems for stable cross-references
+
+**Avoid:**
+- `gradient_descent`
+- `GD`
+- `ML2`
+- `new note`
+
+---
+
+## Knowledge Quality Checklist
+
+Before finishing, verify:
+- ✓ Complete
+- ✓ Correct
+- ✓ Linked (body links + `relations` block)
+- ✓ Atomic
+- ✓ Evergreen
+- ✓ Searchable
+- ✓ Readable
+- ✓ Non-duplicated
+- ✓ `concept_id` set
+- ✓ `owner_moc` assigned
+- ✓ `sources` populated (if source-backed)
+- ✓ `schema_version: 4`
