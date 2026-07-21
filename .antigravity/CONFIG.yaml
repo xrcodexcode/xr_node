@@ -1,13 +1,9 @@
-# NexusDB Antigravity Governance & Resource-Optimized Configuration
-
-vault:
+system:
   name: NexusDB
-  architecture: flat-atomic
-  version: 4.5.1
-  hardware_profile: "lightweight (4GB RAM / i3 7th Gen)"
+  version: "4.6"
 
 retrieval:
-  mode: direct_file_search   # direct_file_search | local_vector_rag
+  strategy: direct_file_search
   fallback: mocs_and_grep
 
 search:
@@ -21,55 +17,26 @@ search:
 ai:
   provider: cloud_antigravity
   model: gemini
-  hallucination_policy: conservative
   prefer_existing_notes: true
-  create_new_notes_only_if_missing: true
+  avoid_duplicates: true
   cite_sources: true
-  summarize_before_expanding: true
 
 performance:
-  cache_enabled: true
-  parallel_search: false
-  max_files_to_scan: 150
-  stop_after_first_strong_match: true
+  cache: true
+  max_files: 150
 
 ignore:
   directories:
-    - ".git"
-    - ".obsidian"
-    - ".venv"
-    - ".trash"
-    - "node_modules"
-    - "dist"
-    - "build"
-  files:
-    - "*.png"
-    - "*.jpg"
-    - "*.jpeg"
-    - "*.webp"
-    - "*.gif"
-    - "*.pdf"
-    - "*.mp4"
-    - "*.mp3"
-    - "*.zip"
-    - "*.7z"
-    - "*.exe"
-
-rag:
-  enabled: false
-  chroma_db_path: "rag/chroma"
-  index_cache_path: "rag/.index_cache.json"
-  embedding_model: "BAAI/bge-small-en-v1.5"
-  vector_database: "chromadb"
-  indexed_directories:
-    - "02_NEW-KNOWLEDGE"
-    - "NOTES"
-    - "NODES"
-    - "03_MOC"
-    - "01_RAW"
-  supported_extensions:
-    - ".md"
-    - ".markdown"
-  llm:
-    provider: "cloud_antigravity"
-    model: "gemini"
+    - .git
+    - .obsidian
+    - .venv
+    - node_modules
+  extensions:
+    - .png
+    - .jpg
+    - .jpeg
+    - .gif
+    - .webp
+    - .pdf
+    - .zip
+    - .mp4
