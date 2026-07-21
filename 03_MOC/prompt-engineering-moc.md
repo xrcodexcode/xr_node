@@ -33,8 +33,8 @@ Navigation layer for all prompt engineering techniques, code frameworks, and AI 
 | [[prompt-honesty-codes\|Prompt Honesty and Directness Codes]] | `technique` | brutal / nopreamble / nohedge / onesentence |
 
 ### Thinking Modes
-| Note | Type | What It Does |
-|------|------|--------------|
+| Note                                                  | Type        | What It Does                                                                          |
+| ----------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------- |
 | [[prompt-thinking-codes\|Prompt Thinking Mode Codes]] | `technique` | stepbystep / deepthink / firstprinciples / redteam / steelman / blindspot / pokeholes |
 
 ### Voice & Format

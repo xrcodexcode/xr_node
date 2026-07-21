@@ -1,0 +1,31 @@
+# NexusDB Antigravity Governance & Resource-Optimized Configuration
+
+vault:
+  name: NexusDB
+  architecture: flat-atomic
+  version: 4.5.0
+  hardware_profile: "lightweight (4GB RAM / i3 7th Gen)"
+
+retrieval:
+  mode: direct_file_search   # direct_file_search | local_vector_rag
+  fallback: mocs_and_grep
+
+rag:
+  enabled: false             # Vector RAG disabled to conserve RAM/CPU
+  chroma_db_path: "rag/chroma"
+  index_cache_path: "rag/.index_cache.json"
+  embedding_model: "BAAI/bge-small-en-v1.5"
+  vector_database: "chromadb"
+  indexed_directories:
+    - "02_NEW-KNOWLEDGE"
+    - "NOTES"
+    - "NODES"
+    - "03_MOC"
+    - "01_RAW"
+  supported_extensions:
+    - ".md"
+    - ".markdown"
+
+  llm:
+    provider: "cloud_antigravity"  # Uses Antigravity directly (0 local RAM usage)
+    model: "gemini"

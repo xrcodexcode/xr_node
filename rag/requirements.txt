@@ -1,0 +1,10 @@
+chromadb>=0.4.22
+langchain>=0.1.0
+langchain-community>=0.0.20
+sentence-transformers>=2.2.2
+rank-bm25>=0.2.2
+watchdog>=3.0.0
+ollama>=0.1.6
+pyyaml>=6.0
+pydantic>=2.0.0
+pypdf>=4.0.0
