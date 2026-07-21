@@ -178,7 +178,7 @@ def load_allowed_tags(
     because they contain spaces in the backtick content.
     """
     if schema_path is None:
-        schema_path = _self.SCHEMAS / "tag-schema.md"
+        schema_path = _self.RULES / "tagging.md"
 
     allowed: set[str] = set()
     aliases: dict[str, str] = {}

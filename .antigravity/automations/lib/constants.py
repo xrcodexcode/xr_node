@@ -64,7 +64,7 @@ class PathsModule(types.ModuleType):
         elif name == "RULES":
             return vault / ".antigravity" / "rules"
         elif name == "SCHEMAS":
-            return vault / ".antigravity" / "rules"
+            return vault / ".antigravity" / "schemas"
         raise AttributeError(f"module {__name__} has no attribute {name}")
 
 paths_mock = PathsModule('constants.paths')

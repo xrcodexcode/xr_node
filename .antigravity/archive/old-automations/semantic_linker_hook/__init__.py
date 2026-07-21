@@ -1,1 +1,0 @@
-"""Semantic linker hook package."""

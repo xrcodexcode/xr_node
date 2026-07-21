@@ -13,36 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ALWAYS-WITHIN-ME/QUOTES/18-07-2026.md",
+                "file": "01_RAW/PROCESS/i-read-126-research-papers-to-expose-a-billion-dollar-fraud.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "18-07-2026"
-            }
-          },
-          {
-            "id": "a022f70007ab09cc",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "VAULT-STRUCTURE.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "VAULT-STRUCTURE"
-            }
-          },
-          {
-            "id": "c4cd2100d2ec9f12",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "title": "i-read-126-research-papers-to-expose-a-billion-dollar-fraud"
             }
           }
         ]
@@ -218,8 +194,32 @@
   },
   "active": "3181e36289667b65",
   "lastOpenFiles": [
-    "03_MOC/prompt-engineering-moc.md",
-    "VAULT-STRUCTURE.md",
+    "01_RAW/CAPTURE/I Read 126 Research Papers To Expose A Billion Dollar Fraud.md",
+    "01_RAW/PROCESS/i-read-126-research-papers-to-expose-a-billion-dollar-fraud.md",
+    "02_NEW-KNOWLEDGE/time-to-quit-claude-codex-is-the-new-chatgpt.md",
+    "01_RAW/CAPTURE/Uncomfortable Truths 2 Sonam Wangchuk's Hunger Strike, Jantar Mantar Protests and Indian State.md",
+    "01_RAW/CAPTURE/End of Modi Regime  How Medical Mafia turned Doctor Shortage into a ₹4000 CR Business.md",
+    "01_RAW/CAPTURE/Elon's Scariest Prediction 2041 is India's Final Deadline to Escape Poverty  Economic Case Study.md",
+    "01_RAW/PROCESS/time-to-quit-claude-codex-is-the-new-chatgpt-part-6.md",
+    "02_NEW-KNOWLEDGE/time-to-quit-claude-codex-is-the-new-chatgpt-part-6.md",
+    "02_NEW-KNOWLEDGE/time-to-quit-claude-codex-is-the-new-chatgpt-part-5.md",
+    "02_NEW-KNOWLEDGE/time-to-quit-claude-codex-is-the-new-chatgpt-part-4.md",
+    "02_NEW-KNOWLEDGE/time-to-quit-claude-codex-is-the-new-chatgpt-part-3.md",
+    "02_NEW-KNOWLEDGE/time-to-quit-claude-codex-is-the-new-chatgpt-part-2.md",
+    "02_NEW-KNOWLEDGE/time-to-quit-claude-codex-is-the-new-chatgpt-part-1.md",
+    "01_RAW/SOURCE/time-to-quit-claude-codex-is-the-new-chatgpt.md",
+    "01_RAW/PROCESS/time-to-quit-claude-codex-is-the-new-chatgpt-part-5.md",
+    "01_RAW/PROCESS/time-to-quit-claude-codex-is-the-new-chatgpt-part-4.md",
+    "01_RAW/PROCESS/time-to-quit-claude-codex-is-the-new-chatgpt-part-3.md",
+    "01_RAW/PROCESS/time-to-quit-claude-codex-is-the-new-chatgpt-part-2.md",
+    "01_RAW/PROCESS/time-to-quit-claude-codex-is-the-new-chatgpt-part-1.md",
+    "ALWAYS-WITHIN-ME/EXAMPLES.md",
+    "01_RAW/CAPTURE/Time to Quit Claude  Codex is the New ChatGPT.md",
+    "01_RAW/CAPTURE/Wangchuk ki Wife ko Medical Report kyun nahi de rahe Safdarjung ka Suspicious Khel.md",
+    "01_RAW/CAPTURE/This video is equal to reading 10 books.md",
+    "02_NEW-KNOWLEDGE/this-video-is-equal-to-reading-10-books.md",
+    "01_RAW/PROCESS/this-video-is-equal-to-reading-10-books.md",
+    "ALWAYS-WITHIN-ME/QUOTES/18-07-2026.md",
     "rag/__pycache__/watcher.cpython-313.pyc",
     "rag/__pycache__/query.cpython-313.pyc",
     "rag/__pycache__/ingest.cpython-313.pyc",
@@ -229,29 +229,6 @@
     "rag/data",
     "rag/watcher.py",
     "rag/query.py",
-    "rag/ingest.py",
-    "03_MOC/neural-network-moc.md",
-    "NODES/neural-network.md",
-    "03_MOC/ai-ml-moc.md",
-    "03_MOC/_orphans.md",
-    "GEMINI.md",
-    "NODES/authority-bias-investing.md",
-    "NODES/atomic-habit.md",
-    "NODES/apple-investment-case-study.md",
-    "NODES/amex-salad-oil-investment.md",
-    "NODES/ajit-jain-successor.md",
-    "NODES/agent-loop-mechanics.md",
-    "NODES/activation-function.md",
-    "03_MOC/48-laws-of-power-moc.md",
-    "NODES/cnn.md",
-    "NODES/overfitting.md",
-    "NODES/backpropagation.md",
-    "NODES/loss-function.md",
-    "NODES/gradient-descent.md",
-    "AGENT.md",
-    "CHATGPT-TEMP/GEMINI.md",
-    "01_RAW/SOURCE/atomic-habits.md",
-    "CHATGPT-TEMP/automation.md",
-    "CHATGPT-TEMP/agents.md"
+    "rag/ingest.py"
   ]
 }

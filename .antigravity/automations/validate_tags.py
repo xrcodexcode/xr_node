@@ -16,7 +16,7 @@ def main():
     vault_root = get_vault_root()
     
     nodes_dir = os.path.join(vault_root, "NODES")
-    schema_path = os.path.join(vault_root, ".antigravity", "rules", "tag-schema.md")
+    schema_path = os.path.join(vault_root, ".antigravity", "rules", "tagging.md")
     report_path = os.path.join(vault_root, ".antigravity", "reports", "invalid-tags.md")
     
     allowed_tags, tag_aliases = load_allowed_tags(pathlib.Path(schema_path))
