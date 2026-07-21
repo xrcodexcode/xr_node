@@ -1,6 +1,10 @@
+
 system:
   name: NexusDB
-  version: "4.6"
+  version: "4.6.0"
+
+vault:
+  architecture: flat-atomic
 
 retrieval:
   strategy: direct_file_search
@@ -14,16 +18,33 @@ search:
     - 02_NEW-KNOWLEDGE
     - 01_RAW
 
+  recursive: true
+  follow_links: true
+  prefer_exact_match: true
+  max_results: 20
+
 ai:
   provider: cloud_antigravity
   model: gemini
-  prefer_existing_notes: true
-  avoid_duplicates: true
-  cite_sources: true
+
+  behavior:
+    prefer_existing_notes: true
+    avoid_duplicate_notes: true
+    cite_sources: true
+    ask_for_clarification_if_uncertain: true
+    summarize_before_expanding: true
 
 performance:
   cache: true
-  max_files: 150
+  parallel_search: false
+  lazy_loading: true
+  max_files_per_query: 150
+
+features:
+  auto_linking: true
+  graph_navigation: true
+  template_support: true
+  source_citations: true
 
 ignore:
   directories:
@@ -31,6 +52,9 @@ ignore:
     - .obsidian
     - .venv
     - node_modules
+    - dist
+    - build
+
   extensions:
     - .png
     - .jpg
@@ -39,4 +63,6 @@ ignore:
     - .webp
     - .pdf
     - .zip
+    - .7z
     - .mp4
+    - .mp3
