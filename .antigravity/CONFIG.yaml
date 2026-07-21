@@ -3,15 +3,60 @@
 vault:
   name: NexusDB
   architecture: flat-atomic
-  version: 4.5.0
+  version: 4.5.1
   hardware_profile: "lightweight (4GB RAM / i3 7th Gen)"
 
 retrieval:
   mode: direct_file_search   # direct_file_search | local_vector_rag
   fallback: mocs_and_grep
 
+search:
+  priority:
+    - NOTES
+    - NODES
+    - 03_MOC
+    - 02_NEW-KNOWLEDGE
+    - 01_RAW
+
+ai:
+  provider: cloud_antigravity
+  model: gemini
+  hallucination_policy: conservative
+  prefer_existing_notes: true
+  create_new_notes_only_if_missing: true
+  cite_sources: true
+  summarize_before_expanding: true
+
+performance:
+  cache_enabled: true
+  parallel_search: false
+  max_files_to_scan: 150
+  stop_after_first_strong_match: true
+
+ignore:
+  directories:
+    - ".git"
+    - ".obsidian"
+    - ".venv"
+    - ".trash"
+    - "node_modules"
+    - "dist"
+    - "build"
+  files:
+    - "*.png"
+    - "*.jpg"
+    - "*.jpeg"
+    - "*.webp"
+    - "*.gif"
+    - "*.pdf"
+    - "*.mp4"
+    - "*.mp3"
+    - "*.zip"
+    - "*.7z"
+    - "*.exe"
+
 rag:
-  enabled: false             # Vector RAG disabled to conserve RAM/CPU
+  enabled: false
   chroma_db_path: "rag/chroma"
   index_cache_path: "rag/.index_cache.json"
   embedding_model: "BAAI/bge-small-en-v1.5"
@@ -25,7 +70,6 @@ rag:
   supported_extensions:
     - ".md"
     - ".markdown"
-
   llm:
-    provider: "cloud_antigravity"  # Uses Antigravity directly (0 local RAM usage)
+    provider: "cloud_antigravity"
     model: "gemini"
