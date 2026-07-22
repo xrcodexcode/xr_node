@@ -1,15 +1,28 @@
 ---
+id: a82c7f1b-4d9e-4a6c-91e8-5b231792f801
 title: "Uncomfortable Truths #2 Sonam Wangchuk's Hunger Strike, Jantar Mantar Protests and Indian State"
-source: "https://www.youtube.com/watch?v=B-z_CpZwDcY"
-creater: "[[Prakhar Gupta]]"
-published: 2026-07-18
-created: 2026-07-19
-description: "Welcome to PGX: Raw & Real #200PGX: Raw & Real is simple. I sit with people who’ve lived through something and/or made it big.This isn’t meant to be inspiration or a template for life (for that, y"
+type: raw-source
+status: processed
+domain: general
+source_type: youtube
+created: 2026-07-21
+updated: 2026-07-22
+review: 2026-08-22
+confidence: 100
+version: 1
+aliases: []
 tags:
-  - "Yt"
+  - reference
+owner_moc: Uncomfortable Truths 2 MOC
+sources:
+  - "https://www.youtube.com/watch?v=B-z_CpZwDcY&t=1414s"
+related:
+  - "[[02_NEW-KNOWLEDGE/uncomfortable-truths-2-sonam-wangchuk]]"
+schema_version: 4
 ---
+
 # Uncomfortable Truths #2 Sonam Wangchuk's Hunger Strike, Jantar Mantar Protests and Indian State
-Source: [YT](https://www.youtube.com/watch?v=B-z_CpZwDcY)
+Source: [YT](https://www.youtube.com/watch?v=B-z_CpZwDcY&t=1414s)
 ![](https://www.youtube.com/watch?v=B-z_CpZwDcY)
 
 Welcome to PGX: Raw & Real #200  

@@ -9,20 +9,13 @@ source: [[HOME-BASE]]
 # Uncomfortable Truths 2 MOC
 
 ## Overview
-Index of notes synthesized from the *Uncomfortable Truths #2* podcast episode featuring Prakhar Gupta and Amit Kilhor, covering the Sonam Wangchuk hunger strike, Jantar Mantar protests, E20 fuel policies, and state power dynamics in India.
+Index of notes synthesized from the *Uncomfortable Truths #2* podcast episode featuring Prakhar Gupta and Amit Kilhor, covering the Sonam Wangchuk hunger strike, Jantar Mantar protests, NEET paper leaks, E20 fuel policies, and state power dynamics in India.
 
-## Core Concepts
-- [[NODES/state-intervention-hunger-strikes|State Intervention in Hunger Strikes]]
-- [[NODES/moral-sacrifice-social-protests|Moral Sacrifice in Social Protests]]
-- [[NODES/state-tactics-protest-containment|State Tactics for Protest Containment]]
-- [[NODES/e20-fuel-policy-india|E20 Fuel Policy in India]]
-- [[NODES/citizen-exit-vs-voice|Citizen Exit vs Voice]]
+## Permanent Synthesis Wiki (NOTES/)
+- [[NOTES/uncomfortable-truths-2-sonam-wangchuk|Synthesis — Uncomfortable Truths #2 (Evergreen Wiki Note)]]
 
-## Tradeoffs
-- [[NODES/ethanol-blending-economic-inefficiency|Economic Inefficiencies of Ethanol Blending]]
-
-## Cheatsheet
-- [[NODES/uncomfortable-truths-2-cheatsheet|Uncomfortable Truths 2 Cheatsheet]]
+## Active Learning Workspace (02_NEW-KNOWLEDGE/)
+- [[02_NEW-KNOWLEDGE/uncomfortable-truths-2-sonam-wangchuk|Uncomfortable Truths #2: Master Detailed Study Note]]
 
 ## Related MOCs
 - [[yt-moc|YouTube Map of Content]]
