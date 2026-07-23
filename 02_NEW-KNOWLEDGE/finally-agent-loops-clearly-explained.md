@@ -1,10 +1,9 @@
 ---
 id: a1f9a449-f1b1-4bf4-904f-e0acdcb56af1
-concept_id: finally-agent-loops-clearly-explained-knowledge-v1
-title: Exhaustive Study Guide — Finally. Agent Loops Clearly Explained
-type: knowledge-document
+title: "Detailed Study Notes — Finally. Agent Loops Clearly Explained"
+type: literature-note
 status: learning
-domain: ai
+domain: technology
 source_type: youtube
 created: 2026-07-18
 updated: 2026-07-18
@@ -12,16 +11,19 @@ review: 2026-10-16
 confidence: 100
 version: 1
 aliases: []
-tags: []
-owner_moc: Finally. Agent Loops Clearly Explained MOC
+tags:
+  - beginner
+  - implementation
+  - reference
+owner_moc: yt-moc
 sources:
-  - 01_RAW/SOURCE/finally-agent-loops-clearly-explained.md
+  - "01_RAW/SOURCE/finally-agent-loops-clearly-explained.md"
+  - "https://www.youtube.com/watch?v=EuzYhzB0vbI"
 related: []
-relations: []
 schema_version: 4
 ---
 
-# Exhaustive Study Guide — Finally. Agent Loops Clearly Explained
+# Detailed Study Notes — Finally. Agent Loops Clearly Explained
 
 This knowledge document contains the exhaustive study notes, definitions, concepts, frameworks, and workflows extracted from the video "Finally. Agent Loops Clearly Explained" by Nate Herk.
 
@@ -107,7 +109,7 @@ graph TD
 
 ---
 
-## 6. References
-- Source Transcript: [[finally-agent-loops-clearly-explained]]
-- YouTube Video Link: [Finally. Agent Loops Clearly Explained](https://www.youtube.com/watch?v=EuzYhzB0vbI)
-- Associated MOC: [[finally-agent-loops-clearly-explained-moc]]
+## Vault Provenance & Source Metadata
+- **Source Transcript**: `[[01_RAW/SOURCE/finally-agent-loops-clearly-explained.md]]`
+- **YouTube Link**: [Finally. Agent Loops Clearly Explained](https://www.youtube.com/watch?v=EuzYhzB0vbI)
+- **Parent Navigation MOC**: `[[03_MOC/yt-moc|YouTube Map of Content]]`

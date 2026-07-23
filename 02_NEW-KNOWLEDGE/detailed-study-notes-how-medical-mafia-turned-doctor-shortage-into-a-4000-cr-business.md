@@ -3,7 +3,7 @@ id: e3b8782a-4a2e-4b68-8d2b-10f7d54b8e21
 title: "Detailed Study Notes — How Medical Mafia Turned Doctor Shortage into a ₹4000 CR Business"
 type: literature-note
 status: learning
-domain: healthcare-education-economics
+domain: healthcare
 source_type: youtube
 created: 2026-07-23
 updated: 2026-07-23
@@ -18,6 +18,7 @@ tags:
 owner_moc: yt-moc
 sources:
   - "01_RAW/SOURCE/End of Modi Regime  How Medical Mafia turned Doctor Shortage into a ₹4000 CR Business.md"
+  - "https://www.youtube.com/watch?v=NX4SkUO_HYQ"
 related: []
 schema_version: 4
 ---

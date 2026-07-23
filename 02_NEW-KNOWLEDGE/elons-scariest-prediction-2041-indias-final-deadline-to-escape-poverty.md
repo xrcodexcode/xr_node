@@ -101,6 +101,16 @@ Demographers define an **Aged Society** as one where **14%+ of the population is
   - **South Korea (8:01)**: Peaked ~2015 (built industrial giants Samsung, Hyundai).
   - **India (8:39)**: Currently climbing; **peaks in 2041**.
 
+```mermaid
+flowchart TD
+    A["TFR Drops Below Replacement (< 2.1)"] --> B["Demographic Dividend Window Opens (Peak 2041)"]
+    B --> C{"Worker Utilization Strategy"}
+    C -- "High-Value Industrial Jobs" --> D["Capital Accumulation & High GDP/Capita"]
+    C -- "85% Informal / 40% Agriculture Drag" --> E["Risk of Aging Before Becoming Rich"]
+    D --> F["Wealthy Aged Society (e.g., Japan, SK)"]
+    E --> G["Elderly Dependency Crisis (Post-2041)"]
+```
+
 ### 2. The Dividend is a Loan, Not a Gift (9:05 - 10:22)
 - **Mechanism**: A 25-year-old with a factory job is a tax-paying saver building national capital. A 25-year-old without a job is a dependent today and a burden tomorrow.
 - **China's Dividend Conversion (9:28 - 9:56)**: China systematically moved hundreds of millions into shoe, phone, steel, and solar factories, turning labor into household savings, infrastructure, and a $3T war chest.

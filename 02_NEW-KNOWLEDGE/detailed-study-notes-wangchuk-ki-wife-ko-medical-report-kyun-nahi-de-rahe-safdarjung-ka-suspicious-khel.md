@@ -1,6 +1,6 @@
 ---
 id: "a3b8c912-7e4f-4d2a-89bc-1a2b3c4d5e6f"
-title: "Wangchuk ki Wife ko Medical Report kyun nahi de rahe? Safdarjung ka Suspicious Khel"
+title: "Detailed Study Notes — Why is Safdarjung Hospital Withholding Sonam Wangchuk's Medical Report?"
 type: literature-note
 status: learning
 domain: general
@@ -17,24 +17,23 @@ tags:
   - case-study
   - history
   - reference
-owner_moc: "📺 YouTube Map of Content"
+owner_moc: yt-moc
 sources:
   - "https://www.youtube.com/watch?v=1ogj_ykhhSo"
   - "[[01_RAW/SOURCE/Wangchuk ki Wife ko Medical Report kyun nahi de rahe Safdarjung ka Suspicious Khel.md]]"
-related:
-  - "[[yt-moc]]"
+related: []
 schema_version: 4
 ---
 
-# Wangchuk ki Wife ko Medical Report kyun nahi de rahe? Safdarjung ka Suspicious Khel
+# Detailed Study Notes — Why is Safdarjung Hospital Withholding Sonam Wangchuk's Medical Report?
 
 ## Overview & Metadata
-- **Video Title**: Wangchuk ki Wife ko Medical Report kyun nahi de rahe? Safdarjung ka Suspicious Khel
+- **Video Title**: Wangchuk ki Wife ko Medical Report kyun nahi de rahe? Safdarjung ka Suspicious Khel *(English Translation: Why is Safdarjung Hospital Withholding Sonam Wangchuk's Medical Report?)*
 - **Creator / Channel**: [[Aditya Kakkar]]
 - **Source Link**: [YouTube Video](https://www.youtube.com/watch?v=1ogj_ykhhSo)
 - **Publication Date**: 2026-07-18
 - **Vault Ingestion Date**: 2026-07-23
-- **Primary Domain / MOC**: [[yt-moc|📺 YouTube Map of Content]]
+- **Primary Domain / MOC**: [[03_MOC/yt-moc|YouTube Map of Content]]
 
 ### Executive Summary
 This video provides a deep analytical breakdown of the early-morning police operation on July 18, 2026, wherein climate activist and innovator **Sonam Wangchuk** was forcibly extracted from his 19-day indefinite hunger strike at Jantar Mantar and admitted to Safdarjung Hospital. The video investigates the strategic maneuvering of Delhi Police under a newly appointed Commissioner, the legal weaponization of a Delhi High Court health monitoring order, the hospital's refusal to release blood work reports to Wangchuk's family, legal counter-measures taken by Wangchuk's wife, and a historical comparison with Narendra Modi's 2012 statements condemning the UPA government's raid on Baba Ramdev's hunger strike.
@@ -130,8 +129,7 @@ flowchart TD
 ### Notable Quotes & Verbatim Statements
 > *"It is not ended... He has not stopped his hunger strike. There is no IV, no glucose being administered. Nothing, nothing. He refused electrolytes and is continuing with his fast."* `(0:31)` — **Wangchuk's Wife**
 
-> *"भ्रष्टाचार के खिलाफ लड़ाई है तो सरकार में जितने लोग होते हैं, सबको परेशानी होनी चाहिए... और डॉक्टर मनमोहन सिंह जी, यह बात अब देश मानने को तैयार नहीं है कि आप इसमें कहीं नहीं हो। ये सारे जुल्म आपके प्रधानमंत्री पद के नीचे हुए हैं। आप सीधे-सीधे जिम्मेवार हैं।"* `(1:22)` — **Narendra Modi (2012 Statement)**  
-> *(Translation: "If this is a fight against corruption, everyone in government should feel uncomfortable... And Dr. Manmohan Singh, the country is no longer ready to believe that you are uninvolved. All these atrocities have occurred under your prime ministership; you are directly responsible.")*
+> *"If this is a fight against corruption, everyone in government should feel uncomfortable... And Dr. Manmohan Singh, the country is no longer ready to believe that you are uninvolved. All these atrocities have occurred under your prime ministership; you are directly responsible."* `(1:22)` — **Narendra Modi (2012 Statement)**
 
 > *"Also the march on Monday will continue, and most likely Sonam himself will join because he is fine. But if he cannot, I will represent him and the march will happen."* `(10:59)` — **Wangchuk's Wife**
 

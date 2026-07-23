@@ -3,7 +3,7 @@ id: 8f74a012-3b85-4d2a-9e12-c6407bf829a1
 title: "Detailed Study Notes — Meet Forward Deployed Engineer! (Hottest Job in Silicon Valley)"
 type: literature-note
 status: learning
-domain: software-engineering
+domain: technology
 source_type: youtube
 created: 2026-07-23
 updated: 2026-07-23
@@ -19,6 +19,7 @@ tags:
 owner_moc: yt-moc
 sources:
   - "01_RAW/SOURCE/Meet Forward Deployed Engineer! (Hottest Job in Silicon Valley).md"
+  - "https://www.youtube.com/watch?v=F3841hP37n0"
 related: []
 schema_version: 4
 ---

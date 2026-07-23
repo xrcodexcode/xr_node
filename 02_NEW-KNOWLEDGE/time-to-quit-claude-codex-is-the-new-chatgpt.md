@@ -3,7 +3,7 @@ id: a2d1f435-0810-4f51-b844-8c858e391b17
 title: "Detailed Study Notes — Time to Quit Claude | Codex is the New ChatGPT"
 type: literature-note
 status: learning
-domain: self-improvement
+domain: technology
 source_type: youtube
 created: 2026-07-21
 updated: 2026-07-21
@@ -13,8 +13,8 @@ version: 1
 aliases: []
 tags:
   - reference
-  - beginner
-owner_moc: YouTube Map of Content
+  - implementation
+owner_moc: yt-moc
 sources:
   - 01_RAW/SOURCE/time-to-quit-claude-codex-is-the-new-chatgpt.md
 related: []

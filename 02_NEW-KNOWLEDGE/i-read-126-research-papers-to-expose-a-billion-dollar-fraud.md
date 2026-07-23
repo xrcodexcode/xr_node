@@ -13,8 +13,8 @@ version: 2
 aliases: []
 tags:
   - reference
-  - beginner
-owner_moc: YouTube Map of Content
+  - case-study
+owner_moc: yt-moc
 sources:
   - 01_RAW/SOURCE/i-read-126-research-papers-to-expose-a-billion-dollar-fraud.md
 related: []
@@ -70,6 +70,17 @@ This is an exhaustive, highly granular chronological distillation of the documen
 ---
 
 ## 🦖 Predatory Open-Access Publishing (17:06 - 26:28)
+
+```mermaid
+flowchart TD
+    A["Publish or Perish Institutional Pressure"] --> B["Author Needs Fast Papers / Citations"]
+    B --> C["Contact Paper Mill / Predatory Journal"]
+    C --> D["Pay Article Processing Charge (APC)"]
+    D --> E["Bypass Peer Review / Fast-Track Acceptance"]
+    E --> F["Fake / Fabricated Paper Published"]
+    F --> G["Rankings Boost & Institutional Corruption"]
+```
+
 - **The Economics of Open Access**:
   - **Closed Access**: Reader/Institution pays (subscription model). Publishing is free for authors.
   - **Open Access**: Free to read. Authors pay an **Article Processing Charge (APC)**, which can run into lakhs of rupees. This aligns journal revenue with publication volume, encouraging predatory behavior.

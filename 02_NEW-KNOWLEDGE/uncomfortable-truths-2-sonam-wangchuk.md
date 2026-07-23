@@ -15,7 +15,7 @@ aliases:
 tags:
   - reference
   - case-study
-owner_moc: Uncomfortable Truths 2 MOC
+owner_moc: yt-moc
 sources:
   - 01_RAW/SOURCE/Uncomfortable Truths 2 Sonam Wangchuk's Hunger Strike, Jantar Mantar Protests and Indian State.md
 related: []

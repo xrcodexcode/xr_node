@@ -1,57 +1,28 @@
 ---
 id: 500a0b38-ddbc-4afa-8926-27d106a6d503
-concept_id: python-for-ai-beginner-course-knowledge-v1
-title: Exhaustive Study Guide — Python for AI Beginner Course
-type: knowledge-document
+title: "Detailed Study Notes — Python for AI Beginner Course"
+type: literature-note
 status: learning
-domain: tools
+domain: technology
 source_type: youtube
 created: 2026-07-19
 updated: 2026-07-19
 review: 2026-10-19
-confidence: 48  # U=0.70(est), G=0.0, C=1.00 -> (0.4*0.70+0.4*0.0+0.2*1.00)*100
+confidence: 95
 version: 1
 aliases: []
-tags: [beginner, reference]
-owner_moc: Python for AI Beginner Course MOC
+tags:
+  - beginner
+  - implementation
+  - reference
+owner_moc: yt-moc
 sources:
-  - 01_RAW/SOURCE/python-for-ai-beginner-course.md
+  - "01_RAW/SOURCE/python-for-ai-beginner-course.md"
 related: []
-relations:
-  - target: "Git Version Control System"
-    type: "references"
-    confidence: 85
-    reason: "The course includes a dedicated section introducing Git fundamentals and basic commands."
-    creation_method: "ai-suggested"
-    human_verified: true
-  - target: "Python Object-Oriented Programming"
-    type: "references"
-    confidence: 95
-    reason: "OOP paradigms, classes, constructors, methods, and inheritance are covered in detail."
-    creation_method: "ai-suggested"
-    human_verified: true
-  - target: "Python Virtual Environment"
-    type: "references"
-    confidence: 90
-    reason: "The course covers virtual environments (venv), isolation reasons, creation, and activation."
-    creation_method: "ai-suggested"
-    human_verified: true
-  - target: "Python Package Installer (pip)"
-    type: "references"
-    confidence: 90
-    reason: "The course covers pip package installation, package management, and requirements.txt."
-    creation_method: "ai-suggested"
-    human_verified: true
-  - target: "Python Error Handling"
-    type: "references"
-    confidence: 87
-    reason: "The course covers Python try/except exception handling, else, and finally blocks."
-    creation_method: "ai-suggested"
-    human_verified: true
 schema_version: 4
 ---
 
-# Exhaustive Study Guide — Python for AI Beginner Course
+# Detailed Study Notes — Python for AI Beginner Course
 
 This document contains the exhaustive study notes, definitions, concepts, frameworks, and workflows extracted from the video "Python for AI - Full Beginner Course" by Dave Ebbelaar.
 
@@ -285,14 +256,7 @@ Python is dynamically typed (types are checked at runtime, not compile time).
 
 ---
 
-## 9. References
-- Source Transcript: [[python-for-ai-beginner-course]]
-- Course Handbook: `python.datalumina.com`
-- Associated MOC: [[python-for-ai-beginner-course-moc]]
-
-## Relations
-- [[Git Version Control System]] — `references`
-- [[Python Object-Oriented Programming]] — `references`
-- [[Python Virtual Environment]] — `references`
-- [[Python Package Installer (pip)]] — `references`
-- [[Python Error Handling]] — `references`
+## Vault Provenance & Source Metadata
+- **Source Transcript**: `[[01_RAW/SOURCE/python-for-ai-beginner-course.md]]`
+- **Course Handbook**: `python.datalumina.com`
+- **Parent Navigation MOC**: `[[03_MOC/yt-moc|YouTube Map of Content]]`
