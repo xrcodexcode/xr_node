@@ -18,7 +18,7 @@ tags:
   - case-study
 owner_moc: yt-moc
 sources:
-  - "01_RAW/CAPTURE/Elon's Scariest Prediction 2041 is India's Final Deadline to Escape Poverty  Economic Case Study.md"
+  - "01_RAW/SOURCE/Elon's Scariest Prediction 2041 is India's Final Deadline to Escape Poverty  Economic Case Study.md"
 related: []
 schema_version: 4
 ---
@@ -143,6 +143,16 @@ Demographers define an **Aged Society** as one where **14%+ of the population is
 
 ---
 
+## 💡 Downstream Atomic Concept Candidates
+- [[NODES/total-fertility-rate]]: Total Fertility Rate (TFR) dynamics, replacement thresholds (2.1), and long-term demographic mechanics.
+- [[NODES/demographic-dividend-window]]: The 30-to-40-year economic peak window where working-age population relative to dependents is maximized.
+- [[NODES/aging-society-threshold]]: The demography standard defining an Aged Society when 14%+ of the population reaches age 65+.
+- [[NODES/three-generation-fertility-collapse-math]]: Mathematical acceleration of population contraction under sub-replacement TFR (e.g. 0.75 in South Korea).
+- [[NODES/getting-old-rich-vs-getting-old-poor]]: Economic timing paradox contrasting nations crossing aging thresholds at high vs. low per capita wealth.
+- [[NODES/informal-labor-economic-drag]]: Economic challenges of an 85–90% informal labor force without pensions or capital accumulation.
+
+---
+
 ## 🔗 Related & Source Metadata
-- **Source Captured File**: `[[01_RAW/CAPTURE/Elon's Scariest Prediction 2041 is India's Final Deadline to Escape Poverty  Economic Case Study.md]]`
+- **Source Captured File**: `[[01_RAW/SOURCE/Elon's Scariest Prediction 2041 is India's Final Deadline to Escape Poverty  Economic Case Study.md]]`
 - **Primary MOC**: `[[03_MOC/yt-moc|YouTube MOC]]`

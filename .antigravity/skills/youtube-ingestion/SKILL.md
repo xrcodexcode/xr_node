@@ -1,10 +1,10 @@
 ---
 name: youtube-knowledge-ingestion
-description: Ingest YouTube transcripts into a single detailed study note in 02_NEW-KNOWLEDGE for active learning using Frontmatter Schema v4, controlled tagging, code-switched language translation, Mermaid diagrams, and downstream atomization preparation.
-version: 5.1.0
+description: Ingest YouTube transcripts into a single detailed study note in 02_NEW-KNOWLEDGE for active learning using Frontmatter Schema v4, controlled tagging, code-switched language translation, and Mermaid diagrams.
+version: 6.0.0
 ---
 
-# YouTube Knowledge Ingestion Skill (v5.1.0)
+# YouTube Knowledge Ingestion Skill (v6.0.0)
 
 ## Mission
 
@@ -17,50 +17,15 @@ The sole purpose of this skill during transcript ingestion is to produce a singl
 ## Operating Governance & Safety Laws
 
 ### Law 1: Detailed Notes ONLY Constraint (Strict Scope Boundary)
-- **Do NOT automatically create atomic notes (`02_NODES/`), separate cheatsheets, or new MOC files** during initial YouTube transcript ingestion.
-- The output of this skill MUST consist of **EXACTLY ONE detailed study note file**.
-- Extraction of atomic concepts into `NODES/` is strictly deferred to a separate, downstream atomization phase after the user reviews and studies the detailed note in `02_NEW-KNOWLEDGE/`.
+- **STRICTLY PROHIBITED**: Do NOT create any new MOC (Map of Content) files, atomic notes (`02_NODES/`), or cheatsheet files during YouTube transcript ingestion.
+- The output of this skill MUST consist of **EXACTLY ONE detailed study note file** placed in `01_RAW/PROCESS/` pending user approval.
+- Extraction of atomic concepts into `NODES/` or MOC generation is strictly out of scope for this skill.
 
 ### Law 2: CAPTURE Immutability & Stage Separation
-- `01_RAW/CAPTURE/` is strictly **read-only**. Never edit, rename, overwrite, move, or delete original transcript files located in `01_RAW/CAPTURE/`.
-- All parsing, translation, cleaning, and drafting MUST occur inside `01_RAW/PROCESS/`.
-- Only upon explicit user approval, the generated detailed study note moves to `02_NEW-KNOWLEDGE/` (active learning workspace), and the original raw transcript file moves to `01_RAW/SOURCE/` for archival.
-
-### Law 3: Timestamp Anchoring & Citation
-- Every section heading, subtopic, claim, table metric, data point, diagram step, and quote MUST include exact timestamp ranges `(MM:SS - MM:SS)` or point timestamps `(MM:SS)` from the transcript.
-
-### Law 4: Schema v4 Frontmatter Compliance
-Every generated note must contain valid YAML frontmatter strictly complying with **Schema Version 4**:
-```yaml
----
-id: {{UUID_V4}}
-title: "Detailed Study Notes — {{Title}}"
-type: literature-note
-status: learning
-domain: {{DOMAIN}}
-source_type: youtube
-created: {{YYYY-MM-DD}}
-updated: {{YYYY-MM-DD}}
-review: {{DATE_PLUS_30_DAYS}}
-confidence: 100
-version: 1
-aliases:
-  - "{{Title}} Detailed Study Notes"
-tags:
-  - reference
-  - case-study
-owner_moc: yt-moc
-sources:
-  - "01_RAW/SOURCE/{{Source_Filename}}.md"
-related: []
-schema_version: 4
----
-```
-
-### Law 5: Controlled Tag Discipline
-- Use ONLY approved discovery tags from `.antigravity/rules/tagging.md`:
-  - `beginner`, `advanced`, `comparison`, `case-study`, `implementation`, `reference`, `history`, `decision`, `example`, `checklist`, `open-question`, `contrarian`.
-- Never invent ad hoc tags.
+- `01_RAW/CAPTURE/` is strictly **read-only** until user approval. Never edit, rename, overwrite, move, or delete original transcript files located in `01_RAW/CAPTURE/` during processing.
+- All parsing, translation, cleaning, and drafting MUST occur inside `01_RAW/PROCESS/`. The generated note MUST remain in `01_RAW/PROCESS/` when processing completes.
+- **CRITICAL REQUIREMENT: WAIT FOR USER APPROVAL**. You MUST stop execution after drafting in `01_RAW/PROCESS/` and present the generated draft note path to the user. Do NOT automatically move files to `02_NEW-KNOWLEDGE/` or archive sources to `01_RAW/SOURCE/` without receiving explicit user approval first.
+- Only AFTER explicit user approval, move the generated detailed study note from `01_RAW/PROCESS/` to `02_NEW-KNOWLEDGE/` and archive the original raw transcript file to `01_RAW/SOURCE/`.
 
 ---
 
@@ -86,11 +51,6 @@ schema_version: 4
   - Explicitly attribute claims, positions, and counter-arguments to their respective speakers `(Speaker Name, MM:SS)`.
   - Maintain neutral, objective reporting when speakers present conflicting views.
 
-### 4. Downstream Atomization Readiness (Candidate Tagging Only)
-- Include a dedicated section titled `## 💡 Downstream Atomic Concept Candidates` at the end of the detailed study note.
-- List potential standalone evergreen concepts, definitions, or methods that should later be extracted into `NODES/` during a separate atomic processing run:
-  - `- [[NODES/Concept Title]]: One-sentence summary description`
-
 ---
 
 ## Complete 7-Step Ingestion Pipeline
@@ -99,16 +59,13 @@ schema_version: 4
 01_RAW/CAPTURE (Read-Only Source)
        │
        ▼
-01_RAW/PROCESS (Working Draft, Translation & Diagramming)
+01_RAW/PROCESS (Working Draft in 01_RAW/PROCESS — WAIT FOR USER APPROVAL)
        │
-       ▼ (User Approval)
+       ▼ (Explicit User Approval Required)
 02_NEW-KNOWLEDGE (Single Detailed Study Note) ───► Source archived to 01_RAW/SOURCE
        │
        ▼ (User Learning & Mastery)
 NOTES/ (Synthesis Wiki)
-       │
-       ▼ (Subsequent Separate Atomization Step)
-NODES/ (Permanent Evergreen Concepts)
 ```
 
 ### Step 1: Input Verification
@@ -116,7 +73,7 @@ NODES/ (Permanent Evergreen Concepts)
 - Extract video title, channel/creator, watch URL, duration, and speaker names.
 
 ### Step 2: Staging in Process Workspace
-- Copy raw transcript to `01_RAW/PROCESS/<slugified-title>.md`.
+- Create working note draft in `01_RAW/PROCESS/detailed-study-notes-<slugified-title>.md`.
 - Keep all intermediate notes and drafts isolated inside `01_RAW/PROCESS/`.
 
 ### Step 3: Transcript Normalization & Cleaning
@@ -128,24 +85,120 @@ NODES/ (Permanent Evergreen Concepts)
   - **Overview**: Title, Creator, Watch Link, High-Level Executive Summary.
   - **Section Breakdown**: Chronological topic headings `(MM:SS - MM:SS)` with detailed claims, context, tables, and Mermaid flowcharts.
   - **Key Takeaways & Direct Quotes**: Core takeaways and notable quotes with timestamps `(MM:SS)`.
-  - **Downstream Atomic Candidates**: List candidate `[[NODES/...]]` concepts for future extraction.
-  - **Metadata Links**: Wikilink to `[[01_RAW/SOURCE/<filename>.md]]` and `[[03_MOC/yt-moc|YouTube MOC]]`.
+  - **Metadata Links**: Wikilink to `[[01_RAW/SOURCE/<filename>.md]]`.
 
 ### Step 5: Metadata & Schema Validation
 - Generate UUID v4 `id`.
 - Verify `schema_version: 4` and controlled tags against `tagging.md`.
 
-### Step 6: User Approval & Promotion Execution
-- Move detailed study note from `01_RAW/PROCESS/` to `02_NEW-KNOWLEDGE/<slugified-title>.md`.
-- Move raw transcript from `01_RAW/CAPTURE/` to `01_RAW/SOURCE/`.
-- Clear temporary files from `01_RAW/PROCESS/`.
+### Step 6: User Approval & Pending Promotion (STOP & WAIT)
+- Save draft in `01_RAW/PROCESS/detailed-study-notes-<slugified-title>.md`.
+- **STOP EXECUTION** and present the file path to the user for review.
+- Do NOT move the draft to `02_NEW-KNOWLEDGE/` or archive the source to `01_RAW/SOURCE/` until the user provides explicit approval.
 
-### Step 7: Graph Integration & Index Rebuild
-- Link note to `[[03_MOC/yt-moc|YouTube MOC]]`.
-- Run Python automation script to rebuild MOC graph:
-  ```powershell
-  .\.venv\Scripts\python .antigravity/automations/generate_mocs.py
-  ```
+### Step 7: Promotion & Graph Integration (Post-Approval Only)
+- Upon user approval:
+  1. Move detailed study note from `01_RAW/PROCESS/` to `02_NEW-KNOWLEDGE/detailed-study-notes-<slugified-title>.md`.
+  2. Move raw transcript from `01_RAW/CAPTURE/` to `01_RAW/SOURCE/`.
+  3. Run Python automation script to rebuild MOC graph:
+     ```powershell
+     .\.venv\Scripts\python .antigravity/automations/generate_mocs.py
+     ```
+
+---
+
+## Long Video Processing Rule (Videos Longer Than 30 Minutes)
+
+When processing YouTube videos longer than **30 minutes**, do **NOT** process the entire transcript in a single run.
+
+The objective is to achieve **100% knowledge preservation** while remaining within the model's context window.
+
+### Segmentation Rules
+
+- Divide the transcript into segments of approximately **30 minutes** each.
+- Whenever possible, split at **natural topic boundaries** instead of cutting a discussion in the middle.
+- If a topic spans multiple segments, continue it seamlessly into the next segment.
+- Never omit, compress, or oversummarize content simply because the transcript is long.
+- Every concept, explanation, example, statistic, argument, quote, table, and timestamp must be preserved.
+
+### Processing Workflow
+
+For each segment:
+
+1. Process only the current segment.
+2. Produce a complete high-fidelity draft.
+3. Save the draft inside `01_RAW/PROCESS/` using the naming convention:
+   ```
+   <video-slug>-part-01.md
+   <video-slug>-part-02.md
+   <video-slug>-part-03.md
+   ...
+   ```
+4. Stop after generating the current draft.
+5. Present the draft to the user for review.
+6. Wait for explicit instructions before continuing.
+
+### User Approval Workflow
+
+After each segment, wait for one of the following commands:
+
+#### "approved"
+- Lock the current segment.
+- Do not modify it again unless explicitly requested.
+
+#### "proceed"
+- Begin processing the next segment.
+
+#### Revision Request
+- Apply every requested modification.
+- Do not continue until the user is satisfied.
+
+Never continue automatically.
+
+### Continuity Rules
+
+Each segment must:
+
+- Preserve context from previous parts.
+- Avoid unnecessary repetition.
+- Maintain identical formatting.
+- Maintain consistent terminology.
+- Maintain identical frontmatter.
+- Preserve chronological flow.
+- Preserve timestamp references.
+- Ensure that no knowledge is lost between segments.
+
+Each segment should read like one chapter of a much larger document.
+
+### Final Merge (After Last Segment)
+
+Once **all segments have been approved**, perform a final consolidation.
+
+#### Merge Requirements
+
+- Merge every approved segment into **one continuous document**.
+- Remove duplicate introductions, conclusions, and repeated explanations.
+- Reorder sections if necessary to improve readability while preserving chronology.
+- Preserve every timestamp.
+- Preserve every Mermaid diagram.
+- Preserve every table.
+- Preserve every quote.
+- Preserve every technical detail.
+- Preserve all metadata.
+- Ensure the final document reads as if it was written in one pass.
+
+### Final Output
+
+Final outputs should be:
+
+```
+01_RAW/PROCESS/
+    <video-slug>-part-01.md
+    <video-slug>-part-02.md
+    <video-slug>-part-03.md
+    ...
+    <video-slug>-final.md   ← merged document (post-approval)
+```
 
 ---
 
@@ -159,5 +212,3 @@ Before promoting to `02_NEW-KNOWLEDGE/`, verify:
 - [ ] Controlled tags match `.antigravity/rules/tagging.md`.
 - [ ] Timestamp anchoring `(MM:SS)` present on all sections, subtopics, table metrics, and quotes.
 - [ ] Included Mermaid diagram for complex process/flowchart if present in video.
-- [ ] Candidate atomic concepts listed under `## 💡 Downstream Atomic Concept Candidates`.
-- [ ] Note links to `[[03_MOC/yt-moc|YouTube MOC]]`.
