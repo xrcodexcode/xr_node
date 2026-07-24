@@ -4,35 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "def04ed6ead9ff75",
+        "id": "1a476b43fa280df3",
         "type": "tabs",
         "children": [
           {
-            "id": "d2c8e6659661e83c",
+            "id": "c6a73db4e715d6d7",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ALWAYS-WITHIN-ME/QUOTES/20-07-2026.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "20-07-2026"
-            }
-          },
-          {
-            "id": "506f37c1ba217d76",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "02_NEW-KNOWLEDGE/detailed-study-notes-13-hobbies-that-replace-scrolling-and-improve-your-life.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "detailed-study-notes-13-hobbies-that-replace-scrolling-and-improve-your-life"
+              "title": "New tab"
             }
           }
         ]
@@ -92,7 +74,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "43d09af49b9b51ad",
@@ -205,11 +188,20 @@
       "bases:Create new base": false
     }
   },
-  "active": "d2c8e6659661e83c",
+  "active": "c6a73db4e715d6d7",
   "lastOpenFiles": [
+    "01_RAW/PROCESS/detailed-study-notes-war-of-words-between-education-minister-dharmendra-pradhan-vs-rahul-gandhi-in-lok-sabha.md",
+    "01_RAW/SOURCE/War Of Words Between Education Minister Dharmendra Pradhan Vs Rahul Gandhi in Lok Sabha  News Buzz.md",
+    "02_NEW-KNOWLEDGE/detailed-study-notes-war-of-words-between-education-minister-dharmendra-pradhan-vs-rahul-gandhi-in-lok-sabha.md",
+    "01_RAW/CAPTURE/War Of Words Between Education Minister Dharmendra Pradhan Vs Rahul Gandhi in Lok Sabha  News Buzz.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-13-hobbies-that-replace-scrolling-and-improve-your-life.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-20-skills-that-changed-my-life-before-25.md",
     "ALWAYS-WITHIN-ME/QUOTES/20-07-2026.md",
+    "02_NEW-KNOWLEDGE/Elon_Musk_Master_Knowledge_Base.md",
+    "02_NEW-KNOWLEDGE/elons-scariest-prediction-2041-indias-final-deadline-to-escape-poverty.md",
+    "02_NEW-KNOWLEDGE/finally-agent-loops-clearly-explained.md",
+    "02_NEW-KNOWLEDGE/i-read-126-research-papers-to-expose-a-billion-dollar-fraud.md",
+    "02_NEW-KNOWLEDGE/meet-forward-deployed-engineer.md",
     "GEMINI.md",
     "01_RAW/SOURCE/13 Hobbies That Replace Scrolling and Improve Your Life.md",
     "01_RAW/SOURCE/20 Skills That Changed My Life Before 25.md",
@@ -224,15 +216,6 @@
     "ALWAYS-WITHIN-ME/QUOTES/18-07-2026.md",
     "ALWAYS-WITHIN-ME/EXAMPLES.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-college-first-year-secret-skill-virtual-machines-virtualbox-tutorial.md",
-    "02_NEW-KNOWLEDGE/this-video-is-equal-to-reading-10-books.md",
-    "01_RAW/PROCESS/detailed-study-notes-college-first-year-secret-skill-virtual-machines-virtualbox-tutorial.md",
-    "01_RAW/CAPTURE/College First Year Secret Skill  Virtual Machines + VirtualBox Tutorial.md",
-    "01_RAW/SOURCE/College First Year Secret Skill  Virtual Machines + VirtualBox Tutorial.md",
-    "01_RAW/CAPTURE/20 Skills That Changed My Life Before 25.md",
-    "01_RAW/PROCESS/detailed-study-notes-20-skills-that-changed-my-life-before-25.md",
-    "02_NEW-KNOWLEDGE/time-to-quit-claude-codex-is-the-new-chatgpt.md",
-    "02_NEW-KNOWLEDGE/uncomfortable-truths-2-sonam-wangchuk.md",
-    "02_NEW-KNOWLEDGE/why-you-are-feeling-stuck-in-your-20s.md",
     "rag/__pycache__/watcher.cpython-313.pyc",
     "rag/__pycache__/query.cpython-313.pyc",
     "rag/__pycache__/ingest.cpython-313.pyc",
