@@ -11,6 +11,8 @@ source: [[HOME-BASE]]
 Index of artificial intelligence, machine learning, and LLM concept notes.
 
 ### 🧠 Topic Maps of Content
+- [[machine-learning-mastery-moc|Machine Learning Mastery Map of Content]] — Comprehensive 16-chapter curriculum, 10 projects, and 8-month internship roadmap.
+- [[python-dsa-ml-mastery-moc|Python + DSA + ML Mastery Map of Content]] — 3-month study schedule for Python core, NumPy/Pandas, and Data Structures & Algorithms.
 - [[neural-network-moc|Neural Network Map of Content]] — Fundamental building blocks, optimization algorithms, and architectures.
 
 ## 📝 Concept & Study Notes

@@ -1,15 +1,15 @@
 ---
 title: "Complete Python for AI & ML Part 2 (Intermediate to Advanced)"
-source: "https://www.youtube.com/watch?v=QR2TyeZRknw"
+source: "https://www.youtube.com/watch?v=QR2TyeZRknw&t=124s"
 creater: "[[Not Your College]]"
 published: 2026-05-23
-created: 2026-07-16
+created: 2026-07-24
 description: "Learn Python from absolute beginner level to advanced concepts in this complete one-shot Python course . In this video, you'll build strong programming fundamentals, understand real-world Python conc"
 tags:
   - "Yt"
 ---
 # Complete Python for AI & ML Part 2 (Intermediate to Advanced)
-Source: [YT](https://www.youtube.com/watch?v=QR2TyeZRknw)
+Source: [YT](https://www.youtube.com/watch?v=QR2TyeZRknw&t=124s)
 ![](https://www.youtube.com/watch?v=QR2TyeZRknw)
 
 Learn Python from absolute beginner level to advanced concepts in this complete one-shot Python course .  

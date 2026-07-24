@@ -21,7 +21,7 @@ owner_moc: "⚡ 48 Laws of Power Map of Content"
 sources:
   - 01_RAW/SOURCE/48-laws-of-power.md
 related:
-  - "[[03_MOC/48-laws-of-power-moc]]"
+  - 03_MOC/48-laws-of-power-moc
 relations: []
 schema_version: 4
 ---
@@ -317,7 +317,7 @@ To navigate hierarchical structures successfully, one must abandon moral naiveit
 - **Historical Dynamics**: Weil would research his targets to identify their specific desires and vulnerabilities. He would then present them with a deal that seemed highly lucrative but slightly illicit, disarming their suspicion by appealing to their own dishonesty. By letting his marks believe they were outsmarting him, Weil ensured they never suspected a trap, demonstrating that the victim's own psychology is the con's strongest tool.
 
 ### [[NODES/queen-elizabeth-i-power-image|Queen Elizabeth I's Power Image]]
-- **Overview**: Queen Elizabeth I of England maintained absolute authority in a male-dominated age by carefully crafting her public image as the 'Virgin Queen,' married to her country and devested of personal desires.
+- **Overview**: Queen Elizabeth I of England maintained absolute authority in a male-dominated age by carefully crafting her public image as the 'Virgin Queen,' married to her country and divested of personal desires.
 - **Historical Dynamics**: Elizabeth turned her refusal to marry into a political masterstroke. By remaining single, she kept both domestic factions and foreign empires (Spain, France) in a state of constant courtship, hoping to win an alliance. She used elaborate royal progresses, portraits, and pageants to project an image of ageless, divine majesty. She understood that a ruler's image is their most powerful weapon, and she controlled her own with absolute discipline.
 
 ### [[NODES/haile-selassie-court|Haile Selassie's Court of Dependency]]

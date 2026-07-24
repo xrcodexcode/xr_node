@@ -47,3 +47,7 @@ Index of notes synthesized from YouTube videos and transcripts.
 | reclaiming-your-personal-power | [[NODES/reclaiming-your-personal-power\|reclaiming-your-personal-power]] | `atomic-note` | #yt | **0** |
 | relationships | [[NODES/relationships\|relationships]] | `atomic-note` | #yt | **0** |
 | self-improvement-strategies | [[NODES/self-improvement-strategies\|self-improvement-strategies]] | `atomic-note` | #yt | **0** |
+
+## 📚 Literature & Synthesized Study Notes
+- [[02_NEW-KNOWLEDGE/detailed-study-notes-fpv-for-normal-people|Detailed Study Notes — FPV for Normal People]]
+- [[02_NEW-KNOWLEDGE/detailed-study-notes-20th-july-2026-cjp-sansad-march-protest|Detailed Study Notes — 20th July 2026 CJP Sansad March & Jantar Mantar Protest]]

@@ -1,15 +1,15 @@
 ---
 title: "Complete Python for AI & ML (Beginner to Pro)"
-source: "https://www.youtube.com/watch?v=62eeQhh7SrI&t=19621s"
+source: "https://www.youtube.com/watch?v=62eeQhh7SrI&t=19634s"
 creater: "[[Not Your College]]"
 published: 2026-05-13
-created: 2026-07-16
+created: 2026-07-24
 description: "Lost? Overthinking? Welcome to NYC! 🚀There is a massive gap between outdated college curriculums and the fast-paced world of real tech careers. We are here to bridge that gap.Not Your College (NYC"
 tags:
   - "Yt"
 ---
 # Complete Python for AI & ML (Beginner to Pro)
-Source: [YT](https://www.youtube.com/watch?v=62eeQhh7SrI&t=19621s)
+Source: [YT](https://www.youtube.com/watch?v=62eeQhh7SrI&t=19634s)
 ![](https://www.youtube.com/watch?v=62eeQhh7SrI)
 
 Lost? Overthinking? Welcome to NYC! 🚀  

@@ -31,7 +31,7 @@ This is an exhaustive, highly granular chronological distillation of the documen
 ## 📽️ Video Introduction (0:06 - 1:25)
 - **The Observation**: The phrase *"research shows"* or *"scientists say"* is widely used in media and advertising to validate claims (e.g., from cancer therapies to bizarre lifestyle advice).
 - **The Question**: How many of these research papers can actually be trusted, and who regulates the credibility of the research itself?
-- **The Stakes**: Scientific fraud shape consumer purchases, public beliefs, and patient medical guidelines.
+- **The Stakes**: Scientific fraud shapes consumer purchases, public beliefs, and patient medical guidelines.
 
 ---
 

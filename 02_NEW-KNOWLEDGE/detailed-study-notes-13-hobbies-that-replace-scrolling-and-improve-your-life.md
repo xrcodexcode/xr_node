@@ -57,7 +57,7 @@ This comprehensive study note analyzes **13 high-leverage active hobbies** prese
 - **Cost of Inaction**: Falling behind an accelerating technological baseline where AI-augmented individuals outpace traditional workers by orders of magnitude.
 
 ### 2. Strength Training `(0:35 - 0:50)`
-- **Transcript Summary**: Strength training transcends physical hyper-trophy; it serves as explicit self-generated proof of discipline, consistency, and resistance management.
+- **Transcript Summary**: Strength training transcends physical hypertrophy; it serves as explicit self-generated proof of discipline, consistency, and resistance management.
 - **Underlying Mechanism & Psychology**:
   - **Neurological & Identity Shift**: Lifting heavy weights provides non-negotiable physical feedback. You cannot fake a heavy deadlift or squat. Each session builds physical evidence ("proof") that you can execute under acute physical discomfort.
   - **Earning vs. Wishing**: Directly counteracts the instant gratification of scrolling by forcing an understanding that real-world outcomes require progressive overload over extended timelines.

@@ -50,7 +50,7 @@ This video provides a deep analytical breakdown of the early-morning police oper
   - **5:00 AM Practice Drills**: Tactical teams conducted security drills and practice runs at Jantar Mantar.
   - **30-Second Extraction Window**: Police executed a rapid 30-second raid to extract Wangchuk before student protesters could assemble or physically block police vehicles.
 - **Historical Parallel — Modi in 2012 vs. Present (1:22)**:
-  - In a archived 2012 clip, then-Gujarat CM Narendra Modi strongly condemned Prime Minister Manmohan Singh and the UPA government for unleashing police power against Baba Ramdev's anti-corruption hunger strike at Ramlila Maidan.
+  - In an archived 2012 clip, then-Gujarat CM Narendra Modi strongly condemned Prime Minister Manmohan Singh and the UPA government for unleashing police power against Baba Ramdev's anti-corruption hunger strike at Ramlila Maidan.
   - The video highlights the political irony: the current government under PM Modi employs nearly identical suppression tactics against non-violent hunger strikers as those condemned by Modi in 2012.
 
 ### 2. Operational Tactics, Concealment, and Force-Feeding Attempts (1:55 - 4:25)

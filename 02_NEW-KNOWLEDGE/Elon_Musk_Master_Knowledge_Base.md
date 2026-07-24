@@ -1,32 +1,25 @@
 ---
+id: e7b8c9d0-1a2b-4c3d-8e9f-0a1b2c3d4e5f
 title: "Elon Musk — Master Knowledge Base"
+type: evergreen-note
+status: verified
+domain: general
+source_type: article
 created: 2026-07-14
-updated: 2026-07-14
-type: "mega-source"
-version: 2.0
+updated: 2026-07-24
+review: 2026-10-24
+confidence: 100
+version: 2
+aliases:
+  - "Elon Musk Master Knowledge Base"
 tags:
-  - elon-musk
-  - source
-  - mega-source
-  - tesla
-  - spacex
-  - neuralink
-  - boring-company
-  - x-corp
-  - openai
-  - doge
-  - master-plan
-  - biography
-  - engineering
-  - business
-  - ai-safety
-  - space-exploration
-  - electric-vehicles
-  - renewable-energy
-  - neurotechnology
-  - tunneling
-  - social-media
-  - government-efficiency
+  - reference
+  - case-study
+  - history
+owner_moc: Elon Musk MOC
+sources: []
+related: []
+schema_version: 4
 ---
 
 > **Purpose**: This is the single most exhaustive structured intelligence document on Elon Musk ever compiled. It serves as the **root node** from which every atomic note in this Obsidian Infinity Brain is derived. Every claim is sourced, dated, and linked to primary evidence.

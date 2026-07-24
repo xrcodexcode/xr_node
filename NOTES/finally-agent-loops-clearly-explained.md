@@ -12,7 +12,8 @@ review: 2026-10-16
 confidence: 100
 version: 1
 aliases: []
-tags: []
+tags:
+  - implementation
 owner_moc: Finally. Agent Loops Clearly Explained MOC
 sources:
   - 01_RAW/SOURCE/finally-agent-loops-clearly-explained.md
