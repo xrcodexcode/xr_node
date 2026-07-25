@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "4815a61547916475",
+        "id": "24842fb2a60125ee",
         "type": "tabs",
         "children": [
           {
-            "id": "59971fb6252074fd",
+            "id": "b91a65a1fb8f1ba7",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "01_RAW/PROCESS/computer-networking-full-course-kunal-kushwaha/detailed-study-notes-computer-networking-full-course-final.md",
-                "mode": "preview",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "detailed-study-notes-computer-networking-full-course-final"
+              "title": "New tab"
             }
           }
         ]
@@ -78,7 +74,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "43d09af49b9b51ad",
@@ -191,8 +188,13 @@
       "bases:Create new base": false
     }
   },
-  "active": "1a698b583bbbe23f",
+  "active": "b91a65a1fb8f1ba7",
   "lastOpenFiles": [
+    "cac/Introduction to Computer Network Series  Chai aur computer network.md",
+    "01_RAW/CAPTURE/I Stopped Prompting Claude Code. Now Loops Do It For Me (Loop Engineering).md",
+    "01_RAW/CAPTURE/Networking for Hackers Full Course — Zero to Expert in One Video 2026.md",
+    "01_RAW/PROCESS/detailed-study-notes-networking-for-hackers-full-course.md",
+    "01_RAW/PROCESS/computer-networking-full-course-kunal-kushwaha/detailed-study-notes-computer-networking-full-course-final.md",
     "01_RAW/PROCESS/computer-networking-fundamentals-freecodecamp/detailed-study-notes-computer-networking-fundamentals-final.md",
     "01_RAW/PROCESS/computer-networking-fundamentals-freecodecamp/detailed-study-notes-computer-networking-fundamentals-part-04.md",
     "01_RAW/PROCESS/computer-networking-fundamentals-freecodecamp/detailed-study-notes-computer-networking-fundamentals-part-03.md",
@@ -207,7 +209,6 @@
     "01_RAW/CAPTURE/Computer Networking Full Course - OSI Model Deep Dive with Real Life Examples.md",
     "01_RAW/CAPTURE/Computer Networking Full Course - Internet Explained Step by Step (Real-Life Examples).md",
     "01_RAW/PROCESS/computer-networking-full-course-2026/detailed-study-notes-computer-networking-full-course.md",
-    "01_RAW/CAPTURE/Networking for Hackers Full Course — Zero to Expert in One Video 2026.md",
     "01_RAW/PROCESS/networking-for-hackers-2026/detailed-study-notes-networking-for-hackers-full-course-final.md",
     "01_RAW/PROCESS/complete-networking-tutorial-beginners-to-advanced-2026/detailed-study-notes-complete-networking-tutorial-beginners-to-advanced-final.md",
     "01_RAW/PROCESS/complete-networking-tutorial-2026-cybersecurity/detailed-study-notes-complete-networking-tutorial-2026-cybersecurity.md",
@@ -218,11 +219,7 @@
     "01_RAW/CAPTURE/Complete Networking Tutorial for Beginners to Advanced 2026  Deep dive for Cyber security.md",
     "01_RAW/CAPTURE/Complete Networking Tutorial 2026 🚀  Beginner to Advanced (Cybersecurity Focus).md",
     "01_RAW/CAPTURE/Complete CN Computer Networks in one shot  Semester Exam  Hindi.md",
-    "01_RAW/PROCESS/computer-networking-full-course-2026/detailed-study-notes-computer-networking-osi-model-deep-dive.md",
     "01_RAW/PROCESS/complete-networking-tutorial-2026-cybersecurity",
-    "01_RAW/PROCESS/detailed-study-notes-networking-for-hackers-full-course-part-03.md",
-    "01_RAW/PROCESS/detailed-study-notes-networking-for-hackers-full-course-part-01.md",
-    "01_RAW/PROCESS/detailed-study-notes-computer-networking-osi-model-deep-dive.md",
     "01_RAW/PROCESS/complete-cn-semester-exam",
     "01_RAW/PROCESS/networking-for-hackers-2026",
     "cac",
