@@ -122,16 +122,16 @@ Machine learning models need numbers, not words. We must convert categorical tex
 
 ### One-Hot Encoding (OHE)
 Creates a new binary column for each category.
-*Best for*: Low-cardinality nominal features (e.g., colors: red, blue, green).
-*Pitfall*: High cardinality causes the "Curse of Dimensionality" (thousands of new columns).
+- **Best for:** Low-cardinality nominal features (e.g., colors: red, blue, green).
+- **Pitfall:** High cardinality causes the "Curse of Dimensionality" (thousands of new columns).
 
 ### Label Encoding / Ordinal Encoding
 Assigns an integer to each category (e.g., Low=0, Medium=1, High=2).
-*Best for*: Tree-based models or strictly ordinal features.
+- **Best for:** Tree-based models or strictly ordinal features.
 
 ### Target Encoding (Mean Encoding)
 Replaces a category with the mean of the target variable for that category. Needs regularization (smoothing) to prevent overfitting.
-*Best for*: High-cardinality nominal features.
+- **Best for:** High-cardinality nominal features.
 
 ### Code Example: Categorical Encoders
 ```python

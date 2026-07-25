@@ -1,7 +1,7 @@
 ---
 type: moc
 title: Infinity Brain Home
-tags: [reference]
+tags: [moc]
 ---
 
 # 🌌 Infinity Brain (XR_node) Home
@@ -15,7 +15,6 @@ Welcome to your central knowledge repository.
 - [[atomic-habits-moc|⚡ Atomic Habits MOC]] — Dedicated index of notes from *Atomic Habits* by James Clear.
 - [[48-laws-of-power-moc|⚡ 48 Laws of Power MOC]] — Dedicated index of notes from *The 48 Laws of Power* by Robert Greene.
 - [[people-moc|👥 People MOC]] — Person notes and key contacts.
-- [[steve-jobs-moc|🚀 Steve Jobs MOC]] — Steve Jobs exile years, NeXT, Pixar, and leadership evolution.
 - [[warren-buffett-moc|💰 Warren Buffett MOC]] — Warren Buffett's investment philosophy, habits, and legacy MOC.
 - [[tools-moc|🛠️ Tools MOC]] — Software, tools, and technical stacks.
 - [[yt-moc|📺 YouTube MOC]] — Synthesized notes from video transcripts.

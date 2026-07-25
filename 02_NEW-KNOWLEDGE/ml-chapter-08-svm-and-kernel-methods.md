@@ -1,6 +1,6 @@
 ---
 id: a53b4cf7-8b09-4171-8bc6-981f4a9ab77d
-title: "ML Study Notes — Support Vector Machines and Kernel Methods"
+title: ML Study Notes — Support Vector Machines and Kernel Methods
 type: evergreen-note
 status: learning
 domain: general
@@ -10,18 +10,20 @@ updated: 2026-07-24
 review: 2026-08-24
 confidence: 95
 version: 1
-aliases: ["SVM", "Support Vector Machines", "Kernel Methods", "SVR"]
+aliases:
+- SVM
+- Support Vector Machines
+- Kernel Methods
+- SVR
 tags:
-  - beginner
-  - implementation
-  - reference
-  - classification
+- beginner
+- implementation
+- reference
 owner_moc: Machine Learning Mastery MOC
 sources: []
 related: []
 schema_version: 4
 ---
-
 # ML Study Notes — Support Vector Machines and Kernel Methods
 
 ## Overview
@@ -166,7 +168,7 @@ Subject to: $y_i (w \cdot x_i + b) \ge 1 - \xi_i$ and $\xi_i \ge 0$.
 
 ### Dual Form and Lagrange Multipliers
 Instead of solving the primal problem directly, we use Lagrange Multipliers to convert it into the **Dual Form**. 
-*Intuition*: This transforms the problem so that the decision boundary depends *only* on the dot product of the input vectors ($x_i \cdot x_j$). This mathematical quirk is what makes the "Kernel Trick" possible!
+- **Intuition:** This transforms the problem so that the decision boundary depends *only* on the dot product of the input vectors ($x_i \cdot x_j$). This mathematical quirk is what makes the "Kernel Trick" possible!
 
 ### Hinge Loss
 SVM uses the **Hinge Loss** function. For a true label $y \in \{-1, 1\}$ and a prediction $f(x) = w \cdot x + b$:
@@ -397,25 +399,25 @@ for ax, image, prediction in zip(axes, X_test[:4], predicted[:4]):
 ## 14. Interview Questions 🎯
 
 1. 🎯 **What is the "Kernel Trick"?**
-   > *Answer*: It is a mathematical technique that allows SVMs to operate in a high-dimensional feature space without actually calculating the coordinates of the data in that space. It computes the dot product directly, saving massive computational resources.
+    - **Answer:** It is a mathematical technique that allows SVMs to operate in a high-dimensional feature space without actually calculating the coordinates of the data in that space. It computes the dot product directly, saving massive computational resources.
 
 2. 🎯 **What are Support Vectors?**
-   > *Answer*: The data points that lie closest to the decision boundary (margin). They are the points that are most difficult to classify. The entire model relies only on these points.
+    - **Answer:** The data points that lie closest to the decision boundary (margin). They are the points that are most difficult to classify. The entire model relies only on these points.
 
 3. 🎯 **How does the C parameter affect the SVM model?**
-   > *Answer*: C controls the penalty for misclassification. A small C creates a wider margin but allows more errors (high bias, low variance). A large C creates a narrower margin to strictly classify training points (low bias, high variance, risk of overfitting).
+    - **Answer:** C controls the penalty for misclassification. A small C creates a wider margin but allows more errors (high bias, low variance). A large C creates a narrower margin to strictly classify training points (low bias, high variance, risk of overfitting).
 
 4. 🎯 **What is the Hinge Loss?**
-   > *Answer*: The loss function used in SVM. It penalizes predictions not just for being wrong, but for being close to the margin. $\max(0, 1 - y \cdot f(x))$.
+    - **Answer:** The loss function used in SVM. It penalizes predictions not just for being wrong, but for being close to the margin. $\max(0, 1 - y \cdot f(x))$.
 
 5. 🎯 **Why is feature scaling essential for SVM?**
-   > *Answer*: SVMs calculate distances between data points. If features are on different scales, the feature with the largest scale will dominate the distance calculation.
+    - **Answer:** SVMs calculate distances between data points. If features are on different scales, the feature with the largest scale will dominate the distance calculation.
 
 6. 🎯 **What happens if Gamma is set too high in an RBF kernel?**
-   > *Answer*: The model becomes too sensitive to individual data points. The decision boundary tightens closely around training points, leading to severe overfitting.
+    - **Answer:** The model becomes too sensitive to individual data points. The decision boundary tightens closely around training points, leading to severe overfitting.
 
 7. 🎯 **Can SVM output probabilities?**
-   > *Answer*: Not directly. However, we can use an expensive technique called Platt Scaling (a logistic regression model trained on the SVM outputs) to estimate probabilities. In scikit-learn, this is done by setting `probability=True`.
+    - **Answer:** Not directly. However, we can use an expensive technique called Platt Scaling (a logistic regression model trained on the SVM outputs) to estimate probabilities. In scikit-learn, this is done by setting `probability=True`.
 
 ---
 

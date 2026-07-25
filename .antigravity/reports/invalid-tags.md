@@ -1,6 +1,6 @@
 # Invalid Tags Report
 
-Last scanned on 351 notes.
+Last scanned on 356 notes.
 
 | Note Title | File Link | Invalid Tags |
 | :--- | :--- | :--- |

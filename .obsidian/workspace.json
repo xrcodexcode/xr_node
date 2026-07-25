@@ -8,17 +8,27 @@
         "type": "tabs",
         "children": [
           {
-            "id": "faa984ecbf93c244",
+            "id": "c32a6d0f9893db88",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01_RAW/PROCESS/detailed-study-notes-75-top-fails-of-modiji-part-1-part-01.md",
+                "file": "01_RAW/CAPTURE/Computer Networking Full Course - Internet Explained Step by Step (Real-Life Examples).md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "detailed-study-notes-75-top-fails-of-modiji-part-1-part-01"
+              "title": "Computer Networking Full Course - Internet Explained Step by Step (Real-Life Examples)"
+            }
+          },
+          {
+            "id": "49adb120d0276182",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -78,7 +88,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "43d09af49b9b51ad",
@@ -191,34 +202,34 @@
       "bases:Create new base": false
     }
   },
-  "active": "1a698b583bbbe23f",
+  "active": "c32a6d0f9893db88",
   "lastOpenFiles": [
-    "01_RAW/CAPTURE/2026 will be the Year of Multi-agent AIs - Here's why!.md",
+    "01_RAW/CAPTURE/Computer Networking Full Course - Internet Explained Step by Step (Real-Life Examples).md",
+    "01_RAW/SOURCE/13 Hobbies That Replace Scrolling and Improve Your Life.md",
+    "01_RAW/SOURCE/End of Modi Regime  How Medical Mafia turned Doctor Shortage into a ₹4000 CR Business.md",
+    "01_RAW/SOURCE/Errol Musk.md",
+    "NODES/inter-agent-communication-and-security-inheritance.md",
+    "NODES/subagent-lifecycle-states.md",
+    "NODES/custom-subagent-markdown-schema.md",
+    "NODES/subagent-workspace-modes.md",
+    "NODES/asynchronous-subagents.md",
+    "02_NEW-KNOWLEDGE/antigravity-asynchronous-subagents.md",
+    "02_NEW-KNOWLEDGE/75-top-fails-of-modiji-part-1-part-01.md",
+    "02_NEW-KNOWLEDGE/complete-python-for-ai-ml-part-2.md",
+    "02_NEW-KNOWLEDGE/complete-python-for-ai-ml-beginner-to-pro.md",
     "01_RAW/PROCESS/detailed-study-notes-jantar-mantar-situation.md",
-    "01_RAW/PROCESS/detailed-study-notes-75-top-fails-of-modiji-part-1-final.md",
-    "01_RAW/PROCESS/detailed-study-notes-modis-war-against-indians-dhruv-rathee.md",
-    "01_RAW/PROCESS/detailed-study-notes-75-top-fails-of-modiji-part-1-part-02.md",
-    "01_RAW/PROCESS/detailed-study-notes-75-top-fails-of-modiji-part-1-part-01.md",
-    "01_RAW/CAPTURE/75 TOP FAILS of Modiji (part 1).md",
-    "02_NEW-KNOWLEDGE/Steve Jobs in Exile - Study Note.md",
-    "02_NEW-KNOWLEDGE/ml-chapter-01-introduction-to-machine-learning.md",
-    "02_NEW-KNOWLEDGE/ml-chapter-02-mathematics-for-ml.md",
-    "01_RAW/SOURCE/Steve Jobs in Exile.md",
-    "03_MOC/steve-jobs-moc.md",
-    "NODES/Channel Stuffing Vulnerability.md",
-    "NODES/Working Code Paradigm.md",
-    "NODES/Perfectionism Execution Trap.md",
-    "NODES/Inverted Power Hierarchy.md",
-    "NODES/Capital Abundance Trap.md",
-    "01_RAW/CAPTURE/Steve Jobs in Exile.md",
-    "ORIGINAL_REQUEST.md",
-    "01_RAW/CAPTURE/Doing These 10 Things Alone Will Change Your Life 1.md",
-    "01_RAW/CAPTURE/Modi's WAR Against Indians  What happened at Jantar Mantar  Dhruv Rathee.md",
-    "01_RAW/CAPTURE/Reality of 20th July Protest.md",
-    "01_RAW/PROCESS/detailed-study-notes-doing-these-10-things-alone-will-change-your-life.md",
-    "01_RAW/CAPTURE/Jantar Mantar Situation!.md",
-    "01_RAW/SOURCE/Doing These 10 Things Alone Will Change Your Life.md",
-    "02_NEW-KNOWLEDGE/detailed-study-notes-doing-these-10-things-alone-will-change-your-life.md",
+    "01_RAW/PROCESS/detailed-study-notes-doing-these-10-things-alone-will-change-your-life-1.md",
+    "02_NEW-KNOWLEDGE/75-top-fails-of-modiji-part-1-part-02.md",
+    "02_NEW-KNOWLEDGE/ml-chapter-08-svm-and-kernel-methods.md",
+    "02_NEW-KNOWLEDGE/dsa-linked-lists.md",
+    "02_NEW-KNOWLEDGE/dsa-hashing.md",
+    "02_NEW-KNOWLEDGE/dsa-greedy-algorithms.md",
+    "02_NEW-KNOWLEDGE/dsa-graphs.md",
+    "02_NEW-KNOWLEDGE/dsa-dynamic-programming.md",
+    "02_NEW-KNOWLEDGE/dsa-complexity-analysis.md",
+    "02_NEW-KNOWLEDGE/dsa-arrays-strings.md",
+    "02_NEW-KNOWLEDGE/complete-python-for-ai-ml-part-2-part-02.md",
+    "02_NEW-KNOWLEDGE/complete-python-for-ai-ml-part-2-part-01.md",
     "01_RAW/PROCESS/python",
     "01_RAW/PROCESS/ml",
     "rag/__pycache__/watcher.cpython-313.pyc",

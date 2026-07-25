@@ -1,6 +1,6 @@
 ---
 id: 9a38f365-b1a1-432d-8b01-e7cfb3c9597a
-title: "ML Study Notes — Model Evaluation and Selection"
+title: ML Study Notes — Model Evaluation and Selection
 type: evergreen-note
 status: learning
 domain: general
@@ -10,18 +10,20 @@ updated: 2026-07-24
 review: 2026-08-24
 confidence: 95
 version: 1
-aliases: ["Model Evaluation", "Model Selection", "Hyperparameter Tuning", "Bias-Variance Tradeoff"]
+aliases:
+- Model Evaluation
+- Model Selection
+- Hyperparameter Tuning
+- Bias-Variance Tradeoff
 tags:
-  - beginner
-  - implementation
-  - reference
-  - evaluation
+- beginner
+- implementation
+- reference
 owner_moc: Machine Learning Mastery MOC
 sources: []
 related: []
 schema_version: 4
 ---
-
 # ML Study Notes — Chapter 12: Model Evaluation and Selection
 
 ## Overview

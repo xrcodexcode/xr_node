@@ -1,6 +1,6 @@
 ---
 id: 593a6104-cf2a-43b6-96b4-2b7e52fc8795
-title: "ML Study Notes — Chapter 14: Neural Networks and Deep Learning Introduction"
+title: 'ML Study Notes — Chapter 14: Neural Networks and Deep Learning Introduction'
 type: evergreen-note
 status: learning
 domain: general
@@ -10,18 +10,18 @@ updated: 2026-07-24
 review: 2026-08-24
 confidence: 95
 version: 1
-aliases: ["Deep Learning Introduction", "Neural Networks Intro"]
+aliases:
+- Deep Learning Introduction
+- Neural Networks Intro
 tags:
-  - beginner
-  - implementation
-  - reference
-  - deep-learning
+- beginner
+- implementation
+- reference
 owner_moc: Machine Learning Mastery MOC
 sources: []
 related: []
 schema_version: 4
 ---
-
 # ML Study Notes — Chapter 14: Neural Networks and Deep Learning Introduction
 
 ## Overview

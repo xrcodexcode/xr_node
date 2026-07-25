@@ -182,18 +182,18 @@ flowchart TD
 
 There are two main sub-types:
 1. **Classification**: Predicting a discrete category (class). 
-   - *Example*: Is this email Spam or Not Spam? Is this tumor Malignant or Benign?
+  - **Example:** Is this email Spam or Not Spam? Is this tumor Malignant or Benign?
 2. **Regression**: Predicting a continuous numerical value.
-   - *Example*: What will be the temperature tomorrow? How much will this house sell for?
+  - **Example:** What will be the temperature tomorrow? How much will this house sell for?
 
 ### B. Unsupervised Learning
 **Intuition**: Learning without a teacher. You are given a bunch of puzzle pieces without the picture on the box, and you group similar pieces together (e.g., edge pieces, blue sky pieces).
 **Definition**: The model is trained on *unlabeled* data. Its job is to find hidden structure or patterns within the data.
 
 1. **Clustering**: Grouping similar data points together.
-   - *Example*: Grouping customers into distinct segments for targeted marketing based on purchasing behavior.
+  - **Example:** Grouping customers into distinct segments for targeted marketing based on purchasing behavior.
 2. **Dimensionality Reduction**: Compressing data while retaining its essential features.
-   - *Example*: Reducing a 100-megapixel image to its core features for faster processing without losing the "essence" of the image.
+  - **Example:** Reducing a 100-megapixel image to its core features for faster processing without losing the "essence" of the image.
 
 ### C. Reinforcement Learning
 **Intuition**: Training a dog. You give a command; if the dog performs it, you give a treat (reward). If it disobeys, no treat (penalty). Over time, the dog learns to maximize treats.

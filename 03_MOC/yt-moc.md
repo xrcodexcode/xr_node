@@ -1,7 +1,7 @@
 ---
 type: moc
 title: 📺 YouTube Map of Content
-tags: [reference]
+tags: [yt, moc]
 status: curated
 source: [[HOME-BASE]]
 ---
@@ -19,7 +19,7 @@ Index of notes synthesized from YouTube videos and transcripts.
 - [[prompt-engineering-moc|Prompt Engineering MOC]]
 - [[python-dsa-ml-mastery-moc|Python Dsa Ml Mastery MOC]]
 - [[python-for-ai-beginner-course-moc|Python For Ai Beginner Course MOC]]
-- [[steve-jobs-moc|🚀 Steve Jobs MOC]]
+- [[steve-jobs-moc|Steve Jobs MOC]]
 - [[uncomfortable-truths-2-moc|Uncomfortable Truths 2 MOC]]
 - [[warren-buffett-moc|Warren Buffett MOC]]
 - [[why-you-are-feeling-stuck-in-your-20s-moc|Why You Are Feeling Stuck In Your 20S MOC]]
@@ -27,7 +27,6 @@ Index of notes synthesized from YouTube videos and transcripts.
 ## 📝 Concept & Study Notes
 | Note Title | Link | Type | Tags | Backlinks |
 | :--- | :--- | :--- | :--- | :--- |
-| Steve Jobs in Exile | [[02_NEW-KNOWLEDGE/Steve Jobs in Exile - Study Note\|Steve Jobs in Exile - Study Note]] | `study-note` | #case-study, #history | **1** |
 | Cheatsheet — Learn 99% Claude & Codex in 25 mins | [[NODES/learn-99-percent-claude-and-codex-in-25-mins-cheatsheet\|Cheatsheet — Learn 99% Claude & Codex in 25 mins]] | `atomic-note` | #ai, #ml, #yt, #productivity | **7** |
 | Self-Fixing Code Loops | [[NODES/self-fixing-code-loops\|Self-Fixing Code Loops]] | `atomic-note` | #ai, #ml, #yt, #productivity | **6** |
 | Bypass Ask Permissions Mode | [[NODES/bypass-ask-permissions-mode\|Bypass Ask Permissions Mode]] | `atomic-note` | #ai, #ml, #yt, #productivity | **5** |

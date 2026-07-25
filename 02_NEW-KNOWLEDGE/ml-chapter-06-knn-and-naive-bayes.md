@@ -1,6 +1,6 @@
 ---
 id: 4f8d9b1a-2e3c-4d5f-9a0b-1c2d3e4f5a6b
-title: "ML Study Notes — Chapter 6: KNN and Naive Bayes"
+title: 'ML Study Notes — Chapter 6: KNN and Naive Bayes'
 type: evergreen-note
 status: learning
 domain: general
@@ -10,18 +10,20 @@ updated: 2026-07-24
 review: 2026-08-24
 confidence: 95
 version: 1
-aliases: ["K-Nearest Neighbors", "Naive Bayes", "KNN", "NB"]
+aliases:
+- K-Nearest Neighbors
+- Naive Bayes
+- KNN
+- NB
 tags:
-  - beginner
-  - implementation
-  - reference
-  - classification
+- beginner
+- implementation
+- reference
 owner_moc: Machine Learning Mastery MOC
 sources: []
 related: []
 schema_version: 4
 ---
-
 # ML Study Notes — Chapter 6: KNN and Naive Bayes
 
 Welcome back, future ML Engineer! Today, we are stepping into the world of two extremely popular, fundamentally different, yet incredibly powerful machine learning algorithms: **K-Nearest Neighbors (KNN)** and **Naive Bayes**. 
@@ -532,25 +534,25 @@ print(f"Naive Bayes  | Acc: {nb_acc*100:.2f}% | Time: {nb_time:.5f} sec")
 Here are the most common questions you will face in internships/entry-level ML interviews regarding these algorithms:
 
 1. 🎯 **Why is KNN called a "lazy" learner?**
-   *Answer:* Because it does not learn a mathematical function or parameters during the training phase. It simply stores the training data and postpones all computation until a prediction is requested.
+    - **Answer:** Because it does not learn a mathematical function or parameters during the training phase. It simply stores the training data and postpones all computation until a prediction is requested.
 
 2. 🎯 **How does the choice of K affect the Bias-Variance tradeoff?**
-   *Answer:* A small K (e.g., K=1) leads to high variance and low bias (overfitting the noise). A large K leads to high bias and low variance (underfitting, overly smoothed boundaries).
+    - **Answer:** A small K (e.g., K=1) leads to high variance and low bias (overfitting the noise). A large K leads to high bias and low variance (underfitting, overly smoothed boundaries).
 
 3. 🎯 **Is feature scaling necessary for Naive Bayes? Why or why not?**
-   *Answer:* No. Naive Bayes relies on probabilities, not geometric distances. The probability of a feature belonging to a class is calculated independently of the magnitude of other features.
+    - **Answer:** No. Naive Bayes relies on probabilities, not geometric distances. The probability of a feature belonging to a class is calculated independently of the magnitude of other features.
 
 4. 🎯 **What is Laplace Smoothing and why is it used?**
-   *Answer:* It's the process of adding a small value (usually 1) to the count of every feature to prevent the "Zero-Frequency Problem," where a previously unseen categorical feature zeroes out the entire probability calculation.
+    - **Answer:** It's the process of adding a small value (usually 1) to the count of every feature to prevent the "Zero-Frequency Problem," where a previously unseen categorical feature zeroes out the entire probability calculation.
 
 5. 🎯 **What is the "Curse of Dimensionality" in the context of KNN?**
-   *Answer:* In high-dimensional spaces, the ratio of the distance to the nearest neighbor over the distance to the farthest neighbor approaches 1. Effectively, all points become almost equidistant, rendering distance metrics useless.
+    - **Answer:** In high-dimensional spaces, the ratio of the distance to the nearest neighbor over the distance to the farthest neighbor approaches 1. Effectively, all points become almost equidistant, rendering distance metrics useless.
 
 6. 🎯 **Can KNN be used for categorical features?**
-   *Answer:* Standard Euclidean distance struggles with categorical features. You can use it by One-Hot Encoding the categories and using Hamming Distance or a custom distance metric, though Tree-based models are usually better.
+    - **Answer:** Standard Euclidean distance struggles with categorical features. You can use it by One-Hot Encoding the categories and using Hamming Distance or a custom distance metric, though Tree-based models are usually better.
 
 7. 🎯 **What is the fundamental difference between Generative and Discriminative models? Which is Naive Bayes?**
-   *Answer:* Discriminative models (like KNN or Logistic Regression) model the decision boundary between classes directly $P(Y|X)$. Generative models (like Naive Bayes) model the actual distribution of each class $P(X|Y)$ and use Bayes theorem to find $P(Y|X)$.
+    - **Answer:** Discriminative models (like KNN or Logistic Regression) model the decision boundary between classes directly $P(Y|X)$. Generative models (like Naive Bayes) model the actual distribution of each class $P(X|Y)$ and use Bayes theorem to find $P(Y|X)$.
 
 ---
 
