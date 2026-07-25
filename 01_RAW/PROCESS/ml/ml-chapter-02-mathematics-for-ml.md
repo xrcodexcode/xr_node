@@ -281,7 +281,7 @@ print(df.corr()) # Notice values are near 1.0!
 ## 8. Information Theory Basics
 Information theory quantifies "surprise" or uncertainty.
 - **Entropy ($H$)**: Measure of impurity or disorder. High entropy = very unpredictable (a fair coin). Low entropy = predictable (a two-headed coin). Used heavily in Decision Trees to decide where to split data.
-  $$ H = - \sum p(x) \log_2 p(x) $$
+    $$ H = - \sum p(x) \log_2 p(x) $$
 - **Cross-Entropy**: Compares two probability distributions. Extremely common as a Loss Function in classification problems (Neural Networks, Logistic Regression). It penalizes the model heavily when it is very confident but wrong.
 
 ```python

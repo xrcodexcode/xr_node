@@ -234,3 +234,16 @@ graph LR
 ---
 
 > *"The best way to learn to code is to code. Read the theory, then immediately write code. Don't just read — build."*
+
+
+## 📚 Core Courses & Reference Material
+
+- [[Python 101 Syntax For Java Programmers]] — Comprehensive side-by-side Java to Python syntax reference guide.
+- [[Python For AI Beginner Course]] — Full beginner course notes covering Python environment, syntax, data structures, and packages.
+- [[Python AI ML Projects Beginner To Intermediate]] — Curated beginner to intermediate project guides (Chatbots, Scrapers, Sentiment Analysis, Predictors).
+- [[Complete Python for AI & ML (Beginner to Pro) - Part 01]] — Foundation concepts and environment setup.
+- [[Complete Python for AI & ML (Beginner to Pro) - Part 02]] — Advanced syntax, functions, and control flow.
+- [[Complete Python for AI & ML Part 2 (Intermediate to Advanced) - Part 01: Functions & Data Structures Overview]] — Deep dive into intermediate functions and data structures.
+- [[Complete Python for AI & ML Part 2 (Intermediate to Advanced) - Part 02: Lists & List Operations]] — Intermediate list operations and memory mechanics.
+- [[DSA Arrays And Strings]] — Core array and string manipulation strategies for interviews and ML vectorization.
+- [[Python Error Handling And File Io]] — Professional error handling and file I/O practices.

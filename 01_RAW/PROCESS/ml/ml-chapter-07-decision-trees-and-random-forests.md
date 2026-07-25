@@ -342,8 +342,8 @@ Random Forests use a technique called Bagging to create diverse trees.
 
 1. **Bootstrap Sampling**: Imagine you have a dataset of 1,000 rows. A single tree in the forest doesn't look at all 1,000 rows. Instead, it draws 1,000 samples *with replacement* from the dataset. This means some rows will be picked multiple times, and roughly 37% of the rows won't be picked at all (these are called Out-of-Bag or OOB samples).
 2. **Aggregating**: Each tree makes a prediction. The forest combines them.
-   - For Classification: Majority vote.
-   - For Regression: Average of the predictions.
+  - For Classification: Majority vote.
+  - For Regression: Average of the predictions.
 
 *Bagging reduces variance (overfitting) without increasing bias.*
 
@@ -514,25 +514,25 @@ print(feat_imps)
 ## 6. Interview Questions 🎯
 
 1. 🎯 **Q: Explain how a Decision Tree handles categorical vs numerical variables.**
-   - **A:** For numerical variables, the tree sorts the values and tests midpoints between adjacent values as thresholds (e.g., Age < 35.5). For categorical variables, it tests splits based on belonging to a category or subset of categories (e.g., Color == 'Red'). Note: sklearn's implementation currently requires categorical variables to be numerically encoded (like ordinal or one-hot) before fitting.
+    - **Answer:** For numerical variables, the tree sorts the values and tests midpoints between adjacent values as thresholds (e.g., Age < 35.5). For categorical variables, it tests splits based on belonging to a category or subset of categories (e.g., Color == 'Red'). Note: sklearn's implementation currently requires categorical variables to be numerically encoded (like ordinal or one-hot) before fitting.
 
 2. 🎯 **Q: What is Information Gain, and how is it related to Entropy?**
-   - **A:** Entropy measures the impurity or disorder of a dataset. Information Gain is the reduction in Entropy after splitting the dataset on a particular feature. The tree algorithm selects the feature that maximizes Information Gain (i.e., reduces Entropy the most).
+    - **Answer:** Entropy measures the impurity or disorder of a dataset. Information Gain is the reduction in Entropy after splitting the dataset on a particular feature. The tree algorithm selects the feature that maximizes Information Gain (i.e., reduces Entropy the most).
 
 3. 🎯 **Q: Why does a Decision Tree overfit, and how can you prevent it?**
-   - **A:** It overfits because it recursively splits the data until it perfectly memorizes the training set (leaves with 1 sample). Prevent it by pre-pruning (setting `max_depth`, `min_samples_split`) or post-pruning (`ccp_alpha`).
+    - **Answer:** It overfits because it recursively splits the data until it perfectly memorizes the training set (leaves with 1 sample). Prevent it by pre-pruning (setting `max_depth`, `min_samples_split`) or post-pruning (`ccp_alpha`).
 
 4. 🎯 **Q: Explain the two types of randomness introduced in a Random Forest.**
-   - **A:** 1. **Data Randomness**: Bootstrapping (sampling with replacement) creates a slightly different dataset for each tree. 2. **Feature Randomness**: At each node split, the tree is only allowed to consider a random subset of features (usually $\sqrt{n}$), preventing dominant features from being picked every time.
+    - **Answer:** 1. **Data Randomness**: Bootstrapping (sampling with replacement) creates a slightly different dataset for each tree. 2. **Feature Randomness**: At each node split, the tree is only allowed to consider a random subset of features (usually $\sqrt{n}$), preventing dominant features from being picked every time.
 
 5. 🎯 **Q: What is the OOB error in Random Forests?**
-   - **A:** Because trees are trained on bootstrap samples, about 36.8% of the data is left out per tree (Out-of-Bag). The OOB error is the average error calculated by passing these left-out samples through the trees that didn't see them during training. It serves as a free validation score.
+    - **Answer:** Because trees are trained on bootstrap samples, about 36.8% of the data is left out per tree (Out-of-Bag). The OOB error is the average error calculated by passing these left-out samples through the trees that didn't see them during training. It serves as a free validation score.
 
 6. 🎯 **Q: Can a Random Forest extrapolate beyond the training data for regression tasks?**
-   - **A:** No. A Random Forest Regressor averages the values of the leaf nodes. It cannot predict a value higher than the maximum target value or lower than the minimum target value it saw during training. Linear regression *can* extrapolate.
+    - **Answer:** No. A Random Forest Regressor averages the values of the leaf nodes. It cannot predict a value higher than the maximum target value or lower than the minimum target value it saw during training. Linear regression *can* extrapolate.
 
 7. 🎯 **Q: How does Random Forest calculate feature importance?**
-   - **A:** Typically using Gini Importance (Mean Decrease in Impurity). It calculates how much a specific feature reduced the Gini impurity across all splits in all trees where it was used, weighted by the number of samples reaching those nodes.
+    - **Answer:** Typically using Gini Importance (Mean Decrease in Impurity). It calculates how much a specific feature reduced the Gini impurity across all splits in all trees where it was used, weighted by the number of samples reaching those nodes.
 
 ---
 

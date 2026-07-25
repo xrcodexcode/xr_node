@@ -1,6 +1,6 @@
 ---
 id: 593ab72c-29d9-4828-98e3-0d2979262fca
-title: "ML Study Notes — Natural Language Processing and Recommender Systems"
+title: ML Study Notes — Natural Language Processing and Recommender Systems
 type: evergreen-note
 status: learning
 domain: general
@@ -10,19 +10,20 @@ updated: 2026-07-24
 review: 2026-08-24
 confidence: 95
 version: 1
-aliases: [NLP, Recommender Systems, RecSys, Chapter 15]
+aliases:
+- NLP
+- Recommender Systems
+- RecSys
+- Chapter 15
 tags:
-  - beginner
-  - implementation
-  - reference
-  - nlp
-  - recommender-systems
+- beginner
+- implementation
+- reference
 owner_moc: Machine Learning Mastery MOC
 sources: []
 related: []
 schema_version: 4
 ---
-
 # ML Study Notes — Chapter 15: Natural Language Processing and Recommender Systems
 
 ## Overview
@@ -80,8 +81,8 @@ flowchart TD
 1. **Lowercasing**: Converting everything to lowercase. (`"Chai"` and `"chai"` should mean the same thing).
 2. **Removing punctuation/special characters**: Stripping out `! ? @ # $`.
 3. **Tokenization**: Splitting text into smaller units (tokens).
-   - *Word Tokenization*: "I love ML" $\rightarrow$ `["I", "love", "ML"]`
-   - *Sentence Tokenization*: Splitting paragraphs into sentences.
+  - **Word Tokenization:** "I love ML" $\rightarrow$ `["I", "love", "ML"]`
+  - **Sentence Tokenization:** Splitting paragraphs into sentences.
 4. **Stop word removal**: Removing common words that add little semantic value (e.g., "is", "the", "in", "and").
 5. **Stemming (Porter, Snowball)**: Crudely chopping off word endings to get the root word. E.g., `running` $\rightarrow$ `run`, `happiness` $\rightarrow$ `happi`.
 6. **Lemmatization (WordNet)**: Using dictionary rules to find the meaningful root (lemma). E.g., `better` $\rightarrow$ `good`, `running` $\rightarrow$ `run`.
@@ -273,7 +274,7 @@ print("Cosine Similarity:", cosine_similarity(vec1, vec2)[0][0])
 - **BERT (Bidirectional Encoder Representations from Transformers)**: Reads text in both directions. Great for classification and understanding.
 - **GPT (Generative Pre-trained Transformer)**: Reads left-to-right. Great for text generation.
 - **HuggingFace**: The "GitHub of ML models" where you can download pre-trained transformers in 3 lines of code.
-*Career Note*: Knowing how to fine-tune HuggingFace models is a highly sought-after skill for ML Engineers today.
+- **Career Note:** Knowing how to fine-tune HuggingFace models is a highly sought-after skill for ML Engineers today.
 
 ---
 
@@ -385,19 +386,19 @@ NLP is heavily used to power Content-Based Recommenders. We use TF-IDF, Word Emb
 ## 17. 🎯 Interview Questions
 
 1. **Q: Explain TF-IDF and why it's better than Bag of Words.**
-   *A: BoW only counts frequencies, overweighting common words. TF-IDF penalizes words that appear frequently across all documents (like 'is', 'the') and boosts rare, document-specific keywords, providing better semantic representation.*
+    - **Answer:** BoW only counts frequencies, overweighting common words. TF-IDF penalizes words that appear frequently across all documents (like 'is', 'the') and boosts rare, document-specific keywords, providing better semantic representation.*
 2. **Q: What is the difference between Stemming and Lemmatization?**
-   *A: Stemming uses crude rules to chop off prefixes/suffixes, often leaving non-words. Lemmatization uses vocabulary and morphological analysis to return valid dictionary root words (lemmas).*
+    - **Answer:** Stemming uses crude rules to chop off prefixes/suffixes, often leaving non-words. Lemmatization uses vocabulary and morphological analysis to return valid dictionary root words (lemmas).*
 3. **Q: What is the Cold Start problem in recommender systems?**
-   *A: The inability of Collaborative Filtering to recommend items to new users (no rating history) or recommend new items (no ratings received). Solved using Content-based or demographic fallback.*
+    - **Answer:** The inability of Collaborative Filtering to recommend items to new users (no rating history) or recommend new items (no ratings received). Solved using Content-based or demographic fallback.*
 4. **Q: How does Word2Vec capture semantic meaning?**
-   *A: By utilizing the context in which words appear. It trains a shallow neural network to predict a word given its neighbors (or vice versa), forcing the hidden layer weights to cluster semantically similar words close together in vector space.*
+    - **Answer:** By utilizing the context in which words appear. It trains a shallow neural network to predict a word given its neighbors (or vice versa), forcing the hidden layer weights to cluster semantically similar words close together in vector space.*
 5. **Q: Would you prefer User-User or Item-Item Collaborative filtering for Amazon?**
-   *A: Item-Item. Amazon has way more users than items, and user tastes change fast. Item similarity (e.g., iPhone 14 vs iPhone 15) remains relatively static over time, making it easier to compute and cache offline.*
+    - **Answer:** Item-Item. Amazon has way more users than items, and user tastes change fast. Item similarity (e.g., iPhone 14 vs iPhone 15) remains relatively static over time, making it easier to compute and cache offline.*
 6. **Q: What is Cosine Similarity?**
-   *A: A metric used to measure how similar two vectors are irrespective of their magnitude. It calculates the cosine of the angle between them. Useful in NLP for text similarity and in RecSys for item similarity.*
+    - **Answer:** A metric used to measure how similar two vectors are irrespective of their magnitude. It calculates the cosine of the angle between them. Useful in NLP for text similarity and in RecSys for item similarity.*
 7. **Q: Explain Matrix Factorization intuitively.**
-   *A: It breaks down a large sparse user-item matrix into lower-dimensional user matrices and item matrices (latent features). The dot product of a user's vector and an item's vector gives the predicted rating.*
+    - **Answer:** It breaks down a large sparse user-item matrix into lower-dimensional user matrices and item matrices (latent features). The dot product of a user's vector and an item's vector gives the predicted rating.*
 
 ---
 

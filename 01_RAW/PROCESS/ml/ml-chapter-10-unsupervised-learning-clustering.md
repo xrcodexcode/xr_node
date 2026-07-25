@@ -506,25 +506,25 @@ plt.show()
 ## 12. Interview Questions 🎯
 
 1. **🎯 What is the difference between Supervised and Unsupervised Learning?**
-   *Answer*: Supervised learning uses labeled data to train models to predict outcomes. Unsupervised learning uses unlabeled data to discover hidden patterns, groupings, or structures (like clustering).
+    - **Answer:** Supervised learning uses labeled data to train models to predict outcomes. Unsupervised learning uses unlabeled data to discover hidden patterns, groupings, or structures (like clustering).
 
 2. **🎯 How does the K-Means algorithm work?**
-   *Answer*: It initializes $K$ centroids, assigns each point to the nearest centroid, recalculates the centroid as the mean of assigned points, and repeats until convergence.
+    - **Answer:** It initializes $K$ centroids, assigns each point to the nearest centroid, recalculates the centroid as the mean of assigned points, and repeats until convergence.
 
 3. **🎯 Why is feature scaling important in K-Means?**
-   *Answer*: K-Means uses Euclidean distance. Features with larger scales will disproportionately influence the distance calculation, distorting the clusters. Scaling ensures all features contribute equally.
+    - **Answer:** K-Means uses Euclidean distance. Features with larger scales will disproportionately influence the distance calculation, distorting the clusters. Scaling ensures all features contribute equally.
 
 4. **🎯 What is the K-Means++ initialization and why is it useful?**
-   *Answer*: It's an algorithm to choose the initial centroids by spacing them as far apart from each other as possible. It prevents K-Means from getting stuck in poor local optima.
+    - **Answer:** It's an algorithm to choose the initial centroids by spacing them as far apart from each other as possible. It prevents K-Means from getting stuck in poor local optima.
 
 5. **🎯 How do you evaluate a clustering algorithm if you have no true labels?**
-   *Answer*: Using internal metrics like Silhouette Score (measures cohesion vs separation), Davies-Bouldin index, or the Elbow method (WCSS).
+    - **Answer:** Using internal metrics like Silhouette Score (measures cohesion vs separation), Davies-Bouldin index, or the Elbow method (WCSS).
 
 6. **🎯 When would you choose DBSCAN over K-Means?**
-   *Answer*: When the data has outliers/noise, when you don't know the number of clusters $K$, or when the clusters have arbitrary, non-spherical shapes (e.g., moons or nested circles).
+    - **Answer:** When the data has outliers/noise, when you don't know the number of clusters $K$, or when the clusters have arbitrary, non-spherical shapes (e.g., moons or nested circles).
 
 7. **🎯 Explain the difference between Hard and Soft Clustering.**
-   *Answer*: In Hard Clustering (K-Means), a point belongs entirely to one cluster. In Soft Clustering (GMM), a point has a probability of belonging to each cluster (e.g., 80% Cluster A, 20% Cluster B).
+    - **Answer:** In Hard Clustering (K-Means), a point belongs entirely to one cluster. In Soft Clustering (GMM), a point has a probability of belonging to each cluster (e.g., 80% Cluster A, 20% Cluster B).
 
 ---
 

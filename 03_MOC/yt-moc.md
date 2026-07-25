@@ -1,7 +1,7 @@
 ---
 type: moc
 title: 📺 YouTube Map of Content
-tags: [yt, moc]
+tags: [reference]
 status: curated
 source: [[HOME-BASE]]
 ---
@@ -14,9 +14,12 @@ Index of notes synthesized from YouTube videos and transcripts.
 - [[elon-musk-moc|Elon Musk MOC]]
 - [[finally-agent-loops-clearly-explained-moc|Finally Agent Loops Clearly Explained MOC]]
 - [[learn-99-percent-claude-and-codex-in-25-mins-moc|Map of Content — Learn 99% Claude & Codex in 25 mins]]
+- [[machine-learning-mastery-moc|Machine Learning Mastery MOC]]
 - [[neural-network-moc|Neural Network MOC]]
 - [[prompt-engineering-moc|Prompt Engineering MOC]]
+- [[python-dsa-ml-mastery-moc|Python Dsa Ml Mastery MOC]]
 - [[python-for-ai-beginner-course-moc|Python For Ai Beginner Course MOC]]
+- [[steve-jobs-moc|🚀 Steve Jobs MOC]]
 - [[uncomfortable-truths-2-moc|Uncomfortable Truths 2 MOC]]
 - [[warren-buffett-moc|Warren Buffett MOC]]
 - [[why-you-are-feeling-stuck-in-your-20s-moc|Why You Are Feeling Stuck In Your 20S MOC]]
@@ -24,6 +27,7 @@ Index of notes synthesized from YouTube videos and transcripts.
 ## 📝 Concept & Study Notes
 | Note Title | Link | Type | Tags | Backlinks |
 | :--- | :--- | :--- | :--- | :--- |
+| Steve Jobs in Exile | [[02_NEW-KNOWLEDGE/Steve Jobs in Exile - Study Note\|Steve Jobs in Exile - Study Note]] | `study-note` | #case-study, #history | **1** |
 | Cheatsheet — Learn 99% Claude & Codex in 25 mins | [[NODES/learn-99-percent-claude-and-codex-in-25-mins-cheatsheet\|Cheatsheet — Learn 99% Claude & Codex in 25 mins]] | `atomic-note` | #ai, #ml, #yt, #productivity | **7** |
 | Self-Fixing Code Loops | [[NODES/self-fixing-code-loops\|Self-Fixing Code Loops]] | `atomic-note` | #ai, #ml, #yt, #productivity | **6** |
 | Bypass Ask Permissions Mode | [[NODES/bypass-ask-permissions-mode\|Bypass Ask Permissions Mode]] | `atomic-note` | #ai, #ml, #yt, #productivity | **5** |
@@ -47,7 +51,3 @@ Index of notes synthesized from YouTube videos and transcripts.
 | reclaiming-your-personal-power | [[NODES/reclaiming-your-personal-power\|reclaiming-your-personal-power]] | `atomic-note` | #yt | **0** |
 | relationships | [[NODES/relationships\|relationships]] | `atomic-note` | #yt | **0** |
 | self-improvement-strategies | [[NODES/self-improvement-strategies\|self-improvement-strategies]] | `atomic-note` | #yt | **0** |
-
-## 📚 Literature & Synthesized Study Notes
-- [[02_NEW-KNOWLEDGE/detailed-study-notes-fpv-for-normal-people|Detailed Study Notes — FPV for Normal People]]
-- [[02_NEW-KNOWLEDGE/detailed-study-notes-20th-july-2026-cjp-sansad-march-protest|Detailed Study Notes — 20th July 2026 CJP Sansad March & Jantar Mantar Protest]]

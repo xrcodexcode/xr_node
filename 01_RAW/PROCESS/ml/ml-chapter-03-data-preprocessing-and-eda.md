@@ -1,6 +1,6 @@
 ---
 id: 3c7a92f1-4b8c-4a3e-b1d7-8e6d2c4a9f3b
-title: "ML Study Notes — Chapter 3: Data Preprocessing and EDA"
+title: 'ML Study Notes — Chapter 3: Data Preprocessing and EDA'
 type: evergreen-note
 status: learning
 domain: general
@@ -10,19 +10,19 @@ updated: 2026-07-24
 review: 2026-08-24
 confidence: 95
 version: 1
-aliases: ["Data Preprocessing", "EDA", "Exploratory Data Analysis"]
+aliases:
+- Data Preprocessing
+- EDA
+- Exploratory Data Analysis
 tags:
-  - beginner
-  - implementation
-  - reference
-  - preprocessing
-  - eda
+- beginner
+- implementation
+- reference
 owner_moc: Machine Learning Mastery MOC
 sources: []
 related: []
 schema_version: 4
 ---
-
 # ML Study Notes — Chapter 3: Data Preprocessing and Exploratory Data Analysis
 
 ## 1. Overview
@@ -216,9 +216,9 @@ df[['age', 'income']] = knn_imputer.fit_transform(df[['age', 'income']])
 #### Detection
 1. **Z-Score**: Assumes data is normally distributed. Anything outside -3 to +3 standard deviations is an outlier.
 2. **IQR (Interquartile Range)**: Works well for skewed data.
-   - $IQR = Q3 - Q1$
-   - Lower Bound = $Q1 - 1.5 \times IQR$
-   - Upper Bound = $Q3 + 1.5 \times IQR$
+  - $IQR = Q3 - Q1$
+  - Lower Bound = $Q1 - 1.5 \times IQR$
+  - Upper Bound = $Q3 + 1.5 \times IQR$
 
 ```python
 # IQR Method Code
@@ -347,8 +347,8 @@ df['age_group'] = pd.cut(df['age'], bins=bins, labels=labels)
 **Intuition**: If you give a student the exact exam paper to study the night before, they will score 100%. But did they learn the subject, or just memorize the answers? To truly test a model, we must hide a portion of the data during training and use it only for the final exam.
 
 **Data Leakage**: This happens when information from outside the training dataset is used to create the model. 
-*CRITICAL MISTAKE*: Applying StandardScaler or Imputation to the ENTIRE dataset before splitting. The mean/standard deviation will include information from the test set! 
-*FIX*: Always split first, then `fit` on train, and `transform` on train and test.
+- **CRITICAL MISTAKE:** Applying StandardScaler or Imputation to the ENTIRE dataset before splitting. The mean/standard deviation will include information from the test set! 
+- **FIX:** Always split first, then `fit` on train, and `transform` on train and test.
 
 ```mermaid
 graph LR
@@ -456,19 +456,19 @@ full_pipeline = Pipeline(steps=[
 ## 6. Interview Questions 🎯
 
 1. **🎯 What is Data Leakage and how do you prevent it?**
-   *Answer*: Data leakage is when information from outside the training dataset is used to create the model, leading to overly optimistic performance on training but failure in production. Prevent it by splitting data into train/test *before* applying any transformations like scaling or imputation, and using pipelines.
+    - **Answer:** Data leakage is when information from outside the training dataset is used to create the model, leading to overly optimistic performance on training but failure in production. Prevent it by splitting data into train/test *before* applying any transformations like scaling or imputation, and using pipelines.
 
 2. **🎯 Why don't Decision Trees require feature scaling?**
-   *Answer*: Decision trees split data based on thresholds (e.g., `Age > 30`). The scale of the feature doesn't affect the split point relative to the data. Distance-based models like KNN compute Euclidean distance, so large magnitude features would dominate without scaling.
+    - **Answer:** Decision trees split data based on thresholds (e.g., `Age > 30`). The scale of the feature doesn't affect the split point relative to the data. Distance-based models like KNN compute Euclidean distance, so large magnitude features would dominate without scaling.
 
 3. **🎯 What is the Dummy Variable Trap?**
-   *Answer*: When using one-hot encoding, if you create a column for every category, the columns become perfectly collinear (they add up to 1). This breaks algorithms that require matrix inversion (like OLS Linear Regression). Solution: Drop one of the encoded columns (e.g., if Male=1, Female=0, you don't need a Female column).
+    - **Answer:** When using one-hot encoding, if you create a column for every category, the columns become perfectly collinear (they add up to 1). This breaks algorithms that require matrix inversion (like OLS Linear Regression). Solution: Drop one of the encoded columns (e.g., if Male=1, Female=0, you don't need a Female column).
 
 4. **🎯 Explain the difference between MCAR, MAR, and MNAR.**
-   *Answer*: MCAR (Missing Completely At Random) means no pattern to the missingness. MAR (Missing At Random) means missingness can be explained by other observed variables. MNAR (Missing Not At Random) means the missingness is related to the specific value that is missing.
+    - **Answer:** MCAR (Missing Completely At Random) means no pattern to the missingness. MAR (Missing At Random) means missingness can be explained by other observed variables. MNAR (Missing Not At Random) means the missingness is related to the specific value that is missing.
 
 5. **🎯 When would you choose Median Imputation over Mean Imputation?**
-   *Answer*: When the data is highly skewed or contains significant outliers. The mean is easily pulled by extreme values, whereas the median represents the middle of the distribution robustly.
+    - **Answer:** When the data is highly skewed or contains significant outliers. The mean is easily pulled by extreme values, whereas the median represents the middle of the distribution robustly.
 
 ---
 

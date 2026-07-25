@@ -1,263 +1,264 @@
----
-id: 7c9a1b2c-3d4e-5f6a-8b9c-0d1e2f3a4b5c
-title: "Complete Python for AI & ML Part 2 (Intermediate to Advanced) — Part 02: Lists & List Operations"
-type: literature-note
-status: learning
-domain: programming
-source_type: youtube
-created: 2026-07-24
-updated: 2026-07-24
-review: 2026-07-31
-confidence: 95
-version: 1
-aliases:
-  - "Python AI ML Course Part 2 - Part 02"
-tags:
-  - implementation
-  - reference
-  - example
-owner_moc: Programming MOC
-sources:
-  - "[[01_RAW/CAPTURE/Complete Python for AI & ML Part 2 (Intermediate to Advanced).md]]"
-  - "https://www.youtube.com/watch?v=QR2TyeZRknw&t=124s"
-related:
-  - "[[01_RAW/PROCESS/complete-python-for-ai-ml-part-2-part-01.md]]"
-schema_version: 4
----
-
-# Complete Python for AI & ML Part 2 (Intermediate to Advanced) — Part 02: Lists & List Operations
-
-## Executive Overview (00:33:54 - 01:06:51)
-
-* **Source**: [Watch on YouTube](https://www.youtube.com/watch?v=QR2TyeZRknw&t=124s)
-* **Creator**: [[Not Your College]] (Mentor: Akarsh Vyas)
-* **Part 2 Focus**: Deep dive into Python Lists—Core Characteristics (Ordered, Mutable, Heterogeneous, Duplicates), Indexing/Slicing, Memory Model, Traversal Techniques (Value vs. Index), and Core Mutation Methods (`append`, `insert`, `pop`, `remove`, `clear`, `sort`).
-
-Lists serve as the foundational linear data structure in Python, forming the basis for higher-level numerical arrays and data frames used in Machine Learning workflows.
-
----
-
-## 1. Core Characteristics of Python Lists (00:33:54 - 00:43:28)
-
-### 1.1 Definition & Syntax (00:33:59)
-
-A **List** is a mutable, ordered collection of items enclosed within square brackets `[]` and separated by commas.
-
-```python
-# List Definition
-my_list = [12, 23, 45, 67, 89]
-print(type(my_list))  # Output: <class 'list'>
-```
-
-### 1.2 The Four Key Properties of Lists
-
-```mermaid
-flowchart TD
-    ListProperties["Python List Properties"]
-    ListProperties --> Prop1["1. Ordered Nature<br/>(Sequential memory & indexable)"]
-    ListProperties --> Prop2["2. Mutable Nature<br/>(In-place modification allowed)"]
-    ListProperties --> Prop3["3. Duplicate Elements<br/>(Identical items allowed)"]
-    ListProperties --> Prop4["4. Heterogeneous Content<br/>(Mixed data types supported)"]
-```
-
-#### 1. Ordered Nature & Memory Model (00:34:46 - 00:37:16)
-Elements in a list are stored sequentially in memory, with each element assigned a fixed, zero-based position index.
-
-```python
-# Positional Indexing Scheme
-# Element:    12    23    45    67    89
-# Positive:    0     1     2     3     4
-# Negative:   -5    -4    -3    -2    -1
-
-l = [12, 23, 45, 67, 89]
-print(l[1])   # Output: 23 (Positive indexing)
-print(l[-1])  # Output: 89 (Negative indexing)
-```
-
-#### 2. Mutable Nature vs. Immutable Strings (00:37:16 - 00:41:07)
-* **Mutability**: Lists allow modifying individual elements in-place without creating a new object in memory.
-* **String Immutability Comparison**: Strings do not support item assignment and raise a `TypeError` if indexed modification is attempted.
-
-```python
-# STRING IMMUTABILITY (Raises TypeError)
-s = "HELQL"
-# s[-1] = "O"  # TypeError: 'str' object does not support item assignment
-
-# LIST MUTABILITY (Allowed)
-numbers = [10, 22, 30, 40, 50]
-numbers[1] = 20  # Replaces 22 with 20
-print(numbers)   # Output: [10, 20, 30, 40, 50]
-```
-
-#### 3. Duplicate Elements Allowed (00:41:07 - 00:42:33)
-Unlike sets or dictionary keys, lists accept identical elements at multiple index positions.
-
-```python
-duplicates_list = [1, 2, 2, 3, 3, 3, 1]
-print(duplicates_list)  # Output: [1, 2, 2, 3, 3, 3, 1]
-```
-
-#### 4. Heterogeneous Data Storage (00:54:57 - 00:55:50)
-While lower-level arrays (e.g., C arrays) require **homogeneous** data types (all elements must be of the same type), Python lists support **heterogeneous** data types within a single instance:
-
-```python
-mixed_list = [10, 12.5, True, "Hello", print]  # Accepts int, float, bool, str, function
-```
-
----
-
-## 2. List Traversal Techniques (00:43:28 - 00:52:59)
-
-Iterating through a list can be performed via two main paradigms:
-
-```mermaid
-flowchart LR
-    Traversal["List Traversal Methods"]
-    Traversal --> Val["Value Traversal<br/>(for item in list)"]
-    Traversal --> Idx["Index Traversal<br/>(for i in range(len(list)))"]
-    
-    Val --> ValUse["Direct access to elements.<br/>Simpler syntax."]
-    Idx --> IdxUse["Access to both index 'i'<br/>and element 'list[i]'."]
-```
-
-### 2.1 Traversal by Value (00:43:52 - 00:46:00)
-
-Iterates directly over the items stored in the list. Useful when index positions are not required for logic execution.
-
-```python
-a = [10, 20, 30, 40, 50]
-
-for item in a:
-    print(item)
-# Output: 10, 20, 30, 40, 50 (on separate lines)
-```
-
-### 2.2 Traversal by Index (00:46:00 - 00:51:46)
-
-Uses `range(len(list))` to generate integer indices dynamically. This pattern is essential when algorithms require reading or modifying indices alongside element values.
-
-```python
-a = [10, 20, 30, 40, 50]
-
-# Dynamic bounds: len(a) yields 5; range(0, 5) produces indices 0, 1, 2, 3, 4
-for i in range(len(a)):
-    print(f"Index {i} holds value {a[i]}")
-
-# Output:
-# Index 0 holds value 10
-# Index 1 holds value 20
-# Index 2 holds value 30
-# Index 3 holds value 40
-# Index 4 holds value 50
-```
-
----
-
-## 3. List Mutation Methods & Operations (00:52:59 - 01:06:51)
-
-Python's built-in `list` class includes public methods for adding, inserting, deleting, and reordering elements.
-
-### 3.1 Adding & Inserting Elements (00:53:39 - 00:58:20)
-
-| Method | Syntax | Behavior | Complexity / Position |
-| :--- | :--- | :--- | :--- |
-| `append()` | `lst.append(item)` | Appends `item` to the very end of the list. Modifies list in-place. | $O(1)$ amortized; End of list. |
-| `insert()` | `lst.insert(index, item)` | Inserts `item` at target `index`, shifting existing elements to the right. | $O(n)$; Arbitrary index position. |
-
-```python
-numbers = [10, 20, 40, 50]
-
-# 1. Append (Adds to the end)
-numbers.append(60)
-print(numbers)  # Output: [10, 20, 40, 50, 60]
-
-# 2. Insert (Adds at index 2, inserting 30 between 20 and 40)
-numbers.insert(2, 30)
-print(numbers)  # Output: [10, 20, 30, 40, 50, 60]
-```
-
-### 3.2 Functions vs. Methods: Understanding Return Values (00:59:40 - 01:02:19)
-
-A key programming concept is distinguishing between functions that perform side-effects (e.g., `print()`) versus functions/methods that **return** a value.
-
-```python
-# Side effect vs Return value
-def get_greeting():
-    return "How are you?"
-
-result = get_greeting()  # Value captured in 'result' variable
-print(result)            # Output: How are you?
-```
-
-### 3.3 Deleting & Removing Elements (00:58:20 - 01:07:36)
-
-| Method | Syntax | Return Value | Behavior |
-| :--- | :--- | :--- | :--- |
-| `pop()` | `lst.pop([index])` | **Returns removed item** | Removes item at `index` (default: `-1` / last item). Raises `IndexError` if list is empty. |
-| `remove()` | `lst.remove(value)` | Returns `None` | Removes the **first occurrence** of `value`. Raises `ValueError` if `value` is not found. |
-| `clear()` | `lst.clear()` | Returns `None` | Removes all elements, leaving an empty list `[]`. |
-
-```python
-data = [10, 20, 30, 40, 55, 50]
-
-# 1. pop() - Default removes last element (-1) and returns it
-popped_item = data.pop()
-print(popped_item)  # Output: 50
-print(data)         # Output: [10, 20, 30, 40, 55]
-
-# 2. pop(index) - Removes element at specified index 4 (55)
-popped_specific = data.pop(4)
-print(popped_specific)  # Output: 55
-print(data)              # Output: [10, 20, 30, 40]
-
-# 3. remove(value) - Removes first occurrence of value
-sample = [10, 55, 20, 55, 30]
-sample.remove(55)
-print(sample)  # Output: [10, 20, 55, 30] (Second 55 remains)
-
-# 4. clear() - Empties the list completely
-sample.clear()
-print(sample)  # Output: []
-```
-
-### 3.4 Sorting Elements Preview (01:07:12 - 01:08:38)
-
-* `sort()`: Reorders list elements in-place in ascending order (default). Modifies the original list object and returns `None`.
-
-```python
-unsorted = [29, 45, 67, 12, 90, 34]
-unsorted.sort()
-print(unsorted)  # Output: [12, 29, 34, 45, 67, 90]
-```
-
----
-
-## 4. Summary Comparison: List Mutation Methods
-
-| Method Name | Operates On | In-Place Modification? | Return Value | Common Error Trigger |
-| :--- | :--- | :--- | :--- | :--- |
-| `append(x)` | Value | Yes | `None` | Passing multiple arguments directly. |
-| `insert(i, x)` | Index & Value | Yes | `None` | Passing invalid index types. |
-| `pop(i)` | Index (Optional) | Yes | Removed Element | `IndexError` if index out of bounds or list empty. |
-| `remove(x)` | Value | Yes | `None` | `ValueError` if value not found in list. |
-| `clear()` | Entire List | Yes | `None` | None. |
-| `sort()` | Entire List | Yes | `None` | Sorting incompatible types (e.g. `int` and `str`). |
-
----
-
-## Key Terms & Vocabulary
-
-* **List**: An ordered, mutable, heterogeneous collection sequence in Python.
-* **Index**: A zero-based integer representing an element's position in a sequence.
-* **Mutability**: The ability of an object state to be modified after creation.
-* **Heterogeneous**: Containing items of different data types.
-* **In-Place Modification**: Modifying an object directly in memory without creating a new copy.
-* **Traversal**: Iterating sequentially through each element in a collection.
-* **Pop**: An operation that removes and yields an element from a data structure.
-
----
-
-## Next Topics in Part 03
-* Advanced List Methods (`extend`, `index`, `count`, `reverse`, `copy`).
-* List Practice Problems & Algorithmic Patterns.
-* Transition to **Tuples in Python** (`01:42:00`).
+-------
+-i-d-:- -7-c-9-a-1-b-2-c---3-d-4-e---5-f-6-a---8-b-9-c---0-d-1-e-2-f-3-a-4-b-5-c-
+-t-i-t-l-e-:- -"-C-o-m-p-l-e-t-e- -P-y-t-h-o-n- -f-o-r- -A-I- -&- -M-L- -P-a-r-t- -2- -(-I-n-t-e-r-m-e-d-i-a-t-e- -t-o- -A-d-v-a-n-c-e-d-)- --- -P-a-r-t- -0-2-:- -L-i-s-t-s- -&- -L-i-s-t- -O-p-e-r-a-t-i-o-n-s-"-
+-t-y-p-e-:- -l-i-t-e-r-a-t-u-r-e---n-o-t-e-
+-s-t-a-t-u-s-:- -l-e-a-r-n-i-n-g-
+-d-o-m-a-i-n-:- -p-r-o-g-r-a-m-m-i-n-g-
+-s-o-u-r-c-e-_-t-y-p-e-:- -y-o-u-t-u-b-e-
+-c-r-e-a-t-e-d-:- -2-0-2-6---0-7---2-4-
+-u-p-d-a-t-e-d-:- -2-0-2-6---0-7---2-4-
+-r-e-v-i-e-w-:- -2-0-2-6---0-7---3-1-
+-c-o-n-f-i-d-e-n-c-e-:- -9-5-
+-v-e-r-s-i-o-n-:- -1-
+-a-l-i-a-s-e-s-:-
+- - --- -"-P-y-t-h-o-n- -A-I- -M-L- -C-o-u-r-s-e- -P-a-r-t- -2- --- -P-a-r-t- -0-2-"-
+-t-a-g-s-:-
+- - --- -i-m-p-l-e-m-e-n-t-a-t-i-o-n-
+- - --- -r-e-f-e-r-e-n-c-e-
+- - --- -e-x-a-m-p-l-e-
+-o-w-n-e-r-_-m-o-c-:- -P-r-o-g-r-a-m-m-i-n-g- -M-O-C-
+-s-o-u-r-c-e-s-:-
+- - --- -"-[-[-0-1-_-R-A-W-/-C-A-P-T-U-R-E-/-C-o-m-p-l-e-t-e- -P-y-t-h-o-n- -f-o-r- -A-I- -&- -M-L- -P-a-r-t- -2- -(-I-n-t-e-r-m-e-d-i-a-t-e- -t-o- -A-d-v-a-n-c-e-d-)-.-m-d-]-]-"-
+- - --- -"-h-t-t-p-s-:-/-/-w-w-w-.-y-o-u-t-u-b-e-.-c-o-m-/-w-a-t-c-h-?-v-=-Q-R-2-T-y-e-Z-R-k-n-w-&-t-=-1-2-4-s-"-
+-r-e-l-a-t-e-d-:-
+- - --- -"-[-[-0-1-_-R-A-W-/-P-R-O-C-E-S-S-/-c-o-m-p-l-e-t-e---p-y-t-h-o-n---f-o-r---a-i---m-l---p-a-r-t---2---p-a-r-t---0-1-.-m-d-]-]-"-
+-s-c-h-e-m-a-_-v-e-r-s-i-o-n-:- -4-
+-------
+-
+-#- -C-o-m-p-l-e-t-e- -P-y-t-h-o-n- -f-o-r- -A-I- -&- -M-L- -P-a-r-t- -2- -(-I-n-t-e-r-m-e-d-i-a-t-e- -t-o- -A-d-v-a-n-c-e-d-)- --- -P-a-r-t- -0-2-:- -L-i-s-t-s- -&- -L-i-s-t- -O-p-e-r-a-t-i-o-n-s-
+-
+-#-#- -E-x-e-c-u-t-i-v-e- -O-v-e-r-v-i-e-w- -(-0-0-:-3-3-:-5-4- --- -0-1-:-0-6-:-5-1-)-
+-
+-*- -*-*-S-o-u-r-c-e-*-*-:- -[-W-a-t-c-h- -o-n- -Y-o-u-T-u-b-e-]-(-h-t-t-p-s-:-/-/-w-w-w-.-y-o-u-t-u-b-e-.-c-o-m-/-w-a-t-c-h-?-v-=-Q-R-2-T-y-e-Z-R-k-n-w-&-t-=-1-2-4-s-)-
+-*- -*-*-C-r-e-a-t-o-r-*-*-:- -[-[-N-o-t- -Y-o-u-r- -C-o-l-l-e-g-e-]-]- -(-M-e-n-t-o-r-:- -A-k-a-r-s-h- -V-y-a-s-)-
+-*- -*-*-P-a-r-t- -2- -F-o-c-u-s-*-*-:- -D-e-e-p- -d-i-v-e- -i-n-t-o- -P-y-t-h-o-n- -L-i-s-t-s---C-o-r-e- -C-h-a-r-a-c-t-e-r-i-s-t-i-c-s- -(-O-r-d-e-r-e-d-,- -M-u-t-a-b-l-e-,- -H-e-t-e-r-o-g-e-n-e-o-u-s-,- -D-u-p-l-i-c-a-t-e-s-)-,- -I-n-d-e-x-i-n-g-/-S-l-i-c-i-n-g-,- -M-e-m-o-r-y- -M-o-d-e-l-,- -T-r-a-v-e-r-s-a-l- -T-e-c-h-n-i-q-u-e-s- -(-V-a-l-u-e- -v-s-.- -I-n-d-e-x-)-,- -a-n-d- -C-o-r-e- -M-u-t-a-t-i-o-n- -M-e-t-h-o-d-s- -(-`-a-p-p-e-n-d-`-,- -`-i-n-s-e-r-t-`-,- -`-p-o-p-`-,- -`-r-e-m-o-v-e-`-,- -`-c-l-e-a-r-`-,- -`-s-o-r-t-`-)-.-
+-
+-L-i-s-t-s- -s-e-r-v-e- -a-s- -t-h-e- -f-o-u-n-d-a-t-i-o-n-a-l- -l-i-n-e-a-r- -d-a-t-a- -s-t-r-u-c-t-u-r-e- -i-n- -P-y-t-h-o-n-,- -f-o-r-m-i-n-g- -t-h-e- -b-a-s-i-s- -f-o-r- -h-i-g-h-e-r---l-e-v-e-l- -n-u-m-e-r-i-c-a-l- -a-r-r-a-y-s- -a-n-d- -d-a-t-a- -f-r-a-m-e-s- -u-s-e-d- -i-n- -M-a-c-h-i-n-e- -L-e-a-r-n-i-n-g- -w-o-r-k-f-l-o-w-s-.-
+-
+-------
+-
+-#-#- -1-.- -C-o-r-e- -C-h-a-r-a-c-t-e-r-i-s-t-i-c-s- -o-f- -P-y-t-h-o-n- -L-i-s-t-s- -(-0-0-:-3-3-:-5-4- --- -0-0-:-4-3-:-2-8-)-
+-
+-#-#-#- -1-.-1- -D-e-f-i-n-i-t-i-o-n- -&- -S-y-n-t-a-x- -(-0-0-:-3-3-:-5-9-)-
+-
+-A- -*-*-L-i-s-t-*-*- -i-s- -a- -m-u-t-a-b-l-e-,- -o-r-d-e-r-e-d- -c-o-l-l-e-c-t-i-o-n- -o-f- -i-t-e-m-s- -e-n-c-l-o-s-e-d- -w-i-t-h-i-n- -s-q-u-a-r-e- -b-r-a-c-k-e-t-s- -`-[-]-`- -a-n-d- -s-e-p-a-r-a-t-e-d- -b-y- -c-o-m-m-a-s-.-
+-
+-`-`-`-p-y-t-h-o-n-
+-#- -L-i-s-t- -D-e-f-i-n-i-t-i-o-n-
+-m-y-_-l-i-s-t- -=- -[-1-2-,- -2-3-,- -4-5-,- -6-7-,- -8-9-]-
+-p-r-i-n-t-(-t-y-p-e-(-m-y-_-l-i-s-t-)-)- - -#- -O-u-t-p-u-t-:- -<-c-l-a-s-s- -'-l-i-s-t-'->-
+-`-`-`-
+-
+-#-#-#- -1-.-2- -T-h-e- -F-o-u-r- -K-e-y- -P-r-o-p-e-r-t-i-e-s- -o-f- -L-i-s-t-s-
+-
+-`-`-`-m-e-r-m-a-i-d-
+-f-l-o-w-c-h-a-r-t- -T-D-
+- - - - -L-i-s-t-P-r-o-p-e-r-t-i-e-s-[-"-P-y-t-h-o-n- -L-i-s-t- -P-r-o-p-e-r-t-i-e-s-"-]-
+- - - - -L-i-s-t-P-r-o-p-e-r-t-i-e-s- ----->- -P-r-o-p-1-[-"-1-.- -O-r-d-e-r-e-d- -N-a-t-u-r-e-<-b-r-/->-(-S-e-q-u-e-n-t-i-a-l- -m-e-m-o-r-y- -&- -i-n-d-e-x-a-b-l-e-)-"-]-
+- - - - -L-i-s-t-P-r-o-p-e-r-t-i-e-s- ----->- -P-r-o-p-2-[-"-2-.- -M-u-t-a-b-l-e- -N-a-t-u-r-e-<-b-r-/->-(-I-n---p-l-a-c-e- -m-o-d-i-f-i-c-a-t-i-o-n- -a-l-l-o-w-e-d-)-"-]-
+- - - - -L-i-s-t-P-r-o-p-e-r-t-i-e-s- ----->- -P-r-o-p-3-[-"-3-.- -D-u-p-l-i-c-a-t-e- -E-l-e-m-e-n-t-s-<-b-r-/->-(-I-d-e-n-t-i-c-a-l- -i-t-e-m-s- -a-l-l-o-w-e-d-)-"-]-
+- - - - -L-i-s-t-P-r-o-p-e-r-t-i-e-s- ----->- -P-r-o-p-4-[-"-4-.- -H-e-t-e-r-o-g-e-n-e-o-u-s- -C-o-n-t-e-n-t-<-b-r-/->-(-M-i-x-e-d- -d-a-t-a- -t-y-p-e-s- -s-u-p-p-o-r-t-e-d-)-"-]-
+-`-`-`-
+-
+-#-#-#-#- -1-.- -O-r-d-e-r-e-d- -N-a-t-u-r-e- -&- -M-e-m-o-r-y- -M-o-d-e-l- -(-0-0-:-3-4-:-4-6- --- -0-0-:-3-7-:-1-6-)-
+-E-l-e-m-e-n-t-s- -i-n- -a- -l-i-s-t- -a-r-e- -s-t-o-r-e-d- -s-e-q-u-e-n-t-i-a-l-l-y- -i-n- -m-e-m-o-r-y-,- -w-i-t-h- -e-a-c-h- -e-l-e-m-e-n-t- -a-s-s-i-g-n-e-d- -a- -f-i-x-e-d-,- -z-e-r-o---b-a-s-e-d- -p-o-s-i-t-i-o-n- -i-n-d-e-x-.-
+-
+-`-`-`-p-y-t-h-o-n-
+-#- -P-o-s-i-t-i-o-n-a-l- -I-n-d-e-x-i-n-g- -S-c-h-e-m-e-
+-#- -E-l-e-m-e-n-t-:- - - - -1-2- - - - -2-3- - - - -4-5- - - - -6-7- - - - -8-9-
+-#- -P-o-s-i-t-i-v-e-:- - - - -0- - - - - -1- - - - - -2- - - - - -3- - - - - -4-
+-#- -N-e-g-a-t-i-v-e-:- - - ---5- - - - ---4- - - - ---3- - - - ---2- - - - ---1-
+-
+-l- -=- -[-1-2-,- -2-3-,- -4-5-,- -6-7-,- -8-9-]-
+-p-r-i-n-t-(-l-[-1-]-)- - - -#- -O-u-t-p-u-t-:- -2-3- -(-P-o-s-i-t-i-v-e- -i-n-d-e-x-i-n-g-)-
+-p-r-i-n-t-(-l-[---1-]-)- - -#- -O-u-t-p-u-t-:- -8-9- -(-N-e-g-a-t-i-v-e- -i-n-d-e-x-i-n-g-)-
+-`-`-`-
+-
+-#-#-#-#- -2-.- -M-u-t-a-b-l-e- -N-a-t-u-r-e- -v-s-.- -I-m-m-u-t-a-b-l-e- -S-t-r-i-n-g-s- -(-0-0-:-3-7-:-1-6- --- -0-0-:-4-1-:-0-7-)-
+-*- -*-*-M-u-t-a-b-i-l-i-t-y-*-*-:- -L-i-s-t-s- -a-l-l-o-w- -m-o-d-i-f-y-i-n-g- -i-n-d-i-v-i-d-u-a-l- -e-l-e-m-e-n-t-s- -i-n---p-l-a-c-e- -w-i-t-h-o-u-t- -c-r-e-a-t-i-n-g- -a- -n-e-w- -o-b-j-e-c-t- -i-n- -m-e-m-o-r-y-.-
+-*- -*-*-S-t-r-i-n-g- -I-m-m-u-t-a-b-i-l-i-t-y- -C-o-m-p-a-r-i-s-o-n-*-*-:- -S-t-r-i-n-g-s- -d-o- -n-o-t- -s-u-p-p-o-r-t- -i-t-e-m- -a-s-s-i-g-n-m-e-n-t- -a-n-d- -r-a-i-s-e- -a- -`-T-y-p-e-E-r-r-o-r-`- -i-f- -i-n-d-e-x-e-d- -m-o-d-i-f-i-c-a-t-i-o-n- -i-s- -a-t-t-e-m-p-t-e-d-.-
+-
+-`-`-`-p-y-t-h-o-n-
+-#- -S-T-R-I-N-G- -I-M-M-U-T-A-B-I-L-I-T-Y- -(-R-a-i-s-e-s- -T-y-p-e-E-r-r-o-r-)-
+-s- -=- -"-H-E-L-Q-L-"-
+-#- -s-[---1-]- -=- -"-O-"- - -#- -T-y-p-e-E-r-r-o-r-:- -'-s-t-r-'- -o-b-j-e-c-t- -d-o-e-s- -n-o-t- -s-u-p-p-o-r-t- -i-t-e-m- -a-s-s-i-g-n-m-e-n-t-
+-
+-#- -L-I-S-T- -M-U-T-A-B-I-L-I-T-Y- -(-A-l-l-o-w-e-d-)-
+-n-u-m-b-e-r-s- -=- -[-1-0-,- -2-2-,- -3-0-,- -4-0-,- -5-0-]-
+-n-u-m-b-e-r-s-[-1-]- -=- -2-0- - -#- -R-e-p-l-a-c-e-s- -2-2- -w-i-t-h- -2-0-
+-p-r-i-n-t-(-n-u-m-b-e-r-s-)- - - -#- -O-u-t-p-u-t-:- -[-1-0-,- -2-0-,- -3-0-,- -4-0-,- -5-0-]-
+-`-`-`-
+-
+-#-#-#-#- -3-.- -D-u-p-l-i-c-a-t-e- -E-l-e-m-e-n-t-s- -A-l-l-o-w-e-d- -(-0-0-:-4-1-:-0-7- --- -0-0-:-4-2-:-3-3-)-
+-U-n-l-i-k-e- -s-e-t-s- -o-r- -d-i-c-t-i-o-n-a-r-y- -k-e-y-s-,- -l-i-s-t-s- -a-c-c-e-p-t- -i-d-e-n-t-i-c-a-l- -e-l-e-m-e-n-t-s- -a-t- -m-u-l-t-i-p-l-e- -i-n-d-e-x- -p-o-s-i-t-i-o-n-s-.-
+-
+-`-`-`-p-y-t-h-o-n-
+-d-u-p-l-i-c-a-t-e-s-_-l-i-s-t- -=- -[-1-,- -2-,- -2-,- -3-,- -3-,- -3-,- -1-]-
+-p-r-i-n-t-(-d-u-p-l-i-c-a-t-e-s-_-l-i-s-t-)- - -#- -O-u-t-p-u-t-:- -[-1-,- -2-,- -2-,- -3-,- -3-,- -3-,- -1-]-
+-`-`-`-
+-
+-#-#-#-#- -4-.- -H-e-t-e-r-o-g-e-n-e-o-u-s- -D-a-t-a- -S-t-o-r-a-g-e- -(-0-0-:-5-4-:-5-7- --- -0-0-:-5-5-:-5-0-)-
+-W-h-i-l-e- -l-o-w-e-r---l-e-v-e-l- -a-r-r-a-y-s- -(-e-.-g-.-,- -C- -a-r-r-a-y-s-)- -r-e-q-u-i-r-e- -*-*-h-o-m-o-g-e-n-e-o-u-s-*-*- -d-a-t-a- -t-y-p-e-s- -(-a-l-l- -e-l-e-m-e-n-t-s- -m-u-s-t- -b-e- -o-f- -t-h-e- -s-a-m-e- -t-y-p-e-)-,- -P-y-t-h-o-n- -l-i-s-t-s- -s-u-p-p-o-r-t- -*-*-h-e-t-e-r-o-g-e-n-e-o-u-s-*-*- -d-a-t-a- -t-y-p-e-s- -w-i-t-h-i-n- -a- -s-i-n-g-l-e- -i-n-s-t-a-n-c-e-:-
+-
+-`-`-`-p-y-t-h-o-n-
+-m-i-x-e-d-_-l-i-s-t- -=- -[-1-0-,- -1-2-.-5-,- -T-r-u-e-,- -"-H-e-l-l-o-"-,- -p-r-i-n-t-]- - -#- -A-c-c-e-p-t-s- -i-n-t-,- -f-l-o-a-t-,- -b-o-o-l-,- -s-t-r-,- -f-u-n-c-t-i-o-n-
+-`-`-`-
+-
+-------
+-
+-#-#- -2-.- -L-i-s-t- -T-r-a-v-e-r-s-a-l- -T-e-c-h-n-i-q-u-e-s- -(-0-0-:-4-3-:-2-8- --- -0-0-:-5-2-:-5-9-)-
+-
+-I-t-e-r-a-t-i-n-g- -t-h-r-o-u-g-h- -a- -l-i-s-t- -c-a-n- -b-e- -p-e-r-f-o-r-m-e-d- -v-i-a- -t-w-o- -m-a-i-n- -p-a-r-a-d-i-g-m-s-:-
+-
+-`-`-`-m-e-r-m-a-i-d-
+-f-l-o-w-c-h-a-r-t- -L-R-
+- - - - -T-r-a-v-e-r-s-a-l-[-"-L-i-s-t- -T-r-a-v-e-r-s-a-l- -M-e-t-h-o-d-s-"-]-
+- - - - -T-r-a-v-e-r-s-a-l- ----->- -V-a-l-[-"-V-a-l-u-e- -T-r-a-v-e-r-s-a-l-<-b-r-/->-(-f-o-r- -i-t-e-m- -i-n- -l-i-s-t-)-"-]-
+- - - - -T-r-a-v-e-r-s-a-l- ----->- -I-d-x-[-"-I-n-d-e-x- -T-r-a-v-e-r-s-a-l-<-b-r-/->-(-f-o-r- -i- -i-n- -r-a-n-g-e-(-l-e-n-(-l-i-s-t-)-)-)-"-]-
+- - - - -
+- - - - -V-a-l- ----->- -V-a-l-U-s-e-[-"-D-i-r-e-c-t- -a-c-c-e-s-s- -t-o- -e-l-e-m-e-n-t-s-.-<-b-r-/->-S-i-m-p-l-e-r- -s-y-n-t-a-x-.-"-]-
+- - - - -I-d-x- ----->- -I-d-x-U-s-e-[-"-A-c-c-e-s-s- -t-o- -b-o-t-h- -i-n-d-e-x- -'-i-'-<-b-r-/->-a-n-d- -e-l-e-m-e-n-t- -'-l-i-s-t-[-i-]-'-.-"-]-
+-`-`-`-
+-
+-#-#-#- -2-.-1- -T-r-a-v-e-r-s-a-l- -b-y- -V-a-l-u-e- -(-0-0-:-4-3-:-5-2- --- -0-0-:-4-6-:-0-0-)-
+-
+-I-t-e-r-a-t-e-s- -d-i-r-e-c-t-l-y- -o-v-e-r- -t-h-e- -i-t-e-m-s- -s-t-o-r-e-d- -i-n- -t-h-e- -l-i-s-t-.- -U-s-e-f-u-l- -w-h-e-n- -i-n-d-e-x- -p-o-s-i-t-i-o-n-s- -a-r-e- -n-o-t- -r-e-q-u-i-r-e-d- -f-o-r- -l-o-g-i-c- -e-x-e-c-u-t-i-o-n-.-
+-
+-`-`-`-p-y-t-h-o-n-
+-a- -=- -[-1-0-,- -2-0-,- -3-0-,- -4-0-,- -5-0-]-
+-
+-f-o-r- -i-t-e-m- -i-n- -a-:-
+- - - - -p-r-i-n-t-(-i-t-e-m-)-
+-#- -O-u-t-p-u-t-:- -1-0-,- -2-0-,- -3-0-,- -4-0-,- -5-0- -(-o-n- -s-e-p-a-r-a-t-e- -l-i-n-e-s-)-
+-`-`-`-
+-
+-#-#-#- -2-.-2- -T-r-a-v-e-r-s-a-l- -b-y- -I-n-d-e-x- -(-0-0-:-4-6-:-0-0- --- -0-0-:-5-1-:-4-6-)-
+-
+-U-s-e-s- -`-r-a-n-g-e-(-l-e-n-(-l-i-s-t-)-)-`- -t-o- -g-e-n-e-r-a-t-e- -i-n-t-e-g-e-r- -i-n-d-i-c-e-s- -d-y-n-a-m-i-c-a-l-l-y-.- -T-h-i-s- -p-a-t-t-e-r-n- -i-s- -e-s-s-e-n-t-i-a-l- -w-h-e-n- -a-l-g-o-r-i-t-h-m-s- -r-e-q-u-i-r-e- -r-e-a-d-i-n-g- -o-r- -m-o-d-i-f-y-i-n-g- -i-n-d-i-c-e-s- -a-l-o-n-g-s-i-d-e- -e-l-e-m-e-n-t- -v-a-l-u-e-s-.-
+-
+-`-`-`-p-y-t-h-o-n-
+-a- -=- -[-1-0-,- -2-0-,- -3-0-,- -4-0-,- -5-0-]-
+-
+-#- -D-y-n-a-m-i-c- -b-o-u-n-d-s-:- -l-e-n-(-a-)- -y-i-e-l-d-s- -5-;- -r-a-n-g-e-(-0-,- -5-)- -p-r-o-d-u-c-e-s- -i-n-d-i-c-e-s- -0-,- -1-,- -2-,- -3-,- -4-
+-f-o-r- -i- -i-n- -r-a-n-g-e-(-l-e-n-(-a-)-)-:-
+- - - - -p-r-i-n-t-(-f-"-I-n-d-e-x- -{-i-}- -h-o-l-d-s- -v-a-l-u-e- -{-a-[-i-]-}-"-)-
+-
+-#- -O-u-t-p-u-t-:-
+-#- -I-n-d-e-x- -0- -h-o-l-d-s- -v-a-l-u-e- -1-0-
+-#- -I-n-d-e-x- -1- -h-o-l-d-s- -v-a-l-u-e- -2-0-
+-#- -I-n-d-e-x- -2- -h-o-l-d-s- -v-a-l-u-e- -3-0-
+-#- -I-n-d-e-x- -3- -h-o-l-d-s- -v-a-l-u-e- -4-0-
+-#- -I-n-d-e-x- -4- -h-o-l-d-s- -v-a-l-u-e- -5-0-
+-`-`-`-
+-
+-------
+-
+-#-#- -3-.- -L-i-s-t- -M-u-t-a-t-i-o-n- -M-e-t-h-o-d-s- -&- -O-p-e-r-a-t-i-o-n-s- -(-0-0-:-5-2-:-5-9- --- -0-1-:-0-6-:-5-1-)-
+-
+-P-y-t-h-o-n-'-s- -b-u-i-l-t---i-n- -`-l-i-s-t-`- -c-l-a-s-s- -i-n-c-l-u-d-e-s- -p-u-b-l-i-c- -m-e-t-h-o-d-s- -f-o-r- -a-d-d-i-n-g-,- -i-n-s-e-r-t-i-n-g-,- -d-e-l-e-t-i-n-g-,- -a-n-d- -r-e-o-r-d-e-r-i-n-g- -e-l-e-m-e-n-t-s-.-
+-
+-#-#-#- -3-.-1- -A-d-d-i-n-g- -&- -I-n-s-e-r-t-i-n-g- -E-l-e-m-e-n-t-s- -(-0-0-:-5-3-:-3-9- --- -0-0-:-5-8-:-2-0-)-
+-
+-|- -M-e-t-h-o-d- -|- -S-y-n-t-a-x- -|- -B-e-h-a-v-i-o-r- -|- -C-o-m-p-l-e-x-i-t-y- -/- -P-o-s-i-t-i-o-n- -|-
+-|- -:------- -|- -:------- -|- -:------- -|- -:------- -|-
+-|- -`-a-p-p-e-n-d-(-)-`- -|- -`-l-s-t-.-a-p-p-e-n-d-(-i-t-e-m-)-`- -|- -A-p-p-e-n-d-s- -`-i-t-e-m-`- -t-o- -t-h-e- -v-e-r-y- -e-n-d- -o-f- -t-h-e- -l-i-s-t-.- -M-o-d-i-f-i-e-s- -l-i-s-t- -i-n---p-l-a-c-e-.- -|- -$-O-(-1-)-$- -a-m-o-r-t-i-z-e-d-;- -E-n-d- -o-f- -l-i-s-t-.- -|-
+-|- -`-i-n-s-e-r-t-(-)-`- -|- -`-l-s-t-.-i-n-s-e-r-t-(-i-n-d-e-x-,- -i-t-e-m-)-`- -|- -I-n-s-e-r-t-s- -`-i-t-e-m-`- -a-t- -t-a-r-g-e-t- -`-i-n-d-e-x-`-,- -s-h-i-f-t-i-n-g- -e-x-i-s-t-i-n-g- -e-l-e-m-e-n-t-s- -t-o- -t-h-e- -r-i-g-h-t-.- -|- -$-O-(-n-)-$-;- -A-r-b-i-t-r-a-r-y- -i-n-d-e-x- -p-o-s-i-t-i-o-n-.- -|-
+-
+-`-`-`-p-y-t-h-o-n-
+-n-u-m-b-e-r-s- -=- -[-1-0-,- -2-0-,- -4-0-,- -5-0-]-
+-
+-#- -1-.- -A-p-p-e-n-d- -(-A-d-d-s- -t-o- -t-h-e- -e-n-d-)-
+-n-u-m-b-e-r-s-.-a-p-p-e-n-d-(-6-0-)-
+-p-r-i-n-t-(-n-u-m-b-e-r-s-)- - -#- -O-u-t-p-u-t-:- -[-1-0-,- -2-0-,- -4-0-,- -5-0-,- -6-0-]-
+-
+-#- -2-.- -I-n-s-e-r-t- -(-A-d-d-s- -a-t- -i-n-d-e-x- -2-,- -i-n-s-e-r-t-i-n-g- -3-0- -b-e-t-w-e-e-n- -2-0- -a-n-d- -4-0-)-
+-n-u-m-b-e-r-s-.-i-n-s-e-r-t-(-2-,- -3-0-)-
+-p-r-i-n-t-(-n-u-m-b-e-r-s-)- - -#- -O-u-t-p-u-t-:- -[-1-0-,- -2-0-,- -3-0-,- -4-0-,- -5-0-,- -6-0-]-
+-`-`-`-
+-
+-#-#-#- -3-.-2- -F-u-n-c-t-i-o-n-s- -v-s-.- -M-e-t-h-o-d-s-:- -U-n-d-e-r-s-t-a-n-d-i-n-g- -R-e-t-u-r-n- -V-a-l-u-e-s- -(-0-0-:-5-9-:-4-0- --- -0-1-:-0-2-:-1-9-)-
+-
+-A- -k-e-y- -p-r-o-g-r-a-m-m-i-n-g- -c-o-n-c-e-p-t- -i-s- -d-i-s-t-i-n-g-u-i-s-h-i-n-g- -b-e-t-w-e-e-n- -f-u-n-c-t-i-o-n-s- -t-h-a-t- -p-e-r-f-o-r-m- -s-i-d-e---e-f-f-e-c-t-s- -(-e-.-g-.-,- -`-p-r-i-n-t-(-)-`-)- -v-e-r-s-u-s- -f-u-n-c-t-i-o-n-s-/-m-e-t-h-o-d-s- -t-h-a-t- -*-*-r-e-t-u-r-n-*-*- -a- -v-a-l-u-e-.-
+-
+-`-`-`-p-y-t-h-o-n-
+-#- -S-i-d-e- -e-f-f-e-c-t- -v-s- -R-e-t-u-r-n- -v-a-l-u-e-
+-d-e-f- -g-e-t-_-g-r-e-e-t-i-n-g-(-)-:-
+- - - - -r-e-t-u-r-n- -"-H-o-w- -a-r-e- -y-o-u-?-"-
+-
+-r-e-s-u-l-t- -=- -g-e-t-_-g-r-e-e-t-i-n-g-(-)- - -#- -V-a-l-u-e- -c-a-p-t-u-r-e-d- -i-n- -'-r-e-s-u-l-t-'- -v-a-r-i-a-b-l-e-
+-p-r-i-n-t-(-r-e-s-u-l-t-)- - - - - - - - - - - - -#- -O-u-t-p-u-t-:- -H-o-w- -a-r-e- -y-o-u-?-
+-`-`-`-
+-
+-#-#-#- -3-.-3- -D-e-l-e-t-i-n-g- -&- -R-e-m-o-v-i-n-g- -E-l-e-m-e-n-t-s- -(-0-0-:-5-8-:-2-0- --- -0-1-:-0-7-:-3-6-)-
+-
+-|- -M-e-t-h-o-d- -|- -S-y-n-t-a-x- -|- -R-e-t-u-r-n- -V-a-l-u-e- -|- -B-e-h-a-v-i-o-r- -|-
+-|- -:------- -|- -:------- -|- -:------- -|- -:------- -|-
+-|- -`-p-o-p-(-)-`- -|- -`-l-s-t-.-p-o-p-(-[-i-n-d-e-x-]-)-`- -|- -*-*-R-e-t-u-r-n-s- -r-e-m-o-v-e-d- -i-t-e-m-*-*- -|- -R-e-m-o-v-e-s- -i-t-e-m- -a-t- -`-i-n-d-e-x-`- -(-d-e-f-a-u-l-t-:- -`---1-`- -/- -l-a-s-t- -i-t-e-m-)-.- -R-a-i-s-e-s- -`-I-n-d-e-x-E-r-r-o-r-`- -i-f- -l-i-s-t- -i-s- -e-m-p-t-y-.- -|-
+-|- -`-r-e-m-o-v-e-(-)-`- -|- -`-l-s-t-.-r-e-m-o-v-e-(-v-a-l-u-e-)-`- -|- -R-e-t-u-r-n-s- -`-N-o-n-e-`- -|- -R-e-m-o-v-e-s- -t-h-e- -*-*-f-i-r-s-t- -o-c-c-u-r-r-e-n-c-e-*-*- -o-f- -`-v-a-l-u-e-`-.- -R-a-i-s-e-s- -`-V-a-l-u-e-E-r-r-o-r-`- -i-f- -`-v-a-l-u-e-`- -i-s- -n-o-t- -f-o-u-n-d-.- -|-
+-|- -`-c-l-e-a-r-(-)-`- -|- -`-l-s-t-.-c-l-e-a-r-(-)-`- -|- -R-e-t-u-r-n-s- -`-N-o-n-e-`- -|- -R-e-m-o-v-e-s- -a-l-l- -e-l-e-m-e-n-t-s-,- -l-e-a-v-i-n-g- -a-n- -e-m-p-t-y- -l-i-s-t- -`-[-]-`-.- -|-
+-
+-`-`-`-p-y-t-h-o-n-
+-d-a-t-a- -=- -[-1-0-,- -2-0-,- -3-0-,- -4-0-,- -5-5-,- -5-0-]-
+-
+-#- -1-.- -p-o-p-(-)- --- -D-e-f-a-u-l-t- -r-e-m-o-v-e-s- -l-a-s-t- -e-l-e-m-e-n-t- -(---1-)- -a-n-d- -r-e-t-u-r-n-s- -i-t-
+-p-o-p-p-e-d-_-i-t-e-m- -=- -d-a-t-a-.-p-o-p-(-)-
+-p-r-i-n-t-(-p-o-p-p-e-d-_-i-t-e-m-)- - -#- -O-u-t-p-u-t-:- -5-0-
+-p-r-i-n-t-(-d-a-t-a-)- - - - - - - - - -#- -O-u-t-p-u-t-:- -[-1-0-,- -2-0-,- -3-0-,- -4-0-,- -5-5-]-
+-
+-#- -2-.- -p-o-p-(-i-n-d-e-x-)- --- -R-e-m-o-v-e-s- -e-l-e-m-e-n-t- -a-t- -s-p-e-c-i-f-i-e-d- -i-n-d-e-x- -4- -(-5-5-)-
+-p-o-p-p-e-d-_-s-p-e-c-i-f-i-c- -=- -d-a-t-a-.-p-o-p-(-4-)-
+-p-r-i-n-t-(-p-o-p-p-e-d-_-s-p-e-c-i-f-i-c-)- - -#- -O-u-t-p-u-t-:- -5-5-
+-p-r-i-n-t-(-d-a-t-a-)- - - - - - - - - - - - - - -#- -O-u-t-p-u-t-:- -[-1-0-,- -2-0-,- -3-0-,- -4-0-]-
+-
+-#- -3-.- -r-e-m-o-v-e-(-v-a-l-u-e-)- --- -R-e-m-o-v-e-s- -f-i-r-s-t- -o-c-c-u-r-r-e-n-c-e- -o-f- -v-a-l-u-e-
+-s-a-m-p-l-e- -=- -[-1-0-,- -5-5-,- -2-0-,- -5-5-,- -3-0-]-
+-s-a-m-p-l-e-.-r-e-m-o-v-e-(-5-5-)-
+-p-r-i-n-t-(-s-a-m-p-l-e-)- - -#- -O-u-t-p-u-t-:- -[-1-0-,- -2-0-,- -5-5-,- -3-0-]- -(-S-e-c-o-n-d- -5-5- -r-e-m-a-i-n-s-)-
+-
+-#- -4-.- -c-l-e-a-r-(-)- --- -E-m-p-t-i-e-s- -t-h-e- -l-i-s-t- -c-o-m-p-l-e-t-e-l-y-
+-s-a-m-p-l-e-.-c-l-e-a-r-(-)-
+-p-r-i-n-t-(-s-a-m-p-l-e-)- - -#- -O-u-t-p-u-t-:- -[-]-
+-`-`-`-
+-
+-#-#-#- -3-.-4- -S-o-r-t-i-n-g- -E-l-e-m-e-n-t-s- -P-r-e-v-i-e-w- -(-0-1-:-0-7-:-1-2- --- -0-1-:-0-8-:-3-8-)-
+-
+-*- -`-s-o-r-t-(-)-`-:- -R-e-o-r-d-e-r-s- -l-i-s-t- -e-l-e-m-e-n-t-s- -i-n---p-l-a-c-e- -i-n- -a-s-c-e-n-d-i-n-g- -o-r-d-e-r- -(-d-e-f-a-u-l-t-)-.- -M-o-d-i-f-i-e-s- -t-h-e- -o-r-i-g-i-n-a-l- -l-i-s-t- -o-b-j-e-c-t- -a-n-d- -r-e-t-u-r-n-s- -`-N-o-n-e-`-.-
+-
+-`-`-`-p-y-t-h-o-n-
+-u-n-s-o-r-t-e-d- -=- -[-2-9-,- -4-5-,- -6-7-,- -1-2-,- -9-0-,- -3-4-]-
+-u-n-s-o-r-t-e-d-.-s-o-r-t-(-)-
+-p-r-i-n-t-(-u-n-s-o-r-t-e-d-)- - -#- -O-u-t-p-u-t-:- -[-1-2-,- -2-9-,- -3-4-,- -4-5-,- -6-7-,- -9-0-]-
+-`-`-`-
+-
+-------
+-
+-#-#- -4-.- -S-u-m-m-a-r-y- -C-o-m-p-a-r-i-s-o-n-:- -L-i-s-t- -M-u-t-a-t-i-o-n- -M-e-t-h-o-d-s-
+-
+-|- -M-e-t-h-o-d- -N-a-m-e- -|- -O-p-e-r-a-t-e-s- -O-n- -|- -I-n---P-l-a-c-e- -M-o-d-i-f-i-c-a-t-i-o-n-?- -|- -R-e-t-u-r-n- -V-a-l-u-e- -|- -C-o-m-m-o-n- -E-r-r-o-r- -T-r-i-g-g-e-r- -|-
+-|- -:------- -|- -:------- -|- -:------- -|- -:------- -|- -:------- -|-
+-|- -`-a-p-p-e-n-d-(-x-)-`- -|- -V-a-l-u-e- -|- -Y-e-s- -|- -`-N-o-n-e-`- -|- -P-a-s-s-i-n-g- -m-u-l-t-i-p-l-e- -a-r-g-u-m-e-n-t-s- -d-i-r-e-c-t-l-y-.- -|-
+-|- -`-i-n-s-e-r-t-(-i-,- -x-)-`- -|- -I-n-d-e-x- -&- -V-a-l-u-e- -|- -Y-e-s- -|- -`-N-o-n-e-`- -|- -P-a-s-s-i-n-g- -i-n-v-a-l-i-d- -i-n-d-e-x- -t-y-p-e-s-.- -|-
+-|- -`-p-o-p-(-i-)-`- -|- -I-n-d-e-x- -(-O-p-t-i-o-n-a-l-)- -|- -Y-e-s- -|- -R-e-m-o-v-e-d- -E-l-e-m-e-n-t- -|- -`-I-n-d-e-x-E-r-r-o-r-`- -i-f- -i-n-d-e-x- -o-u-t- -o-f- -b-o-u-n-d-s- -o-r- -l-i-s-t- -e-m-p-t-y-.- -|-
+-|- -`-r-e-m-o-v-e-(-x-)-`- -|- -V-a-l-u-e- -|- -Y-e-s- -|- -`-N-o-n-e-`- -|- -`-V-a-l-u-e-E-r-r-o-r-`- -i-f- -v-a-l-u-e- -n-o-t- -f-o-u-n-d- -i-n- -l-i-s-t-.- -|-
+-|- -`-c-l-e-a-r-(-)-`- -|- -E-n-t-i-r-e- -L-i-s-t- -|- -Y-e-s- -|- -`-N-o-n-e-`- -|- -N-o-n-e-.- -|-
+-|- -`-s-o-r-t-(-)-`- -|- -E-n-t-i-r-e- -L-i-s-t- -|- -Y-e-s- -|- -`-N-o-n-e-`- -|- -S-o-r-t-i-n-g- -i-n-c-o-m-p-a-t-i-b-l-e- -t-y-p-e-s- -(-e-.-g-.- -`-i-n-t-`- -a-n-d- -`-s-t-r-`-)-.- -|-
+-
+-------
+-
+-#-#- -K-e-y- -T-e-r-m-s- -&- -V-o-c-a-b-u-l-a-r-y-
+-
+-*- -*-*-L-i-s-t-*-*-:- -A-n- -o-r-d-e-r-e-d-,- -m-u-t-a-b-l-e-,- -h-e-t-e-r-o-g-e-n-e-o-u-s- -c-o-l-l-e-c-t-i-o-n- -s-e-q-u-e-n-c-e- -i-n- -P-y-t-h-o-n-.-
+-*- -*-*-I-n-d-e-x-*-*-:- -A- -z-e-r-o---b-a-s-e-d- -i-n-t-e-g-e-r- -r-e-p-r-e-s-e-n-t-i-n-g- -a-n- -e-l-e-m-e-n-t-'-s- -p-o-s-i-t-i-o-n- -i-n- -a- -s-e-q-u-e-n-c-e-.-
+-*- -*-*-M-u-t-a-b-i-l-i-t-y-*-*-:- -T-h-e- -a-b-i-l-i-t-y- -o-f- -a-n- -o-b-j-e-c-t- -s-t-a-t-e- -t-o- -b-e- -m-o-d-i-f-i-e-d- -a-f-t-e-r- -c-r-e-a-t-i-o-n-.-
+-*- -*-*-H-e-t-e-r-o-g-e-n-e-o-u-s-*-*-:- -C-o-n-t-a-i-n-i-n-g- -i-t-e-m-s- -o-f- -d-i-f-f-e-r-e-n-t- -d-a-t-a- -t-y-p-e-s-.-
+-*- -*-*-I-n---P-l-a-c-e- -M-o-d-i-f-i-c-a-t-i-o-n-*-*-:- -M-o-d-i-f-y-i-n-g- -a-n- -o-b-j-e-c-t- -d-i-r-e-c-t-l-y- -i-n- -m-e-m-o-r-y- -w-i-t-h-o-u-t- -c-r-e-a-t-i-n-g- -a- -n-e-w- -c-o-p-y-.-
+-*- -*-*-T-r-a-v-e-r-s-a-l-*-*-:- -I-t-e-r-a-t-i-n-g- -s-e-q-u-e-n-t-i-a-l-l-y- -t-h-r-o-u-g-h- -e-a-c-h- -e-l-e-m-e-n-t- -i-n- -a- -c-o-l-l-e-c-t-i-o-n-.-
+-*- -*-*-P-o-p-*-*-:- -A-n- -o-p-e-r-a-t-i-o-n- -t-h-a-t- -r-e-m-o-v-e-s- -a-n-d- -y-i-e-l-d-s- -a-n- -e-l-e-m-e-n-t- -f-r-o-m- -a- -d-a-t-a- -s-t-r-u-c-t-u-r-e-.-
+-
+-------
+-
+-#-#- -N-e-x-t- -T-o-p-i-c-s- -i-n- -P-a-r-t- -0-3-
+-*- -A-d-v-a-n-c-e-d- -L-i-s-t- -M-e-t-h-o-d-s- -(-`-e-x-t-e-n-d-`-,- -`-i-n-d-e-x-`-,- -`-c-o-u-n-t-`-,- -`-r-e-v-e-r-s-e-`-,- -`-c-o-p-y-`-)-.-
+-*- -L-i-s-t- -P-r-a-c-t-i-c-e- -P-r-o-b-l-e-m-s- -&- -A-l-g-o-r-i-t-h-m-i-c- -P-a-t-t-e-r-n-s-.-
+-*- -T-r-a-n-s-i-t-i-o-n- -t-o- -*-*-T-u-p-l-e-s- -i-n- -P-y-t-h-o-n-*-*- -(-`-0-1-:-4-2-:-0-0-`-)-.-
+-

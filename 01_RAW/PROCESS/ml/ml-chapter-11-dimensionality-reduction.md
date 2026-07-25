@@ -1,6 +1,6 @@
 ---
 id: 9a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
-title: "ML Study Notes — Chapter 11: Dimensionality Reduction"
+title: 'ML Study Notes — Chapter 11: Dimensionality Reduction'
 type: evergreen-note
 status: learning
 domain: general
@@ -10,19 +10,22 @@ updated: 2026-07-24
 review: 2026-08-24
 confidence: 95
 version: 1
-aliases: ["PCA", "t-SNE", "UMAP", "Feature Selection", "Feature Extraction", "Curse of Dimensionality"]
+aliases:
+- PCA
+- t-SNE
+- UMAP
+- Feature Selection
+- Feature Extraction
+- Curse of Dimensionality
 tags:
-  - beginner
-  - implementation
-  - reference
-  - unsupervised-learning
-  - machine-learning
+- beginner
+- implementation
+- reference
 owner_moc: Machine Learning Mastery MOC
 sources: []
 related: []
 schema_version: 4
 ---
-
 # ML Study Notes — Chapter 11: Dimensionality Reduction
 
 Welcome back! So far, we've dealt with datasets that have a manageable number of columns (features). But what happens when you have thousands, or even millions, of features? Imagine working with high-resolution images where every single pixel is a feature, or analyzing DNA sequences. 
@@ -513,19 +516,19 @@ plt.show()
 ## 13. Interview Questions 🎯
 
 1. **🎯 What is the Curse of Dimensionality?**
-   *Answer*: As dimensions increase, data becomes sparse, making it hard for algorithms to find patterns. Distance metrics (like Euclidean) lose meaning because the distance between any two points becomes roughly equal.
+    - **Answer:** As dimensions increase, data becomes sparse, making it hard for algorithms to find patterns. Distance metrics (like Euclidean) lose meaning because the distance between any two points becomes roughly equal.
 2. **🎯 How does PCA work?**
-   *Answer*: PCA standardizes data, calculates the covariance matrix, computes its eigenvalues and eigenvectors, and uses the eigenvectors with the largest eigenvalues to project data into a lower-dimensional space, maximizing variance.
+    - **Answer:** PCA standardizes data, calculates the covariance matrix, computes its eigenvalues and eigenvectors, and uses the eigenvectors with the largest eigenvalues to project data into a lower-dimensional space, maximizing variance.
 3. **🎯 Why do we need to scale data before applying PCA?**
-   *Answer*: PCA looks for directions of maximum variance. If features are on different scales, features with larger ranges will artificially dominate the principal components.
+    - **Answer:** PCA looks for directions of maximum variance. If features are on different scales, features with larger ranges will artificially dominate the principal components.
 4. **🎯 What is the difference between PCA and LDA?**
-   *Answer*: PCA is unsupervised and maximizes the variance of the data regardless of class. LDA is supervised and maximizes the separability between known classes while minimizing within-class scatter.
+    - **Answer:** PCA is unsupervised and maximizes the variance of the data regardless of class. LDA is supervised and maximizes the separability between known classes while minimizing within-class scatter.
 5. **🎯 Can PCA be used for categorical variables?**
-   *Answer*: Generally, no. PCA assumes continuous numerical data and linear relationships. For categorical data, techniques like Multiple Correspondence Analysis (MCA) are better.
+    - **Answer:** Generally, no. PCA assumes continuous numerical data and linear relationships. For categorical data, techniques like Multiple Correspondence Analysis (MCA) are better.
 6. **🎯 Why would you choose UMAP over t-SNE?**
-   *Answer*: UMAP is much faster, scales to larger datasets better, and preserves global data structure (the relationship between clusters) much better than t-SNE, which mostly focuses on local neighbors.
+    - **Answer:** UMAP is much faster, scales to larger datasets better, and preserves global data structure (the relationship between clusters) much better than t-SNE, which mostly focuses on local neighbors.
 7. **🎯 Explain Feature Selection vs Feature Extraction.**
-   *Answer*: Selection drops columns to keep a subset of original features (maintains interpretability). Extraction mathematically combines columns to create entirely new, lower-dimensional features (loses interpretability but often retains more information).
+    - **Answer:** Selection drops columns to keep a subset of original features (maintains interpretability). Extraction mathematically combines columns to create entirely new, lower-dimensional features (loses interpretability but often retains more information).
 
 ---
 

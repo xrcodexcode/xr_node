@@ -1,6 +1,6 @@
 ---
 id: 9a7b3c2d-1e4f-4a5b-8c7d-3e2f1a0b9c8d
-title: "ML Study Notes — Chapter 16: ML Deployment and Interview Preparation"
+title: 'ML Study Notes — Chapter 16: ML Deployment and Interview Preparation'
 type: evergreen-note
 status: learning
 domain: general
@@ -10,19 +10,19 @@ updated: 2026-07-24
 review: 2026-08-24
 confidence: 95
 version: 1
-aliases: ["ML Deployment", "MLOps", "ML Interview Guide", "Machine Learning Interview Prep"]
+aliases:
+- ML Deployment
+- MLOps
+- ML Interview Guide
+- Machine Learning Interview Prep
 tags:
-  - advanced
-  - deployment
-  - mlops
-  - interview
-  - reference
+- advanced
+- reference
 owner_moc: Machine Learning Mastery MOC
 sources: []
 related: []
 schema_version: 4
 ---
-
 # ML Study Notes — Chapter 16: ML Deployment and Interview Preparation
 
 Welcome to the **final chapter**, future ML Engineer! 🎓 
@@ -414,56 +414,56 @@ Here is the holy grail. Master these to crack the theory rounds.
 
 ### ML Basics
 1. 🎯 **What is the Bias-Variance Tradeoff?**
-   *Answer*: Bias is error from erroneous assumptions (underfitting). Variance is error from sensitivity to small fluctuations in training data (overfitting). As model complexity increases, bias decreases and variance increases. You want the sweet spot in the middle.
+    - **Answer:** Bias is error from erroneous assumptions (underfitting). Variance is error from sensitivity to small fluctuations in training data (overfitting). As model complexity increases, bias decreases and variance increases. You want the sweet spot in the middle.
 2. 🎯 **What is overfitting and how do you prevent it?**
-   *Answer*: When a model learns the noise in the training data instead of the signal, failing to generalize. Prevent via: more data, cross-validation, regularization (L1/L2), pruning, early stopping, or simpler models.
+    - **Answer:** When a model learns the noise in the training data instead of the signal, failing to generalize. Prevent via: more data, cross-validation, regularization (L1/L2), pruning, early stopping, or simpler models.
 3. **What is cross-validation?**
-   *Answer*: Splitting data into $k$ folds, training on $k-1$ folds and validating on the remaining fold, repeating $k$ times to ensure the model's robustness and prevent overfitting to a specific train-test split.
+    - **Answer:** Splitting data into $k$ folds, training on $k-1$ folds and validating on the remaining fold, repeating $k$ times to ensure the model's robustness and prevent overfitting to a specific train-test split.
 4. **Parametric vs Non-parametric models?**
-   *Answer*: Parametric models (Linear Regression, Naive Bayes) have a fixed number of parameters and strong assumptions about data distribution. Non-parametric models (KNN, Decision Trees) grow in complexity with data and make fewer assumptions.
+    - **Answer:** Parametric models (Linear Regression, Naive Bayes) have a fixed number of parameters and strong assumptions about data distribution. Non-parametric models (KNN, Decision Trees) grow in complexity with data and make fewer assumptions.
 5. **What is the Curse of Dimensionality?**
-   *Answer*: As the number of features increases, the volume of the feature space increases exponentially, making data sparse. This degrades the performance of distance-based algorithms like KNN.
+    - **Answer:** As the number of features increases, the volume of the feature space increases exponentially, making data sparse. This degrades the performance of distance-based algorithms like KNN.
 
 ### Supervised Learning
 6. 🎯 **What are the assumptions of Linear Regression?**
-   *Answer*: Linear relationship, Independence of errors, Homoscedasticity (constant variance of errors), Normality of error distribution, and lack of Multicollinearity.
+    - **Answer:** Linear relationship, Independence of errors, Homoscedasticity (constant variance of errors), Normality of error distribution, and lack of Multicollinearity.
 7. 🎯 **Logistic Regression vs Support Vector Machines (SVM)?**
-   *Answer*: Both are linear classifiers. Logistic regression outputs probabilities and optimizes log loss. SVM focuses on maximizing the margin between classes and uses support vectors; it handles non-linear data well via the kernel trick.
+    - **Answer:** Both are linear classifiers. Logistic regression outputs probabilities and optimizes log loss. SVM focuses on maximizing the margin between classes and uses support vectors; it handles non-linear data well via the kernel trick.
 8. **Explain the Random Forest algorithm.**
-   *Answer*: An ensemble method using Bagging. It builds multiple decision trees on bootstrapped samples of the data, and at each split, it only considers a random subset of features. The final prediction is majority vote (classification) or average (regression).
+    - **Answer:** An ensemble method using Bagging. It builds multiple decision trees on bootstrapped samples of the data, and at each split, it only considers a random subset of features. The final prediction is majority vote (classification) or average (regression).
 9. 🎯 **Random Forest vs Gradient Boosting?**
-   *Answer*: RF builds trees independently in parallel (bagging) to reduce variance. GB builds trees sequentially (boosting), where each tree tries to correct the errors of the previous one, reducing bias.
+    - **Answer:** RF builds trees independently in parallel (bagging) to reduce variance. GB builds trees sequentially (boosting), where each tree tries to correct the errors of the previous one, reducing bias.
 10. **What is the Kernel Trick in SVM?**
-    *Answer*: A mathematical technique that projects non-linearly separable data into a higher-dimensional space where a linear hyperplane can separate them, without explicitly computing the coordinates in that high-dimensional space.
+    - **Answer:** A mathematical technique that projects non-linearly separable data into a higher-dimensional space where a linear hyperplane can separate them, without explicitly computing the coordinates in that high-dimensional space.
 
 ### Unsupervised Learning
 11. 🎯 **How does K-Means work? How do you choose K?**
-    *Answer*: Initialize K centroids. Assign points to nearest centroid. Update centroids to mean of assigned points. Repeat until convergence. Choose K using the **Elbow Method** (plot WCSS vs K and find the "elbow") or Silhouette Score.
+    - **Answer:** Initialize K centroids. Assign points to nearest centroid. Update centroids to mean of assigned points. Repeat until convergence. Choose K using the **Elbow Method** (plot WCSS vs K and find the "elbow") or Silhouette Score.
 12. **Limitations of K-Means?**
-    *Answer*: Assumes spherical clusters of equal size. Highly sensitive to outliers and initial centroid placement. Struggles with non-linear cluster boundaries.
+    - **Answer:** Assumes spherical clusters of equal size. Highly sensitive to outliers and initial centroid placement. Struggles with non-linear cluster boundaries.
 13. 🎯 **Explain Principal Component Analysis (PCA).**
-    *Answer*: A dimensionality reduction technique that transforms original variables into a new set of orthogonal variables (Principal Components) that capture the maximum variance in the data.
+    - **Answer:** A dimensionality reduction technique that transforms original variables into a new set of orthogonal variables (Principal Components) that capture the maximum variance in the data.
 
 ### Feature Engineering & Data Handling
 14. 🎯 **How do you handle imbalanced datasets?**
-    *Answer*: 1. Resampling (SMOTE for oversampling, or undersampling). 2. Choose right metrics (F1, PR-AUC instead of Accuracy). 3. Class weights in the algorithm. 4. Use tree-based ensemble methods.
+    - **Answer:** 1. Resampling (SMOTE for oversampling, or undersampling). 2. Choose right metrics (F1, PR-AUC instead of Accuracy). 3. Class weights in the algorithm. 4. Use tree-based ensemble methods.
 15. **When should you use Standardization (Z-score) vs Normalization (Min-Max)?**
-    *Answer*: Standardization (mean 0, std 1) is preferred when data has outliers or follows a Gaussian distribution, commonly used for SVM, Logistic Regression, PCA. Normalization (scale 0-1) is good when you need a bounded range, e.g., for Neural Networks or image pixels.
+    - **Answer:** Standardization (mean 0, std 1) is preferred when data has outliers or follows a Gaussian distribution, commonly used for SVM, Logistic Regression, PCA. Normalization (scale 0-1) is good when you need a bounded range, e.g., for Neural Networks or image pixels.
 16. **How do you handle missing values?**
-    *Answer*: Dropping rows/cols (if missingness is low), Mean/Median/Mode imputation, predictive imputation (KNN, IterativeImputer), or treating "Missing" as a distinct category.
+    - **Answer:** Dropping rows/cols (if missingness is low), Mean/Median/Mode imputation, predictive imputation (KNN, IterativeImputer), or treating "Missing" as a distinct category.
 
 ### Evaluation Metrics
 17. 🎯 **Precision vs Recall? Give an example.**
-    *Answer*: Precision is "Out of all predicted Positives, how many are actually Positive?" Recall is "Out of all actual Positives, how many did we find?" 
+    - **Answer:** Precision is "Out of all predicted Positives, how many are actually Positive?" Recall is "Out of all actual Positives, how many did we find?" 
     *Example*: In cancer detection, High Recall is crucial (don't miss any cancer). In spam filtering, High Precision is crucial (don't send real emails to spam).
 18. **What is the F1 Score?**
-    *Answer*: The harmonic mean of Precision and Recall. $F1 = 2 \times \frac{Precision \times Recall}{Precision + Recall}$. Used when you want a balance and have imbalanced classes.
+    - **Answer:** The harmonic mean of Precision and Recall. $F1 = 2 \times \frac{Precision \times Recall}{Precision + Recall}$. Used when you want a balance and have imbalanced classes.
 19. 🎯 **What is ROC-AUC?**
-    *Answer*: ROC curve plots True Positive Rate (Recall) vs False Positive Rate at various thresholds. AUC is the Area Under the Curve (0 to 1). It measures the model's ability to rank positive instances higher than negative instances.
+    - **Answer:** ROC curve plots True Positive Rate (Recall) vs False Positive Rate at various thresholds. AUC is the Area Under the Curve (0 to 1). It measures the model's ability to rank positive instances higher than negative instances.
 
 ### Practical / System Design
 20. 🎯 **How would you build a fraud detection system?**
-    *Answer*: Frame as binary classification. Handle severe class imbalance. Extract features (transaction frequency, location mismatch, amount velocity). Choose an interpretable model like XGBoost. Optimize for high Recall (catch fraud) but monitor False Positive Rate so customers' cards aren't constantly blocked.
+    - **Answer:** Frame as binary classification. Handle severe class imbalance. Extract features (transaction frequency, location mismatch, amount velocity). Choose an interpretable model like XGBoost. Optimize for high Recall (catch fraud) but monitor False Positive Rate so customers' cards aren't constantly blocked.
 
 *(Note for the student: Be sure to look up and study the rest of the 50 common questions online. We've highlighted the most critical 20 here!)*
 
