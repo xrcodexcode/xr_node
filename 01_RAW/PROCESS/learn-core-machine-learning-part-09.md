@@ -8,8 +8,8 @@ source_type: youtube
 created: 2026-07-27
 updated: 2026-07-27
 review: 2026-08-27
-confidence: 95
-version: 1
+confidence: 98
+version: 3
 aliases: []
 tags:
   - yt
@@ -41,73 +41,70 @@ Part 09 presents the statistical foundations and diagnostic requirements for Ord
 
 ---
 
-## 1. The 5 Core Assumptions of Linear Regression (4:20:00 – 4:35:00)
+## 1. The 5 Core Gauss-Markov Assumptions (4:20:00 – 4:35:00)
 
 ```mermaid
 flowchart TD
-    OLS["OLS Regression Reliability"] --> A1["1. Linearity<br/>Relationship between X and Y is linear"]
+    OLS["OLS BLUE Property (Gauss-Markov)"] --> A1["1. Linearity<br/>Relationship between X and Y is linear"]
     OLS --> A2["2. Independence of Errors<br/>No autocorrelation in residual errors e_i"]
     OLS --> A3["3. Homoscedasticity<br/>Constant error variance Var(e_i) = sigma^2"]
     OLS --> A4["4. Normality of Residuals<br/>Error terms e_i ~ N(0, sigma^2)"]
-    OLS --> A5["5. No Multicollinearity<br/>Features X_i are not linearly dependent"]
+    OLS --> A5["5. No Multicollinearity<br/>Features X_j are not linearly dependent"]
 ```
 
 ### 1. Linearity
-- **Assumption**: Target $Y$ is a linear combination of independent variables $X_j$.
-- **Diagnostic**: Scatter plot of $X$ vs. $Y$ or plot of residuals vs. fitted values $\hat{y}$.
+- **Assumption**: Target $Y$ is a linear combination of features $X_j$.
+- **Diagnostic**: Residuals vs. Fitted Values plot ($\hat{y}$ vs $e$). Curvature indicates non-linearity.
 
 ### 2. Independence of Errors (No Autocorrelation)
-- **Assumption**: Residual errors $\epsilon_i$ and $\epsilon_j$ are uncorrelated for any $i \neq j$.
-- **Diagnostic**: **Durbin-Watson Test** (values near $2.0$ indicate zero autocorrelation; values $< 1.5$ or $> 2.5$ flag significant correlation).
+- **Assumption**: Residual errors $e_i$ and $e_j$ are uncorrelated ($\text{Cov}(e_i, e_j) = 0$).
+- **Diagnostic**: **Durbin-Watson Test** statistic $d$:
+  $$d = \frac{\sum_{i=2}^{n} (e_i - e_{i-1})^2}{\sum_{i=1}^{n} e_i^2}$$
+  - $d \approx 2.0$: Zero autocorrelation (Ideal).
+  - $d < 1.5$: Positive autocorrelation.
+  - $d > 2.5$: Negative autocorrelation.
 
 ### 3. Homoscedasticity vs. Heteroscedasticity
-- **Assumption**: The variance of residual errors is constant across all predicted values $\hat{y}$: $\text{Var}(\epsilon_i) = \sigma^2$.
-- **Violation (Heteroscedasticity)**: Error variance expands or contracts (fan/cone shape on residual plot).
+- **Assumption**: Error variance is constant across all predicted values: $\text{Var}(e_i) = \sigma^2$.
+- **Violation (Heteroscedasticity)**: Error variance expands or contracts (fan/cone pattern on residual plot).
 
 ```mermaid
 flowchart LR
-    Sub1["Fitted Values y_hat"] --> Hom["Homoscedasticity<br/>Even horizontal band of residuals"]
-    Sub2["Fitted Values y_hat"] --> Het["Heteroscedasticity<br/>Cone / Fan shape expanding residuals"]
+    Sub1["Fitted Values y_hat"] --> Hom["Homoscedasticity<br/>Constant equal error band"]
+    Sub2["Fitted Values y_hat"] --> Het["Heteroscedasticity<br/>Expanding fan/cone shape error"]
 ```
 
 ### 4. Normality of Residual Errors
-- **Assumption**: Residual errors are normally distributed with zero mean: $\epsilon \sim \mathcal{N}(0, \sigma^2)$.
-- **Diagnostic**: Q-Q Plot (Quantile-Quantile plot) or Shapiro-Wilk test.
+- **Assumption**: Residual errors follow a normal distribution centered at zero: $e_i \sim \mathcal{N}(0, \sigma^2)$.
+- **Diagnostic**: Quantile-Quantile (Q-Q) plot or Shapiro-Wilk statistical test.
 
 ---
 
 ## 2. Multicollinearity & Variance Inflation Factor (VIF) (4:35:01 – 4:51:00)
 
 ### 2.1 Multicollinearity Mechanics
-Multicollinearity occurs when two or more predictor features are highly correlated with each other.
-- **Consequence**: Makes $(X^T X)$ nearly singular ($\det(X^T X) \approx 0$), causing coefficient estimates $\beta_j$ to become highly unstable with inflated standard errors.
+Multicollinearity occurs when two or more predictor features are strongly correlated with each other.
+- **Impact**: Causes $(X^T X)$ to become nearly singular ($\det(X^T X) \approx 0$), inflating the standard errors of coefficients $\beta_j$ and making p-values unreliable.
 
-### 2.2 Variance Inflation Factor (VIF)
-To measure how much the variance of an estimated regression coefficient is inflated due to collinearity, compute $\text{VIF}_j$ for feature $X_j$:
+### 2.2 Variance Inflation Factor (VIF) Formula
+To measure coefficient variance inflation for feature $X_j$, compute $\text{VIF}_j$:
 
 $$\text{VIF}_j = \frac{1}{1 - R_j^2}$$
 
-Where $R_j^2$ is the coefficient of determination obtained by regressing $X_j$ on all other remaining features.
+Where $R_j^2$ is the $R^2$ score obtained by regressing feature $X_j$ against all other remaining independent features.
 
-| VIF Range | Collinearity Severity | Recommended Action |
+| VIF Range | Severity | Recommended Action |
 |---|---|---|
-| $\text{VIF} = 1.0$ | No correlation | Retain feature |
-| $1.0 < \text{VIF} < 5.0$ | Moderate correlation | Acceptable in practice |
+| $\text{VIF} = 1.0$ | No correlation | Retain feature as-is |
+| $1.0 < \text{VIF} < 5.0$ | Moderate correlation | Acceptable in most applications |
 | $\text{VIF} \ge 5.0 - 10.0$ | High multicollinearity | Investigate; consider dropping or combining features |
-| $\text{VIF} > 10.0$ | Severe multicollinearity | **Must drop feature** or apply Ridge/Lasso regularization |
+| $\text{VIF} > 10.0$ | **Severe multicollinearity** | **Must drop feature** or apply Ridge/Lasso regularization |
 
 ---
 
 ## Key Terminology & Glossary
 
-- **Gauss-Markov Theorem**: States that under classical assumptions, OLS estimators are BLUE (Best Linear Unbiased Estimators).
-- **Homoscedasticity**: Property where residual error variance remains constant across all levels of independent variables.
-- **Heteroscedasticity**: Non-constant error variance, leading to unreliable hypothesis tests ($p$-values) and confidence intervals.
-- **VIF (Variance Inflation Factor)**: Metric quantifying how much multicollinearity increases the variance of estimated regression coefficients.
-
----
-
-## Verification & Self-Assessment
-
-- **Mandatory Validation**: Schema v4, UUID `e5f67890-9b0c-1d2e-3f4a-567890123456`, controlled tags `[yt, beginner, reference, example]`, non-English translation complete, timestamp citations anchored `(MM:SS)`.
-- **Confidence Assessment**: **High** (fully aligned with transcript scope).
+- **BLUE**: Best Linear Unbiased Estimator property guaranteed by Gauss-Markov assumptions.
+- **Homoscedasticity**: Property of equal residual variance across all fitted target values.
+- **Heteroscedasticity**: Non-constant residual variance leading to invalid hypothesis tests.
+- **VIF**: Metric quantifying coefficient variance inflation due to feature collinearity.

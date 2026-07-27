@@ -8,8 +8,8 @@ source_type: youtube
 created: 2026-07-27
 updated: 2026-07-27
 review: 2026-08-27
-confidence: 95
-version: 1
+confidence: 98
+version: 3
 aliases: []
 tags:
   - yt
@@ -31,69 +31,72 @@ schema_version: 4
 > - **Instructor**: [[Ayush Singh]]
 > - **Video Link**: [YouTube Source](https://www.youtube.com/watch?v=0g-XL0WV2xo)
 > - **Segment Scope**: `7:03:32` – `8:15:00` (Part 13 of 14)
-> - **Primary Focus**: Comprehensive Enterprise Real Estate / Automotive Capstone Project Setup, Multi-Variable EDA, Outlier Removal, One-Hot / Ordinal Categorical Encoding, Pipeline Engineering.
+> - **Primary Focus**: Enterprise Capstone EDA, Interquartile Range (IQR) Outlier Removal, One-Hot Encoding, Dummy Variable Trap Prevention, Scikit-Learn `ColumnTransformer` & Data Pipeline Engineering.
 
 ---
 
 ## Executive Summary
 
-Part 13 begins the comprehensive enterprise-grade capstone project. It covers advanced Exploratory Data Analysis (EDA), robust outlier detection using Interquartile Range (IQR) bounds, categorical feature transformation (One-Hot Encoding vs. Ordinal Encoding), VIF multicollinearity screening, and scikit-learn $\text{Pipeline}$ construction.
+Part 13 initiates the advanced enterprise-grade capstone project. It details Exploratory Data Analysis (EDA), IQR outlier bounds calculation, categorical encoding (One-Hot vs. Ordinal), VIF multicollinearity screening, and scikit-learn `Pipeline` and `ColumnTransformer` building.
 
 ---
 
-## 1. Advanced Exploratory Data Analysis (EDA) (7:03:32 – 7:35:00)
+## 1. Outlier Removal via Interquartile Range (IQR) (7:03:32 – 7:35:00)
 
 ```mermaid
 flowchart TD
-    Raw["Raw Multi-Feature Tabular Data"] --> Dist["1. Distribution Plots (Histograms & KDE)"]
-    Dist --> Outlier["2. Outlier Detection via IQR"]
-    Outlier --> Corr["3. Correlation Matrix Heatmap Analysis"]
-    Corr --> VIF["4. Multicollinearity VIF Filtering"]
+    Raw["Raw Feature Data"] --> Calc["Calculate Percentiles: Q1 (25th) & Q3 (75th)"]
+    Calc --> IQR["Compute IQR = Q3 - Q1"]
+    IQR --> Bounds["Set Bounds: Lower = Q1 - 1.5*IQR, Upper = Q3 + 1.5*IQR"]
+    Bounds --> Filter["Clip / Filter Outliers Outside [Lower, Upper]"]
 ```
-
-### 1.1 Outlier Removal via Interquartile Range (IQR)
-Outliers distort OLS parameter estimation due to squared error terms. Outlier boundaries are defined using $Q_1$ ($25^{\text{th}}$ percentile) and $Q_3$ ($75^{\text{th}}$ percentile):
-
-$$\text{IQR} = Q_3 - Q_1$$
-
-$$\text{Lower Bound} = Q_1 - 1.5 \times \text{IQR}, \quad \text{Upper Bound} = Q_3 + 1.5 \times \text{IQR}$$
-
-Values outside $[\text{Lower Bound}, \text{Upper Bound}]$ are clipped or removed.
 
 ---
 
-## 2. Categorical Feature Encoding & ColumnTransformer (7:35:01 – 8:15:00)
-
-### 2.1 One-Hot Encoding vs. Dummy Variable Trap
-Converting categorical variables (e.g., Car Transmission: Manual, Automatic, Semi-Auto) into binary indicator columns:
-- **Dummy Variable Trap**: Including binary columns for all $k$ categories introduces perfect multicollinearity ($\sum \text{Dummies} = 1 = \mathbf{x_0}$).
-- **Solution**: Always drop one reference category ($\text{drop}='first'$), creating $k-1$ dummy columns.
-
-### 2.2 Scikit-Learn Pipeline Construction
+## 2. Categorical Encoding & Scikit-Learn Pipeline Code (7:35:01 – 8:15:00)
 
 ```python
+import pandas as pd
+import numpy as np
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from statsmodels.stats.outliers_influence import variance_inflation_factor
 
-# Define Numerical & Categorical Features
+# 1. Function to Calculate VIF
+def calculate_vif(df_features):
+    vif_data = pd.DataFrame()
+    vif_data["Feature"] = df_features.columns
+    vif_data["VIF"] = [
+        variance_inflation_factor(df_features.values, i)
+        for i in range(df_features.shape[1])
+    ]
+    return vif_data
+
+# 2. Outlier Clipping via IQR
+def remove_iqr_outliers(df, col):
+    Q1 = df[col].quantile(0.25)
+    Q3 = df[col].quantile(0.75)
+    IQR = Q3 - Q1
+    lower_bound = Q1 - 1.5 * IQR
+    upper_bound = Q3 + 1.5 * IQR
+    return df[(df[col] >= lower_bound) & (df[col] <= upper_bound)]
+
+# 3. Build Production Preprocessing ColumnTransformer
 num_features = ['age', 'mileage', 'engine_size']
 cat_features = ['fuel_type', 'transmission']
 
-# Numerical Pipeline
 num_pipeline = Pipeline([
     ('imputer', SimpleImputer(strategy='median')),
     ('scaler', StandardScaler())
 ])
 
-# Categorical Pipeline
 cat_pipeline = Pipeline([
     ('imputer', SimpleImputer(strategy='most_frequent')),
     ('onehot', OneHotEncoder(drop='first', sparse_output=False))
 ])
 
-# Preprocessing ColumnTransformer
 preprocessor = ColumnTransformer([
     ('num', num_pipeline, num_features),
     ('cat', cat_pipeline, cat_features)
@@ -104,13 +107,6 @@ preprocessor = ColumnTransformer([
 
 ## Key Terminology & Glossary
 
-- **IQR (Interquartile Range)**: Range between $75^{\text{th}}$ and $25^{\text{th}}$ percentiles ($Q_3 - Q_1$) used for robust outlier detection.
-- **Dummy Variable Trap**: State of perfect multicollinearity resulting from including all indicator categories without dropping one reference column.
-- **ColumnTransformer**: Scikit-learn utility allowing different preprocessing pipelines to be applied to different subsets of features.
-
----
-
-## Verification & Self-Assessment
-
-- **Mandatory Validation**: Schema v4, UUID `c4d5e6f7-3a4b-5c6d-7e8f-901234567890`, controlled tags `[yt, beginner, reference, example]`, non-English translation complete, timestamp citations anchored `(MM:SS)`.
-- **Confidence Assessment**: **High** (fully aligned with transcript scope).
+- **IQR (Interquartile Range)**: Difference between 75th and 25th percentiles ($Q_3 - Q_1$).
+- **Dummy Variable Trap**: Multicollinearity caused by including all one-hot encoded binary columns without dropping a reference column.
+- **ColumnTransformer**: Scikit-learn feature preprocessor applying distinct transformations to subset column groups.

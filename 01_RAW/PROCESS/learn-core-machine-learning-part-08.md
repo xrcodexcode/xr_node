@@ -8,8 +8,8 @@ source_type: youtube
 created: 2026-07-27
 updated: 2026-07-27
 review: 2026-08-27
-confidence: 95
-version: 1
+confidence: 98
+version: 3
 aliases: []
 tags:
   - yt
@@ -31,17 +31,17 @@ schema_version: 4
 > - **Instructor**: [[Ayush Singh]]
 > - **Video Link**: [YouTube Source](https://www.youtube.com/watch?v=0g-XL0WV2xo)
 > - **Segment Scope**: `3:48:00` – `4:20:00` (Part 8 of 14)
-> - **Primary Focus**: Multiple Linear Regression (MLR) Vectorization, Design Matrix $X$, Linear Algebra Dot Products, OLS Closed-Form Normal Equation $\beta = (X^T X)^{-1} X^T y$.
+> - **Primary Focus**: Multiple Linear Regression (MLR), Design Matrix $X$, Linear Algebra Vectorization, Vectorized Cost Function Derivation, Closed-Form Normal Equation $\beta = (X^T X)^{-1} X^T y$, Normal Equation vs. Gradient Descent Comparison.
 
 ---
 
 ## Executive Summary
 
-Part 08 extends simple linear regression into **Multiple Linear Regression (MLR)** for $p$ feature variables. It details the linear algebra formulation using the **Design Matrix** $X$, explains why vectorized dot products heavily reduce computational overhead in Python/NumPy, and introduces the closed-form **Normal Equation** analytical solution.
+Part 08 extends simple linear regression into **Multiple Linear Regression (MLR)** for $p$ feature variables. It details the linear algebra formulation using the **Design Matrix** $X$, proves why vectorized dot products heavily reduce computational overhead in Python/NumPy, and derives the closed-form analytical solution known as the **Normal Equation**.
 
 ---
 
-## 1. Multiple Linear Regression Formulation (3:48:00 – 3:56:00)
+## 1. Multiple Linear Regression Matrix Formulation (3:48:00 – 3:56:00)
 
 ### 1.1 Multi-Feature Hypothesis Equation
 When predicting target $Y$ using $p$ independent features $X_1, X_2, \dots, X_p$:
@@ -50,11 +50,11 @@ $$\hat{y} = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p$$
 
 ```mermaid
 flowchart LR
-    X0["x_0 = 1 (Intercept Dummy Feature) (3:53:34)"] --> Dot["Vector Dot Product X * Beta (3:48:44)"]
+    X0["x_0 = 1 (Intercept Dummy Column) (3:53:34)"] --> Dot["Vector Dot Product X * Beta (3:48:44)"]
     X1["x_1 (Feature 1)"] --> Dot
     X2["x_2 (Feature 2)"] --> Dot
     Xp["x_p (Feature p)"] --> Dot
-    Dot --> YHat["Prediction Vector y_hat (4:01:52)"]
+    Dot --> YHat["Predictions Vector y_hat (4:01:52)"]
 ```
 
 ### 1.2 Design Matrix $X$ Structure `(3:50:00 - 3:51:49)`
@@ -86,21 +86,24 @@ Expanding the matrix multiplication:
 
 $$J(\beta) = \frac{1}{2n} \left( \beta^T X^T X \beta - 2 \beta^T X^T y + y^T y \right)$$
 
-```mermaid
-flowchart TD
-    Expand["1. Expand Vectorized MSE: J(beta) = 1/(2n) * (beta^T X^T X beta - 2 beta^T X^T y + y^T y)"] --> Derivative["2. Compute Matrix Gradient w.r.t Vector beta: dJ/d(beta) = 1/n * (X^T X beta - X^T y)"]
-    Derivative --> Zero["3. Set Gradient equal to Zero Vector: X^T X beta - X^T y = 0"]
-    Zero --> Solve["4. Multiply by Inverse (X^T X)^(-1) -> Normal Equation: beta = (X^T X)^(-1) X^T y"]
-```
+### 2.2 Derivation of the Closed-Form Normal Equation
+To find optimal parameters $\beta^*$, compute the matrix gradient $\nabla_\beta J(\beta)$ and set it to the zero vector $\mathbf{0}$:
 
-### 2.2 The Closed-Form Normal Equation
-Setting the matrix gradient $\nabla_\beta J = \mathbf{0}$ yields:
+$$\nabla_\beta J(\beta) = \frac{1}{n} \left( X^T X \beta - X^T y \right) = \mathbf{0}$$
 
 $$X^T X \beta = X^T y$$
 
-Assuming matrix $(X^T X)$ is invertible (non-singular):
+Assuming matrix $(X^T X)$ is non-singular ($\det(X^T X) \neq 0$), multiply both sides by inverse $(X^T X)^{-1}$:
 
 $$\beta = (X^T X)^{-1} X^T y$$
+
+```mermaid
+flowchart TD
+    Cost["1. Vectorized MSE Cost: J(beta) = 1/(2n) * (X beta - y)^T (X beta - y)"] --> Expand["2. Expand Terms: beta^T X^T X beta - 2 beta^T X^T y + y^T y"]
+    Expand --> Grad["3. Matrix Gradient: dJ/d(beta) = 1/n * (X^T X beta - X^T y)"]
+    Grad --> SetZero["4. Set Gradient to Zero Vector: X^T X beta = X^T y"]
+    SetZero --> Solve["5. Multiply by Inverse: beta = (X^T X)^(-1) X^T y (Normal Equation)"]
+```
 
 ---
 
@@ -108,22 +111,16 @@ $$\beta = (X^T X)^{-1} X^T y$$
 
 | Criterion | Normal Equation ($\beta = (X^T X)^{-1} X^T y$) | Gradient Descent ($\beta := \beta - \alpha \nabla J$) |
 |---|---|---|
-| **Learning Rate ($\alpha$)** | No tuning required | Requires careful hyperparameter tuning |
-| **Iterative Steps** | Single analytical computation | Requires multiple iterations |
-| **Computational Complexity** | $\mathcal{O}(p^3)$ due to matrix inversion $(X^T X)^{-1}$ | $\mathcal{O}(k n p)$ for $k$ iterations |
-| **Feature Scalability** | Slow for large $p$ ($p > 10,000$) | Scales extremely well to large $p$ and $n$ |
+| **Learning Rate ($\alpha$)** | **No tuning required** | Requires careful tuning |
+| **Iterative Loops** | $0$ (Single analytical step) | Requires $k$ iterations |
+| **Computational Complexity** | $\mathcal{O}(p^3)$ due to matrix inversion $(X^T X)^{-1}$ | $\mathcal{O}(k \cdot n \cdot p)$ per run |
+| **Large $p$ Scalability ($p > 10,000$)** | Extremely slow / Out of Memory | Scales efficiently to large $p$ |
+| **Invertibility Requirement** | Fails if $(X^T X)$ is singular / non-invertible | Always functions |
 
 ---
 
 ## Key Terminology & Glossary
 
-- **Design Matrix ($X$)**: Matrix of dimension $n \times (p+1)$ containing feature values for all samples with an added initial column of ones.
-- **Normal Equation**: Analytical closed-form solution to linear regression that finds optimal parameters without iteration.
-- **Invertibility Condition**: $(X^T X)$ must be non-singular ($\det(X^T X) \neq 0$) for the Normal Equation to exist.
-
----
-
-## Verification & Self-Assessment
-
-- **Mandatory Validation**: Schema v4, UUID `d4e5f678-8a9b-0c1d-2e3f-456789012345`, controlled tags `[yt, beginner, reference, example]`, non-English translation complete, timestamp citations anchored `(MM:SS)`.
-- **Confidence Assessment**: **High** (fully aligned with transcript lines 1195-1280).
+- **Design Matrix ($X$)**: Matrix of shape $n \times (p+1)$ containing all feature observations with a column of ones for intercept.
+- **Normal Equation**: Closed-form analytical solution finding optimal parameters $\beta$ in a single matrix inversion step.
+- **Non-Singular Matrix**: A square matrix with a non-zero determinant that possesses a valid inverse.
