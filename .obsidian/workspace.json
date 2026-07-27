@@ -11,10 +11,14 @@
             "id": "b1abfe1402d05465",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "02_NEW-KNOWLEDGE/detailed-study-notes-75-top-fails-of-modiji-part-1.md",
+                "mode": "preview",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "detailed-study-notes-75-top-fails-of-modiji-part-1"
             }
           }
         ]
@@ -74,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "43d09af49b9b51ad",
@@ -189,6 +194,17 @@
   },
   "active": "b1abfe1402d05465",
   "lastOpenFiles": [
+    "02_NEW-KNOWLEDGE/detailed-study-notes-fpv-for-normal-people.md",
+    "02_NEW-KNOWLEDGE/detailed-study-notes-how-medical-mafia-turned-doctor-shortage-into-a-4000-cr-business.md",
+    "02_NEW-KNOWLEDGE/dsa-arrays-strings.md",
+    "02_NEW-KNOWLEDGE/ml-chapter-05-logistic-regression-and-classification.md",
+    "02_NEW-KNOWLEDGE/ml-chapter-04-linear-regression.md",
+    "02_NEW-KNOWLEDGE/ml-chapter-03-data-preprocessing-and-eda.md",
+    "02_NEW-KNOWLEDGE/ml-chapter-02-mathematics-for-ml.md",
+    "02_NEW-KNOWLEDGE/ml-chapter-01-introduction-to-machine-learning.md",
+    "02_NEW-KNOWLEDGE/uncomfortable-truths-2-sonam-wangchuk.md",
+    "02_NEW-KNOWLEDGE/why-you-are-feeling-stuck-in-your-20s.md",
+    "02_NEW-KNOWLEDGE/meet-forward-deployed-engineer.md",
     "01_RAW/PROCESS/learn-core-machine-learning-part-02.md",
     "01_RAW/SOURCE/Learn Core Machine Learning for FREE  Ultimate Course for Beginners 1.md",
     "02_NEW-KNOWLEDGE/learn-core-machine-learning-part-14.md",
@@ -204,17 +220,6 @@
     "02_NEW-KNOWLEDGE/learn-core-machine-learning-part-04.md",
     "02_NEW-KNOWLEDGE/learn-core-machine-learning-part-03.md",
     "02_NEW-KNOWLEDGE/learn-core-machine-learning-part-02.md",
-    "02_NEW-KNOWLEDGE/learn-core-machine-learning-part-01.md",
-    "02_NEW-KNOWLEDGE/learn-core-machine-learning-final.md",
-    "01_RAW/PROCESS/learn-core-machine-learning-part-01.md",
-    "01_RAW/PROCESS/learn-core-machine-learning-final.md",
-    "01_RAW/PROCESS/learn-core-machine-learning-part-05.md",
-    "01_RAW/PROCESS/learn-core-machine-learning-part-03.md",
-    "01_RAW/PROCESS/detailed-study-notes-designing-building-pr-review-multi-agent-system-3-hours-build.md",
-    "01_RAW/PROCESS/networking/detailed-study-notes-networking-for-hackers-full-course.md",
-    "01_RAW/PROCESS/networking/networking-for-hackers-2026/detailed-study-notes-networking-for-hackers-full-course-part-03.md",
-    "01_RAW/PROCESS/networking/networking-for-hackers-2026/detailed-study-notes-networking-for-hackers-full-course-part-02.md",
-    "01_RAW/PROCESS/networking/networking-for-hackers-2026/detailed-study-notes-networking-for-hackers-full-course-part-01.md",
     "01_RAW/PROCESS/networking/networking-for-hackers-2026",
     "01_RAW/PROCESS/networking/computer-networking-fundamentals-freecodecamp",
     "01_RAW/PROCESS/networking/computer-networking-full-course-sheryians",
