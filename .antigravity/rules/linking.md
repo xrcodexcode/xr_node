@@ -2,21 +2,26 @@
 title: Linking Rules
 type: governance-rule
 status: active
-version: 4.5.0
-last_reviewed: 2026-07-21
+version: 5.0.0
+last_reviewed: 2026-07-27
 approved_by: vault-owner
-change_reason: "v4.5.0 — Created centralized linking rules."
+change_reason: "Aligned graph reachability, orphan exceptions, and relationship context with GEMINI.md."
 ---
 
 # Linking Rules
 
-A well-connected knowledge graph is essential for retrievability. Every note must be integrated into the graph.
+A well-connected graph improves retrieval, but links must represent meaningful relationships rather than decoration.
 
 ## Core Linking Rules
 
-- **Bidirectional Links**: Use standard Obsidian-style internal links `[[Note Title]]` or `[[Note Title|Alias]]`.
-- **MOC Reachability**: Every node must be reachable from at least one Map of Content (MOC) under `03_MOC/`.
-- **No Orphans**: Active notes should not exist in isolation. Every note must have at least one incoming or outgoing link.
-- **Link Context**: Provide relationship context when linking inside the body (e.g., `Relationship: related_to` or inline explanation).
-- **Aliases over Duplication**: If a concept has multiple names, use the `aliases` array in the frontmatter instead of creating duplicate notes.
-- **Strict Pathing**: Links to nodes in the flat `NODES/` directory must not include subdirectories (e.g. use `[[note-name]]` or `[[NODES/note-name]]`, never subfolders).
+- Use standard Obsidian-style internal links such as [[Note Title]] or [[Note Title|Alias]].
+- Every stable content note must be reachable from at least one applicable MOC under 03_MOC/.
+- Active stable notes should have at least one meaningful incoming or outgoing link.
+- Raw captures, source archives, reports, templates, MOCs, and system files are exempt from ordinary orphan checks where the applicable workflow says so.
+- Add relationship context when linking inside the body, such as definition, supports, contradicts, depends_on, or related_to.
+- Use aliases for alternate names instead of creating duplicate notes.
+- Links to nodes in the flat NODES directory must not include subdirectories.
+- Never invent a link target. If a target is ambiguous or missing, report it.
+- Never rewrite existing user-authored links automatically. Propose repairs unless explicitly authorized.
+- Link generation must be deterministic and idempotent. Re-running it must not duplicate links or generated sections.
+
