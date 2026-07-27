@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "detailed-study-notes-75-top-fails-of-modiji-part-1"
             }
+          },
+          {
+            "id": "7545e2e2b5f25558",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "01_RAW/CAPTURE/I Stopped Prompting Claude Code. Now Loops Do It For Me (Loop Engineering).md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "I Stopped Prompting Claude Code. Now Loops Do It For Me (Loop Engineering)"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -78,8 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "43d09af49b9b51ad",
@@ -192,8 +206,19 @@
       "bases:Create new base": false
     }
   },
-  "active": "b1abfe1402d05465",
+  "active": "7545e2e2b5f25558",
   "lastOpenFiles": [
+    "01_RAW/CAPTURE/GEN AI 🆚 AI AGENTS 🆚 AGENTIC AI.md",
+    "01_RAW/PROCESS/detailed-study-notes-move-over-loop-engineering-graph-engineering-is-now-here.md",
+    "01_RAW/SOURCE/Move Over Loop Engineering, Graph Engineering Is Now Here.md",
+    "02_NEW-KNOWLEDGE/detailed-study-notes-move-over-loop-engineering-graph-engineering-is-now-here.md",
+    "02_NEW-KNOWLEDGE/detailed-study-notes-75-top-fails-of-modiji-part-1.md",
+    "01_RAW/CAPTURE/Complete CN Computer Networks in one shot  Semester Exam  Hindi.md",
+    "01_RAW/CAPTURE/I Stopped Prompting Claude Code. Now Loops Do It For Me (Loop Engineering).md",
+    "01_RAW/CAPTURE/Move Over Loop Engineering, Graph Engineering Is Now Here.md",
+    "01_RAW/PROCESS/detailed-study-notes-designing-building-pr-review-multi-agent-system-3-hours-build.md",
+    "01_RAW/SOURCE/Designing & Building PR Review Multi Agent System (3 Hours Build).md",
+    "02_NEW-KNOWLEDGE/detailed-study-notes-designing-building-pr-review-multi-agent-system-3-hours-build.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-fpv-for-normal-people.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-how-medical-mafia-turned-doctor-shortage-into-a-4000-cr-business.md",
     "02_NEW-KNOWLEDGE/dsa-arrays-strings.md",
@@ -209,17 +234,6 @@
     "01_RAW/SOURCE/Learn Core Machine Learning for FREE  Ultimate Course for Beginners 1.md",
     "02_NEW-KNOWLEDGE/learn-core-machine-learning-part-14.md",
     "02_NEW-KNOWLEDGE/learn-core-machine-learning-part-13.md",
-    "02_NEW-KNOWLEDGE/learn-core-machine-learning-part-12.md",
-    "02_NEW-KNOWLEDGE/learn-core-machine-learning-part-11.md",
-    "02_NEW-KNOWLEDGE/learn-core-machine-learning-part-10.md",
-    "02_NEW-KNOWLEDGE/learn-core-machine-learning-part-09.md",
-    "02_NEW-KNOWLEDGE/learn-core-machine-learning-part-08.md",
-    "02_NEW-KNOWLEDGE/learn-core-machine-learning-part-07.md",
-    "02_NEW-KNOWLEDGE/learn-core-machine-learning-part-06.md",
-    "02_NEW-KNOWLEDGE/learn-core-machine-learning-part-05.md",
-    "02_NEW-KNOWLEDGE/learn-core-machine-learning-part-04.md",
-    "02_NEW-KNOWLEDGE/learn-core-machine-learning-part-03.md",
-    "02_NEW-KNOWLEDGE/learn-core-machine-learning-part-02.md",
     "01_RAW/PROCESS/networking/networking-for-hackers-2026",
     "01_RAW/PROCESS/networking/computer-networking-fundamentals-freecodecamp",
     "01_RAW/PROCESS/networking/computer-networking-full-course-sheryians",

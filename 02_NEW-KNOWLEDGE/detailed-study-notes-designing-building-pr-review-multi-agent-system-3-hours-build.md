@@ -19,7 +19,7 @@ tags:
   - implementation
   - reference
   - decision
-owner_moc: General MOC
+owner_moc: "📺 YouTube Map of Content"
 sources:
   - "[[01_RAW/SOURCE/Designing & Building PR Review Multi Agent System (3 Hours Build).md]]"
   - "https://www.youtube.com/watch?v=RiN02OXjeeQ"
