@@ -9,7 +9,7 @@ created: 2026-07-27
 updated: 2026-07-27
 review: 2026-08-27
 confidence: 98
-version: 3
+version: 4
 aliases: []
 tags:
   - yt
@@ -80,15 +80,19 @@ flowchart LR
 ```
 
 ### 2.1 Detailed Stage Breakdown
+
 1. **Scoping Phase** `(43:30 - 44:49)`:
    - Define business problem statement and target SLA/KPI metrics.
    - Resource allocation: compute infrastructure, GPU/CPU scaling, data availability audit, and team roles.
+
 2. **Data Engine Phase** `(45:15 - 46:14)`:
    - Data Ingestion & Provenance Verification: Ensuring data source integrity and compliance.
    - Data Cleaning & Preprocessing: Outlier clipping, missing value median/mode imputation, scaling, and transformation.
+
 3. **Modeling Phase** `(46:37 - 46:56)`:
    - Algorithm Selection & Pattern Extraction: Training baseline and complex models on cleaned features.
    - Hyperparameter Optimization & Cross-Validation Model Selection.
+
 4. **Production & Maintenance Phase** `(46:57 - 47:41)`:
    - Deployment: Containerizing models via Docker / REST microservices for low-latency serving.
    - Continuous Monitoring: Tracking prediction latency, concept drift, and data distribution drift over time.
@@ -118,6 +122,7 @@ Housing Table Example (Structured Matrix):
 
 ### 4.1 The Mentorship Metaphor
 Supervised learning mirrors a student preparing for an examination `(53:46 - 55:24)`:
+
 - **Training Phase**: The student solves exercises containing both **Questions ($X$)** and **Answers/Solutions ($Y$)** under instructor supervision.
 - **Exam Phase**: The student answers unseen test questions ($X_{\text{test}}$) without access to solutions.
 

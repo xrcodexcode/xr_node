@@ -9,7 +9,7 @@ created: 2026-07-27
 updated: 2026-07-27
 review: 2026-08-27
 confidence: 98
-version: 3
+version: 4
 aliases: []
 tags:
   - yt
@@ -104,7 +104,9 @@ schema_version: 4
 ## 7. Hand-Calculated Gradient Descent Derivation & Worked Example
 
 - **Chain Rule Derivations**:
+
   $$\frac{\partial J}{\partial \beta_0} = \frac{1}{m} \sum (\hat{y}_i - y_i), \quad \frac{\partial J}{\partial \beta_1} = \frac{1}{m} \sum (\hat{y}_i - y_i) x_i$$
+
 - **Worked Iteration**: Initial $\beta = (0, 1) \rightarrow \text{MSE} = 7.5 \rightarrow \beta^{(1)} = (0.25, 1.75) \rightarrow \text{MSE}^{(1)} = 0.21875$.
 
 ---

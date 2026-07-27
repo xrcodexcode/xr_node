@@ -9,7 +9,7 @@ created: 2026-07-27
 updated: 2026-07-27
 review: 2026-08-27
 confidence: 98
-version: 3
+version: 4
 aliases: []
 tags:
   - yt
@@ -62,6 +62,7 @@ flowchart LR
 ```
 
 Data scientists answer five fundamental business questions for executive decision-makers `(1:11:00 - 1:13:03)`:
+
 1. **Relationship Existence**: Is there an empirical association between feature $X_j$ and sales $Y$?
 2. **Relationship Strength**: How strongly does feature $X_j$ impact sales $Y$?
 3. **Feature Importance**: Which features drive sales versus which are redundant noise?
@@ -104,6 +105,7 @@ The hypothesis line for simple linear regression is defined as `(1:18:48 - 1:19:
 $$\hat{y}_i = f(x_i) = \beta_0 + \beta_1 x_i$$
 
 Where:
+
 - $\beta_0$: **Intercept parameter** — expected baseline target value when feature $x = 0$.
 - $\beta_1$: **Slope parameter** — rate of change in target $\hat{y}$ per unit increase in feature $x$.
 - $\hat{y}_i$: Model approximation (predicted target for sample $i$).

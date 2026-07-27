@@ -9,7 +9,7 @@ created: 2026-07-27
 updated: 2026-07-27
 review: 2026-08-27
 confidence: 98
-version: 3
+version: 4
 aliases: []
 tags:
   - yt
@@ -67,6 +67,7 @@ flowchart TD
 
 ### 2.1 The Automotive Braking Analogy `(3:19:46 - 3:20:34)`
 Driving a car toward a red stop sign mirrors optimization toward $J_{\min}$:
+
 - **Optimal Driving**: High speed on open highways (large initial steps far from minimum), gradually slowing down as you approach the stop sign (smaller steps near minimum).
 - **Excessive Speed ($\alpha$ Excessive)**: Driving at $120 \text{ km/h}$ into a stop sign overshoots the intersection, flips the car, and crashes (divergence).
 - **Too Slow ($\alpha$ Tiny)**: Driving at $0.001 \text{ km/h}$ takes days to reach the destination (computational stall).

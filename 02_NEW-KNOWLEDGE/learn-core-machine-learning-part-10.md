@@ -9,7 +9,7 @@ created: 2026-07-27
 updated: 2026-07-27
 review: 2026-08-27
 confidence: 98
-version: 3
+version: 4
 aliases: []
 tags:
   - yt
@@ -84,6 +84,7 @@ Total Expected Error for an unseen test point $x_0$ decomposes into three compon
 $$\mathbb{E} \left[ (y_0 - \hat{f}(x_0))^2 \right] = \text{Bias}[\hat{f}(x_0)]^2 + \text{Var}[\hat{f}(x_0)] + \sigma^2$$
 
 Where:
+
 - $\text{Bias}[\hat{f}(x_0)] = \mathbb{E}[\hat{f}(x_0)] - f(x_0)$: Error from simplified assumptions.
 - $\text{Var}[\hat{f}(x_0)] = \mathbb{E}\left[ (\hat{f}(x_0) - \mathbb{E}[\hat{f}(x_0)])^2 \right]$: Sensitivity to variations in training set.
 - $\sigma^2$: Irreducible noise inherent in true distribution $Y$.

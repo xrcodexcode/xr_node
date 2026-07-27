@@ -9,7 +9,7 @@ created: 2026-07-27
 updated: 2026-07-27
 review: 2026-08-27
 confidence: 98
-version: 3
+version: 4
 aliases: []
 tags:
   - yt
@@ -49,6 +49,7 @@ Ridge regression adds a penalty proportional to the sum of **squared magnitude**
 $$J_{\text{Ridge}}(\beta) = \frac{1}{2n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 + \lambda \sum_{j=1}^{p} \beta_j^2$$
 
 Where $\lambda \ge 0$ is the regularization strength hyperparameter:
+
 - $\lambda = 0$: Standard OLS Regression.
 - $\lambda \rightarrow \infty$: All coefficients shrink toward zero ($\beta_j \rightarrow 0$), producing a flat line.
 

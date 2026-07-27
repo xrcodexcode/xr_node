@@ -9,7 +9,7 @@ created: 2026-07-27
 updated: 2026-07-27
 review: 2026-08-27
 confidence: 98
-version: 3
+version: 4
 aliases: []
 tags:
   - yt
@@ -82,18 +82,23 @@ $$\text{MSE}^{(0)} = \frac{1}{4} [ (-1)^2 + (-2)^2 + (-3)^2 + (-4)^2 ] = \frac{1
 ### 2.3 Iteration 1 Gradients & Updates `(3:35:23 - 3:37:37)`
 
 1. **Gradient for Intercept $\beta_0$**:
+
    $$\frac{\partial J}{\partial \beta_0} = \frac{1}{4} [ (-1) + (-2) + (-3) + (-4) ] = \frac{-10}{4} = -2.5$$
 
 2. **Gradient for Slope $\beta_1$**:
+
    $$\frac{\partial J}{\partial \beta_1} = \frac{1}{4} [ (-1 \cdot 1) + (-2 \cdot 2) + (-3 \cdot 3) + (-4 \cdot 4) ] = \frac{-30}{4} = -7.5$$
 
 3. **Parameter Updates ($\alpha = 0.1$)**:
+
    $$\beta_0^{(1)} = 0 - 0.1 (-2.5) = 0.25$$
+
    $$\beta_1^{(1)} = 1 - 0.1 (-7.5) = 1.75$$
 
 ### 2.4 Iteration 2 Re-Evaluation `(3:37:38 - 3:39:36)`
 
 Re-compute predictions with updated parameters $\hat{y}_i^{(1)} = 0.25 + 1.75 X_i$:
+
 - Sample 1 ($X=1$): $\hat{y}_1 = 0.25 + 1.75(1) = 2.00 \quad (Y_1 = 2) \rightarrow e_1 = 0.00$
 - Sample 2 ($X=2$): $\hat{y}_2 = 0.25 + 1.75(2) = 3.75 \quad (Y_2 = 4) \rightarrow e_2 = -0.25$
 - Sample 3 ($X=3$): $\hat{y}_3 = 0.25 + 1.75(3) = 5.50 \quad (Y_3 = 6) \rightarrow e_3 = -0.50$

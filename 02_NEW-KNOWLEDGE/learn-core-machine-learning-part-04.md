@@ -9,7 +9,7 @@ created: 2026-07-27
 updated: 2026-07-27
 review: 2026-08-27
 confidence: 98
-version: 3
+version: 4
 aliases: []
 tags:
   - yt
@@ -60,6 +60,7 @@ flowchart LR
 ```
 
 ### 1.2 Mathematical Rationale for Squaring Errors
+
 1. **Eliminates Sign Cancellation**: Squaring prevents positive deviations ($+e_i$) from canceling negative deviations ($-e_i$).
 2. **Penalizes Large Outliers Exponentially**: An error of 4 units produces 16 penalty points, whereas an error of 2 units produces only 4 penalty points.
 3. **Smooth Convex Differentiability**: Provides a continuous, everywhere-differentiable parabolic surface essential for gradient calculus.
@@ -88,6 +89,7 @@ flowchart TD
 
 ### 3.1 Mountain Hiker Analogy
 Imagine a hiker trapped in dense fog atop a mountain (high cost $J$) who must descend to the lowest valley floor ($J_{\min}$):
+
 - **Sense Slope**: The hiker feels the incline of the terrain underfoot (partial derivative / gradient).
 - **Step Downward**: The hiker takes a step in the direction of steepest descent.
 - **Repeat**: The hiker continues stepping until the terrain becomes flat ($\text{slope} \approx 0$).
@@ -100,6 +102,7 @@ $$\beta_0 := \beta_0 - \alpha \frac{\partial J}{\partial \beta_0}$$
 $$\beta_1 := \beta_1 - \alpha \frac{\partial J}{\partial \beta_1}$$
 
 Where:
+
 - $\alpha$: **Learning rate** hyperparameter controlling step size per iteration.
 - $\frac{\partial J}{\partial \beta_j}$: Partial derivative giving the slope/direction of steepest increase.
 

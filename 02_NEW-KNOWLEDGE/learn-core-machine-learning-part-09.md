@@ -9,7 +9,7 @@ created: 2026-07-27
 updated: 2026-07-27
 review: 2026-08-27
 confidence: 98
-version: 3
+version: 4
 aliases: []
 tags:
   - yt
@@ -59,7 +59,9 @@ flowchart TD
 ### 2. Independence of Errors (No Autocorrelation)
 - **Assumption**: Residual errors $e_i$ and $e_j$ are uncorrelated ($\text{Cov}(e_i, e_j) = 0$).
 - **Diagnostic**: **Durbin-Watson Test** statistic $d$:
+
   $$d = \frac{\sum_{i=2}^{n} (e_i - e_{i-1})^2}{\sum_{i=1}^{n} e_i^2}$$
+
   - $d \approx 2.0$: Zero autocorrelation (Ideal).
   - $d < 1.5$: Positive autocorrelation.
   - $d > 2.5$: Negative autocorrelation.

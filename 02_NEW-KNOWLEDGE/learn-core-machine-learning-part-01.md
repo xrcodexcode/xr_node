@@ -9,7 +9,7 @@ created: 2026-07-27
 updated: 2026-07-27
 review: 2026-08-27
 confidence: 98
-version: 3
+version: 4
 aliases: []
 tags:
   - yt
@@ -67,6 +67,7 @@ Learning is modeled as a functional transformation from historical experience to
 $$\mathcal{D} \xrightarrow{\text{Algorithm } \mathcal{A}} \mathcal{M}_{\theta}$$
 
 Where:
+
 - $\mathcal{D} = \{(x_1, y_1), (x_2, y_2), \dots, (x_m, y_m)\}$ represents training experience drawn from an unknown joint probability distribution $\mathcal{P}(X,Y)$.
 - $\mathcal{A}$ represents the learning algorithm (training process).
 - $\mathcal{M}_{\theta}$ represents the trained model with learned parameter weights $\theta$.
@@ -79,16 +80,17 @@ flowchart LR
 ```
 
 ### 2.2 Biological Paradigms of Learning
-1. **Rats Avoiding Poisonous Baits** `(4:42 - 6:12)`:
-   - When rats consume a novel bait and experience physiological illness, they map taste/smell cues to the negative outcome and refrain from eating that bait in the future.
-   - Learning occurs by converting past negative experiences into actionable behavioral decision boundaries.
-2. **Mentorship & Human Experience** `(6:12 - 7:28)`:
-   - Experienced mentors provide superior guidance because they have already navigated failure states, building internal decision heuristics.
+
+- **Rats Avoiding Poisonous Baits** `(4:42 - 6:12)`: When rats consume a novel bait and experience physiological illness, they map taste/smell cues to the negative outcome and refrain from eating that bait in the future. Learning occurs by converting past negative experiences into actionable behavioral decision boundaries.
+- **Mentorship & Human Experience** `(6:12 - 7:28)`: Experienced mentors provide superior guidance because they have already navigated failure states, building internal decision heuristics.
 
 ### 2.3 Learning Paradigm 1: Rote Memorization ("Ratification")
+
 - **Definition** `(8:09 - 10:02)`: Storing every training instance verbatim in a lookup table.
 - **Mathematical Form**:
+
   $$\mathcal{M}(x) = \begin{cases} y_i & \text{if } x = x_i \in \mathcal{D} \\ \text{Undefined / Fail} & \text{if } x \notin \mathcal{D} \end{cases}$$
+
 - **Failure Mode**: When presented with modified, tweaked, or unseen test points $x_{\text{test}} \notin \mathcal{D}$, memorization fails completely because it lacks abstraction or interpolation capabilities.
 
 ---
@@ -126,6 +128,7 @@ flowchart TD
 ```
 
 ### 4.2 Spurious Correlations vs. Crisp ML Principles
+
 - **Core Error**: Food delivery was driven strictly by an independent time clock, completely uncoupled from pigeon actions. The pigeons inferred a causal link from pure coincidence `(24:16 - 25:09)`.
 - **Machine Learning Requirement**: Machine learning algorithms lack innate human common sense. Machine learning theory must supply **crisp mathematical principles** (regularization, hypothesis space bounds) to prevent algorithms from learning meaningless noise `(26:23 - 27:48)`.
 
@@ -134,10 +137,12 @@ flowchart TD
 ## 5. Inductive Bias: The Mathematical Necessity (27:48 – 32:15)
 
 ### 5.1 Why Rats Succeed Where Pigeons Fail
+
 - Rats possess **prior knowledge** (evolutionary genetic traits regarding taste/smell cues for poison) `(28:19 - 29:44)`.
 - Pigeons lack prior constraints on food mechanics, leaving them vulnerable to spurious temporal correlation.
 
 ### 5.2 Formal Definition of Inductive Bias
+
 - **Inductive Bias** is the set of explicit prior assumptions, structural constraints, and mathematical preferences incorporated into a learning algorithm to favor certain hypothesis functions over others `(29:44 - 30:16)`.
 - **No Free Lunch Theorem Connection**: Without an inductive bias, every hypothesis performs identically when averaged across all possible data distributions. Inductive bias is what makes learning possible.
 

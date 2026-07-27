@@ -9,7 +9,7 @@ created: 2026-07-27
 updated: 2026-07-27
 review: 2026-08-27
 confidence: 98
-version: 3
+version: 4
 aliases: []
 tags:
   - yt
@@ -106,6 +106,7 @@ Adjusted $R^2$ adjusts for degrees of freedom, penalizing the inclusion of irrel
 $$R^2_{\text{adj}} = 1 - \left[ \frac{(1 - R^2)(n - 1)}{n - p - 1} \right]$$
 
 Where:
+
 - $n$: Total number of samples.
 - $p$: Number of independent predictor features.
 
