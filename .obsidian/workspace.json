@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AREAS/NETWORKING/chapter-13-modern-networking-cloud-and-data-centers.md",
+                "file": "AREAS/README.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "chapter-13-modern-networking-cloud-and-data-centers"
+              "title": "README"
             }
           }
         ]
@@ -193,11 +193,20 @@
       "bases:Create new base": false
     }
   },
-  "active": "1a698b583bbbe23f",
+  "active": "b4ca47085af90ebf",
   "lastOpenFiles": [
+    "AREAS/NETWORKING/chapter-13-modern-networking-cloud-and-data-centers.md",
+    "AREAS/README.md",
+    "AREAS/Digital Life",
+    "AREAS/Personal Development",
+    "AREAS/Home",
+    "AREAS/Relationships",
+    "AREAS/Learning",
+    "AREAS/Career",
+    "AREAS/Finances",
+    "AREAS/Health",
     "AREAS/NETWORKING/chapter-14-master-formula-sheet-and-quick-reference.md",
     "AREAS/NETWORKING/chapter-01-foundations-and-internet-history.md",
-    "AREAS/NETWORKING/chapter-13-modern-networking-cloud-and-data-centers.md",
     "AREAS/NETWORKING/chapter-12-cybersecurity-ethical-hacking-perspective.md",
     "AREAS/NETWORKING/chapter-10-network-devices-and-switching.md",
     "AREAS/NETWORKING/chapter-09-application-layer-protocols.md",
@@ -210,7 +219,6 @@
     "AREAS/NETWORKING",
     "02_NEW-KNOWLEDGE/detailed-study-notes-i-stopped-prompting-claude-code-now-loops-do-it-for-me-loop-engineering.md",
     "Untitled",
-    "AREAS",
     "02_NEW-KNOWLEDGE/complete-python-for-ai-ml-beginner-to-pro.md",
     "02_NEW-KNOWLEDGE/complete-python-for-ai-ml-part-2.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-13-hobbies-that-replace-scrolling-and-improve-your-life.md",
@@ -222,14 +230,6 @@
     "02_NEW-KNOWLEDGE/detailed-study-notes-doing-these-10-things-alone-will-change-your-life-1.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-fpv-for-normal-people.md",
     "NODES/neural-network.md",
-    "03_MOC/neural-network-moc.md",
-    "02_NEW-KNOWLEDGE/python-101.md",
-    "01_RAW/PROCESS/networking/networking-for-hackers-2026",
-    "01_RAW/PROCESS/networking/computer-networking-fundamentals-freecodecamp",
-    "01_RAW/PROCESS/networking/computer-networking-full-course-sheryians",
-    "01_RAW/PROCESS/networking/computer-networking-full-course-kunal-kushwaha",
-    "01_RAW/PROCESS/networking/computer-networking-full-course-2026",
-    "01_RAW/PROCESS/networking/complete-networking-tutorial-beginners-to-advanced-2026",
-    "01_RAW/PROCESS/networking/complete-networking-tutorial-2026-cybersecurity"
+    "03_MOC/neural-network-moc.md"
   ]
 }
