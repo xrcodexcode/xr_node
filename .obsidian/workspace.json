@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "VAULT-STRUCTURE.md",
+                "file": "01_RAW/CAPTURE/How to Create $1M ARR company with Claude + 2nd Brain!!.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "VAULT-STRUCTURE"
+              "title": "How to Create $1M ARR company with Claude + 2nd Brain!!"
             }
           }
         ]
@@ -168,10 +168,10 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "VAULT-STRUCTURE.md"
+                "file": "01_RAW/CAPTURE/How to Create $1M ARR company with Claude + 2nd Brain!!.md"
               },
               "icon": "lucide-info",
-              "title": "File properties for VAULT-STRUCTURE"
+              "title": "File properties for How to Create $1M ARR company with Claude + 2nd Brain!!"
             }
           }
         ],
@@ -192,8 +192,15 @@
       "bases:Create new base": false
     }
   },
-  "active": "83a9b0f390d6ced9",
+  "active": "1a698b583bbbe23f",
   "lastOpenFiles": [
+    "01_RAW/PROCESS/detailed-study-notes-how-to-create-1m-arr-company-with-claude-2nd-brain.md",
+    "01_RAW/CAPTURE/Isteefa Mila hai, Paper Leak Nahi Rukega….md",
+    "01_RAW/CAPTURE/Learn All AI terms in 1 video.md",
+    "01_RAW/CAPTURE/Networking for Hackers Full Course — Zero to Expert in One Video 2026.md",
+    "memory.md",
+    "01_RAW/CAPTURE/How to Create $1M ARR company with Claude + 2nd Brain!!.md",
+    "VAULT-STRUCTURE.md",
     "README.md",
     "HOME-BASE.md",
     "ORIGINAL_REQUEST.md",
@@ -208,18 +215,11 @@
     "02_NEW-KNOWLEDGE/Elon_Musk_Master_Knowledge_Base.md",
     "02_NEW-KNOWLEDGE/finally-agent-loops-clearly-explained.md",
     "02_NEW-KNOWLEDGE/dsa-linked-lists.md",
-    "01_RAW/CAPTURE/Learn All AI terms in 1 video.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-college-first-year-secret-skill-virtual-machines-virtualbox-tutorial.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-2026-will-be-the-year-of-multi-agent-ais.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-20-skills-that-changed-my-life-before-25.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-13-hobbies-that-replace-scrolling-and-improve-your-life.md",
     "02_NEW-KNOWLEDGE/complete-python-for-ai-ml-part-2.md",
-    "02_NEW-KNOWLEDGE/complete-python-for-ai-ml-beginner-to-pro.md",
-    "02_NEW-KNOWLEDGE/antigravity-asynchronous-subagents.md",
-    "01_RAW/PROCESS/detailed-study-notes-what-is-loop-engineering-in-agentic-ai.md",
-    "01_RAW/SOURCE/What is loop engineering in Agentic AI 1.md",
-    "01_RAW/CAPTURE/Isteefa Mila hai, Paper Leak Nahi Rukega….md",
-    "01_RAW/CAPTURE/What is loop engineering in Agentic AI 1.md",
     "01_RAW/PROCESS/networking/networking-for-hackers-2026",
     "01_RAW/PROCESS/networking/computer-networking-fundamentals-freecodecamp",
     "01_RAW/PROCESS/networking/computer-networking-full-course-sheryians",
