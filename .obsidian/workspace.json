@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "02_NEW-KNOWLEDGE/detailed-study-notes-i-stopped-prompting-claude-code-now-loops-do-it-for-me-loop-engineering.md",
+                "file": "cac/Introduction to Computer Network Series  Chai aur computer network.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "detailed-study-notes-i-stopped-prompting-claude-code-now-loops-do-it-for-me-loop-engineering"
+              "title": "Introduction to Computer Network Series  Chai aur computer network"
             }
           }
         ]
@@ -193,8 +193,12 @@
       "bases:Create new base": false
     }
   },
-  "active": "b4ca47085af90ebf",
+  "active": "1a698b583bbbe23f",
   "lastOpenFiles": [
+    "AREAS/NETWORKING",
+    "02_NEW-KNOWLEDGE/detailed-study-notes-i-stopped-prompting-claude-code-now-loops-do-it-for-me-loop-engineering.md",
+    "Untitled",
+    "AREAS",
     "02_NEW-KNOWLEDGE/complete-python-for-ai-ml-beginner-to-pro.md",
     "02_NEW-KNOWLEDGE/complete-python-for-ai-ml-part-2.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-13-hobbies-that-replace-scrolling-and-improve-your-life.md",
@@ -219,8 +223,6 @@
     "02_NEW-KNOWLEDGE/python-numpy-essentials.md",
     "02_NEW-KNOWLEDGE/python-pandas-essentials.md",
     "02_NEW-KNOWLEDGE/Steve Jobs in Exile - Study Note.md",
-    "02_NEW-KNOWLEDGE/this-video-is-equal-to-reading-10-books.md",
-    "02_NEW-KNOWLEDGE/time-to-quit-claude-codex-is-the-new-chatgpt.md",
     "01_RAW/PROCESS/networking/networking-for-hackers-2026",
     "01_RAW/PROCESS/networking/computer-networking-fundamentals-freecodecamp",
     "01_RAW/PROCESS/networking/computer-networking-full-course-sheryians",
@@ -228,8 +230,6 @@
     "01_RAW/PROCESS/networking/computer-networking-full-course-2026",
     "01_RAW/PROCESS/networking/complete-networking-tutorial-beginners-to-advanced-2026",
     "01_RAW/PROCESS/networking/complete-networking-tutorial-2026-cybersecurity",
-    "01_RAW/PROCESS/networking/complete-cn-semester-exam",
-    "01_RAW/PROCESS/networking",
-    "01_RAW/PROCESS/computer-networking-fundamentals-freecodecamp"
+    "01_RAW/PROCESS/networking/complete-cn-semester-exam"
   ]
 }
