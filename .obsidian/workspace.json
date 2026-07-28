@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AREAS/NETWORKING/chapter-01-foundations-and-internet-history.md",
+                "file": "AREAS/NETWORKING/chapter-13-modern-networking-cloud-and-data-centers.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "chapter-01-foundations-and-internet-history"
+              "title": "chapter-13-modern-networking-cloud-and-data-centers"
             }
           }
         ]
@@ -193,11 +193,12 @@
       "bases:Create new base": false
     }
   },
-  "active": "b4ca47085af90ebf",
+  "active": "1a698b583bbbe23f",
   "lastOpenFiles": [
+    "AREAS/NETWORKING/chapter-14-master-formula-sheet-and-quick-reference.md",
+    "AREAS/NETWORKING/chapter-01-foundations-and-internet-history.md",
     "AREAS/NETWORKING/chapter-13-modern-networking-cloud-and-data-centers.md",
     "AREAS/NETWORKING/chapter-12-cybersecurity-ethical-hacking-perspective.md",
-    "AREAS/NETWORKING/chapter-14-master-formula-sheet-and-quick-reference.md",
     "AREAS/NETWORKING/chapter-10-network-devices-and-switching.md",
     "AREAS/NETWORKING/chapter-09-application-layer-protocols.md",
     "AREAS/NETWORKING/chapter-11-network-security-vpns-and-cryptography.md",
@@ -205,8 +206,7 @@
     "AREAS/NETWORKING/chapter-06-network-layer-ip-addressing-and-subnetting.md",
     "AREAS/NETWORKING/chapter-07-routing-algorithms-and-protocols.md",
     "AREAS/NETWORKING/chapter-05-data-link-layer-and-error-control.md",
-    "AREAS/NETWORKING/chapter-01-foundations-and-internet-history.md",
-    "cac/Introduction to Computer Network Series  Chai aur computer network.md",
+    "01_RAW/cac/Introduction to Computer Network Series  Chai aur computer network.md",
     "AREAS/NETWORKING",
     "02_NEW-KNOWLEDGE/detailed-study-notes-i-stopped-prompting-claude-code-now-loops-do-it-for-me-loop-engineering.md",
     "Untitled",
