@@ -1,6 +1,6 @@
 ---
 id: a2d1f435-0810-4f51-b844-8c858e391b17
-title: "Detailed Study Notes — Time to Quit Claude | Codex is the New ChatGPT"
+title: "Time to Quit Claude | Codex is the New ChatGPT"
 type: literature-note
 status: learning
 domain: technology

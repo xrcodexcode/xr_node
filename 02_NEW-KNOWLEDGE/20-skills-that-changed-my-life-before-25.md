@@ -1,6 +1,6 @@
 ---
 id: 514cbcc8-3db6-44e9-bc8c-e4ce917520e2
-title: "Detailed Study Notes — 20 Skills That Changed My Life Before 25"
+title: "20 Skills That Changed My Life Before 25"
 type: literature-note
 status: learning
 domain: general

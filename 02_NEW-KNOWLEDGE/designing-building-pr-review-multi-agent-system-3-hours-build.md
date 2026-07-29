@@ -1,6 +1,6 @@
 ---
 id: a6f94b12-9c32-4e89-b1d5-e7a839f210d4
-title: "Detailed Study Notes - Designing & Building PR Review Multi Agent System (3 Hours Build)"
+title: "Designing & Building PR Review Multi Agent System (3 Hours Build)"
 type: literature-note
 status: learning
 domain: general

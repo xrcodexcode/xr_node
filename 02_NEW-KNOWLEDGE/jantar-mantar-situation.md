@@ -1,6 +1,6 @@
 ---
 id: e4b3c9a1-8d2e-4f51-9311-6b2c7e8a9f01
-title: "Detailed Study Notes — Jantar Mantar Situation!"
+title: "Jantar Mantar Situation!"
 type: literature-note
 status: learning
 domain: general

@@ -1,6 +1,6 @@
 ---
 id: 59a68b42-1e9c-4f81-a947-f381c19d45e2
-title: Detailed Study Notes — FPV for Normal People
+title: "FPV for Normal People"
 type: literature-note
 status: learning
 domain: general

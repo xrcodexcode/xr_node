@@ -1,6 +1,6 @@
 ---
 id: e82f7c41-9a3b-4e12-85d0-6b4c1f2e903a
-title: "Detailed Study Notes — 2026 will be the Year of Multi-agent AIs - Here's why!"
+title: "2026 will be the Year of Multi-agent AIs - Here's why!"
 type: literature-note
 status: learning
 domain: general

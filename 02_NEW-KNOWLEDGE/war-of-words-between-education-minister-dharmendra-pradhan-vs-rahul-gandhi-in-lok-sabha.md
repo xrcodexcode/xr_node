@@ -1,6 +1,6 @@
 ---
 id: a9e14f82-5d27-4b68-b769-9f4a7c8d9e12
-title: Detailed Study Notes — War of Words Between Dharmendra Pradhan vs Rahul Gandhi in Lok Sabha
+title: "War of Words Between Dharmendra Pradhan vs Rahul Gandhi in Lok Sabha"
 type: literature-note
 status: learning
 domain: general

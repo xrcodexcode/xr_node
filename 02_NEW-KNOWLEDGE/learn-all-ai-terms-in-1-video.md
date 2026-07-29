@@ -1,6 +1,6 @@
 ---
 id: 2a9b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
-title: "Detailed Study Notes — Learn All AI terms in 1 video"
+title: "Learn All AI terms in 1 video"
 type: literature-note
 status: learning
 domain: general

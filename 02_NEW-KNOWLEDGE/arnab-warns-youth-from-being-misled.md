@@ -1,6 +1,6 @@
 ---
 id: a1f94c8e-3d12-4e67-b890-5c2f81e76b4a
-title: "Detailed Study Notes — Arnab Warns Youth From Being Misled By The CJP's Violent Narrative"
+title: "Arnab Warns Youth From Being Misled By The CJP's Violent Narrative"
 type: literature-note
 status: learning
 domain: general

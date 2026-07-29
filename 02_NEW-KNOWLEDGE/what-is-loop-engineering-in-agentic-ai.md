@@ -1,6 +1,6 @@
 ---
 id: a94f83c1-e23b-417d-891b-871d49e102f3
-title: Detailed Study Notes - What is Loop Engineering in Agentic AI
+title: "What is Loop Engineering in Agentic AI"
 type: literature-note
 status: active
 domain: general

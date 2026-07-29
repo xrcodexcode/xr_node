@@ -1,6 +1,6 @@
 ---
 id: 7c9e8f42-4b2a-4a6c-9c71-8b3d1e2f3a4b
-title: Detailed Study Notes - How to Learn Anything Faster Than Anyone
+title: "How to Learn Anything Faster Than Anyone"
 type: literature-note
 status: learning
 domain: general

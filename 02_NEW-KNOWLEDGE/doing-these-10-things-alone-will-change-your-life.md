@@ -1,6 +1,6 @@
 ---
 id: c7e3f812-9b21-4f81-a83d-e4210a51982b
-title: Detailed Study Notes — Doing These 10 Things Alone Will Change Your Life
+title: "Doing These 10 Things Alone Will Change Your Life"
 type: literature-note
 status: learning
 domain: general

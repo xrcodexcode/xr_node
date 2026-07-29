@@ -1,6 +1,6 @@
 ---
 id: b4f8c612-42a9-4e78-98e3-5a210d79c6b8
-title: "Detailed Study Notes — College First Year Secret Skill: Virtual Machines + VirtualBox Tutorial"
+title: "College First Year Secret Skill: Virtual Machines + VirtualBox Tutorial"
 type: literature-note
 status: learning
 domain: general

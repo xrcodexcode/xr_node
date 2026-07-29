@@ -1,6 +1,6 @@
 ---
 id: a1b2c3d4-e5f6-4a5b-8c7d-9e0f1a2b3c4d
-title: "Detailed Study Notes: OpenAI Just Changed How You Should Prompt (GPT-5.6 Rules)"
+title: "OpenAI Just Changed How You Should Prompt (GPT-5.6 Rules)"
 type: literature-note
 status: learning
 domain: general

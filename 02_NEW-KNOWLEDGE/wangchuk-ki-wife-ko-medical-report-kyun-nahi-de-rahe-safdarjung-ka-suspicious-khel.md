@@ -1,6 +1,6 @@
 ---
 id: "a3b8c912-7e4f-4d2a-89bc-1a2b3c4d5e6f"
-title: "Detailed Study Notes — Why is Safdarjung Hospital Withholding Sonam Wangchuk's Medical Report?"
+title: "Why is Safdarjung Hospital Withholding Sonam Wangchuk's Medical Report?"
 type: literature-note
 status: learning
 domain: general

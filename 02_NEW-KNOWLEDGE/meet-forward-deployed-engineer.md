@@ -1,6 +1,6 @@
 ---
 id: 8f74a012-3b85-4d2a-9e12-c6407bf829a1
-title: "Detailed Study Notes — Meet Forward Deployed Engineer! (Hottest Job in Silicon Valley)"
+title: "Meet Forward Deployed Engineer! (Hottest Job in Silicon Valley)"
 type: literature-note
 status: learning
 domain: technology

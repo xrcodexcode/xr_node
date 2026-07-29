@@ -1,6 +1,6 @@
 ---
 id: b2d1f435-0810-4f51-b844-8c858e391b18
-title: "Detailed Study Notes — I Read 126 Research Papers To Expose A Billion Dollar Fraud"
+title: "I Read 126 Research Papers To Expose A Billion Dollar Fraud"
 type: literature-note
 status: learning
 domain: science-integrity

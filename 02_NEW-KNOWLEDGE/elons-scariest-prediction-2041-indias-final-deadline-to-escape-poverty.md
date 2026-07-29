@@ -1,6 +1,6 @@
 ---
 id: f5c47aa7-eee0-43b4-89ee-edf062527344
-title: "Detailed Study Notes — Elon's Scariest Prediction: 2041 is India's Final Deadline to Escape Poverty"
+title: "Elon's Scariest Prediction: 2041 is India's Final Deadline to Escape Poverty"
 type: literature-note
 status: learning
 domain: general

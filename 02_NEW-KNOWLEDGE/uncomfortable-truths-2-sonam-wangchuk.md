@@ -1,6 +1,6 @@
 ---
 id: 9d8f3b2a-7e1c-4f5a-8b6d-3e2f1a9c8b7d
-title: "Detailed Study Notes — Uncomfortable Truths #2: Sonam Wangchuk's Hunger Strike, Jantar Mantar Protests and Indian State"
+title: "Uncomfortable Truths #2: Sonam Wangchuk's Hunger Strike, Jantar Mantar Protests and Indian State"
 type: literature-note
 status: learning
 domain: general

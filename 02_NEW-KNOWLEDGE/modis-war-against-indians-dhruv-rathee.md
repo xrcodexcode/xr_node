@@ -1,6 +1,6 @@
 ---
 id: 4f29a28c-9a41-477c-a81d-e593c66f7f2b
-title: "Detailed Study Notes — Modi's WAR Against Indians | What happened at Jantar Mantar? | Dhruv Rathee"
+title: "Modi's WAR Against Indians | What happened at Jantar Mantar? | Dhruv Rathee"
 type: literature-note
 status: learning
 domain: general

@@ -1,6 +1,6 @@
 ---
 id: c59d4f12-8e3b-4179-918c-32e6a5d4f108
-title: "Detailed Study Notes — Inside ₹12,00,000Cr Space Station !"
+title: "Inside ₹12,00,000Cr Space Station !"
 type: literature-note
 status: verified
 domain: general

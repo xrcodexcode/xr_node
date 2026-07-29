@@ -1,6 +1,6 @@
 ---
 id: a2d1f435-0810-4f51-b844-8c858e391b10
-title: "Detailed Study Notes — This Video is Equal to Reading 10 Books"
+title: "This Video is Equal to Reading 10 Books"
 type: literature-note
 status: learning
 domain: general

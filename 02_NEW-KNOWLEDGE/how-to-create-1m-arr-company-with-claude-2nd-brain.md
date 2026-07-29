@@ -1,6 +1,6 @@
 ---
 id: "e4a6f209-781d-45b6-9f33-1b2c3d4e5f67"
-title: "Detailed Study Notes — How to Create $1M ARR company with Claude + 2nd Brain!!"
+title: "How to Create $1M ARR company with Claude + 2nd Brain!!"
 type: literature-note
 status: learning
 domain: general

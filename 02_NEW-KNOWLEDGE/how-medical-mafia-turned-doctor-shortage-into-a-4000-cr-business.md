@@ -1,6 +1,6 @@
 ---
 id: e3b8782a-4a2e-4b68-8d2b-10f7d54b8e21
-title: "Detailed Study Notes — How Medical Mafia Turned Doctor Shortage into a ₹4000 CR Business"
+title: "How Medical Mafia Turned Doctor Shortage into a ₹4000 CR Business"
 type: literature-note
 status: learning
 domain: healthcare

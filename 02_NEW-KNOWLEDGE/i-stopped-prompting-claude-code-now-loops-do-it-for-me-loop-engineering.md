@@ -1,6 +1,6 @@
 ---
 id: 7b2e91a4-54c3-4d89-9a2f-1c3b5e7f9012
-title: Detailed Study Notes — I Stopped Prompting Claude Code. Now Loops Do It For Me (Loop Engineering)
+title: "I Stopped Prompting Claude Code. Now Loops Do It For Me (Loop Engineering)"
 type: literature-note
 status: learning
 domain: ai

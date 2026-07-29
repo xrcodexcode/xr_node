@@ -1,6 +1,6 @@
 ---
 id: 3b2ad353-428c-4f33-9369-ce59988e2b1d
-title: "Detailed Study Notes — 20th July 2026 CJP Sansad March & Jantar Mantar Protest"
+title: "20th July 2026 CJP Sansad March & Jantar Mantar Protest"
 type: literature-note
 status: learning
 domain: general

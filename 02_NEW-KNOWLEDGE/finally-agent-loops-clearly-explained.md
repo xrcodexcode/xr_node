@@ -1,6 +1,6 @@
 ---
 id: a1f9a449-f1b1-4bf4-904f-e0acdcb56af1
-title: "Detailed Study Notes — Finally. Agent Loops Clearly Explained"
+title: "Finally. Agent Loops Clearly Explained"
 type: literature-note
 status: learning
 domain: technology

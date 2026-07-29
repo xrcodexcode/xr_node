@@ -1,6 +1,6 @@
 ---
 id: a64b89dc-c16e-41df-a720-33be1e23f044
-title: "Detailed Study Notes — Why You Are Feeling STUCK In Your 20s"
+title: "Why You Are Feeling STUCK In Your 20s"
 type: literature-note
 status: learning
 domain: general

@@ -1,6 +1,6 @@
 ---
 id: a7f39b12-4c8d-4e91-8234-9f0e1d2c3b4a
-title: "Detailed Study Notes — Reality of 20th July Protest"
+title: "Reality of 20th July Protest"
 type: literature-note
 status: learning
 domain: general
