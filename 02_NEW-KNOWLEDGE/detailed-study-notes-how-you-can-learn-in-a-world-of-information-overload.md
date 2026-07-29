@@ -2,7 +2,7 @@
 id: f47ac10b-58cc-4372-a567-0e02b2c3d4e5
 title: "Detailed Study Notes — How You Can Learn in a World of Information Overload"
 type: literature-note
-status: processing
+status: learning
 domain: general
 source_type: youtube
 created: 2026-07-29

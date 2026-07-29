@@ -11,14 +11,10 @@
             "id": "35049c1825e4728e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "01_RAW/PROCESS/detailed-study-notes-how-you-can-learn-in-a-world-of-information-overload.md",
-                "mode": "preview",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "detailed-study-notes-how-you-can-learn-in-a-world-of-information-overload"
+              "title": "New tab"
             }
           }
         ]
@@ -195,8 +191,10 @@
   },
   "active": "35049c1825e4728e",
   "lastOpenFiles": [
-    "01_RAW/CAPTURE/How you can learn in a world of information overload  Tania Lombrozo  TEDxNewEngland.md",
     "01_RAW/PROCESS/detailed-study-notes-how-you-can-learn-in-a-world-of-information-overload.md",
+    "01_RAW/SOURCE/How you can learn in a world of information overload  Tania Lombrozo  TEDxNewEngland.md",
+    "02_NEW-KNOWLEDGE/detailed-study-notes-how-you-can-learn-in-a-world-of-information-overload.md",
+    "01_RAW/CAPTURE/How you can learn in a world of information overload  Tania Lombrozo  TEDxNewEngland.md",
     "01_RAW/CAPTURE/Inside ₹12,00,000Cr Space Station !.md",
     "01_RAW/CAPTURE/Complete CN Computer Networks in one shot  Semester Exam  Hindi.md",
     "01_RAW/CAPTURE/Claude Just Killed Prompt Engineering. This Is The New Way. (+17 AI Updates).md",
@@ -219,8 +217,6 @@
     "01_RAW/SOURCE/networking/computer-networking-fundamentals-freecodecamp/detailed-study-notes-computer-networking-fundamentals-part-02.md",
     "01_RAW/SOURCE/networking/computer-networking-fundamentals-freecodecamp/detailed-study-notes-computer-networking-fundamentals-final.md",
     "01_RAW/SOURCE/networking/computer-networking-full-course-sheryians/detailed-study-notes-computer-networking-sheryians-part-03.md",
-    "01_RAW/SOURCE/networking/computer-networking-full-course-sheryians/detailed-study-notes-computer-networking-sheryians-part-02.md",
-    "01_RAW/SOURCE/networking/computer-networking-full-course-sheryians/detailed-study-notes-computer-networking-sheryians-part-01.md",
     "01_RAW/SOURCE/networking/networking-for-hackers-2026",
     "01_RAW/SOURCE/networking/computer-networking-fundamentals-freecodecamp",
     "01_RAW/SOURCE/networking/computer-networking-full-course-sheryians",
