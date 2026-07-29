@@ -8,35 +8,20 @@
         "type": "tabs",
         "children": [
           {
-            "id": "35049c1825e4728e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "01_RAW/CAPTURE/Isteefa Mila hai, Paper Leak Nahi Rukega….md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Isteefa Mila hai, Paper Leak Nahi Rukega…"
-            }
-          },
-          {
             "id": "f108f6fe712ff1ab",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "02_NEW-KNOWLEDGE/antigravity-asynchronous-subagents.md",
+                "file": "01_RAW/PROCESS/detailed-study-notes-why-i-dont-agree-with-my-tech-rejections-stanford-report-explains.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "antigravity-asynchronous-subagents"
+              "title": "detailed-study-notes-why-i-dont-agree-with-my-tech-rejections-stanford-report-explains"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -208,8 +193,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "1a698b583bbbe23f",
+  "active": "f108f6fe712ff1ab",
   "lastOpenFiles": [
+    "01_RAW/CAPTURE/Why I Don't Agree With My Tech Rejections (Stanford Report Explains).md",
+    "01_RAW/PROCESS/detailed-study-notes-why-i-dont-agree-with-my-tech-rejections-stanford-report-explains.md",
+    "02_NEW-KNOWLEDGE/antigravity-asynchronous-subagents.md",
     "Untitled.md",
     "01_RAW/CAPTURE/Complete CN Computer Networks in one shot  Semester Exam  Hindi.md",
     "01_RAW/CAPTURE/Isteefa Mila hai, Paper Leak Nahi Rukega….md",
@@ -233,9 +221,6 @@
     "AREAS/README.md",
     "01_RAW/PROCESS/detailed-study-notes-how-you-can-learn-in-a-world-of-information-overload.md",
     "01_RAW/SOURCE/How you can learn in a world of information overload  Tania Lombrozo  TEDxNewEngland.md",
-    "02_NEW-KNOWLEDGE/detailed-study-notes-how-you-can-learn-in-a-world-of-information-overload.md",
-    "01_RAW/CAPTURE/How you can learn in a world of information overload  Tania Lombrozo  TEDxNewEngland.md",
-    "01_RAW/SOURCE/Networking for Hackers Full Course — Zero to Expert in One Video 2026.md",
     "01_RAW/SOURCE/networking/networking-for-hackers-2026",
     "01_RAW/SOURCE/networking/computer-networking-fundamentals-freecodecamp",
     "01_RAW/SOURCE/networking/computer-networking-full-course-sheryians",
