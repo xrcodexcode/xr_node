@@ -2,11 +2,11 @@
 id: e3d7a829-4b10-4f9e-bc82-95f617d3b012
 title: "Detailed Study Notes — Why I Don't Agree With My Tech Rejections (Stanford Report Explains)"
 type: literature-note
-status: learning
+status: active
 domain: general
 source_type: youtube
 created: 2026-07-29
-updated: 2026-07-29
+updated: 2026-07-30
 review: 2026-08-28
 confidence: 100
 version: 1

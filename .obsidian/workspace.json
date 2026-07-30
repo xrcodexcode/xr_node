@@ -8,17 +8,13 @@
         "type": "tabs",
         "children": [
           {
-            "id": "f108f6fe712ff1ab",
+            "id": "40f4f82eb2601f3e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "01_RAW/PROCESS/detailed-study-notes-why-i-dont-agree-with-my-tech-rejections-stanford-report-explains.md",
-                "mode": "preview",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "detailed-study-notes-why-i-dont-agree-with-my-tech-rejections-stanford-report-explains"
+              "title": "New tab"
             }
           }
         ]
@@ -193,14 +189,22 @@
       "bases:Create new base": false
     }
   },
-  "active": "f108f6fe712ff1ab",
+  "active": "1a698b583bbbe23f",
   "lastOpenFiles": [
-    "01_RAW/CAPTURE/Why I Don't Agree With My Tech Rejections (Stanford Report Explains).md",
+    "01_RAW/SOURCE/Kangana Calls Gen Z Gutter, Gen Z Asks Aap Kaun & More  Midweek.md",
+    "02_NEW-KNOWLEDGE/detailed-study-notes-kangana-calls-gen-z-gutter-gen-z-asks-aap-kaun-midweek.md",
+    "01_RAW/PROCESS/detailed-study-notes-kangana-calls-gen-z-gutter-gen-z-asks-aap-kaun-midweek.md",
+    "01_RAW/CAPTURE/Kangana Calls Gen Z Gutter, Gen Z Asks Aap Kaun & More  Midweek.md",
+    "01_RAW/CAPTURE/Never Let Your BRAIN Feel Lonely Again.md",
+    "01_RAW/CAPTURE/Isteefa Mila hai, Paper Leak Nahi Rukega….md",
     "01_RAW/PROCESS/detailed-study-notes-why-i-dont-agree-with-my-tech-rejections-stanford-report-explains.md",
+    "01_RAW/SOURCE/Why I Don't Agree With My Tech Rejections (Stanford Report Explains).md",
+    "02_NEW-KNOWLEDGE/why-i-dont-agree-with-my-tech-rejections-stanford-report-explains.md",
+    "01_RAW/CAPTURE/Best AI model for Your Projects in 2026.md",
+    "01_RAW/CAPTURE/Why I Don't Agree With My Tech Rejections (Stanford Report Explains).md",
     "02_NEW-KNOWLEDGE/antigravity-asynchronous-subagents.md",
     "Untitled.md",
     "01_RAW/CAPTURE/Complete CN Computer Networks in one shot  Semester Exam  Hindi.md",
-    "01_RAW/CAPTURE/Isteefa Mila hai, Paper Leak Nahi Rukega….md",
     "01_RAW/CAPTURE/What Really Happens When You Make an HTTP Request Chai aur Computer network.md",
     "01_RAW/CAPTURE/Networking for Hackers Full Course — Zero to Expert in One Video 2026.md",
     "02_NEW-KNOWLEDGE/uncomfortable-truths-2-sonam-wangchuk.md",
@@ -213,14 +217,6 @@
     "01_RAW/CAPTURE/Complete Networking Tutorial 2026 🚀  Beginner to Advanced (Cybersecurity Focus).md",
     "01_RAW/CAPTURE/Computer Networking Full Course - Internet Explained Step by Step (Real-Life Examples).md",
     "01_RAW/CAPTURE/Computer Networking Full Course - OSI Model Deep Dive with Real Life Examples.md",
-    "01_RAW/CAPTURE/Computer Networking Fundamentals Course.md",
-    "01_RAW/CAPTURE/Claude Just Killed Prompt Engineering. This Is The New Way. (+17 AI Updates).md",
-    "01_RAW/SOURCE/Claude Just Killed Prompt Engineering. This Is The New Way. (+17 AI Updates).md",
-    "02_NEW-KNOWLEDGE/detailed-study-notes-claude-just-killed-prompt-engineering-this-is-the-new-way-17-ai-updates.md",
-    "01_RAW/PROCESS/detailed-study-notes-claude-just-killed-prompt-engineering-this-is-the-new-way-17-ai-updates.md",
-    "AREAS/README.md",
-    "01_RAW/PROCESS/detailed-study-notes-how-you-can-learn-in-a-world-of-information-overload.md",
-    "01_RAW/SOURCE/How you can learn in a world of information overload  Tania Lombrozo  TEDxNewEngland.md",
     "01_RAW/SOURCE/networking/networking-for-hackers-2026",
     "01_RAW/SOURCE/networking/computer-networking-fundamentals-freecodecamp",
     "01_RAW/SOURCE/networking/computer-networking-full-course-sheryians",
