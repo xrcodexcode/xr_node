@@ -2,26 +2,36 @@
 title: Linking Rules
 type: governance-rule
 status: active
-version: 5.0.0
-last_reviewed: 2026-07-27
+version: 6.0.0
+last_reviewed: 2026-07-30
 approved_by: vault-owner
-change_reason: "Aligned graph reachability, orphan exceptions, and relationship context with GEMINI.md."
+change_reason: "v6.0.0 — Synchronized graph reachability, MOC navigation requirements, flat NODES link constraints, and deterministic link invariants with GEMINI.md."
 ---
 
 # Linking Rules
 
-A well-connected graph improves retrieval, but links must represent meaningful relationships rather than decoration.
+A well-connected graph improves retrievability and synthesis. Links must represent meaningful relationships rather than decorative formatting.
 
-## Core Linking Rules
+## 1. Core Linking Rules
 
-- Use standard Obsidian-style internal links such as [[Note Title]] or [[Note Title|Alias]].
-- Every stable content note must be reachable from at least one applicable MOC under 03_MOC/.
-- Active stable notes should have at least one meaningful incoming or outgoing link.
-- Raw captures, source archives, reports, templates, MOCs, and system files are exempt from ordinary orphan checks where the applicable workflow says so.
-- Add relationship context when linking inside the body, such as definition, supports, contradicts, depends_on, or related_to.
-- Use aliases for alternate names instead of creating duplicate notes.
-- Links to nodes in the flat NODES directory must not include subdirectories.
-- Never invent a link target. If a target is ambiguous or missing, report it.
-- Never rewrite existing user-authored links automatically. Propose repairs unless explicitly authorized.
-- Link generation must be deterministic and idempotent. Re-running it must not duplicate links or generated sections.
+- **Obsidian Link Syntax**: Use standard internal links: `[[Note Title]]` or `[[Note Title|Alias]]`.
+- **MOC Reachability**: Every stable content note must be reachable from at least one Map of Content (MOC) under `03_MOC/`.
+- **Graph Connection**: Active stable notes should have at least one meaningful inbound or outbound link.
+- **Relationship Context**: Add relationship context when linking inside note bodies where appropriate (e.g., `defines`, `supports`, `contradicts`, `depends_on`, `related_to`).
+- **Flat NODES Target**: Links targeting atomic nodes in `NODES/` must specify the note title directly without subdirectory paths (e.g., `[[Gradient Descent]]`, never `[[math/Gradient Descent]]`).
+- **No Phantom Links**: Never invent link targets. If a target is ambiguous or missing, report it or flag as an uncreated reference.
 
+## 2. Orphan Exemptions
+
+The following file categories are exempt from ordinary orphan health checks:
+- Raw capture files (`01_RAW/CAPTURE/`)
+- Archived source files (`01_RAW/SOURCE/`)
+- Audit & health reports (`.antigravity/reports/`)
+- Templates (`.antigravity/templates/`)
+- System files, rules, and scripts (`.antigravity/`)
+
+## 3. Link Preservation and Determinism
+
+- **User Link Safety**: Never rewrite or delete existing user-authored links automatically without explicit approval.
+- **Determinism**: Automated link generation must be idempotent. Re-running link processes must not create duplicate links or duplicated generated sections.
+- **Relative Links**: Always use relative Obsidian vault links, never machine-specific file paths.

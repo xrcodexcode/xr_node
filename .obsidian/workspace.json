@@ -11,10 +11,14 @@
             "id": "8dc8c8c365cdf3d6",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "01_RAW/CAPTURE/The Decision-Making Framework I Wish I Knew at 18.md",
+                "mode": "preview",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "The Decision-Making Framework I Wish I Knew at 18"
             }
           }
         ]
@@ -189,18 +193,18 @@
       "bases:Create new base": false
     }
   },
-  "active": "1a698b583bbbe23f",
+  "active": "8dc8c8c365cdf3d6",
   "lastOpenFiles": [
-    "01_RAW/CAPTURE/HTML Complete Tutorial Your First Step into Web Development 1.md",
-    "01_RAW/CAPTURE/HTML Complete Tutorial Your First Step into Web Development.md",
-    "01_RAW/CAPTURE/The Decision-Making Framework I Wish I Knew at 18.md",
-    "01_RAW/CAPTURE/Give me 30 Minutes, I’ll make you FOCUSED.md",
-    "01_RAW/PROCESS/detailed-study-notes-watch-this-before-you-waste-another-year.md",
-    "Untitled 1.md",
     "01_RAW/CAPTURE/Watch this before you waste another Year.md",
+    "01_RAW/CAPTURE/The Decision-Making Framework I Wish I Knew at 18.md",
+    "01_RAW/CAPTURE/Isteefa Mila hai, Paper Leak Nahi Rukega….md",
+    "01_RAW/CAPTURE/HTML Complete Tutorial Your First Step into Web Development.md",
+    "01_RAW/CAPTURE/HTML Complete Tutorial Your First Step into Web Development 1.md",
+    "01_RAW/CAPTURE/Give me 30 Minutes, I’ll make you FOCUSED.md",
     "01_RAW/CAPTURE/Building WEALTH Is Easier Than YOU THINK !!.md",
     "01_RAW/CAPTURE/Best AI model for Your Projects in 2026.md",
-    "01_RAW/CAPTURE/Isteefa Mila hai, Paper Leak Nahi Rukega….md",
+    "01_RAW/PROCESS/detailed-study-notes-watch-this-before-you-waste-another-year.md",
+    "Untitled 1.md",
     "01_RAW/PROCESS/detailed-study-notes-building-wealth-is-easier-than-you-think.md",
     "01_RAW/SOURCE/Never Let Your BRAIN Feel Lonely Again.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-never-let-your-brain-feel-lonely-again.md",
