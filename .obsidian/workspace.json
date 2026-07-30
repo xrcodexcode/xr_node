@@ -11,10 +11,14 @@
             "id": "40f4f82eb2601f3e",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "01_RAW/CAPTURE/Best AI model for Your Projects in 2026.md",
+                "mode": "preview",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Best AI model for Your Projects in 2026"
             }
           }
         ]
@@ -189,7 +193,7 @@
       "bases:Create new base": false
     }
   },
-  "active": "1a698b583bbbe23f",
+  "active": "40f4f82eb2601f3e",
   "lastOpenFiles": [
     "01_RAW/SOURCE/Never Let Your BRAIN Feel Lonely Again.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-never-let-your-brain-feel-lonely-again.md",
