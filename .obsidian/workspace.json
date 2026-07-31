@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "4da73f8d06a9f066",
+        "id": "c12bcedb1103bbbc",
         "type": "tabs",
         "children": [
           {
-            "id": "8dc8c8c365cdf3d6",
+            "id": "dd09636dcc4ac5ee",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "01_RAW/CAPTURE/The Decision-Making Framework I Wish I Knew at 18.md",
-                "mode": "preview",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "The Decision-Making Framework I Wish I Knew at 18"
+              "title": "New tab"
             }
           }
         ]
@@ -78,7 +74,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "43d09af49b9b51ad",
@@ -193,8 +190,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "8dc8c8c365cdf3d6",
+  "active": "dd09636dcc4ac5ee",
   "lastOpenFiles": [
+    "01_RAW/CAPTURE/You only need 6 months to change your life.md",
+    "01_RAW/PROCESS/detailed-study-notes-the-decision-making-framework-i-wish-i-knew-at-18.md",
     "01_RAW/CAPTURE/Watch this before you waste another Year.md",
     "01_RAW/CAPTURE/The Decision-Making Framework I Wish I Knew at 18.md",
     "01_RAW/CAPTURE/Isteefa Mila hai, Paper Leak Nahi Rukega….md",
@@ -219,8 +218,6 @@
     "02_NEW-KNOWLEDGE/why-i-dont-agree-with-my-tech-rejections-stanford-report-explains.md",
     "01_RAW/CAPTURE/Why I Don't Agree With My Tech Rejections (Stanford Report Explains).md",
     "02_NEW-KNOWLEDGE/antigravity-asynchronous-subagents.md",
-    "Untitled.md",
-    "01_RAW/CAPTURE/Complete CN Computer Networks in one shot  Semester Exam  Hindi.md",
     "01_RAW/SOURCE/networking/networking-for-hackers-2026",
     "01_RAW/SOURCE/networking/computer-networking-fundamentals-freecodecamp",
     "01_RAW/SOURCE/networking/computer-networking-full-course-sheryians",
