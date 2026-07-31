@@ -11,10 +11,14 @@
             "id": "dd09636dcc4ac5ee",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "AREAS/Learning/nexusdb_presentation_slides.md",
+                "mode": "preview",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "nexusdb_presentation_slides"
             }
           }
         ]
@@ -74,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "43d09af49b9b51ad",
@@ -192,6 +195,11 @@
   },
   "active": "dd09636dcc4ac5ee",
   "lastOpenFiles": [
+    "01_RAW/CAPTURE/email_20260731_bytebytego_system_architecture_of_modern_second_brains.md",
+    "01_RAW/CAPTURE/email_20260731_tldr_tech_autonomous_ai_agents_vector_dbs.md",
+    "AREAS/Learning/nexusdb_pbl_project_guide.md",
+    "01_RAW/PROCESS/detailed-study-notes-building-wealth-is-easier-than-you-think.md",
+    "AREAS/Learning/nexusdb_presentation_slides.md",
     "01_RAW/CAPTURE/You only need 6 months to change your life.md",
     "01_RAW/PROCESS/detailed-study-notes-the-decision-making-framework-i-wish-i-knew-at-18.md",
     "01_RAW/CAPTURE/Watch this before you waste another Year.md",
@@ -204,7 +212,6 @@
     "01_RAW/CAPTURE/Best AI model for Your Projects in 2026.md",
     "01_RAW/PROCESS/detailed-study-notes-watch-this-before-you-waste-another-year.md",
     "Untitled 1.md",
-    "01_RAW/PROCESS/detailed-study-notes-building-wealth-is-easier-than-you-think.md",
     "01_RAW/SOURCE/Never Let Your BRAIN Feel Lonely Again.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-never-let-your-brain-feel-lonely-again.md",
     "01_RAW/PROCESS/detailed-study-notes-never-let-your-brain-feel-lonely-again.md",
@@ -214,10 +221,6 @@
     "01_RAW/CAPTURE/Kangana Calls Gen Z Gutter, Gen Z Asks Aap Kaun & More  Midweek.md",
     "01_RAW/CAPTURE/Never Let Your BRAIN Feel Lonely Again.md",
     "01_RAW/PROCESS/detailed-study-notes-why-i-dont-agree-with-my-tech-rejections-stanford-report-explains.md",
-    "01_RAW/SOURCE/Why I Don't Agree With My Tech Rejections (Stanford Report Explains).md",
-    "02_NEW-KNOWLEDGE/why-i-dont-agree-with-my-tech-rejections-stanford-report-explains.md",
-    "01_RAW/CAPTURE/Why I Don't Agree With My Tech Rejections (Stanford Report Explains).md",
-    "02_NEW-KNOWLEDGE/antigravity-asynchronous-subagents.md",
     "01_RAW/SOURCE/networking/networking-for-hackers-2026",
     "01_RAW/SOURCE/networking/computer-networking-fundamentals-freecodecamp",
     "01_RAW/SOURCE/networking/computer-networking-full-course-sheryians",
