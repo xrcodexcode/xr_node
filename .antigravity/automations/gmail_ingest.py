@@ -172,8 +172,26 @@ def run_gmail_oauth_ingestion(credentials_file: str, query_str: str, target_dir:
                 print("Download credentials.json from Google Cloud Console (APIs & Services > Credentials).", file=sys.stderr)
                 sys.exit(1)
 
+            os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+            os.environ['OAUTHLIB_RELAX_TOKEN_SCOPE'] = '1'
             flow = InstalledAppFlow.from_client_secrets_file(credentials_file, SCOPES)
-            creds = flow.run_local_server(port=0)
+            try:
+                creds = flow.run_local_server(port=0, open_browser=True)
+            except Exception as e:
+                print(f"[WARNING] Local server auth failed ({e}). Falling back to authorization link...", file=sys.stderr)
+                auth_url, _ = flow.authorization_url(prompt='consent', access_type='offline')
+                print(f"\nPlease open this link in your browser:\n{auth_url}\n")
+                auth_resp = input("After authorizing, paste the full redirect URL or authorization code here: ").strip()
+                if "code=" in auth_resp:
+                    from urllib.parse import urlparse, parse_qs
+                    parsed = parse_qs(urlparse(auth_resp).query)
+                    code = parsed.get("code", [auth_resp])[0]
+                else:
+                    code = auth_resp
+                flow.fetch_token(code=code)
+                creds = flow.credentials
+
+
 
         with open(token_path, "w") as token_file:
             token_file.write(creds.to_json())

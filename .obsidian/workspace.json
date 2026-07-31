@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AREAS/Learning/nexusdb_presentation_slides.md",
+                "file": "AREAS/Learning/nexusdb_pbl_project_guide.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "nexusdb_presentation_slides"
+              "title": "nexusdb_pbl_project_guide"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "43d09af49b9b51ad",
@@ -197,17 +198,20 @@
   "lastOpenFiles": [
     "01_RAW/CAPTURE/email_20260731_bytebytego_system_architecture_of_modern_second_brains.md",
     "01_RAW/CAPTURE/email_20260731_tldr_tech_autonomous_ai_agents_vector_dbs.md",
+    "01_RAW/CAPTURE/Give me 30 Minutes, I’ll make you FOCUSED.md",
+    "01_RAW/CAPTURE/Isteefa Mila hai, Paper Leak Nahi Rukega….md",
+    "01_RAW/CAPTURE/Watch this before you waste another Year.md",
+    "01_RAW/CAPTURE/You only need 6 months to change your life.md",
+    "01_RAW/CAPTURE/HTML Complete Tutorial Your First Step into Web Development 1.md",
+    "AREAS/Learning/nexusdb_presentation_slides.md",
+    "credentials.json",
+    "client_secret_188493308416-krli9rnfot8sja5ppgiafm5hfhijk27k.apps.googleusercontent.com.json",
+    "Unconfirmed 623390.crdownload",
     "AREAS/Learning/nexusdb_pbl_project_guide.md",
     "01_RAW/PROCESS/detailed-study-notes-building-wealth-is-easier-than-you-think.md",
-    "AREAS/Learning/nexusdb_presentation_slides.md",
-    "01_RAW/CAPTURE/You only need 6 months to change your life.md",
     "01_RAW/PROCESS/detailed-study-notes-the-decision-making-framework-i-wish-i-knew-at-18.md",
-    "01_RAW/CAPTURE/Watch this before you waste another Year.md",
     "01_RAW/CAPTURE/The Decision-Making Framework I Wish I Knew at 18.md",
-    "01_RAW/CAPTURE/Isteefa Mila hai, Paper Leak Nahi Rukega….md",
     "01_RAW/CAPTURE/HTML Complete Tutorial Your First Step into Web Development.md",
-    "01_RAW/CAPTURE/HTML Complete Tutorial Your First Step into Web Development 1.md",
-    "01_RAW/CAPTURE/Give me 30 Minutes, I’ll make you FOCUSED.md",
     "01_RAW/CAPTURE/Building WEALTH Is Easier Than YOU THINK !!.md",
     "01_RAW/CAPTURE/Best AI model for Your Projects in 2026.md",
     "01_RAW/PROCESS/detailed-study-notes-watch-this-before-you-waste-another-year.md",
@@ -220,16 +224,12 @@
     "01_RAW/PROCESS/detailed-study-notes-kangana-calls-gen-z-gutter-gen-z-asks-aap-kaun-midweek.md",
     "01_RAW/CAPTURE/Kangana Calls Gen Z Gutter, Gen Z Asks Aap Kaun & More  Midweek.md",
     "01_RAW/CAPTURE/Never Let Your BRAIN Feel Lonely Again.md",
-    "01_RAW/PROCESS/detailed-study-notes-why-i-dont-agree-with-my-tech-rejections-stanford-report-explains.md",
     "01_RAW/SOURCE/networking/networking-for-hackers-2026",
     "01_RAW/SOURCE/networking/computer-networking-fundamentals-freecodecamp",
     "01_RAW/SOURCE/networking/computer-networking-full-course-sheryians",
     "01_RAW/SOURCE/networking/computer-networking-full-course-kunal-kushwaha",
     "01_RAW/SOURCE/networking/computer-networking-full-course-2026",
     "01_RAW/SOURCE/networking/complete-networking-tutorial-beginners-to-advanced-2026",
-    "01_RAW/SOURCE/networking/complete-networking-tutorial-2026-cybersecurity",
-    "01_RAW/SOURCE/networking/complete-cn-semester-exam",
-    "01_RAW/SOURCE/networking",
-    "AREAS/Digital Life"
+    "01_RAW/SOURCE/networking/complete-networking-tutorial-2026-cybersecurity"
   ]
 }
