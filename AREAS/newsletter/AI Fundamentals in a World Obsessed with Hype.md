@@ -28,21 +28,7 @@ This newsletter is for developers, technical founders, and serious AI learners w
 
 Instead of replacing one idea with another, every new concept adds another layer to the stack. Each layer solves a limitation of the previous one while answering a bigger question:
 
-```text
-┌───────────────────────────────────────────────────────────┐
-│ 6. Evaluation & Guardrails                                │ How do we measure and guarantee system behavior?
-├───────────────────────────────────────────────────────────┤
-│ 5. Graph Engineering                                      │ How are all components & agents coordinated?
-├───────────────────────────────────────────────────────────┤
-│ 4. Loop Engineering                                       │ How does the model improve its own work?
-├───────────────────────────────────────────────────────────┤
-│ 3. Harness Engineering (Tools & Execution Environment)     │ What actions can the model perform?
-├───────────────────────────────────────────────────────────┤
-│ 2. Context Engineering                                    │ What information should the model know right now?
-├───────────────────────────────────────────────────────────┤
-│ 1. Prompt Engineering (The Root Foundation)               │ How should the model be instructed to think?
-└───────────────────────────────────────────────────────────┘
-```
+![The AI Engineering Stack](file:///C:/Users/offic/.gemini/antigravity-cli/brain/a2c4624f-8c9b-483c-b871-754711e24743/ai_stack_pyramid_1785693075751.jpg)
 
 | Layer | Primary Question | Role & Fundamentals Underneath |
 | --- | --- | --- |
@@ -56,6 +42,8 @@ Instead of replacing one idea with another, every new concept adds another layer
 ---
 
 ## Why You Can't Skip the Foundations
+
+![The Abstraction Trap vs Solid Fundamentals](file:///C:/Users/offic/.gemini/antigravity-cli/brain/a2c4624f-8c9b-483c-b871-754711e24743/abstraction_trap_1785693088074.jpg)
 
 One of the biggest misconceptions online is that because everyone is discussing Loop Engineering or Graph Engineering, beginners should skip Prompt Engineering altogether. 
 
