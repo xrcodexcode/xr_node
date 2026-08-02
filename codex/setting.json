@@ -1,0 +1,51 @@
+{
+  "system": {
+    "name": "NexusDB",
+    "version": "4.6.0",
+    "control_plane": "codex",
+    "agent_name": "codex"
+  },
+  "vault": {
+    "architecture": "flat-atomic",
+    "nodes_dir": "NODES",
+    "mocs_dir": "03_MOC",
+    "raw_dir": "01_RAW",
+    "new_knowledge_dir": "02_NEW-KNOWLEDGE"
+  },
+  "ai": {
+    "provider": "openai_codex",
+    "model": "gpt-5.6-turbo",
+    "available_models": [
+      "gpt-5.6-turbo",
+      "gpt-5.6",
+      "gpt-5.5-turbo",
+      "gpt-5.5",
+      "gpt-4o",
+      "o3-mini",
+      "o1"
+    ],
+    "behavior": {
+      "prefer_existing_notes": true,
+      "avoid_duplicate_notes": true,
+      "cite_sources": true,
+      "ask_for_clarification_if_uncertain": true,
+      "summarize_before_expanding": true
+    }
+  },
+  "retrieval": {
+    "strategy": "direct_file_search",
+    "fallback": "mocs_and_grep",
+    "max_results": 20
+  },
+  "features": {
+    "auto_linking": true,
+    "graph_navigation": true,
+    "template_support": true,
+    "source_citations": true,
+    "strict_tag_validation": true
+  },
+  "ignore": {
+    "directories": [".git", ".obsidian", ".venv", "node_modules", "dist", "build"],
+    "extensions": [".png", ".jpg", ".jpeg", ".gif", ".webp", ".pdf", ".zip", ".7z", ".mp4", ".mp3"]
+  }
+}

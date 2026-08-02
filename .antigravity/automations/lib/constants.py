@@ -18,7 +18,8 @@ JACCARD_MODERATE_THRESHOLD = 0.3
 ALLOWED_DOMAINS = {
     "ai", "ml", "llm", "psychology", "productivity", "philosophy", "business", 
     "study", "research", "writing", "tools", "habits", "strategy", "leadership", 
-    "self-improvement", "dsa", "engineering", "manufacturing", "innovation", "risk", "general"
+    "self-improvement", "dsa", "engineering", "manufacturing", "innovation", "risk", "general",
+    "power", "biography"
 }
 
 ALLOWED_DISCOVERY_TAGS = {
@@ -28,7 +29,13 @@ ALLOWED_DISCOVERY_TAGS = {
 
 TAG_ALIASES = {
     "case_study": "case-study",
-    "open_question": "open-question"
+    "open_question": "open-question",
+    "youtube": "yt",
+    "podcasts": "podcast",
+    "books": "book",
+    "articles": "article",
+    "papers": "paper",
+    "transcripts": "transcript"
 }
 
 # --- Definitions of paths ---

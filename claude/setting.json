@@ -1,0 +1,48 @@
+{
+  "system": {
+    "name": "NexusDB",
+    "version": "4.6.0",
+    "control_plane": "claude",
+    "agent_name": "claude"
+  },
+  "vault": {
+    "architecture": "flat-atomic",
+    "nodes_dir": "NODES",
+    "mocs_dir": "03_MOC",
+    "raw_dir": "01_RAW",
+    "new_knowledge_dir": "02_NEW-KNOWLEDGE"
+  },
+  "ai": {
+    "provider": "anthropic_claude",
+    "model": "claude-3-7-sonnet",
+    "available_models": [
+      "claude-3-7-sonnet",
+      "claude-3-5-sonnet",
+      "claude-3-5-haiku",
+      "claude-3-opus"
+    ],
+    "behavior": {
+      "prefer_existing_notes": true,
+      "avoid_duplicate_notes": true,
+      "cite_sources": true,
+      "ask_for_clarification_if_uncertain": true,
+      "summarize_before_expanding": true
+    }
+  },
+  "retrieval": {
+    "strategy": "direct_file_search",
+    "fallback": "mocs_and_grep",
+    "max_results": 20
+  },
+  "features": {
+    "auto_linking": true,
+    "graph_navigation": true,
+    "template_support": true,
+    "source_citations": true,
+    "strict_tag_validation": true
+  },
+  "ignore": {
+    "directories": [".git", ".obsidian", ".venv", "node_modules", "dist", "build"],
+    "extensions": [".png", ".jpg", ".jpeg", ".gif", ".webp", ".pdf", ".zip", ".7z", ".mp4", ".mp3"]
+  }
+}

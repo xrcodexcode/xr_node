@@ -355,7 +355,7 @@ def main():
             "type": type_val,
             "tags": clean_tags,
             "desc": desc,
-            "clean_id": f"NODES/{os.path.splitext(f)[0]}"
+            "clean_id": os.path.splitext(f)[0]
         })
         
     # 2. Calculate backlink counts

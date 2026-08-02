@@ -38,9 +38,35 @@ Permanent source tags track the origin format of captured material and must neve
 - `transcript` — audio/video transcripts or interview logs
 - `web-clip` — web-clipped content or bookmarks
 
+### Domain Tags
+- `ai` — artificial intelligence concepts and methods
+- `ml` — machine learning algorithms and models
+- `llm` — large language models and prompt engineering
+- `psychology` — psychological principles, behavior, and cognition
+- `productivity` — productivity workflows, habits, and time management
+- `philosophy` — philosophical frameworks and mental models
+- `business` — business models, strategy, and management
+- `study` — academic preparation and learning strategies
+- `research` — research methodology and literature review
+- `writing` — content creation and technical writing
+- `tools` — software tools, frameworks, and utilities
+- `habits` — habit formation and behavior design
+- `strategy` — tactical and strategic planning
+- `leadership` — leadership traits and management practices
+- `self-improvement` — personal growth and discipline
+- `dsa` — data structures and algorithms
+- `engineering` — software and systems engineering
+- `manufacturing` — industrial processes and operations
+- `innovation` — technology trends and ideation
+- `risk` — risk management and probability
+- `general` — foundational or cross-domain knowledge
+- `power` — power dynamics and influence
+- `biography` — key historical figures and personal profiles
+
 ### Meta & Structural Tags
 - `moc` — Map of Content navigation index
 - `draft` — incomplete or unverified work-in-progress note
+
 
 ## 2. Approved Aliases
 

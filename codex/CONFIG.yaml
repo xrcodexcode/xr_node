@@ -1,0 +1,68 @@
+
+system:
+  name: NexusDB
+  version: "4.6.0"
+
+vault:
+  architecture: flat-atomic
+
+retrieval:
+  strategy: direct_file_search
+  fallback: mocs_and_grep
+
+search:
+  priority:
+    - NOTES
+    - NODES
+    - 03_MOC
+    - 02_NEW-KNOWLEDGE
+    - 01_RAW
+
+  recursive: true
+  follow_links: true
+  prefer_exact_match: true
+  max_results: 20
+
+ai:
+  provider: openai_codex
+  model: gemini
+
+  behavior:
+    prefer_existing_notes: true
+    avoid_duplicate_notes: true
+    cite_sources: true
+    ask_for_clarification_if_uncertain: true
+    summarize_before_expanding: true
+
+performance:
+  cache: true
+  parallel_search: false
+  lazy_loading: true
+  max_files_per_query: 150
+
+features:
+  auto_linking: true
+  graph_navigation: true
+  template_support: true
+  source_citations: true
+
+ignore:
+  directories:
+    - .git
+    - .obsidian
+    - .venv
+    - node_modules
+    - dist
+    - build
+
+  extensions:
+    - .png
+    - .jpg
+    - .jpeg
+    - .gif
+    - .webp
+    - .pdf
+    - .zip
+    - .7z
+    - .mp4
+    - .mp3
