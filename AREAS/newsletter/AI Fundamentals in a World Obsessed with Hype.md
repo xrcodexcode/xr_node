@@ -66,28 +66,6 @@ That is backwards:
 
 ---
 
-## Our Editorial Commitments
-
-To ensure this newsletter remains indispensable for technical builders, every issue adheres to three core standards:
-
-1. **Practical Rigor Over Pure Philosophy:** We don't just discuss concepts abstractly. Every architectural guide is backed by concrete code snippets, execution trace logs, token cost breakdowns, or benchmark comparisons.
-2. **Constructive Curiosity, Not Cynicism:** We are not anti-framework or anti-innovation. We celebrate genuine breakthroughs, but we dissect *where* frameworks shine and *where* simple, deterministic code is superior.
-3. **Real Production Post-Mortems:** We analyze actual failure modes—like unconstrained loop token burns, context window pollution, and silent schema drifts—so you learn from real production mistakes.
-
----
-
-## A Recurring Question in Every Issue
-
-Every issue will evaluate new trends through three core diagnostic questions:
-
-1. **What changed?**
-2. **What stayed the same?**
-3. **What should you learn or build next?**
-
-That is how we separate durable progress from temporary hype.
-
----
-
 ## What I Believe
 
 Technology evolves. Fundamentals compound.
