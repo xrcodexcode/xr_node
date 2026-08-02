@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "1ded148b2c112f6e",
+        "id": "0104c5b58583d222",
         "type": "tabs",
         "children": [
           {
-            "id": "9907291688c44280",
+            "id": "822b56b01f306adc",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -79,8 +79,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
@@ -199,7 +198,7 @@
       "bases:Create new base": false
     }
   },
-  "active": "2d4255ae95689a52",
+  "active": "822b56b01f306adc",
   "lastOpenFiles": [
     "AREAS/newsletter/AI Fundamentals in a World Obsessed with Hype.md",
     "01_RAW/CAPTURE/Only the Strongest Minds Should Watch This Video.md",

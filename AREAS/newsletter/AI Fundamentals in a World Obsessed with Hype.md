@@ -74,7 +74,17 @@ That is backwards:
 - **Deep dives into each layer:** prompts, context budgets, tool harnesses, iterative loops, graph orchestration, and evaluation
 - **De-hype analyses:** what is genuinely new, what is renamed, and what still matters
 - **Engineering mental models** for building production AI systems that work beyond a polished demo
-- **Practical code examples, diagrams, and experiments** you can apply directly to your projects
+- **Practical code examples, diagrams, and benchmark experiments** you can apply directly to your projects
+
+---
+
+## Our Editorial Commitments
+
+To ensure this newsletter remains indispensable for technical builders, every issue adheres to three core standards:
+
+1. **Practical Rigor Over Pure Philosophy:** We don't just discuss concepts abstractly. Every architectural guide is backed by concrete code snippets, execution trace logs, token cost breakdowns, or benchmark comparisons.
+2. **Constructive Curiosity, Not Cynicism:** We are not anti-framework or anti-innovation. We celebrate genuine breakthroughs, but we dissect *where* frameworks shine and *where* simple, deterministic code is superior.
+3. **Real Production Post-Mortems:** We analyze actual failure modes—like unconstrained loop token burns, context window pollution, and silent schema drifts—so you learn from real production mistakes.
 
 ---
 
@@ -112,4 +122,5 @@ Welcome to **AI Fundamentals in a World Obsessed with Hype**.
 - **Buzzword Genealogy** — Trace a new AI term (like GraphRAG or Agentic Loops) back to the older engineering concepts it builds on.
 - **De-Hype Diagnostic** — A practical checklist to decide if a problem needs a complex framework or just a clean prompt and a deterministic function.
 - **Under the Demo** — Break down a real-world AI product into its underlying prompt, context, harness, loop, graph, and evaluation layers.
+- **Production Post-Mortems** — Real failure case studies (e.g., $1,000 token burn spikes, context drift, or infinite loop deadlocks) and how to fix them.
 - **Before You Build Agents** — Foundational lessons on problem framing, state management, context limits, tool safety, and system reliability.
