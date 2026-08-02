@@ -8,13 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "1f8455cb4d657458",
+            "id": "9907291688c44280",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "AREAS/newsletter/AI Fundamentals in a World Obsessed with Hype.md",
+                "mode": "preview",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "AI Fundamentals in a World Obsessed with Hype"
             }
           }
         ]
@@ -67,12 +71,16 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {},
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
               "icon": "lucide-bookmark",
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -191,15 +199,17 @@
       "bases:Create new base": false
     }
   },
-  "active": "1a698b583bbbe23f",
+  "active": "2d4255ae95689a52",
   "lastOpenFiles": [
+    "AREAS/newsletter/AI Fundamentals in a World Obsessed with Hype.md",
+    "01_RAW/CAPTURE/Only the Strongest Minds Should Watch This Video.md",
+    "AREAS/newsletter",
     "02_NEW-KNOWLEDGE/detailed-study-notes-only-the-strongest-minds-should-watch-this-video.md",
     "01_RAW/SOURCE/Only the Strongest Minds Should Watch This Video.md",
     "01_RAW/PROCESS/detailed-study-notes-only-the-strongest-minds-should-watch-this-video.md",
     "01_RAW/CAPTURE/What is RAG Retrieval Augmented Generation Explained in Under 30 Minutes.md",
     "01_RAW/CAPTURE/You only need 6 months to change your life.md",
     "NODES/activation-function.md",
-    "01_RAW/CAPTURE/Only the Strongest Minds Should Watch This Video.md",
     "nexusdb-web/README.md",
     "nexusdb-web/src/assets/vite.svg",
     "nexusdb-web/src/assets/react.svg",
@@ -221,7 +231,6 @@
     "NODES/RAG Pipeline Architecture.md",
     "NODES/Retrieval Augmented Generation.md",
     "01_RAW/SOURCE/What is RAG Retrieval Augmented Generation Explained in Under 30 Minutes.md",
-    "02_NEW-KNOWLEDGE/What is RAG Retrieval Augmented Generation.md",
     "codex/scratch/build_claude.py",
     "claude/settings.json",
     "claude/setting.json",
@@ -231,7 +240,6 @@
     "claude/automations/lib/__pycache__/vault_paths.cpython-313.pyc",
     "claude/automations/lib/__pycache__/constants.cpython-313.pyc",
     "claude/automations/lib/__pycache__",
-    "claude/automations/lib/vault_utils.py",
     "nexusdb-web/dist/icons.svg",
     "nexusdb-web/dist/favicon.svg",
     "nexusdb-web/public/icons.svg",
