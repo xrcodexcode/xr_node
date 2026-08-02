@@ -20,4 +20,4 @@ Index of detailed book notes, summaries, and literature reviews.
 ## 📝 Concept & Study Notes
 | Note Title | Link | Type | Tags | Backlinks |
 | :--- | :--- | :--- | :--- | :--- |
-| Marginal Gains British Cycling | [[NODES/marginal-gains-british-cycling\|Marginal Gains British Cycling]] | `example` | #book, #productivity | **4** |
+| Marginal Gains British Cycling | [[marginal-gains-british-cycling\|Marginal Gains British Cycling]] | `example` | #book, #productivity | **4** |

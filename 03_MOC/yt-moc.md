@@ -1,34 +1,14 @@
 ---
-id: "e9f8a7b6-c5d4-3e2f-1a0b-9c8d7e6f5a4c"
 type: moc
 title: 📺 YouTube Map of Content
-status: active
-created: "2026-07-28T00:00:00"
-modified: "2026-08-02T17:45:00"
-confidence: 100
 tags: [yt, moc]
-owner_moc: "[[HOME-BASE.md]]"
+status: curated
+source: [[HOME-BASE]]
 ---
 
 # 📺 YouTube Map of Content
-
 ## Overview
 Index of notes synthesized from YouTube videos and transcripts.
-
-### 📺 RAG & AI Engineering Notes
-- [[NOTES/What is RAG Retrieval Augmented Generation|What is RAG? Retrieval Augmented Generation (Promoted Synthesis Note)]]
-- [[Retrieval Augmented Generation]]
-- [[RAG Pipeline Architecture]]
-- [[RAG Chunking Strategies]]
-- [[RAG Failure Modes]]
-- [[Reranking in RAG]]
-- [[Contextual Retrieval]]
-- [[Hypothetical Document Embedding]]
-- [[Agentic RAG]]
-- [[GraphRAG]]
-- [[RAG vs Long Context Windows]]
-
----
 
 ### 📺 Video-Specific Maps of Content
 - [[elon-musk-moc|Elon Musk MOC]]
@@ -44,17 +24,29 @@ Index of notes synthesized from YouTube videos and transcripts.
 - [[warren-buffett-moc|Warren Buffett MOC]]
 - [[why-you-are-feeling-stuck-in-your-20s-moc|Why You Are Feeling Stuck In Your 20S MOC]]
 
-## 📝 Concept & Synthesis Notes
-| Note Title | Link | Type | Tags | Status |
+## 📝 Concept & Study Notes
+| Note Title | Link | Type | Tags | Backlinks |
 | :--- | :--- | :--- | :--- | :--- |
-| What is RAG? Retrieval Augmented Generation | [[NOTES/What is RAG Retrieval Augmented Generation\|What is RAG? Retrieval Augmented Generation]] | `literature-note` | #yt, #ai, #rag, #llm | `verified` |
-| Retrieval Augmented Generation | [[NODES/Retrieval Augmented Generation\|Retrieval Augmented Generation]] | `atomic-note` | #concept, #ai, #rag | `active` |
-| RAG Pipeline Architecture | [[NODES/RAG Pipeline Architecture\|RAG Pipeline Architecture]] | `atomic-note` | #workflow, #ai, #rag | `active` |
-| RAG Chunking Strategies | [[NODES/RAG Chunking Strategies\|RAG Chunking Strategies]] | `atomic-note` | #framework, #ai, #rag | `active` |
-| RAG Failure Modes | [[NODES/RAG Failure Modes\|RAG Failure Modes]] | `atomic-note` | #framework, #ai, #rag | `active` |
-| Reranking in RAG | [[NODES/Reranking in RAG\|Reranking in RAG]] | `atomic-note` | #workflow, #ai, #rag | `active` |
-| Contextual Retrieval | [[NODES/Contextual Retrieval\|Contextual Retrieval]] | `atomic-note` | #workflow, #ai, #rag | `active` |
-| Hypothetical Document Embedding | [[NODES/Hypothetical Document Embedding\|Hypothetical Document Embedding]] | `atomic-note` | #workflow, #ai, #rag | `active` |
-| Agentic RAG | [[NODES/Agentic RAG\|Agentic RAG]] | `atomic-note` | #concept, #ai, #rag | `active` |
-| GraphRAG | [[NODES/GraphRAG\|GraphRAG]] | `atomic-note` | #concept, #ai, #rag | `active` |
-| RAG vs Long Context Windows | [[NODES/RAG vs Long Context Windows\|RAG vs Long Context Windows]] | `atomic-note` | #framework, #ai, #rag | `active` |
+| Cheatsheet — Learn 99% Claude & Codex in 25 mins | [[learn-99-percent-claude-and-codex-in-25-mins-cheatsheet\|Cheatsheet — Learn 99% Claude & Codex in 25 mins]] | `atomic-note` | #ai, #ml, #yt, #productivity | **7** |
+| Self-Fixing Code Loops | [[self-fixing-code-loops\|Self-Fixing Code Loops]] | `atomic-note` | #ai, #ml, #yt, #productivity | **6** |
+| Bypass Ask Permissions Mode | [[bypass-ask-permissions-mode\|Bypass Ask Permissions Mode]] | `atomic-note` | #ai, #ml, #yt, #productivity | **5** |
+| External Code Review Guardrails | [[external-code-review-guardrails\|External Code Review Guardrails]] | `atomic-note` | #ai, #ml, #yt, #productivity | **5** |
+| PKM Development Phases | [[pkm-development-phases\|PKM Development Phases]] | `atomic-note` | #ai, #ml, #yt, #productivity | **5** |
+| Every Level of a Claude Second Brain Explained | [[claude-second-brain-levels\|Every Level of a Claude Second Brain Explained]] | `atomic-note` | #ai, #ml, #productivity, #yt | **4** |
+| Local File System Access Advantage | [[local-filesystem-agent-advantage\|Local File System Access Advantage]] | `atomic-note` | #ai, #ml, #yt, #productivity | **4** |
+| growth-mindset | [[growth-mindset\|growth-mindset]] | `atomic-note` | #yt | **1** |
+| be-mentally-strong | [[be-mentally-strong\|be-mentally-strong]] | `atomic-note` | #yt | **0** |
+| beating-the-odds-when-things-get-hard | [[beating-the-odds-when-things-get-hard\|beating-the-odds-when-things-get-hard]] | `atomic-note` | #yt | **0** |
+| building-resilience-and-grit | [[building-resilience-and-grit\|building-resilience-and-grit]] | `atomic-note` | #yt | **0** |
+| dealing-with-failure-and-bouncing-back | [[dealing-with-failure-and-bouncing-back\|dealing-with-failure-and-bouncing-back]] | `atomic-note` | #yt | **0** |
+| developing-mental-toughness | [[developing-mental-toughness\|developing-mental-toughness]] | `atomic-note` | #yt | **0** |
+| emotional-healing-and-moving-forward | [[emotional-healing-and-moving-forward\|emotional-healing-and-moving-forward]] | `atomic-note` | #yt | **0** |
+| emotional-strength | [[emotional-strength\|emotional-strength]] | `atomic-note` | #yt | **0** |
+| finding-your-inner-strength | [[finding-your-inner-strength\|finding-your-inner-strength]] | `atomic-note` | #yt | **0** |
+| motivation-and-inspiration | [[motivation-and-inspiration\|motivation-and-inspiration]] | `atomic-note` | #yt | **0** |
+| overcoming-obstacles-and-adversity | [[overcoming-obstacles-and-adversity\|overcoming-obstacles-and-adversity]] | `atomic-note` | #yt | **0** |
+| personal-growth-and-development | [[personal-growth-and-development\|personal-growth-and-development]] | `atomic-note` | #yt | **0** |
+| powerful-mindset-shifts | [[powerful-mindset-shifts\|powerful-mindset-shifts]] | `atomic-note` | #yt | **0** |
+| reclaiming-your-personal-power | [[reclaiming-your-personal-power\|reclaiming-your-personal-power]] | `atomic-note` | #yt | **0** |
+| relationships | [[relationships\|relationships]] | `atomic-note` | #yt | **0** |
+| self-improvement-strategies | [[self-improvement-strategies\|self-improvement-strategies]] | `atomic-note` | #yt | **0** |

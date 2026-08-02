@@ -1,10 +1,12 @@
 # Invalid Tags Report
 
-Last scanned on 356 notes.
+Last scanned on 366 notes.
 
 | Note Title | File Link | Invalid Tags |
 | :--- | :--- | :--- |
+| Definition | [[Agentic RAG\|Agentic RAG.md]] | `concept`, `rag`, `agent` |
 | Bayesian Decision Making | [[bayesian-decision-making\|bayesian-decision-making.md]] | `elon-musk`, `thinking`, `mental-model` |
+| Definition | [[Contextual Retrieval\|Contextual Retrieval.md]] | `workflow`, `rag`, `anthropic` |
 | Delete Before Optimize | [[delete-before-optimize\|delete-before-optimize.md]] | `elon-musk`, `principle`, `rule` |
 | Delete-Then-Optimize Loop | [[delete-then-optimize-loop\|delete-then-optimize-loop.md]] | `elon-musk`, `framework` |
 | Elon Musk Childhood | [[elon-musk-childhood\|elon-musk-childhood.md]] | `elon-musk` |
@@ -22,8 +24,10 @@ Last scanned on 356 notes.
 | Few-Shot vs Zero-Shot Prompting | [[fewshot-vs-zeroshot-prompting\|fewshot-vs-zeroshot-prompting.md]] | `technique`, `processed` |
 | First Principles Prompting | [[first-principles-prompting\|first-principles-prompting.md]] | `technique`, `processed` |
 | First Principles Thinking | [[first-principles-thinking\|first-principles-thinking.md]] | `elon-musk`, `thinking`, `mental-model` |
+| Definition | [[GraphRAG\|GraphRAG.md]] | `concept`, `rag`, `knowledge-graph` |
 | Habit Loop | [[habit-loop\|habit-loop.md]] | `framework` |
 | Hell Yes or No Filter | [[hell-yes-or-no-filter\|hell-yes-or-no-filter.md]] | `essentialism`, `decision-making`, `filter` |
+| Definition | [[Hypothetical Document Embedding\|Hypothetical Document Embedding.md]] | `workflow`, `rag`, `hyde` |
 | Idiot Index | [[idiot-index\|idiot-index.md]] | `elon-musk`, `mental-model` |
 | Keep Moving Heuristic | [[keep-moving-heuristic\|keep-moving-heuristic.md]] | `action`, `career`, `heuristic` |
 | AI Existential Risk Philosophy | [[musk-ai-risk-philosophy\|musk-ai-risk-philosophy.md]] | `elon-musk`, `belief` |
@@ -48,8 +52,14 @@ Last scanned on 356 notes.
 | Prototype-Then-Iterate | [[prototype-then-iterate\|prototype-then-iterate.md]] | `elon-musk`, `principle` |
 | Question Every Requirement | [[question-every-requirement\|question-every-requirement.md]] | `elon-musk`, `principle`, `rule` |
 | RACE Prompt Framework | [[race-prompt-framework\|race-prompt-framework.md]] | `framework`, `processed` |
+| Definition | [[RAG Chunking Strategies\|RAG Chunking Strategies.md]] | `framework`, `rag`, `chunking` |
+| Definition | [[RAG Failure Modes\|RAG Failure Modes.md]] | `framework`, `rag`, `debugging` |
+| Definition | [[RAG Pipeline Architecture\|RAG Pipeline Architecture.md]] | `workflow`, `rag`, `architecture` |
+| Definition | [[RAG vs Long Context Windows\|RAG vs Long Context Windows.md]] | `framework`, `rag` |
 | Reasoning by Analogy | [[reasoning-by-analogy\|reasoning-by-analogy.md]] | `elon-musk`, `thinking`, `concept` |
 | Red Team Technique | [[red-team-technique\|red-team-technique.md]] | `technique`, `processed` |
+| Definition | [[Reranking in RAG\|Reranking in RAG.md]] | `workflow`, `rag`, `reranking` |
+| Definition | [[Retrieval Augmented Generation\|Retrieval Augmented Generation.md]] | `concept`, `rag`, `definition` |
 | Socratic Prompting | [[socratic-prompting\|socratic-prompting.md]] | `technique`, `learning`, `processed` |
 | SpaceX Falcon 1 Launch Failures | [[spacex-falcon-1-failures\|spacex-falcon-1-failures.md]] | `elon-musk`, `failure` |
 | Speed of Iteration Principle | [[speed-of-iteration-principle\|speed-of-iteration-principle.md]] | `elon-musk`, `principle` |

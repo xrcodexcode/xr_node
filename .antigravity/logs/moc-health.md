@@ -8,12 +8,3 @@
 ## MOC Size Warnings
 - [Warning] MOC 'study-moc.md' has exceeded the soft limit of 50 links (current: 78 links). Consider splitting it.
 - [Warning] MOC '48-laws-of-power-moc.md' has exceeded the soft limit of 50 links (current: 73 links). Consider splitting it.
-
-## Health Check Report - 2026-08-02 18:35:00
-- **Node Count**: 366
-- **MOC Count**: 22
-- **Subdirectories in NODES/**: 0 (100% Flat Invariant Compliant)
-- **Orphan Subfolder Rate**: 0.0%
-- **Schema v6.0.0 Compliance**: 100% across active nodes
-- **Average Backlinks per Node**: 7.12
----

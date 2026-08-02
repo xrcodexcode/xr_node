@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "c12bcedb1103bbbc",
+        "id": "1ded148b2c112f6e",
         "type": "tabs",
         "children": [
           {
-            "id": "dd09636dcc4ac5ee",
+            "id": "1f8455cb4d657458",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "NODES/activation-function.md",
-                "mode": "preview",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "activation-function"
+              "title": "New tab"
             }
           }
         ]
@@ -195,8 +191,14 @@
       "bases:Create new base": false
     }
   },
-  "active": "dd09636dcc4ac5ee",
+  "active": "1a698b583bbbe23f",
   "lastOpenFiles": [
+    "02_NEW-KNOWLEDGE/detailed-study-notes-only-the-strongest-minds-should-watch-this-video.md",
+    "01_RAW/SOURCE/Only the Strongest Minds Should Watch This Video.md",
+    "01_RAW/PROCESS/detailed-study-notes-only-the-strongest-minds-should-watch-this-video.md",
+    "01_RAW/CAPTURE/What is RAG Retrieval Augmented Generation Explained in Under 30 Minutes.md",
+    "01_RAW/CAPTURE/You only need 6 months to change your life.md",
+    "NODES/activation-function.md",
     "01_RAW/CAPTURE/Only the Strongest Minds Should Watch This Video.md",
     "nexusdb-web/README.md",
     "nexusdb-web/src/assets/vite.svg",
@@ -220,12 +222,6 @@
     "NODES/Retrieval Augmented Generation.md",
     "01_RAW/SOURCE/What is RAG Retrieval Augmented Generation Explained in Under 30 Minutes.md",
     "02_NEW-KNOWLEDGE/What is RAG Retrieval Augmented Generation.md",
-    "CLAUDE.md",
-    "AGENT.md",
-    "codex/rules/naming.md",
-    "codex/rules/tagging.md",
-    "codex/rules/review.md",
-    "codex/rules/linking.md",
     "codex/scratch/build_claude.py",
     "claude/settings.json",
     "claude/setting.json",
