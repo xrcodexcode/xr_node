@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "f430f10ad5bf4074",
+        "id": "3d69088bf215c1c4",
         "type": "tabs",
         "children": [
           {
-            "id": "a63bc265684c39fb",
+            "id": "e0e75b9eeb33bbfe",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -198,7 +198,7 @@
       "bases:Create new base": false
     }
   },
-  "active": "a63bc265684c39fb",
+  "active": "e0e75b9eeb33bbfe",
   "lastOpenFiles": [
     "AREAS/newsletter/AI Fundamentals in a World Obsessed with Hype.md",
     "01_RAW/CAPTURE/Only the Strongest Minds Should Watch This Video.md",
