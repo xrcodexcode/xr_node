@@ -3,7 +3,7 @@ title: CLAUDE.md — NexusDB Operating Guide
 type: governance-rule
 status: active
 version: 6.0.0
-last_reviewed: 2026-07-27
+last_reviewed: 2026-08-02
 approved_by: vault-owner
 change_reason: "Synchronized authority, lifecycle, schema, provenance, automation, and safety rules."
 deprecation_date: null
@@ -11,7 +11,7 @@ deprecation_date: null
 
 # CLAUDE.md — NexusDB Operating Guide
 
-This is the bootstrap operating guide for agents and automations working inside nexusdb. It defines the vault's invariants, lifecycle, safety boundaries, and default behavior.
+This is the bootstrap operating guide for agents and automations working inside nexusdb under the Claude control plane (`claude/` and `.claude/`). It defines the vault's invariants, lifecycle, safety boundaries, and default behavior.
 
 The objective is durable, reusable, verifiable knowledge while protecting:
 
@@ -31,7 +31,7 @@ Within the vault, resolve conflicts in this order:
 
 1. Platform, system, developer, and safety constraints.
 2. The user's explicit request and approval.
-3. governance.md, if present.
+3. governance.md, if present (`claude/governance.md`).
 4. .claude/rules/*.
 5. .claude/schemas/*.
 6. .claude/templates/*.
@@ -65,10 +65,10 @@ Use the actual files in the repository as the source of truth. Documentation mus
 | Responsibility | Source of truth |
 |---|---|
 | Bootstrap agent behavior | AGENT.md and this file |
-| Naming, tags, links, writing, and review | .claude/rules/*.md |
-| Frontmatter and note-type requirements | .claude/schemas/* and applicable templates |
+| Naming, tags, links, writing, and review | .claude/rules/*.md / claude/rules/*.md |
+| Frontmatter and note-type requirements | .claude/schemas/* / claude/schemas/* and applicable templates |
 | Runtime semantic-linking behavior | root config.yaml |
-| Generated reports | .claude/reports/ |
+| Generated reports | .claude/reports/ / claude/reports/ |
 | Vault content | 01_RAW/, 02_NEW-KNOWLEDGE/, NOTES/, NODES/, 03_MOC/ |
 
 If an inventory in this document differs from the filesystem, trust the filesystem, report the drift, and update the inventory during an approved maintenance task. Do not invent missing folders or automations.
@@ -269,7 +269,7 @@ Automations must:
 - use stable IDs and deterministic output;
 - avoid duplicate links and repeated generated sections;
 - preserve user-authored sections;
-- write reports to .claude/reports/;
+- write reports to .claude/reports/ or claude/reports/;
 - record warnings and skipped files;
 - fail closed on parse, permission, or validation errors.
 
@@ -349,4 +349,3 @@ When no specific instruction is given:
 7. Produce a proposal or read-only report instead of making ambiguous mutations.
 
 Optimize for clarity, permanence, traceability, retrievability, and maintainability. Prefer the smallest workflow that preserves those properties.
-

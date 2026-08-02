@@ -1,0 +1,60 @@
+# GEMINI Backup Archive (v4/v5)
+
+This file contains historical reference rules from earlier iterations of NexusDB before v6.0.0 consolidation.
+
+---
+
+# System Enforcement
+
+The Infinity Brain is a self-maintaining knowledge system. All policies described in this document should be enforced automatically through scripts, hooks, and agents.
+
+> [!IMPORTANT]
+> Documentation is not the source of truth. **Automation is.**
+
+---
+
+# Single Sources of Truth
+
+```
+.antigravity/
+├── rules/
+│   ├── tag-schema.md          # All allowed tags
+│   ├── promotion-rules.md     # Node promotion policy
+│   ├── node-schema.md         # Atomic note structure
+│   ├── moc-schema.md          # MOC structure
+│   └── source-schema.md       # Source metadata
+├── logs/
+│   └── moc-health.md          # MOC and knowledge graph health reports
+└── automations/               # Automation scripts
+```
+
+---
+
+# Controlled Tag Schema
+
+| Category | Allowed Tags | Description / Rule |
+|---|---|---|
+| **Source** | `#youtube`, `#podcast`, `#book`, `#article`, `#paper`, `#newletter`, `#substack` | Permanent source tags must never be removed. |
+| **Knowledge Type** | `#concept`, `#fact`, `#principle`, `#framework`, `#workflow`, `#mental-model`, `#definition`, `#law`, `#question`, `#universal-truth` | Specifies cognitive type of note. |
+| **Status** | `#processed`, `#draft`, `#evergreen` | Lifecycle stage. |
+| **Domain** | `#ai`, `#ml`, `#psychology`, `#productivity` | Subject area. |
+
+---
+
+# Duplicate Prevention
+
+1. Search Title
+2. Search Aliases
+3. Search Semantic Similarity
+4. Search Backlinks
+
+---
+
+# Node Validation
+
+- [ ] One Concept Only
+- [ ] MOC Association
+- [ ] Connected
+- [ ] Sourced
+- [ ] Valid Tags
+- [ ] No Broken Links

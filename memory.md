@@ -11,27 +11,35 @@ tags:
 
 # 🧠 NexusDB Memory
 
-This file serves as persistent memory for agents and automations interacting with **nexusdb**.
+This file serves as persistent memory for agents and automations interacting with **NexusDB**.
 
 ## 📌 Project Context & Overview
 - **Vault Name**: NexusDB (Infinity Brain)
 - **Architecture**: Flat atomic knowledge system (`01_RAW/`, `02_NODES/`, `03_MOC/`)
-- **Infrastructure**: Configured with `.antigravity/` governance, schemas, rules, and skills.
+- **Infrastructure**: Parallel AI control planes configured for Gemini (`.antigravity/`), Codex (`codex/` & `.codex/`), and Claude (`claude/` & `.claude/`).
 
 ## 💡 Core Operating Principles & Preferences
 1. **Atomicity**: One note = one discrete idea, concept, definition, or claim.
 2. **Retrievability**: Every stable note is indexed and reachable from an MOC in `03_MOC/`.
 3. **Non-redundancy**: Avoid duplicate notes; update canonical notes rather than creating duplicates.
 4. **Traceability**: Maintain full provenance and locators for derived notes.
-5. **Tag Discipline**: Strict adherence to controlled tags in `.antigravity/rules/tagging.md`.
+5. **Tag Discipline**: Strict adherence to controlled tags in `rules/tagging.md`.
 
 ## ⚙️ Vault Lifecycle & Structure
-- `01_RAW/capture/`: Incoming unprocessed files and clips.
-- `01_RAW/source/`: Archived original sources post-ingestion.
-- `02_NODES/`: Permanent atomic notes (flat structure, no subfolders).
+- `01_RAW/CAPTURE/`: Incoming unprocessed files and clips.
+- `01_RAW/PROCESS/`: Working copies and drafts.
+- `01_RAW/SOURCE/`: Archived original sources post-ingestion.
 - `02_NEW-KNOWLEDGE/`: Active study and draft synthesis notes.
+- `02_NODES/`: Permanent atomic notes (flat structure, no subfolders).
 - `03_MOC/`: Maps of Content / Navigation layer.
 
 ## 📜 Key Milestones & Session Logs
 - **2026-07-28**: Initialized `memory.md` in root directory.
-- **2026-08-02**: Re-initialized `memory.md` with schema-compliant metadata, governance parameters, and active memory context.
+- **2026-08-02**: Built and optimized `codex/governance.md` and `.codex/governance.md` (v6.0.0).
+- **2026-08-02**: Full Root Folder Optimization completed:
+  - Fixed `AGENT.md` universal agent bootstrap guide.
+  - Repaired and completed `README.md` structure & feature matrix.
+  - Updated `VAULT-STRUCTURE.md` with multi-engine control plane details.
+  - Synchronized `GEMINI.md`, `CODEX.md`, and `CLAUDE.md`.
+  - Upgraded `HOME-BASE.md` to Frontmatter Schema v6.0.0.
+  - Archived `GEMINI.md.backup` to `.antigravity/archive/`.

@@ -3,7 +3,7 @@ title: GEMINI.md — NexusDB Operating Guide
 type: governance-rule
 status: active
 version: 6.0.0
-last_reviewed: 2026-07-27
+last_reviewed: 2026-08-02
 approved_by: vault-owner
 change_reason: "Synchronized authority, lifecycle, schema, provenance, automation, and safety rules."
 deprecation_date: null
@@ -11,7 +11,7 @@ deprecation_date: null
 
 # GEMINI.md — NexusDB Operating Guide
 
-This is the bootstrap operating guide for agents and automations working inside nexusdb. It defines the vault's invariants, lifecycle, safety boundaries, and default behavior.
+This is the bootstrap operating guide for agents and automations working inside nexusdb under the Gemini / Antigravity CLI control plane (`.antigravity/`). It defines the vault's invariants, lifecycle, safety boundaries, and default behavior.
 
 The objective is durable, reusable, verifiable knowledge while protecting:
 
@@ -31,7 +31,7 @@ Within the vault, resolve conflicts in this order:
 
 1. Platform, system, developer, and safety constraints.
 2. The user's explicit request and approval.
-3. governance.md, if present.
+3. governance.md, if present (`.antigravity/governance.md`).
 4. .antigravity/rules/*.
 5. .antigravity/schemas/*.
 6. .antigravity/templates/*.
@@ -349,4 +349,3 @@ When no specific instruction is given:
 7. Produce a proposal or read-only report instead of making ambiguous mutations.
 
 Optimize for clarity, permanence, traceability, retrievability, and maintainability. Prefer the smallest workflow that preserves those properties.
-
