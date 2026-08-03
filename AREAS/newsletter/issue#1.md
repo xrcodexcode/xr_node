@@ -1,6 +1,6 @@
 # Prompt Engineering Isn't Dead. It's Evolving.
 
-![AI Fundamentals in a World Obsessed with Hype](file:///C:/Users/offic/.gemini/antigravity-cli/brain/a2c4624f-8c9b-483c-b871-754711e24743/hero_banner_mobile_1785694027724.jpg)
+![AI Fundamentals in a World Obsessed with Hype](./assets/ai_fundamentals_hero.jpg)
 
 AI moves fast. Its vocabulary moves even faster.
 
@@ -60,7 +60,7 @@ AI engineering follows the exact same trajectory.
 
 Every new concept in AI is simply another layer added to an evolving engineering stack.
 
-![The AI Engineering Stack](file:///C:/Users/offic/.gemini/antigravity-cli/brain/a2c4624f-8c9b-483c-b871-754711e24743/stack_pyramid_mobile_1785694039093.jpg)
+![The AI Engineering Stack](./assets/ai_stack_pyramid.jpg)
 
 ---
 
@@ -188,7 +188,7 @@ Notice what happened here: **Each layer built directly on the previous one.** Th
 
 ## ⚠️ Common Misconceptions
 
-![The Abstraction Trap vs Solid Fundamentals](file:///C:/Users/offic/.gemini/antigravity-cli/brain/a2c4624f-8c9b-483c-b871-754711e24743/abstraction_trap_mobile_1785694050391.jpg)
+![The Abstraction Trap vs Solid Fundamentals](./assets/abstraction_trap_vs_fundamentals.jpg)
 
 Let's address two of the most common myths circulating in the developer ecosystem:
 

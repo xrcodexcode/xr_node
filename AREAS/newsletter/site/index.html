@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Fundamentals — The signal behind the AI hype</title>
+  <meta name="description" content="A newsletter for engineers and builders who want to understand AI systems from first principles. No hype. No fluff. Just fundamentals that compound.">
+  <meta name="theme-color" content="#0A0A0A">
+  <meta property="og:title" content="AI Fundamentals — The signal behind the AI hype">
+  <meta property="og:description" content="Understand systems, not trends. A newsletter for engineers who build with AI.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============================================
+       NAVIGATION
+       ============================================ -->
+  <nav class="nav" id="nav" aria-label="Primary navigation">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="#" class="nav__logo" id="nav-logo">AI Fundamentals</a>
+        <a href="#subscribe" class="nav__cta" id="nav-subscribe">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       HERO
+       ============================================ -->
+  <header class="hero" id="hero">
+    <span class="hero__badge reveal">A newsletter for builders</span>
+    <h1 class="hero__title reveal reveal-delay-1">The signal behind<br>the AI hype.</h1>
+    <p class="hero__subtitle reveal reveal-delay-2">Understand systems, not trends. Every issue breaks down one AI concept from first principles for engineers who build real products.</p>
+    <form class="hero__form reveal reveal-delay-3" data-subscribe aria-label="Subscribe to newsletter">
+      <input
+        type="email"
+        class="hero__input"
+        id="hero-email"
+        placeholder="your@email.com"
+        required
+        autocomplete="email"
+        aria-label="Email address"
+      >
+      <button type="submit" class="hero__submit" id="hero-submit">Subscribe</button>
+    </form>
+    <p class="hero__proof reveal reveal-delay-4">Free. Two issues published. No spam, ever.</p>
+    <div class="hero__line" aria-hidden="true"></div>
+  </header>
+
+  <main>
+    <!-- ============================================
+         FEATURED ISSUE
+         ============================================ -->
+    <section class="featured section--border-top" id="featured" aria-labelledby="featured-label">
+      <div class="container">
+        <span class="section__label reveal" id="featured-label">Latest Issue</span>
+        <article class="featured__card reveal reveal-delay-1">
+          <div class="featured__image-wrap">
+            <img
+              src="../assets/rag_architecture_flow.jpg"
+              alt="Infographic showing RAG architecture flow with retrieval, augmentation, and generation stages"
+              loading="lazy"
+              width="640"
+              height="400"
+            >
+          </div>
+          <div class="featured__content">
+            <div class="featured__meta">
+              <span>Issue 02</span>
+              <span class="featured__meta-divider" aria-hidden="true"></span>
+              <span>12 min read</span>
+            </div>
+            <h2 class="featured__title">RAG Isn't Dead. Most People Just Don't Understand It.</h2>
+            <p class="featured__excerpt">Large context windows are useful. Retrieval is useful. The mistake is treating them as the same thing. A long-context model gives you a bigger desk. RAG helps you find the right document before you start working.</p>
+            <a href="#" class="featured__link" aria-label="Read Issue 02: RAG Isn't Dead">
+              Read this issue <span class="featured__link-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================
+         ALL ISSUES
+         ============================================ -->
+    <section class="section section--border-top" id="issues" aria-labelledby="issues-label">
+      <div class="container">
+        <span class="section__label reveal" id="issues-label">All Issues</span>
+        <h2 class="section__heading reveal reveal-delay-1">From the archive</h2>
+        <p class="section__description reveal reveal-delay-2">Every issue is a self-contained deep dive. Start anywhere.</p>
+
+        <div class="issues__grid">
+          <!-- Issue 02 -->
+          <a href="#" class="issue-card reveal" id="issue-02" aria-label="Read Issue 02">
+            <div class="issue-card__image">
+              <img
+                src="../assets/rag_vs_long_context.jpg"
+                alt="Comparison infographic: RAG versus long context windows"
+                loading="lazy"
+                width="200"
+                height="125"
+              >
+            </div>
+            <div class="issue-card__body">
+              <div class="issue-card__meta">
+                <span>Issue 02</span>
+                <span class="issue-card__meta-divider" aria-hidden="true"></span>
+                <span>12 min read</span>
+              </div>
+              <h3 class="issue-card__title">RAG Isn't Dead. Most People Just Don't Understand It.</h3>
+              <p class="issue-card__excerpt">Large context windows are useful. Retrieval is useful. The mistake is treating them as the same thing.</p>
+            </div>
+          </a>
+
+          <!-- Issue 01 -->
+          <a href="#" class="issue-card reveal reveal-delay-1" id="issue-01" aria-label="Read Issue 01">
+            <div class="issue-card__image">
+              <img
+                src="../assets/ai_fundamentals_hero.jpg"
+                alt="AI Fundamentals hero illustration showing engineering stack concept"
+                loading="lazy"
+                width="200"
+                height="125"
+              >
+            </div>
+            <div class="issue-card__body">
+              <div class="issue-card__meta">
+                <span>Issue 01</span>
+                <span class="issue-card__meta-divider" aria-hidden="true"></span>
+                <span>10 min read</span>
+              </div>
+              <h3 class="issue-card__title">Prompt Engineering Isn't Dead. It's Evolving.</h3>
+              <p class="issue-card__excerpt">Everyone is declaring prompt engineering dead. They are wrong. The stack simply grew larger. Technology evolves. Fundamentals compound.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         BENEFITS
+         ============================================ -->
+    <section class="section section--border-top" id="benefits" aria-labelledby="benefits-label">
+      <div class="container">
+        <span class="section__label reveal" id="benefits-label">Why subscribe</span>
+        <h2 class="section__heading reveal reveal-delay-1">Built for engineers who think in systems</h2>
+        <p class="section__description reveal reveal-delay-2">Not another AI news aggregator. Every issue is original analysis written for practitioners.</p>
+
+        <div class="benefits__grid">
+          <article class="benefit-card reveal" id="benefit-01">
+            <span class="benefit-card__number">01</span>
+            <h3 class="benefit-card__title">First principles over trends</h3>
+            <p class="benefit-card__text">Each issue dissects one concept from the foundation up. You'll understand why something works, not just that it exists.</p>
+          </article>
+
+          <article class="benefit-card reveal reveal-delay-1" id="benefit-02">
+            <span class="benefit-card__number">02</span>
+            <h3 class="benefit-card__title">Production focus</h3>
+            <p class="benefit-card__text">Theory backed by real architecture decisions. The kind of reasoning you need when building systems that serve actual users.</p>
+          </article>
+
+          <article class="benefit-card reveal reveal-delay-2" id="benefit-03">
+            <span class="benefit-card__number">03</span>
+            <h3 class="benefit-card__title">Signal, no noise</h3>
+            <p class="benefit-card__text">No hype cycles. No hot takes. No sponsored content. Just carefully researched, clearly written technical analysis.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         ABOUT
+         ============================================ -->
+    <section class="section section--border-top" id="about" aria-labelledby="about-label">
+      <div class="container">
+        <span class="section__label reveal" id="about-label">About</span>
+        <div class="about__inner">
+          <h2 class="section__heading reveal reveal-delay-1">Why this newsletter exists</h2>
+          <p class="about__text reveal reveal-delay-2">
+            AI moves fast. Its vocabulary moves even faster. Every few months, the timeline crowns a new buzzword while writing an obituary for the previous one. <strong>It's exhausting and mostly wrong.</strong>
+          </p>
+          <p class="about__text reveal reveal-delay-3">
+            AI Fundamentals exists to cut through the noise. Each issue takes one concept that the internet is arguing about and breaks it down from first principles. No hot takes. No vendor pitches. Just <strong>clear thinking for people who build real systems.</strong>
+          </p>
+          <p class="about__signature reveal reveal-delay-4">Written and researched independently.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SUBSCRIBE CTA
+         ============================================ -->
+    <section class="subscribe section--border-top" id="subscribe" aria-labelledby="subscribe-heading">
+      <div class="container">
+        <h2 class="subscribe__heading reveal" id="subscribe-heading">Understand systems,<br>not trends.</h2>
+        <p class="subscribe__subtitle reveal reveal-delay-1">Join engineers and builders who want first-principles clarity on AI. Free, forever.</p>
+        <form class="subscribe__form reveal reveal-delay-2" data-subscribe aria-label="Subscribe to newsletter">
+          <input
+            type="email"
+            class="subscribe__input"
+            id="subscribe-email"
+            placeholder="your@email.com"
+            required
+            autocomplete="email"
+            aria-label="Email address"
+          >
+          <button type="submit" class="subscribe__submit" id="subscribe-submit">Subscribe</button>
+        </form>
+        <p class="subscribe__note reveal reveal-delay-3">No spam. Unsubscribe anytime.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">AI Fundamentals</p>
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a href="#issues" class="footer__link" id="footer-issues">Issues</a>
+          <a href="#about" class="footer__link" id="footer-about">About</a>
+          <a href="#subscribe" class="footer__link" id="footer-subscribe">Subscribe</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -13,12 +13,24 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AREAS/newsletter/AI Fundamentals in a World Obsessed with Hype.md",
+                "file": "AREAS/newsletter/issue#1.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AI Fundamentals in a World Obsessed with Hype"
+              "title": "issue#1"
+            }
+          },
+          {
+            "id": "72b7bb8023bf69bb",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "AREAS/newsletter/assets/abstraction_trap_vs_fundamentals.jpg"
+              },
+              "icon": "lucide-image",
+              "title": "abstraction_trap_vs_fundamentals"
             }
           }
         ]
@@ -200,7 +212,22 @@
   },
   "active": "7d8e5569821e2c55",
   "lastOpenFiles": [
+    "AREAS/newsletter/issue#2.md",
+    "AREAS/newsletter/issue#1.md",
+    "AREAS/newsletter/site/index.html",
+    "AREAS/newsletter/site/js/main.js",
+    "AREAS/newsletter/site/css/style.css",
+    "AREAS/newsletter/site/js",
+    "AREAS/newsletter/site/css",
+    "AREAS/newsletter/site",
+    "AREAS/newsletter/assets/abstraction_trap_vs_fundamentals.jpg",
+    "AREAS/newsletter/assets/library_analogy_hybrid.jpg",
+    "AREAS/newsletter/assets/ai_stack_pyramid.jpg",
+    "AREAS/newsletter/assets/ai_fundamentals_hero.jpg",
     "AREAS/newsletter/AI Fundamentals in a World Obsessed with Hype.md",
+    "AREAS/newsletter/assets/rag_architecture_flow.jpg",
+    "AREAS/newsletter/assets/rag_vs_long_context.jpg",
+    "AREAS/newsletter/assets",
     "01_RAW/CAPTURE/Only the Strongest Minds Should Watch This Video.md",
     "AREAS/newsletter",
     "02_NEW-KNOWLEDGE/detailed-study-notes-only-the-strongest-minds-should-watch-this-video.md",
@@ -227,21 +254,8 @@
     "NODES/Reranking in RAG.md",
     "NODES/RAG Failure Modes.md",
     "NODES/RAG Chunking Strategies.md",
-    "NODES/RAG Pipeline Architecture.md",
-    "NODES/Retrieval Augmented Generation.md",
-    "01_RAW/SOURCE/What is RAG Retrieval Augmented Generation Explained in Under 30 Minutes.md",
     "codex/scratch/build_claude.py",
     "claude/settings.json",
-    "claude/setting.json",
-    "codex/settings.json",
-    "codex/setting.json",
-    "claude/automations/lib/__pycache__/vault_utils.cpython-313.pyc",
-    "claude/automations/lib/__pycache__/vault_paths.cpython-313.pyc",
-    "claude/automations/lib/__pycache__/constants.cpython-313.pyc",
-    "claude/automations/lib/__pycache__",
-    "nexusdb-web/dist/icons.svg",
-    "nexusdb-web/dist/favicon.svg",
-    "nexusdb-web/public/icons.svg",
-    "nexusdb-web/public/favicon.svg"
+    "nexusdb-web/dist/icons.svg"
   ]
 }
