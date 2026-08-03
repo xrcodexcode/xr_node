@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI Fundamentals</title>
+    <link>http://localhost:3000</link>
+    <description>Understand systems, not trends. A newsletter for engineers who build real products with AI.</description>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 03 Aug 2026 22:25:00 GMT</lastBuildDate>
+    <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+      <title>Issue 02: RAG Isn't Dead. Most People Just Don't Understand It.</title>
+      <link>http://localhost:3000/issue-2.html</link>
+      <guid isPermaLink="true">http://localhost:3000/issue-2.html</guid>
+      <pubDate>Fri, 01 Aug 2025 00:00:00 GMT</pubDate>
+      <description><![CDATA[Large context windows are useful. Retrieval is useful. The mistake is treating them as the same thing. A long-context model gives you a bigger desk. RAG helps you find the right document before you start working.]]></description>
+    </item>
+
+    <item>
+      <title>Issue 01: Prompt Engineering Isn't Dead. It's Evolving.</title>
+      <link>http://localhost:3000/issue-1.html</link>
+      <guid isPermaLink="true">http://localhost:3000/issue-1.html</guid>
+      <pubDate>Tue, 01 Jul 2025 00:00:00 GMT</pubDate>
+      <description><![CDATA[Everyone is declaring prompt engineering dead. They are wrong. The stack simply grew larger. Technology evolves. Fundamentals compound.]]></description>
+    </item>
+  </channel>
+</rss>

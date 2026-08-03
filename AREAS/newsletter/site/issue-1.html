@@ -9,10 +9,27 @@
   <meta property="og:title" content="Prompt Engineering Isn't Dead. It's Evolving. — AI Fundamentals">
   <meta property="og:description" content="AI moves fast. Its vocabulary moves even faster. But nothing died — the stack simply grew larger.">
   <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Prompt Engineering Isn't Dead. It's Evolving. — AI Fundamentals">
+  <meta name="twitter:description" content="AI moves fast. Its vocabulary moves even faster. But nothing died — the stack simply grew larger.">
+  <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "Prompt Engineering Isn't Dead. It's Evolving.",
+    "description": "AI moves fast. Its vocabulary moves even faster. But nothing died — the stack simply grew larger.",
+    "datePublished": "2025-07-01",
+    "author": {
+      "@type": "Organization",
+      "name": "AI Fundamentals"
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -25,7 +42,10 @@
           <span class="nav__back-arrow" aria-hidden="true">&larr;</span>
           AI Fundamentals
         </a>
-        <a href="index.html#subscribe" class="nav__cta">Subscribe</a>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button type="button" class="tag-pill" id="nav-cmd-k" style="font-size:11px;padding:3px 8px;">⌘K Search</button>
+          <a href="index.html#subscribe" class="nav__cta">Subscribe</a>
+        </div>
       </div>
     </div>
   </nav>
@@ -38,13 +58,15 @@
         <span>July 2025</span>
         <span class="article-header__meta-divider" aria-hidden="true"></span>
         <span>10 min read</span>
+        <span class="article-header__meta-divider" aria-hidden="true"></span>
+        <button type="button" class="font-size-toggle" id="font-size-toggle">Font: Normal</button>
       </div>
       <h1 class="article-header__title">Prompt Engineering Isn't Dead. It's Evolving.</h1>
       <p class="article-header__lede">AI moves fast. Its vocabulary moves even faster. But nothing died — the stack simply grew larger.</p>
     </header>
 
     <div class="article-hero">
-      <img src="assets/ai_fundamentals_hero.jpg" alt="AI Fundamentals — understanding the engineering stack behind modern AI systems" width="960" height="540">
+      <img src="assets/ai_fundamentals_hero.jpg" alt="AI Fundamentals — understanding the engineering stack behind modern AI systems" width="960" height="540" decoding="async">
     </div>
 
     <div class="article-grid">
@@ -112,7 +134,7 @@
       <p>Every new concept in AI is simply another layer added to an evolving engineering stack.</p>
 
       <figure>
-        <img src="assets/ai_stack_pyramid.jpg" alt="The AI Engineering Stack" loading="lazy">
+        <img src="assets/ai_stack_pyramid.jpg" alt="The AI Engineering Stack" loading="lazy" decoding="async">
         <figcaption>The AI Engineering Stack</figcaption>
       </figure>
 
@@ -306,7 +328,7 @@ Final Production Output</code></pre>
       <h2>Common Misconceptions</h2>
 
       <figure>
-        <img src="assets/abstraction_trap_vs_fundamentals.jpg" alt="The Abstraction Trap vs Solid Fundamentals" loading="lazy">
+        <img src="assets/abstraction_trap_vs_fundamentals.jpg" alt="The Abstraction Trap vs Solid Fundamentals" loading="lazy" decoding="async">
         <figcaption>The Abstraction Trap vs Solid Fundamentals</figcaption>
       </figure>
 
@@ -377,6 +399,56 @@ Final Production Output</code></pre>
       </a>
     </div>
   </div>
+
+  <!-- Article Reactions -->
+  <section class="reactions-section reveal">
+    <div class="reactions-title">Was this issue helpful?</div>
+    <div class="reactions-grid">
+      <button type="button" class="reaction-btn" data-reaction="mindblowing">
+        <span>Mind-blowing</span> <span class="reaction-count">42</span>
+      </button>
+      <button type="button" class="reaction-btn" data-reaction="insightful">
+        <span>Insightful</span> <span class="reaction-count">88</span>
+      </button>
+      <button type="button" class="reaction-btn" data-reaction="actionable">
+        <span>Actionable</span> <span class="reaction-count">31</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Discussion Board -->
+  <section class="discussion-section reveal">
+    <div class="discussion-header">
+      <h3 class="discussion-title">Discussion</h3>
+      <span class="discussion-count" id="discussion-count">2 thoughts</span>
+    </div>
+
+    <form class="comment-form" id="comment-form">
+      <textarea class="comment-textarea" id="comment-body" placeholder="Share your perspective or ask a question..." required></textarea>
+      <div class="comment-form__row">
+        <input type="text" class="comment-input-name" id="comment-author" placeholder="Your name / title (optional)">
+        <button type="submit" class="comment-submit-btn">Post Comment</button>
+      </div>
+    </form>
+
+    <div class="comments-list" id="comments-list">
+      <article class="comment-card">
+        <div class="comment-card__header">
+          <span class="comment-card__author">Alex Chen &bull; Principal AI Engineer</span>
+          <span class="comment-card__date">3 days ago</span>
+        </div>
+        <p class="comment-card__body">The distinction between prompt engineering as an instruction layer vs graph engineering as coordination is the clearest mental model I've read this year. We spent weeks debugging LangGraph states when our system prompt was just ambiguous.</p>
+      </article>
+
+      <article class="comment-card">
+        <div class="comment-card__header">
+          <span class="comment-card__author">Sarah Jenkins &bull; Staff Systems Architect</span>
+          <span class="comment-card__date">1 week ago</span>
+        </div>
+        <p class="comment-card__body">The engine & transmission analogy nailed it. Building multi-agent reflection loops on bad prompts is literally just automating token burn.</p>
+      </article>
+    </div>
+  </section>
 
   <!-- Subscribe CTA -->
   <section class="subscribe section--border-top" id="subscribe">

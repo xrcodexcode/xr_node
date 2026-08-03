@@ -1,0 +1,16 @@
+{
+  "name": "AI Fundamentals",
+  "short_name": "AI Fundamentals",
+  "description": "Understand systems, not trends. First-principles newsletter for software engineers.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#0A0A0A",
+  "icons": [
+    {
+      "src": "assets/ai_fundamentals_hero.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    }
+  ]
+}

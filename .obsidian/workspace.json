@@ -22,15 +22,13 @@
             }
           },
           {
-            "id": "72b7bb8023bf69bb",
+            "id": "b106b36e9e53e463",
             "type": "leaf",
             "state": {
-              "type": "image",
-              "state": {
-                "file": "AREAS/newsletter/assets/abstraction_trap_vs_fundamentals.jpg"
-              },
-              "icon": "lucide-image",
-              "title": "abstraction_trap_vs_fundamentals"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -95,7 +93,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "43d09af49b9b51ad",
@@ -212,6 +211,9 @@
   },
   "active": "7d8e5569821e2c55",
   "lastOpenFiles": [
+    "AREAS/newsletter/site/manifest.json",
+    "AREAS/newsletter/issue#2.md",
+    "AREAS/newsletter/site/rss.xml",
     "AREAS/newsletter/site/assets/rag_vs_long_context.jpg",
     "AREAS/newsletter/site/assets/rag_architecture_flow.jpg",
     "AREAS/newsletter/site/assets/library_analogy_hybrid.jpg",
@@ -222,7 +224,6 @@
     "AREAS/newsletter/issue#1.md",
     "AREAS/newsletter/site/issue-2.html",
     "AREAS/newsletter/site/issue-1.html",
-    "AREAS/newsletter/issue#2.md",
     "AREAS/newsletter/site/index.html",
     "AREAS/newsletter/site/js/main.js",
     "AREAS/newsletter/site/css/style.css",
@@ -234,8 +235,6 @@
     "AREAS/newsletter/assets/ai_stack_pyramid.jpg",
     "AREAS/newsletter/assets/ai_fundamentals_hero.jpg",
     "AREAS/newsletter/AI Fundamentals in a World Obsessed with Hype.md",
-    "AREAS/newsletter/assets/rag_architecture_flow.jpg",
-    "AREAS/newsletter/assets",
     "01_RAW/CAPTURE/Only the Strongest Minds Should Watch This Video.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-only-the-strongest-minds-should-watch-this-video.md",
     "01_RAW/SOURCE/Only the Strongest Minds Should Watch This Video.md",

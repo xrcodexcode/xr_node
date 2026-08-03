@@ -9,10 +9,24 @@
   <meta property="og:title" content="AI Fundamentals — The signal behind the AI hype">
   <meta property="og:description" content="Understand systems, not trends. A newsletter for engineers who build with AI.">
   <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Fundamentals — The signal behind the AI hype">
+  <meta name="twitter:description" content="Understand systems, not trends. A newsletter for engineers who build with AI.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="alternate" type="application/rss+xml" title="AI Fundamentals RSS Feed" href="rss.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Periodical",
+    "name": "AI Fundamentals",
+    "description": "First-principles engineering newsletter dissecting AI systems.",
+    "url": "http://localhost:3000"
+  }
+  </script>
 </head>
 <body>
 
@@ -23,7 +37,10 @@
     <div class="container">
       <div class="nav__inner">
         <a href="#" class="nav__logo" id="nav-logo">AI Fundamentals</a>
-        <a href="#subscribe" class="nav__cta" id="nav-subscribe">Subscribe</a>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button type="button" class="tag-pill" id="nav-cmd-k" style="font-size:11px;padding:3px 8px;">⌘K Search</button>
+          <a href="#subscribe" class="nav__cta" id="nav-subscribe">Subscribe</a>
+        </div>
       </div>
     </div>
   </nav>
@@ -48,6 +65,15 @@
       <button type="submit" class="hero__submit" id="hero-submit">Subscribe</button>
     </form>
     <p class="hero__proof reveal reveal-delay-4">Free. Two issues published. No spam, ever.</p>
+
+    <div class="hero-metrics reveal reveal-delay-4">
+      <div class="hero-metric"><strong>2</strong> Issues Published</div>
+      <span aria-hidden="true">&bull;</span>
+      <div class="hero-metric"><strong>22 min</strong> Read Time</div>
+      <span aria-hidden="true">&bull;</span>
+      <div class="hero-metric"><strong>100%</strong> Independent</div>
+    </div>
+
     <div class="hero__line" aria-hidden="true"></div>
   </header>
 
@@ -64,6 +90,7 @@
               src="assets/rag_architecture_flow.jpg"
               alt="Infographic showing RAG architecture flow with retrieval, augmentation, and generation stages"
               loading="lazy"
+              decoding="async"
               width="640"
               height="400"
             >
@@ -122,6 +149,7 @@
                 src="assets/rag_vs_long_context.jpg"
                 alt="Comparison infographic: RAG versus long context windows"
                 loading="lazy"
+                decoding="async"
                 width="200"
                 height="125"
               >
@@ -146,6 +174,7 @@
                 src="assets/ai_fundamentals_hero.jpg"
                 alt="AI Fundamentals hero illustration showing engineering stack concept"
                 loading="lazy"
+                decoding="async"
                 width="200"
                 height="125"
               >

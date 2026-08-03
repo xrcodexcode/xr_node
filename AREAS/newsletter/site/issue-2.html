@@ -9,10 +9,27 @@
   <meta property="og:title" content="RAG Isn't Dead. Most People Just Don't Understand It. — AI Fundamentals">
   <meta property="og:description" content="Large context windows are useful. Retrieval is useful. The mistake is treating them as the same thing.">
   <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RAG Isn't Dead. Most People Just Don't Understand It. — AI Fundamentals">
+  <meta name="twitter:description" content="Large context windows are useful. Retrieval is useful. The mistake is treating them as the same thing.">
+  <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "RAG Isn't Dead. Most People Just Don't Understand It.",
+    "description": "Large context windows are useful. Retrieval is useful. The mistake is treating them as the same thing.",
+    "datePublished": "2025-08-01",
+    "author": {
+      "@type": "Organization",
+      "name": "AI Fundamentals"
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -25,7 +42,10 @@
           <span class="nav__back-arrow" aria-hidden="true">&larr;</span>
           AI Fundamentals
         </a>
-        <a href="index.html#subscribe" class="nav__cta">Subscribe</a>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button type="button" class="tag-pill" id="nav-cmd-k" style="font-size:11px;padding:3px 8px;">⌘K Search</button>
+          <a href="index.html#subscribe" class="nav__cta">Subscribe</a>
+        </div>
       </div>
     </div>
   </nav>
@@ -38,13 +58,15 @@
         <span>August 2025</span>
         <span class="article-header__meta-divider" aria-hidden="true"></span>
         <span>12 min read</span>
+        <span class="article-header__meta-divider" aria-hidden="true"></span>
+        <button type="button" class="font-size-toggle" id="font-size-toggle">Font: Normal</button>
       </div>
       <h1 class="article-header__title">RAG Isn't Dead. Most People Just Don't Understand It.</h1>
       <p class="article-header__lede">Large context windows are useful. Retrieval is useful. The mistake is treating them as the same thing.</p>
     </header>
 
     <div class="article-hero">
-      <img src="assets/rag_architecture_flow.jpg" alt="Retrieval-Augmented Generation architecture showing the flow from query to retrieval to generation" width="960" height="540">
+      <img src="assets/rag_architecture_flow.jpg" alt="Retrieval-Augmented Generation architecture showing the flow from query to retrieval to generation" width="960" height="540" decoding="async">
     </div>
 
     <div class="article-grid">
@@ -415,6 +437,56 @@ to read them alongside the surrounding context.”</code></pre>
       <div></div>
     </div>
   </div>
+
+  <!-- Article Reactions -->
+  <section class="reactions-section reveal">
+    <div class="reactions-title">Was this issue helpful?</div>
+    <div class="reactions-grid">
+      <button type="button" class="reaction-btn" data-reaction="mindblowing">
+        <span>Mind-blowing</span> <span class="reaction-count">56</span>
+      </button>
+      <button type="button" class="reaction-btn" data-reaction="insightful">
+        <span>Insightful</span> <span class="reaction-count">104</span>
+      </button>
+      <button type="button" class="reaction-btn" data-reaction="actionable">
+        <span>Actionable</span> <span class="reaction-count">48</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Discussion Board -->
+  <section class="discussion-section reveal">
+    <div class="discussion-header">
+      <h3 class="discussion-title">Discussion</h3>
+      <span class="discussion-count" id="discussion-count">2 thoughts</span>
+    </div>
+
+    <form class="comment-form" id="comment-form">
+      <textarea class="comment-textarea" id="comment-body" placeholder="Share your perspective or ask a question..." required></textarea>
+      <div class="comment-form__row">
+        <input type="text" class="comment-input-name" id="comment-author" placeholder="Your name / title (optional)">
+        <button type="submit" class="comment-submit-btn">Post Comment</button>
+      </div>
+    </form>
+
+    <div class="comments-list" id="comments-list">
+      <article class="comment-card">
+        <div class="comment-card__header">
+          <span class="comment-card__author">David K. &bull; Lead Search Infrastructure</span>
+          <span class="comment-card__date">Yesterday</span>
+        </div>
+        <p class="comment-card__body">Capacity vs Selection is the ultimate summary. We have a 10M token context window in testing, but sending 500k tokens per query for a simple policy lookup increased latency by 4x. RAG + Long Context hybrid is the only way in production.</p>
+      </article>
+
+      <article class="comment-card">
+        <div class="comment-card__header">
+          <span class="comment-card__author">Elena Rostova &bull; ML Tech Lead</span>
+          <span class="comment-card__date">4 days ago</span>
+        </div>
+        <p class="comment-card__body">Great point on permissions as well! Long context cannot enforce role-based access control (RBAC) at retrieval time. RAG is a security boundary.</p>
+      </article>
+    </div>
+  </section>
 
   <!-- Subscribe CTA -->
   <section class="subscribe section--border-top" id="subscribe">
