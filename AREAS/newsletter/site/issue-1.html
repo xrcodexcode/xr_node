@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt Engineering Isn't Dead. It's Evolving. — AI Fundamentals</title>
+  <meta name="description" content="AI moves fast. Its vocabulary moves even faster. But nothing died — the stack simply grew larger.">
+  <meta name="theme-color" content="#0A0A0A">
+  <meta property="og:title" content="Prompt Engineering Isn't Dead. It's Evolving. — AI Fundamentals">
+  <meta property="og:description" content="AI moves fast. Its vocabulary moves even faster. But nothing died — the stack simply grew larger.">
+  <meta property="og:type" content="article">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+  <nav class="nav nav--article" id="nav" aria-label="Article navigation">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__back">
+          <span class="nav__back-arrow" aria-hidden="true">&larr;</span>
+          AI Fundamentals
+        </a>
+        <a href="index.html#subscribe" class="nav__cta">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="article-header">
+      <div class="article-header__meta">
+        <span>Issue 01</span>
+        <span class="article-header__meta-divider" aria-hidden="true"></span>
+        <span>July 2025</span>
+        <span class="article-header__meta-divider" aria-hidden="true"></span>
+        <span>10 min read</span>
+      </div>
+      <h1 class="article-header__title">Prompt Engineering Isn't Dead. It's Evolving.</h1>
+      <p class="article-header__lede">AI moves fast. Its vocabulary moves even faster. But nothing died — the stack simply grew larger.</p>
+    </header>
+
+    <div class="article-hero">
+      <img src="assets/ai_fundamentals_hero.jpg" alt="AI Fundamentals — understanding the engineering stack behind modern AI systems" width="960" height="540">
+    </div>
+
+    <div class="article-grid">
+      <div class="prose">
+      <p>AI moves fast. Its vocabulary moves even faster.</p>
+
+      <p>If you spend any time on Tech Twitter, LinkedIn, or developer forums, you've probably noticed a familiar pattern. Every few months, the timeline crowns a shiny new term while loudly writing an obituary for the previous one.</p>
+
+      <blockquote>
+        <p><em>"Prompt Engineering is dead."</em><br>
+        <em>"No, it's Context Engineering."</em><br>
+        <em>"Actually, it's Agent Engineering."</em><br>
+        <em>"Now it's Graph Engineering."</em></p>
+      </blockquote>
+
+      <p>It feels dizzying.</p>
+
+      <p>If you are a software engineer trying to build production systems, a founder making architectural choices, or a curious developer learning LLMs, it’s easy to feel like the ground beneath your feet is constantly shifting.</p>
+
+      <p>Everyone is declaring prompt engineering dead.</p>
+
+      <p>They are wrong.</p>
+
+      <p>Prompt engineering hasn't died. It evolved.</p>
+
+      <hr>
+
+      <h2>The Big Idea: Progress is Additive</h2>
+
+      <div class="callout">
+        <span class="callout-label">Core Principle</span>
+        <p><strong>Nothing in AI engineering is dead. The field evolves by adding new abstraction layers on top of existing foundations, not by replacing them.</strong></p>
+      </div>
+
+      <p>Here is the central thesis of this newsletter:</p>
+
+      <p>Prompt engineering is the root foundation. Context engineering, tool harnesses, agentic loops, and multi-agent graph workflows do not replace prompt engineering. They build directly on top of it.</p>
+
+      <p>High-level systems cannot exist without solid roots.</p>
+
+      <p>When you look past the social media noise, you realize that new AI buzzwords aren't revolutionary replacements. They are simply higher-level control layers designed to solve specific limitations of the layers beneath them.</p>
+
+      <hr>
+
+      <h2>"Why do I believe this?" Look at Software Engineering</h2>
+
+      <p>As software engineers, we have seen this movie before.</p>
+
+      <p>Cast your mind back over the history of computer science:</p>
+
+      <ul>
+        <li>We didn't stop writing <strong>functions</strong> when Object-Oriented Programming (classes) arrived. Functions simply became methods inside classes.</li>
+        <li>We didn't abandon <strong>web APIs</strong> when microservices became popular. APIs became the communication boundaries between services.</li>
+        <li>We didn't stop learning <strong>algorithms and data structures</strong> when high-level frameworks like React or PyTorch came out.</li>
+      </ul>
+
+      <p>We built on top of them.</p>
+
+      <pre><code>Functions  ──►  Classes &amp; OOP  ──►  APIs  ──►  Microservices</code></pre>
+
+      <p>In software design, progress is <strong>additive</strong>. You don't throw away fundamental building blocks when you adopt higher abstractions; you combine them to build larger systems.</p>
+
+      <p>AI engineering follows the exact same trajectory.</p>
+
+      <p>Every new concept in AI is simply another layer added to an evolving engineering stack.</p>
+
+      <figure>
+        <img src="assets/ai_stack_pyramid.jpg" alt="The AI Engineering Stack" loading="lazy">
+        <figcaption>The AI Engineering Stack</figcaption>
+      </figure>
+
+      <hr>
+
+      <h2>Why does it matter? The Abstraction Trap</h2>
+
+      <p>Lately, I’ve noticed a troubling pattern among developers building with LLMs.</p>
+
+      <p>Many teams rush straight to the shiny top layers of the stack—setting up complex multi-agent state graphs, autonomous reflection loops, and agentic frameworks—while ignoring the basic hygiene of prompt design and context management.</p>
+
+      <p>This creates what I call <strong>The Abstraction Trap</strong>.</p>
+
+      <div class="callout">
+        <span class="callout-label">The Failure Mode</span>
+        <p>If your base instruction prompt (Layer 1) is ambiguous, or your context payload (Layer 2) is stuffed with noisy, irrelevant data, wrapping it in a 10-node multi-agent graph (Layer 5) will not fix your product.</p>
+        <p>It will simply <strong>automate failure at scale</strong>—executing bad decisions faster while burning thousands of dollars in API token costs.</p>
+      </div>
+
+      <p>Frameworks hide low-level details, but they cannot fix flawed logic.</p>
+
+      <p>Prompt engineering didn't disappear. It became the foundational language spoken by every node inside every layer of the AI stack.</p>
+
+      <hr>
+
+      <h2>How does it work? The 6 Layers of the AI Stack</h2>
+
+      <p>Instead of replacing earlier techniques, each layer answers a bigger practical question and expands what an AI system can do.</p>
+
+      <p>Here is how the complete stack fits together:</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Layer</th>
+              <th>Primary Question</th>
+              <th>One-Line Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Prompt Engineering</strong></td>
+              <td><em>How should I ask?</em></td>
+              <td>Instructs the model how to think, reason, and structure output.</td>
+            </tr>
+            <tr>
+              <td><strong>2. Context Engineering</strong></td>
+              <td><em>What should it know?</em></td>
+              <td>Supplies the model with relevant documents, memory, and data.</td>
+            </tr>
+            <tr>
+              <td><strong>3. Harness Engineering</strong></td>
+              <td><em>What can it do?</em></td>
+              <td>Connects the model to real-world tools, sandboxes, and APIs.</td>
+            </tr>
+            <tr>
+              <td><strong>4. Loop Engineering</strong></td>
+              <td><em>How does it improve?</em></td>
+              <td>Enables self-reflection, work verification, and automated retries.</td>
+            </tr>
+            <tr>
+              <td><strong>5. Graph Engineering</strong></td>
+              <td><em>How do components coordinate?</em></td>
+              <td>Orchestrates multiple specialized agents across complex workflows.</td>
+            </tr>
+            <tr>
+              <td><strong>6. Evaluation &amp; Guardrails</strong></td>
+              <td><em>How do we know it works?</em></td>
+              <td>Measures accuracy, enforces safety, and prevents hallucinations.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr>
+
+      <h3>Walking Up the Stack (Step-by-Step Breakdown)</h3>
+
+      <p>Let me break down what happens at each of these layers in real-world systems, defining the core technical terms as we go.</p>
+
+      <h4>Layer 1: Prompt Engineering (Instruction)</h4>
+      <ul>
+        <li><strong>Question:</strong> <em>How should I ask?</em></li>
+        <li><strong>What it is:</strong> At its core, a <strong>prompt</strong> is the precise text instruction sent to a Large Language Model (LLM). Prompt engineering is the discipline of defining task goals, setting system constraints, framing personas, and enforcing structured outputs (like JSON schemas).</li>
+        <li><strong>The Root:</strong> Every single LLM API call—no matter how complex the agent—begins with a prompt.</li>
+      </ul>
+
+      <h4>Layer 2: Context Engineering (Information)</h4>
+      <ul>
+        <li><strong>Question:</strong> <em>What should it know?</em></li>
+        <li><strong>What it is:</strong> Prompts alone fail when the model lacks specific private data. Context engineering focuses on providing the exact information needed at inference time.</li>
+        <li><strong>Key Concepts:</strong>
+          <ul>
+            <li><strong>RAG (Retrieval-Augmented Generation):</strong> A technique where a system searches external documents first, then passes the relevant snippets into the LLM's prompt.</li>
+            <li><strong>Vector Database:</strong> A specialized database that stores text as numerical mathematical embeddings, allowing instant semantic search for relevant information.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>Layer 3: Harness Engineering (Capabilities)</h4>
+      <ul>
+        <li><strong>Question:</strong> <em>What can it do?</em></li>
+        <li><strong>What it is:</strong> An LLM in a box can only generate text; it cannot interact with the real world. A <strong>Harness</strong> surrounds the model with an execution environment.</li>
+        <li><strong>Key Concept:</strong>
+          <ul>
+            <li><strong>Tool Calling (Function Calling):</strong> Giving the model the ability to execute Python code in a secure sandbox, query SQL databases, search the live web, or trigger REST APIs.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>Layer 4: Loop Engineering (Iteration)</h4>
+      <ul>
+        <li><strong>Question:</strong> <em>How does it improve?</em></li>
+        <li><strong>What it is:</strong> Complex tasks are rarely solved in a single step. <strong>Loop Engineering</strong> wraps the LLM in an iterative execution cycle.</li>
+        <li><strong>Key Concept:</strong>
+          <ul>
+            <li><strong>Agent:</strong> An AI system equipped with a goal, tools, and a feedback loop (<code>Think → Act → Observe → Reflect → Retry</code>). If a tool returns an error, the agent reads the error message, adjusts its plan, and tries again until the task is complete.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>Layer 5: Graph Engineering (Collaboration)</h4>
+      <ul>
+        <li><strong>Question:</strong> <em>How do components coordinate?</em></li>
+        <li><strong>What it is:</strong> Single agent loops get bogged down when tasks become too broad. <strong>Graph Engineering</strong> links multiple specialized agents into a stateful, directed workflow (a <strong>Graph</strong>).</li>
+        <li><strong>Key Concept:</strong>
+          <ul>
+            <li><strong>Planner &amp; Specialist Agents:</strong> One agent acts as a <strong>Planner Agent</strong> (breaking down a master goal), delegating sub-tasks to a Researcher Agent, a Writer Agent, and a Reviewer Agent, coordinating state across the network.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>Layer 6: Evaluation &amp; Guardrails (Testing)</h4>
+      <ul>
+        <li><strong>Question:</strong> <em>How do we know it works?</em></li>
+        <li><strong>What it is:</strong> The top of the stack focuses on deterministic reliability.</li>
+        <li><strong>Key Concept:</strong>
+          <ul>
+            <li><strong>Evaluation (Evals) &amp; Guardrails:</strong> Automated test suites using unit assertions and <strong>LLM-as-a-Judge</strong> scoring to continuously benchmark accuracy, detect hallucination rates, and enforce safety rules before shipping to users.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <hr>
+
+      <h2>"Can you show me?" A Progressive Real-World Example</h2>
+
+      <p>To see why layers build on top of each other, let me walk you through how a simple chatbot question evolves into an enterprise-grade AI system.</p>
+
+      <h3>Step 1: The Simple Prompt (Layer 1)</h3>
+      <p>You start with a basic instruction:</p>
+      <blockquote>
+        <p><em>"You are a financial analyst. Summarize my company's revenue growth."</em></p>
+      </blockquote>
+      <p><em>Result:</em> The AI responds with generic financial advice because it has never seen your private financials.</p>
+
+      <h3>Step 2: Adding Context via RAG (Layer 2)</h3>
+      <p>You connect your company's Q3 PDF report stored in a Vector Database. The system retrieves the exact financial tables and inserts them into the prompt.</p>
+      <p><em>Result:</em> The AI now accurately quotes your revenue numbers directly from the document.</p>
+
+      <h3>Step 3: Adding a Calculator Tool (Layer 3)</h3>
+      <p>You ask for exact quarter-over-quarter percentage growth. Instead of letting the LLM guess math (which LLMs are notoriously bad at), the model invokes a Python calculator tool.</p>
+      <p><em>Result:</em> The AI returns precise, verified math calculations.</p>
+
+      <h3>Step 4: Adding a Self-Correction Loop (Layer 4)</h3>
+      <p>The Python tool returns a <code>TypeError</code> because a column header had a missing dollar sign. The AI reads the error trace, modifies the Python script, and re-executes the calculation automatically.</p>
+      <p><em>Result:</em> The system recovers from runtime errors without human intervention.</p>
+
+      <h3>Step 5: Adding a Multi-Agent Graph (Layer 5)</h3>
+      <p>You expand this into a complete Quarterly Report Generator. A <strong>Planner Agent</strong> divides the report into sections. A <strong>Data Agent</strong> runs financial queries. A <strong>Writer Agent</strong> drafts chapters, and a <strong>Reviewer Agent</strong> verifies formatting before publishing.</p>
+
+      <pre><code>User Question
+     ↓
+[Layer 1] Prompt (Role &amp; Format Instructions)
+     ↓
+[Layer 2] Context (PDF Financial Documents via RAG)
+     ↓
+[Layer 3] Tool (Python Math &amp; SQL Execution Sandbox)
+     ↓
+[Layer 4] Loop (Self-Correction on Tool Errors)
+     ↓
+[Layer 5] Graph (Planner ──► Researcher ──► Reviewer)
+     ↓
+Final Production Output</code></pre>
+
+      <p>Notice what happened here: <strong>Each layer built directly on the previous one.</strong> The graph didn't replace the prompt; it coordinated multiple prompts working together.</p>
+
+      <hr>
+
+      <h2>Common Misconceptions</h2>
+
+      <figure>
+        <img src="assets/abstraction_trap_vs_fundamentals.jpg" alt="The Abstraction Trap vs Solid Fundamentals" loading="lazy">
+        <figcaption>The Abstraction Trap vs Solid Fundamentals</figcaption>
+      </figure>
+
+      <p>Let's address two of the most common myths circulating in the developer ecosystem:</p>
+
+      <div class="callout">
+        <span class="callout-label">Myth #1</span>
+        <p><em>"Prompt engineering is dead because we have autonomous agents."</em></p>
+        <p><strong>Reality:</strong> Every single node in an autonomous agent graph still executes a prompt under the hood. Prompt engineering didn't die—it evolved from writing simple chat messages into designing system-level instruction architecture.</p>
+      </div>
+
+      <div class="callout">
+        <span class="callout-label">Myth #2</span>
+        <p><em>"Adding an agentic loop automatically makes your AI system smarter."</em></p>
+        <p><strong>Reality:</strong> If your base prompt is vague or your context contains bad data, putting an LLM in a self-reflection loop will just cause it to hallucinate in circles while burning through your token budget.</p>
+      </div>
+
+      <hr>
+
+      <h2>Mental Model: The Engine &amp; Transmission</h2>
+
+      <p>Here is a mental model to keep in mind whenever you evaluate new AI frameworks:</p>
+
+      <div class="callout">
+        <span class="callout-label">The Engine &amp; Transmission Analogy</span>
+        <p>Building a complex multi-agent graph with weak prompt and context foundations is like installing a high-end automatic transmission on a broken car engine.</p>
+        <p>The transmission can shift gears back and forth all day, but if the engine isn't firing, the car still won't move forward.</p>
+        <p>Prompts and context are your engine. Graphs and loops are your transmission. You need both to drive.</p>
+      </div>
+
+      <hr>
+
+      <h2>Key Takeaway: Fundamentals Compound</h2>
+
+      <div class="callout">
+        <span class="callout-label">Bottom Line</span>
+        <p>Nothing died. The stack simply grew larger.</p>
+        <p>Technology evolves. Fundamentals compound.</p>
+        <p>Once you understand the core layers of the AI engineering stack, every new tool, framework, or trend becomes easier to evaluate—and impossible to be misled by.</p>
+      </div>
+
+      <p>That is the mission of <strong>AI Fundamentals in a World Obsessed with Hype</strong>: to help you look past temporary social media trends, understand first principles, and build AI systems that actually work in production.</p>
+
+      <hr>
+
+      <h2>Think About It</h2>
+
+      <p>What is one AI concept, buzzword, or framework that has felt confusing or overhyped to you recently?</p>
+
+      <p>Let me know in the comments below, and we'll break it down from first principles in an upcoming issue!</p>
+      </div>
+
+      <aside class="toc-sidebar" aria-label="Table of contents">
+        <div class="toc-sticky">
+          <div class="toc__title">On this page</div>
+          <ul class="toc__list" id="toc-list"></ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Article End Navigation -->
+  <div class="article-end">
+    <div class="article-end__nav">
+      <div></div>
+      <a href="issue-2.html" class="article-end__link article-end__link--next">
+        <span class="article-end__link-label">Next Issue</span>
+        <span class="article-end__link-title">RAG Isn't Dead. Most People Just Don't Understand It.</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Subscribe CTA -->
+  <section class="subscribe section--border-top" id="subscribe">
+    <div class="container">
+      <h2 class="subscribe__heading reveal">Understand systems,<br>not trends.</h2>
+      <p class="subscribe__subtitle reveal reveal-delay-1">Join engineers and builders who want first-principles clarity on AI. Free, forever.</p>
+      <form class="subscribe__form reveal reveal-delay-2" data-subscribe aria-label="Subscribe to newsletter">
+        <input type="email" class="subscribe__input" placeholder="your@email.com" required autocomplete="email" aria-label="Email address">
+        <button type="submit" class="subscribe__submit">Subscribe</button>
+      </form>
+      <p class="subscribe__note reveal reveal-delay-3">No spam. Unsubscribe anytime.</p>
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">AI Fundamentals</p>
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a href="index.html#issues" class="footer__link">Issues</a>
+          <a href="index.html#about" class="footer__link">About</a>
+          <a href="index.html#subscribe" class="footer__link">Subscribe</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

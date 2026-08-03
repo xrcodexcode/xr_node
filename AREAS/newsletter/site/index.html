@@ -58,10 +58,10 @@
     <section class="featured section--border-top" id="featured" aria-labelledby="featured-label">
       <div class="container">
         <span class="section__label reveal" id="featured-label">Latest Issue</span>
-        <article class="featured__card reveal reveal-delay-1">
+        <a href="issue-2.html" class="featured__card reveal reveal-delay-1">
           <div class="featured__image-wrap">
             <img
-              src="../assets/rag_architecture_flow.jpg"
+              src="assets/rag_architecture_flow.jpg"
               alt="Infographic showing RAG architecture flow with retrieval, augmentation, and generation stages"
               loading="lazy"
               width="640"
@@ -72,15 +72,17 @@
             <div class="featured__meta">
               <span>Issue 02</span>
               <span class="featured__meta-divider" aria-hidden="true"></span>
+              <span>August 2025</span>
+              <span class="featured__meta-divider" aria-hidden="true"></span>
               <span>12 min read</span>
             </div>
             <h2 class="featured__title">RAG Isn't Dead. Most People Just Don't Understand It.</h2>
             <p class="featured__excerpt">Large context windows are useful. Retrieval is useful. The mistake is treating them as the same thing. A long-context model gives you a bigger desk. RAG helps you find the right document before you start working.</p>
-            <a href="#" class="featured__link" aria-label="Read Issue 02: RAG Isn't Dead">
+            <span class="featured__link" aria-label="Read Issue 02: RAG Isn't Dead">
               Read this issue <span class="featured__link-arrow" aria-hidden="true">&rarr;</span>
-            </a>
+            </span>
           </div>
-        </article>
+        </a>
       </div>
     </section>
 
@@ -93,12 +95,31 @@
         <h2 class="section__heading reveal reveal-delay-1">From the archive</h2>
         <p class="section__description reveal reveal-delay-2">Every issue is a self-contained deep dive. Start anywhere.</p>
 
+        <!-- Archive Search & Filter -->
+        <div class="archive-controls reveal reveal-delay-3">
+          <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="archive-search" class="search-input" placeholder="Search topics, terms, or issues..." aria-label="Search archive">
+          </div>
+
+          <div class="tag-filters" aria-label="Filter issues by topic">
+            <button type="button" class="tag-pill is-active" data-tag="all">All Topics</button>
+            <button type="button" class="tag-pill" data-tag="rag">RAG & Retrieval</button>
+            <button type="button" class="tag-pill" data-tag="prompts">Prompts & LLMs</button>
+            <button type="button" class="tag-pill" data-tag="architecture">Architecture</button>
+          </div>
+        </div>
+
+        <div class="issues__empty" id="archive-empty">
+          <p>No issues found matching your search. Try another keyword or topic.</p>
+        </div>
+
         <div class="issues__grid">
           <!-- Issue 02 -->
-          <a href="#" class="issue-card reveal" id="issue-02" aria-label="Read Issue 02">
+          <a href="issue-2.html" class="issue-card reveal" id="issue-02" data-tags="rag architecture" aria-label="Read Issue 02">
             <div class="issue-card__image">
               <img
-                src="../assets/rag_vs_long_context.jpg"
+                src="assets/rag_vs_long_context.jpg"
                 alt="Comparison infographic: RAG versus long context windows"
                 loading="lazy"
                 width="200"
@@ -109,6 +130,8 @@
               <div class="issue-card__meta">
                 <span>Issue 02</span>
                 <span class="issue-card__meta-divider" aria-hidden="true"></span>
+                <span>August 2025</span>
+                <span class="issue-card__meta-divider" aria-hidden="true"></span>
                 <span>12 min read</span>
               </div>
               <h3 class="issue-card__title">RAG Isn't Dead. Most People Just Don't Understand It.</h3>
@@ -117,10 +140,10 @@
           </a>
 
           <!-- Issue 01 -->
-          <a href="#" class="issue-card reveal reveal-delay-1" id="issue-01" aria-label="Read Issue 01">
+          <a href="issue-1.html" class="issue-card reveal reveal-delay-1" id="issue-01" data-tags="prompts architecture" aria-label="Read Issue 01">
             <div class="issue-card__image">
               <img
-                src="../assets/ai_fundamentals_hero.jpg"
+                src="assets/ai_fundamentals_hero.jpg"
                 alt="AI Fundamentals hero illustration showing engineering stack concept"
                 loading="lazy"
                 width="200"
@@ -130,6 +153,8 @@
             <div class="issue-card__body">
               <div class="issue-card__meta">
                 <span>Issue 01</span>
+                <span class="issue-card__meta-divider" aria-hidden="true"></span>
+                <span>July 2025</span>
                 <span class="issue-card__meta-divider" aria-hidden="true"></span>
                 <span>10 min read</span>
               </div>
