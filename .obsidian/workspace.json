@@ -30,8 +30,19 @@
               "icon": "lucide-git-fork",
               "title": "Graph view"
             }
+          },
+          {
+            "id": "87e4f87bec7d5515",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -209,10 +220,12 @@
       "bases:Create new base": false
     }
   },
-  "active": "7d8e5569821e2c55",
+  "active": "b106b36e9e53e463",
   "lastOpenFiles": [
-    "AREAS/newsletter/site/manifest.json",
     "AREAS/newsletter/issue#2.md",
+    "01_RAW/CAPTURE/AI Agent Harness Explained In 18 Minutes.md",
+    "AREAS/newsletter/README.md",
+    "AREAS/newsletter/site/manifest.json",
     "AREAS/newsletter/site/rss.xml",
     "AREAS/newsletter/site/assets/rag_vs_long_context.jpg",
     "AREAS/newsletter/site/assets/rag_architecture_flow.jpg",
@@ -229,7 +242,6 @@
     "AREAS/newsletter/site/css/style.css",
     "AREAS/newsletter/site/js",
     "AREAS/newsletter/site/css",
-    "AREAS/newsletter/site",
     "AREAS/newsletter/assets/abstraction_trap_vs_fundamentals.jpg",
     "AREAS/newsletter/assets/library_analogy_hybrid.jpg",
     "AREAS/newsletter/assets/ai_stack_pyramid.jpg",
@@ -255,7 +267,6 @@
     "NODES/Hypothetical Document Embedding.md",
     "NODES/Contextual Retrieval.md",
     "NODES/Reranking in RAG.md",
-    "NODES/RAG Failure Modes.md",
-    "NODES/RAG Chunking Strategies.md"
+    "NODES/RAG Failure Modes.md"
   ]
 }
