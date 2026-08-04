@@ -11,12 +11,14 @@
             "id": "7d8e5569821e2c55",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "AREAS/newsletter/assets/issue#3/1.jpg"
+                "file": "AREAS/newsletter/issue#4.md",
+                "mode": "preview",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "1"
+              "icon": "lucide-file",
+              "title": "issue#4"
             }
           },
           {
@@ -49,16 +51,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AREAS/newsletter/issue#3.md",
-                "mode": "preview",
+                "file": "AREAS/newsletter/issue#2.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "issue#3"
+              "title": "issue#2"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -235,11 +236,17 @@
       "bases:Create new base": false
     }
   },
-  "active": "3fba9393d7e285a2",
+  "active": "7d8e5569821e2c55",
   "lastOpenFiles": [
-    "AREAS/newsletter/issue#1.md",
-    "AREAS/newsletter/memory.md",
     "AREAS/newsletter/assets/issue#3/1.jpg",
+    "AREAS/newsletter/site/assets/issue#4",
+    "AREAS/newsletter/site/issue-4.html",
+    "AREAS/newsletter/memory.md",
+    "AREAS/newsletter/issue#2.md",
+    "AREAS/newsletter/issue#3.md",
+    "AREAS/newsletter/issue#4.md",
+    "AREAS/newsletter/assets/issue#4",
+    "AREAS/newsletter/issue#1.md",
     "AREAS/newsletter/assets/issue#3/2.jpg",
     "AREAS/newsletter/assets/context_pipeline_flow.jpg",
     "AREAS/newsletter/assets/rag_is_dead_debate.jpg",
@@ -252,9 +259,7 @@
     "AREAS/newsletter/site/assets/issue#2/1.jpg",
     "AREAS/newsletter/site/assets/issue#2",
     "AREAS/newsletter/site/assets/issue#1",
-    "AREAS/newsletter/issue#3.md",
     "Untitled.md",
-    "AREAS/newsletter/issue#2.md",
     "01_RAW/CAPTURE/Why Your RAG Chatbot Gives Wrong Answers It's a Chunking Problem.md",
     "AREAS/newsletter/README.md",
     "AREAS/newsletter/AGENTS.md",
@@ -264,9 +269,6 @@
     "AREAS/newsletter/assets/issue#1",
     "01_RAW/CAPTURE/AI Agent Harness Explained In 18 Minutes.md",
     "AREAS/newsletter/site/manifest.json",
-    "AREAS/newsletter/site/rss.xml",
-    "AREAS/newsletter/site/assets",
-    "AREAS/newsletter/site/issue-2.html",
     "AREAS/newsletter/AI Fundamentals in a World Obsessed with Hype.md",
     "01_RAW/CAPTURE/Only the Strongest Minds Should Watch This Video.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-only-the-strongest-minds-should-watch-this-video.md",
@@ -280,7 +282,6 @@
     "01_RAW/CAPTURE/What Is an LLM Everything You Need to Know in 10 Minutes.md",
     "01_RAW/PROCESS/detailed-study-notes-building-wealth-is-easier-than-you-think.md",
     "01_RAW/PROCESS/detailed-study-notes-watch-this-before-you-waste-another-year.md",
-    "NOTES/What is RAG Retrieval Augmented Generation.md",
-    "CODEX.md"
+    "NOTES/What is RAG Retrieval Augmented Generation.md"
   ]
 }

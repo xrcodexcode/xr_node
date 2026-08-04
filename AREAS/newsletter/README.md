@@ -20,14 +20,18 @@ newsletter/
 ├── issue#1.md              # Prompt Engineering Isn't Dead
 ├── issue#2.md              # RAG Isn't Dead
 ├── issue#3.md              # Context Engineering
+├── issue#4.md              # Harness Engineering
 ├── assets/                 # Visual assets organized by issue
 │   ├── issue#1/            # Images for Issue #1 (1.jpg to 5.jpg)
 │   ├── issue#2/            # Images for Issue #2 (1.jpg to 6.jpg)
-│   └── issue#3/            # Images for Issue #3 (1.jpg to 7.jpg)
+│   ├── issue#3/            # Images for Issue #3 (1.jpg to 7.jpg)
+│   └── issue#4/            # Images for Issue #4 (1.jpg to 7.jpg)
 └── site/                   # Published static website
     ├── index.html          # Landing page
     ├── issue-1.html        # Issue #1 web page
     ├── issue-2.html        # Issue #2 web page
+    ├── issue-3.html        # Issue #3 web page
+    ├── issue-4.html        # Issue #4 web page
     ├── rss.xml             # RSS feed
     ├── manifest.json       # Web app manifest
     ├── css/                # Stylesheets
@@ -44,6 +48,7 @@ newsletter/
 | 1 | [Prompt Engineering Isn't Dead. It's Evolving.](./issue%231.md) | Why every AI buzzword is a new floor, not a demolition crew |
 | 2 | [RAG Isn't Dead. Most People Just Don't Understand It.](./issue%232.md) | Why retrieval still matters in a world of large context windows |
 | 3 | [Better Input, Better Output. That's Context Engineering.](./issue%233.md) | The skill of giving AI the right information to produce better results |
+| 4 | [The Prompt Is Just One Ingredient. The Harness Is the Kitchen.](./issue%234.md) | Why the smartest AI needs tools, not just instructions |
 
 ---
 

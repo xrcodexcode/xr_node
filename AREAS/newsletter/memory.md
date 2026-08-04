@@ -39,7 +39,8 @@ This file serves as persistent memory for agents working on the **AI Fundamental
 - `issue#1.md`: Prompt Engineering Isn't Dead. It's Evolving.
 - `issue#2.md`: RAG Isn't Dead. Most People Just Don't Understand It.
 - `issue#3.md`: Better Input, Better Output. That's Context Engineering.
-- `assets/`: Organized by issue subfolders (`issue#1/`, `issue#2/`, `issue#3/`).
+- `issue#4.md`: The Prompt Is Just One Ingredient. The Harness Is the Kitchen.
+- `assets/`: Organized by issue subfolders (`issue#1/`, `issue#2/`, `issue#3/`, `issue#4/`).
 - `site/`: Static HTML web build.
 
 ## 📜 Session History & Key Milestones
@@ -47,3 +48,4 @@ This file serves as persistent memory for agents working on the **AI Fundamental
 - **2026-08-04**: Re-architected Issue #1, Issue #2, and Issue #3 to adhere to the beginner-friendly style guide (<1000 words each).
 - **2026-08-04**: Reorganized `assets/` folder into structured subdirectories (`assets/issue#1/`, `assets/issue#2/`, `assets/issue#3/`).
 - **2026-08-04**: Updated `README.md` with complete sitemap, issue matrix, and style guide.
+- **2026-08-04**: Built `site/issue-4.html` for Issue #4 (Harness Engineering). Updated `site/index.html` (featured issue, archive grid, metrics, tag filter), `site/rss.xml` (new item), `site/issue-3.html` (next-issue nav link), and `site/js/main.js` (⌘K command palette). Created `site/assets/issue#4/` directory.

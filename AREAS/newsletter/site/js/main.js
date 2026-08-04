@@ -602,6 +602,8 @@
       </div>
       <div class="cmd-k-results" id="cmd-k-results">
         <a href="index.html" class="cmd-k-item"><span>Home / Landing Page</span><span class="cmd-k-item-tag">Page</span></a>
+        <a href="issue-4.html" class="cmd-k-item"><span>Issue 04: The Prompt Is Just One Ingredient. The Harness Is the Kitchen.</span><span class="cmd-k-item-tag">Issue</span></a>
+        <a href="issue-3.html" class="cmd-k-item"><span>Issue 03: Better Input, Better Output. That's Context Engineering.</span><span class="cmd-k-item-tag">Issue</span></a>
         <a href="issue-2.html" class="cmd-k-item"><span>Issue 02: RAG Isn't Dead</span><span class="cmd-k-item-tag">Issue</span></a>
         <a href="issue-1.html" class="cmd-k-item"><span>Issue 01: Prompt Engineering Isn't Dead</span><span class="cmd-k-item-tag">Issue</span></a>
         <a href="rss.xml" target="_blank" class="cmd-k-item"><span>RSS 2.0 Feed XML</span><span class="cmd-k-item-tag">Feed</span></a>

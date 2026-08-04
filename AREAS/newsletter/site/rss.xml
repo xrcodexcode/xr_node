@@ -5,9 +5,17 @@
     <link>http://localhost:3000</link>
     <description>Understand systems, not trends. A newsletter for curious builders who want first-principles clarity on AI.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Aug 2026 23:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 04 Aug 2026 23:30:00 GMT</lastBuildDate>
     <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-    
+
+    <item>
+      <title>Issue 04: The Prompt Is Just One Ingredient. The Harness Is the Kitchen.</title>
+      <link>http://localhost:3000/issue-4.html</link>
+      <guid isPermaLink="true">http://localhost:3000/issue-4.html</guid>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 GMT</pubDate>
+      <description><![CDATA[Why the smartest AI in the world is useless without the right tools around it. Learn what a harness is and why building the kitchen around the chef matters more than the model alone.]]></description>
+    </item>
+
     <item>
       <title>Issue 03: Better Input, Better Output. That's Context Engineering.</title>
       <link>http://localhost:3000/issue-3.html</link>
