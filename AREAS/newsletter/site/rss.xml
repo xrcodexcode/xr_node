@@ -3,17 +3,25 @@
   <channel>
     <title>AI Fundamentals</title>
     <link>http://localhost:3000</link>
-    <description>Understand systems, not trends. A newsletter for engineers who build real products with AI.</description>
+    <description>Understand systems, not trends. A newsletter for curious builders who want first-principles clarity on AI.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Aug 2026 22:25:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 04 Aug 2026 23:00:00 GMT</lastBuildDate>
     <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
     
+    <item>
+      <title>Issue 03: Better Input, Better Output. That's Context Engineering.</title>
+      <link>http://localhost:3000/issue-3.html</link>
+      <guid isPermaLink="true">http://localhost:3000/issue-3.html</guid>
+      <pubDate>Mon, 01 Sep 2025 00:00:00 GMT</pubDate>
+      <description><![CDATA[The AI isn't broken. It just doesn't know what you know. Learn how giving AI the right background, rules, and examples transforms generic responses into great results.]]></description>
+    </item>
+
     <item>
       <title>Issue 02: RAG Isn't Dead. Most People Just Don't Understand It.</title>
       <link>http://localhost:3000/issue-2.html</link>
       <guid isPermaLink="true">http://localhost:3000/issue-2.html</guid>
       <pubDate>Fri, 01 Aug 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[Large context windows are useful. Retrieval is useful. The mistake is treating them as the same thing. A long-context model gives you a bigger desk. RAG helps you find the right document before you start working.]]></description>
+      <description><![CDATA[The technique isn't broken. Most implementations are. Why searching before answering matters for real-world AI systems.]]></description>
     </item>
 
     <item>
@@ -21,7 +29,7 @@
       <link>http://localhost:3000/issue-1.html</link>
       <guid isPermaLink="true">http://localhost:3000/issue-1.html</guid>
       <pubDate>Tue, 01 Jul 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[Everyone is declaring prompt engineering dead. They are wrong. The stack simply grew larger. Technology evolves. Fundamentals compound.]]></description>
+      <description><![CDATA[Every new AI buzzword is a new floor — not a demolition crew. Why prompt engineering remains the core foundation of AI systems.]]></description>
     </item>
   </channel>
 </rss>

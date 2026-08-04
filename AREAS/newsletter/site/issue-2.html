@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RAG Isn't Dead. Most People Just Don't Understand It. — AI Fundamentals</title>
-  <meta name="description" content="Large context windows are useful. Retrieval is useful. The mistake is treating them as the same thing.">
+  <meta name="description" content="The technique isn't broken. Most implementations are. Why retrieval-augmented generation remains central to real-world AI systems.">
   <meta name="theme-color" content="#0A0A0A">
   <meta property="og:title" content="RAG Isn't Dead. Most People Just Don't Understand It. — AI Fundamentals">
-  <meta property="og:description" content="Large context windows are useful. Retrieval is useful. The mistake is treating them as the same thing.">
+  <meta property="og:description" content="The technique isn't broken. Most implementations are.">
   <meta property="og:type" content="article">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="RAG Isn't Dead. Most People Just Don't Understand It. — AI Fundamentals">
-  <meta name="twitter:description" content="Large context windows are useful. Retrieval is useful. The mistake is treating them as the same thing.">
+  <meta name="twitter:description" content="The technique isn't broken. Most implementations are.">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,7 @@
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "headline": "RAG Isn't Dead. Most People Just Don't Understand It.",
-    "description": "Large context windows are useful. Retrieval is useful. The mistake is treating them as the same thing.",
+    "description": "The technique isn't broken. Most implementations are.",
     "datePublished": "2025-08-01",
     "author": {
       "@type": "Organization",
@@ -57,366 +57,196 @@
         <span class="article-header__meta-divider" aria-hidden="true"></span>
         <span>August 2025</span>
         <span class="article-header__meta-divider" aria-hidden="true"></span>
-        <span>12 min read</span>
+        <span>5 min read</span>
         <span class="article-header__meta-divider" aria-hidden="true"></span>
         <button type="button" class="font-size-toggle" id="font-size-toggle">Font: Normal</button>
       </div>
       <h1 class="article-header__title">RAG Isn't Dead. Most People Just Don't Understand It.</h1>
-      <p class="article-header__lede">Large context windows are useful. Retrieval is useful. The mistake is treating them as the same thing.</p>
+      <p class="article-header__lede">The technique isn't broken. Most implementations are.</p>
     </header>
 
     <div class="article-hero">
-      <img src="assets/rag_architecture_flow.jpg" alt="Retrieval-Augmented Generation architecture showing the flow from query to retrieval to generation" width="960" height="540" decoding="async">
+      <img src="assets/issue#2/1.jpg" alt="RAG — Retrieval-Augmented Generation hero illustration" width="960" height="540" decoding="async">
     </div>
 
     <div class="article-grid">
       <div class="prose">
-      <p>A popular AI take goes like this:</p>
-      
-      <blockquote><p>“Models can now read a million tokens. RAG is dead.”</p></blockquote>
-      
-      <p>It sounds plausible. If an AI can read an entire codebase, company handbook, or stack of reports at once, why build a system to search for information first?</p>
-      
-      <p>Because reading more information and finding the right information are different jobs.</p>
-      
-      <p>A large context window gives a model a bigger desk.</p>
-      
-      <p>Retrieval-Augmented Generation—usually shortened to <strong>RAG</strong>—helps it find the right document before it starts working.</p>
-      
-      <p>Those two capabilities overlap. Sometimes a large desk is enough. But in the real world, modern AI systems increasingly use both.</p>
-
-      <hr>
-
-      <h2>The problem: “It fits” is not the same as “it is useful”</h2>
-
-      <p>Imagine asking:</p>
-
-      <blockquote><p>“What exception did we make to the refund policy for enterprise customers in Germany last quarter?”</p></blockquote>
-
-      <p>The answer may be buried in one paragraph of one email, attached to a contract amendment, surrounded by years of unrelated policy documents.</p>
-
-      <p>Giving an AI every document you own may be possible. It may even fit inside a modern model’s context window.</p>
-
-      <p>But that does not automatically make it the best approach.</p>
-
-      <p>The model still needs to:</p>
-
-      <ul>
-        <li>Notice the relevant information.</li>
-        <li>Distinguish the current policy from an old one.</li>
-        <li>Ignore similar but incorrect documents.</li>
-        <li>Connect “Germany,” “enterprise,” “refund,” and “last quarter.”</li>
-        <li>Show you where its answer came from.</li>
-      </ul>
-
-      <p>That is an information-retrieval problem before it is a language-generation problem.</p>
-
-      <hr>
-
-      <h2>What RAG actually is</h2>
-
-      <p><strong>Retrieval-Augmented Generation</strong> is a simple idea:</p>
-
-      <ol>
-        <li>Store useful external information—documents, policies, product manuals, tickets, databases, or web pages.</li>
-        <li>When someone asks a question, search that information for the most relevant pieces.</li>
-        <li>Give those pieces to the AI model alongside the question.</li>
-        <li>Ask the model to answer using that evidence.</li>
-      </ol>
+      <p>People keep saying RAG is dead.</p>
 
       <figure>
-        <img src="assets/rag_architecture_flow.jpg" alt="Infographic: Retrieval-Augmented Generation Architecture" loading="lazy">
-        <figcaption>Infographic: Retrieval-Augmented Generation Architecture</figcaption>
+        <img src="assets/issue#2/2.jpg" alt="The loud RAG is dead debate" loading="lazy" decoding="async">
+        <figcaption>The loud "RAG is dead" debate on social media</figcaption>
       </figure>
 
-      <p>The important word is <strong>retrieval</strong>.</p>
+      <blockquote>
+        <p><em>"Models can read a million tokens now. Why bother with retrieval?"</em><br>
+        <em>"Just dump everything into the context window."</em><br>
+        <em>"RAG is over. Move on."</em></p>
+      </blockquote>
 
-      <p>RAG is not primarily a trick for squeezing more text into a model. It is a way to turn a large, changing collection of information into a small, relevant evidence packet.</p>
+      <p>I've read these takes a hundred times. And I think they're blaming the screwdriver instead of the carpenter.</p>
 
-      <p>In a typical RAG system, documents are split into manageable passages, indexed for search, and retrieved using both meaning-based search and exact-word matching. The model then receives the best candidates rather than the whole library.</p>
-
-      <p>That is why RAG remains valuable even when a model can technically accept the whole library.</p>
-
-      <hr>
-
-      <h2>Why people think RAG is dead</h2>
-
-      <p>The argument is not completely wrong.</p>
-
-      <p>Modern models can work with dramatically larger context windows than earlier generations. Meta’s Llama 4 Scout, for example, advertises a 10-million-token context window. Google and Anthropic have pushed long-context capabilities for years, and OpenAI models can also work with large inputs and tools that search files. <a href="https://ai.meta.com/blog/llama-4-multimodal-intelligence/" target="_blank" rel="noopener">Meta</a>, <a href="https://platform.openai.com/docs/api-reference/vector-stores?lang=python" target="_blank" rel="noopener">OpenAI</a></p>
-
-      <p>That changes the design of some applications.</p>
-
-      <p>If you have:</p>
-
-      <ul>
-        <li>One 80-page report,</li>
-        <li>A single legal contract,</li>
-        <li>A known collection of meeting notes,</li>
-        <li>Or a code file that needs holistic review,</li>
-      </ul>
-
-      <p>then putting the whole thing into context can be wonderfully simple. The model can see relationships that a retrieval system might accidentally split apart.</p>
-
-      <p>Anthropic makes this point directly: for a knowledge base below roughly 200,000 tokens, including the full material in the prompt can be the simplest solution. <a href="https://www.anthropic.com/engineering/contextual-retrieval" target="_blank" rel="noopener">Anthropic</a></p>
-
-      <p>So yes: long context genuinely reduces the need for RAG in some situations.</p>
-
-      <p>But “reduces the need” is not “makes obsolete.”</p>
+      <p>RAG isn't failing because the idea is bad. It's failing because most people build it badly.</p>
 
       <hr>
 
-      <h2>The missing distinction</h2>
+      <h2>What is RAG, in plain English?</h2>
 
-      <p>Here is the cleanest way to think about it:</p>
+      <p>RAG stands for <strong>Retrieval-Augmented Generation</strong>. But forget the name for a second.</p>
 
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Capability</th>
-              <th>Main question it answers</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Long context</td>
-              <td>“Can the model consider a lot of material at once?”</td>
-            </tr>
-            <tr>
-              <td>RAG</td>
-              <td>“Which material should the model consider?”</td>
-            </tr>
-          </tbody>
-        </table>
+      <p>Here's what it actually does:</p>
+
+      <div class="callout">
+        <span class="callout-label">Plain English</span>
+        <p>Before an AI answers your question, it <strong>looks up relevant information first</strong> — then uses what it found to write a better answer.</p>
       </div>
 
-      <p>Long context is about <strong>capacity</strong>.</p>
+      <p>That's it. Instead of relying on what the AI memorized during training, you let it search for the right facts before responding.</p>
 
-      <p>RAG is about <strong>selection</strong>.</p>
+      <p>Think of the difference between answering a history exam from memory versus being allowed to open your textbook first. Same student. Much better answers.</p>
 
-      <p>One is a bigger reading table. The other is a good librarian.</p>
+      <hr>
+
+      <h2>The librarian analogy</h2>
 
       <figure>
-        <img src="assets/rag_vs_long_context.jpg" alt="Infographic: RAG vs Long Context Windows — Capacity vs Selection" loading="lazy">
-        <figcaption>Infographic: RAG vs Long Context Windows — Capacity vs Selection</figcaption>
+        <img src="assets/issue#2/3.jpg" alt="A librarian finding the right books in a vast library" loading="lazy" decoding="async">
+        <figcaption>A skilled librarian finding exact sources before answering</figcaption>
       </figure>
 
-      <pre><code>Long context:
-“Put more books on the table.”
+      <p>This is the analogy that made it click for me.</p>
 
-RAG:
-“Find the three books that answer this question.”
+      <p>Imagine you walk into a massive library and ask a question. You have two options.</p>
 
-Hybrid:
-“Find the right books, then give the model enough room
-to read them alongside the surrounding context.”</code></pre>
+      <p><strong>Option A:</strong> Ask someone who read a lot of books years ago to answer from memory. They're smart — but their knowledge is frozen in time. They might guess. They might be confidently wrong.</p>
 
-      <p>This distinction matters because most useful knowledge bases are not static, small, or perfectly organized.</p>
+      <p><strong>Option B:</strong> Ask a skilled librarian to find the three most relevant books first, then hand them to the expert. Now the expert reads real evidence before answering.</p>
 
-      <p>They contain old versions, drafts, duplicates, permission boundaries, spreadsheets, PDFs, support tickets, and exceptions.</p>
+      <p>RAG is Option B.</p>
 
-      <p>A million-token context window does not resolve that mess. It only gives the model room to receive more of it.</p>
+      <p>The librarian is the retrieval system. The expert is the AI. Together, they're far more accurate than memory alone.</p>
 
       <hr>
 
-      <h2>Where long context wins</h2>
-
-      <p>Long context is especially useful when the task depends on seeing the whole picture.</p>
-
-      <h3>1. Summarizing one large document</h3>
-
-      <p>If you want a summary of a 150-page report, retrieval may accidentally omit an important section. Loading the complete report lets the model compare its parts and preserve the overall argument.</p>
-
-      <h3>2. Finding patterns across a bounded set of materials</h3>
-
-      <p>Suppose you upload a month of meeting transcripts and ask:</p>
-
-      <blockquote><p>“What decisions were repeatedly postponed, and why?”</p></blockquote>
-
-      <p>That requires synthesis across the set—not merely locating one sentence.</p>
-
-      <h3>3. Analyzing code or documents with tight internal dependencies</h3>
-
-      <p>A function may only make sense when read with its callers, tests, configuration, and error handling. A contract clause may depend on definitions several pages earlier.</p>
-
-      <p>In these cases, retrieval can be too narrow.</p>
-
-      <p>A 2024 study comparing long context and RAG found that, when enough computing resources were available, long-context approaches often performed better on its benchmark tasks—while RAG retained a major cost advantage. <a href="https://arxiv.org/abs/2407.16833" target="_blank" rel="noopener">Li et al.</a></p>
-
-      <p>That is a useful result. It is not a death certificate for RAG.</p>
-
-      <hr>
-
-      <h2>Where RAG is still essential</h2>
-
-      <p>RAG earns its place when information is too large, too dynamic, too messy, or too important to treat as one giant prompt.</p>
-
-      <h3>1. Large and growing knowledge bases</h3>
-
-      <p>A company may have millions of pages across help-center articles, product documentation, internal wikis, tickets, and contracts.</p>
-
-      <p>Even if a model has a very large context window, repeatedly sending the entire archive is wasteful and slow. More importantly, most questions need only a tiny fraction of it.</p>
-
-      <h3>2. Information that changes</h3>
-
-      <p>A model’s built-in training knowledge is frozen at some point in time. RAG can retrieve the latest policy, inventory count, release note, or support article at answer time.</p>
-
-      <p>This is why search-connected assistants are useful: they retrieve current sources rather than pretending the model already knows today’s news.</p>
-
-      <h3>3. Answers that need evidence</h3>
-
-      <p>For legal, financial, medical, compliance, customer-support, and internal-policy workflows, “trust me” is not enough.</p>
-
-      <p>A well-designed RAG system can return the relevant source passages, document names, dates, and links. The answer becomes easier to verify.</p>
-
-      <p>RAG does not guarantee truth. It gives the system a better opportunity to ground an answer in inspectable evidence.</p>
-
-      <h3>4. Permissions and scope</h3>
-
-      <p>A useful enterprise assistant should not search every document equally. It should only retrieve material the current user is allowed to see.</p>
-
-      <p>That is another reason retrieval is more than a context-size workaround: it is part of controlling what knowledge enters the model’s working context.</p>
-
-      <h3>5. Cost and response time</h3>
-
-      <p>Sending a giant context on every question can be expensive and slow. Retrieval usually sends a far smaller, targeted set of passages.</p>
-
-      <p>This trade-off is practical, not ideological.</p>
-
-      <hr>
-
-      <h2>The library analogy</h2>
-
-      <p>Imagine a law firm with a building-sized library.</p>
-
-      <p>A long-context model is like hiring a lawyer with an enormous desk. You can spread out hundreds of books at once. That is valuable when the case requires comparing everything.</p>
-
-      <p>RAG is like hiring a skilled librarian. Before the lawyer begins, the librarian finds the statutes, case law, contract versions, and internal memos most likely to matter.</p>
-
-      <p>The best legal team uses both.</p>
+      <h2>How RAG works</h2>
 
       <figure>
-        <img src="assets/library_analogy_hybrid.jpg" alt="Infographic: The Library Analogy — Naive vs Flawed vs Hybrid Architecture" loading="lazy">
-        <figcaption>Infographic: The Library Analogy — Naive vs Flawed vs Hybrid Architecture</figcaption>
+        <img src="assets/issue#2/4.jpg" alt="The RAG pipeline — from question to answer" loading="lazy" decoding="async">
+        <figcaption>The RAG pipeline — search, retrieve, read, answer</figcaption>
       </figure>
 
-      <p>The real problem is not choosing “desk” or “librarian.”</p>
+      <pre><code>❓ You ask a question
+       ↓
+🔍 System searches your knowledge base
+       ↓
+📄 Most relevant information is retrieved
+       ↓
+🤖 AI reads the retrieved context
+       ↓
+✅ AI answers using real evidence</code></pre>
 
-      <p>It is designing a system that knows when it needs each.</p>
-
-      <hr>
-
-      <h2>Three practical examples</h2>
-
-      <h3>A support chatbot</h3>
-
-      <p>A customer asks:</p>
-
-      <blockquote><p>“Can I transfer my annual plan to a subsidiary after a merger?”</p></blockquote>
-
-      <p>This needs the current policy, perhaps an exception process, and potentially region-specific terms.</p>
-
-      <p>RAG is a natural fit. Retrieve the current, authorized policy documents, then ask the model to answer with citations. Long context may still help the model interpret related clauses together.</p>
-
-      <h3>A student studying one textbook</h3>
-
-      <p>A student uploads a 300-page biology textbook and asks:</p>
-
-      <blockquote><p>“Explain how the immune system connects innate and adaptive responses.”</p></blockquote>
-
-      <p>Long context can be excellent here. The model benefits from seeing the book’s structure, diagrams, terminology, and repeated explanations. Retrieval may be helpful, but it is not automatically necessary.</p>
-
-      <h3>An engineer investigating a production incident</h3>
-
-      <p>An engineer asks:</p>
-
-      <blockquote><p>“Why did checkout failures rise after the June deployment?”</p></blockquote>
-
-      <p>The answer may require logs, the deployment diff, incident notes, dashboards, and a historical postmortem.</p>
-
-      <p>A hybrid system is strongest:</p>
-
-      <ol>
-        <li>Retrieve the relevant deployment, logs, and incidents.</li>
-        <li>Use a long context to compare them.</li>
-        <li>Produce a timeline with links to evidence.</li>
-      </ol>
+      <p>That's the whole idea. The AI doesn't guess — it reads first, then responds.</p>
 
       <hr>
 
-      <h2>Common misconceptions</h2>
+      <h2>See the difference</h2>
 
-      <h3>“If a model has a million-token context window, it can search perfectly.”</h3>
+      <figure>
+        <img src="assets/issue#2/5.jpg" alt="Without RAG vs With RAG comparison" loading="lazy" decoding="async">
+        <figcaption>Without RAG vs With RAG — same model, different results</figcaption>
+      </figure>
 
-      <p>Not necessarily.</p>
+      <div class="callout">
+        <span class="callout-label">❌ Without RAG</span>
+        <p><strong>You:</strong> "What's our refund policy for enterprise customers?"</p>
+        <p><strong>AI:</strong> "Generally, most companies offer a 30-day refund window for enterprise plans…"</p>
+        <p><em>Generic. Made up. Useless.</em></p>
+      </div>
 
-      <p>A context window is an input limit, not a promise of perfect attention, ranking, or reasoning. Models have improved substantially at using long inputs, but developers still need to evaluate whether important information is found and used reliably.</p>
+      <div class="callout">
+        <span class="callout-label">✅ With RAG</span>
+        <p><strong>You:</strong> "What's our refund policy for enterprise customers?"</p>
+        <p><strong>AI:</strong> "According to your Enterprise Terms (updated March 2025), enterprise customers can request a full refund within 45 days. Exceptions require VP approval. <em>Source: enterprise-terms-v3.pdf, Section 4.2.</em>"</p>
+        <p><em>Specific. Grounded in real documents. Trustworthy.</em></p>
+      </div>
 
-      <h3>“RAG eliminates hallucinations.”</h3>
-
-      <p>No.</p>
-
-      <p>RAG can reduce unsupported answers by providing relevant evidence, but a model can still misread, overgeneralize, cite the wrong passage, or answer confidently when retrieval failed.</p>
-
-      <p>A robust system should be able to say: “I could not find enough evidence.”</p>
-
-      <h3>“RAG means vector database.”</h3>
-
-      <p>Not quite.</p>
-
-      <p>A vector database is one common tool for meaning-based search. Good retrieval systems may also use keyword search, metadata filters, document structure, reranking, SQL queries, or specialized tools.</p>
-
-      <p>The goal is not “use vectors.” The goal is “retrieve the right evidence.”</p>
-
-      <h3>“Long context versus RAG is a winner-take-all contest.”</h3>
-
-      <p>This is the biggest misconception.</p>
-
-      <p>Academic comparisons do not produce one universal winner. Results depend on the task, the quality of the retrieval system, the size and structure of the data, cost limits, and whether the question requires local lookup or broad synthesis. Recent work explicitly frames routing between long context and RAG as a problem with no single silver bullet. <a href="https://proceedings.mlr.press/v267/li25dv.html" target="_blank" rel="noopener">LaRA, ICML 2025</a></p>
+      <p>The model didn't get smarter between those two answers. It just received the right information before responding.</p>
 
       <hr>
 
-      <h2>What the major AI companies are actually doing</h2>
+      <h2>💡 Why people think RAG is dead</h2>
 
-      <p>The industry’s behavior is more revealing than its hot takes.</p>
+      <div class="callout">
+        <span class="callout-label">Core Insight</span>
+        <p>Most "RAG is dead" takes aren't really about RAG. They're about <strong>bad RAG implementations.</strong></p>
+      </div>
+
+      <p>Here's what usually goes wrong:</p>
 
       <ul>
-        <li><strong>OpenAI</strong> continues to offer hosted vector stores and a File Search tool for applications that need semantic retrieval over files. <a href="https://platform.openai.com/docs/api-reference/vector-stores?lang=python" target="_blank" rel="noopener">OpenAI documentation</a></li>
-        <li><strong>Anthropic</strong> offers large context windows and also automatically enables RAG for Claude Projects as knowledge grows beyond context limits. Its published retrieval work focuses on improving what gets retrieved, not abandoning retrieval. <a href="https://support.anthropic.com/en/articles/11473015-retrieval-augmented-generation-rag-for-projects" target="_blank" rel="noopener">Anthropic</a>, <a href="https://www.anthropic.com/engineering/contextual-retrieval" target="_blank" rel="noopener">Contextual Retrieval</a></li>
-        <li><strong>Google</strong> continues to operate Vertex AI RAG Engine while also advancing long-context Gemini models and retrieval-oriented embedding models. <a href="https://cloud.google.com/blog/products/ai-machine-learning/introducing-vertex-ai-rag-engine/" target="_blank" rel="noopener">Google Cloud</a>, <a href="https://deepmind.google/research/publications/157741/" target="_blank" rel="noopener">Google DeepMind</a></li>
-        <li><strong>Meta</strong> helped introduce the original RAG research approach in 2020 and now also offers extremely long-context Llama models. That combination illustrates the point: progress in long context does not erase the retrieval problem. <a href="https://arxiv.org/abs/2005.11401" target="_blank" rel="noopener">Original RAG paper</a>, <a href="https://ai.meta.com/blog/llama-4-multimodal-intelligence/" target="_blank" rel="noopener">Llama 4</a></li>
+        <li><strong>Bad search</strong> — The system retrieves the wrong documents. The AI gets confused by irrelevant information.</li>
+        <li><strong>Stale knowledge</strong> — The documents haven't been updated in months. The AI gives outdated answers with full confidence.</li>
+        <li><strong>Poor chunking</strong> — Documents are split in awkward places. A key paragraph gets cut in half and loses its meaning.</li>
+        <li><strong>No quality check</strong> — Nobody tests whether the retrieval step is actually returning useful results.</li>
       </ul>
 
-      <p>The trend is not replacement.</p>
+      <p>Fix these problems and RAG works remarkably well. Ignore them, and yes — it looks broken.</p>
 
-      <p>It is combination.</p>
+      <p>The tool isn't the problem. The implementation is.</p>
 
       <hr>
 
-      <h2>Key takeaways</h2>
+      <h2>Why RAG still matters</h2>
+
+      <figure>
+        <img src="assets/issue#2/6.jpg" alt="RAG powers real-world AI systems everywhere" loading="lazy" decoding="async">
+        <figcaption>RAG powers real-world AI systems everywhere</figcaption>
+      </figure>
+
+      <p>AI models have gotten much better at reading long inputs. That's real progress. But it doesn't replace what RAG actually does.</p>
+
+      <p>RAG gives AI systems something memory alone can't:</p>
 
       <ul>
-        <li>RAG retrieves relevant information; long context holds more information.</li>
-        <li>Long context is often best for bounded, coherent material that needs holistic analysis.</li>
-        <li>RAG is often best for large, changing, searchable, permissioned, or evidence-sensitive knowledge bases.</li>
-        <li>Neither approach guarantees correct answers.</li>
-        <li>The strongest systems often retrieve first, then use long context to reason over the selected evidence.</li>
-        <li>The question is not “Is RAG dead?” It is “What information does this task require, and how should the model receive it?”</li>
+        <li><strong>Fresh knowledge</strong> — today's documents, not training data from months ago.</li>
+        <li><strong>Precision</strong> — the right three pages instead of a million tokens of noise.</li>
+        <li><strong>Trust</strong> — answers that show you exactly where they came from.</li>
+        <li><strong>Privacy</strong> — only retrieving information the user is allowed to see.</li>
       </ul>
 
-      <h2>Closing thought</h2>
+      <p>That's why every major AI company — OpenAI, Google, Anthropic, Meta — still actively builds and improves RAG tools. It's not legacy technology. It's infrastructure.</p>
 
-      <p>RAG was never fundamentally about compensating for small context windows.</p>
+      <p>You'll find RAG quietly powering:</p>
 
-      <p>It was about giving AI systems a practical relationship with external knowledge: current, relevant, permission-aware, and verifiable.</p>
+      <ul>
+        <li>Customer support chatbots</li>
+        <li>Internal company assistants</li>
+        <li>Documentation search tools</li>
+        <li>Enterprise AI copilots</li>
+      </ul>
 
-      <p>Bigger context windows are a real advance. They make some workflows simpler and some forms of reasoning richer.</p>
+      <p>If an AI product gives you a sourced, accurate answer about your own data, there's almost certainly a retrieval system working behind the scenes.</p>
 
-      <p>But when your information is a living library rather than a single book, you still need a way to find the right page.</p>
+      <hr>
 
-      <p>And that is why RAG is not dead.</p>
+      <h2>The takeaway</h2>
 
+      <div class="callout">
+        <span class="callout-label">Bottom Line</span>
+        <p><strong>RAG isn't dead. Bad RAG is dead.</strong></p>
+        <p>The technique works. The difference is in how well you build it.</p>
+        <p>Good AI isn't just about smarter models. It's about giving them the right information.</p>
+      </div>
+
+      <hr>
+
+      <h2>❓ Try it yourself</h2>
+
+      <p>Next time an AI gives you a wrong or generic answer, ask yourself one question:</p>
+
+      <p><em>Did it have access to the right information — or was it guessing from memory?</em></p>
+
+      <p>That's the question RAG was designed to answer. 🧠</p>
       </div>
 
       <aside class="toc-sidebar" aria-label="Table of contents">
@@ -430,11 +260,14 @@ to read them alongside the surrounding context.”</code></pre>
   <!-- Article End Navigation -->
   <div class="article-end">
     <div class="article-end__nav">
-      <a href="issue-1.html" class="article-end__link">
+      <a href="issue-1.html" class="article-end__link article-end__link--prev">
         <span class="article-end__link-label">Previous Issue</span>
         <span class="article-end__link-title">Prompt Engineering Isn't Dead. It's Evolving.</span>
       </a>
-      <div></div>
+      <a href="issue-3.html" class="article-end__link article-end__link--next">
+        <span class="article-end__link-label">Next Issue</span>
+        <span class="article-end__link-title">Better Input, Better Output. That's Context Engineering.</span>
+      </a>
     </div>
   </div>
 
@@ -472,18 +305,18 @@ to read them alongside the surrounding context.”</code></pre>
     <div class="comments-list" id="comments-list">
       <article class="comment-card">
         <div class="comment-card__header">
-          <span class="comment-card__author">David K. &bull; Lead Search Infrastructure</span>
-          <span class="comment-card__date">Yesterday</span>
+          <span class="comment-card__author">Marcus Vance &bull; Lead Search Engineer</span>
+          <span class="comment-card__date">2 days ago</span>
         </div>
-        <p class="comment-card__body">Capacity vs Selection is the ultimate summary. We have a 10M token context window in testing, but sending 500k tokens per query for a simple policy lookup increased latency by 4x. RAG + Long Context hybrid is the only way in production.</p>
+        <p class="comment-card__body">The librarian analogy is spot on. 90% of RAG complaints I see stem from bad chunking or dirty document indexes, not the model itself.</p>
       </article>
 
       <article class="comment-card">
         <div class="comment-card__header">
-          <span class="comment-card__author">Elena Rostova &bull; ML Tech Lead</span>
-          <span class="comment-card__date">4 days ago</span>
+          <span class="comment-card__author">Elena Rostova &bull; Product Architect</span>
+          <span class="comment-card__date">5 days ago</span>
         </div>
-        <p class="comment-card__body">Great point on permissions as well! Long context cannot enforce role-based access control (RBAC) at retrieval time. RAG is a security boundary.</p>
+        <p class="comment-card__body">Fresh knowledge + source citations is why we can't abandon retrieval. Our enterprise clients literally require exact file locators for compliance.</p>
       </article>
     </div>
   </section>

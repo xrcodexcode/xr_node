@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Better Input, Better Output. That's Context Engineering. — AI Fundamentals</title>
+  <meta name="description" content="The AI isn't broken. It just doesn't know what you know. Master the skill of giving AI the right context before asking.">
+  <meta name="theme-color" content="#0A0A0A">
+  <meta property="og:title" content="Better Input, Better Output. That's Context Engineering. — AI Fundamentals">
+  <meta property="og:description" content="The AI isn't broken. It just doesn't know what you know.">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Better Input, Better Output. That's Context Engineering. — AI Fundamentals">
+  <meta name="twitter:description" content="The AI isn't broken. It just doesn't know what you know.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "Better Input, Better Output. That's Context Engineering.",
+    "description": "The AI isn't broken. It just doesn't know what you know.",
+    "datePublished": "2025-09-01",
+    "author": {
+      "@type": "Organization",
+      "name": "AI Fundamentals"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+  <nav class="nav nav--article" id="nav" aria-label="Article navigation">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__back">
+          <span class="nav__back-arrow" aria-hidden="true">&larr;</span>
+          AI Fundamentals
+        </a>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button type="button" class="tag-pill" id="nav-cmd-k" style="font-size:11px;padding:3px 8px;">⌘K Search</button>
+          <a href="index.html#subscribe" class="nav__cta">Subscribe</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="article-header">
+      <div class="article-header__meta">
+        <span>Issue 03</span>
+        <span class="article-header__meta-divider" aria-hidden="true"></span>
+        <span>September 2025</span>
+        <span class="article-header__meta-divider" aria-hidden="true"></span>
+        <span>5 min read</span>
+        <span class="article-header__meta-divider" aria-hidden="true"></span>
+        <button type="button" class="font-size-toggle" id="font-size-toggle">Font: Normal</button>
+      </div>
+      <h1 class="article-header__title">Better Input, Better Output. That's Context Engineering.</h1>
+      <p class="article-header__lede">The AI isn't broken. It just doesn't know what you know.</p>
+    </header>
+
+    <div class="article-hero">
+      <img src="assets/issue#3/1.jpg" alt="Context Engineering hero illustration" width="960" height="540" decoding="async">
+    </div>
+
+    <div class="article-grid">
+      <div class="prose">
+      <p>I see the same complaint everywhere.</p>
+
+      <figure>
+        <img src="assets/issue#3/2.jpg" alt="The frustration of getting generic AI output" loading="lazy" decoding="async">
+        <figcaption>The frustration of getting generic AI output</figcaption>
+      </figure>
+
+      <blockquote>
+        <p><em>"I tried ChatGPT and the output was generic."</em><br>
+        <em>"The AI doesn't understand what I want."</em><br>
+        <em>"I gave it a clear prompt and it still got it wrong."</em></p>
+      </blockquote>
+
+      <p>I've been there too. And after spending way too long tweaking the wording of my prompts, I realized something that changed how I use every AI tool:</p>
+
+      <p><strong>The problem usually isn't <em>how</em> you ask. It's <em>what you give it to work with.</em></strong></p>
+
+      <p>That idea has a name. It's called <strong>context engineering</strong>. And once you understand it, you'll never look at a bad AI output the same way again.</p>
+
+      <hr>
+
+      <h2>So what is context engineering?</h2>
+
+      <p>Here is the simplest way I can put it:</p>
+
+      <div class="callout">
+        <span class="callout-label">Definition</span>
+        <p>A <strong>prompt</strong> is what you <em>ask</em>.</p>
+        <p><strong>Context</strong> is everything you <em>give it to work with</em>.</p>
+      </div>
+
+      <p>Context engineering is the skill of providing an AI with the right background, the right constraints, and the right examples — so it can actually produce something useful.</p>
+
+      <p>Most people blame the model when they get a bad result. In my experience, the real issue is almost always missing context. The AI isn't stupid. It's just working with incomplete information.</p>
+
+      <p>You wouldn't expect a brilliant stranger to write your quarterly report without telling them who it's for, what data to use, or how long it should be.</p>
+
+      <p>But that's exactly what we do with AI all the time.</p>
+
+      <hr>
+
+      <h2>Think of it like briefing a new teammate</h2>
+
+      <figure>
+        <img src="assets/issue#3/3.jpg" alt="Briefing a new teammate with the right context" loading="lazy" decoding="async">
+        <figcaption>Briefing a new teammate with clear context and expectations</figcaption>
+      </figure>
+
+      <p>This is the analogy that made it click for me.</p>
+
+      <p>Imagine you hire someone talented. Really talented. It's their first day at the company. They know nothing about your team, your projects, or your preferences.</p>
+
+      <p>You walk over and say:</p>
+
+      <blockquote>
+        <p><em>"Write the report."</em></p>
+      </blockquote>
+
+      <p>They'd freeze. <em>What report? For whom? What format? What's the deadline? What happened last quarter?</em></p>
+
+      <p>Now imagine you say:</p>
+
+      <blockquote>
+        <p><em>"Write a one-page summary of last quarter's sales for the VP of Marketing. Use bullet points. Focus on the top 3 regions by revenue. Here's the raw data and here's a report from last quarter you can use as a reference."</em></p>
+      </blockquote>
+
+      <p>Same person. Same brain. Completely different result.</p>
+
+      <p>That's context engineering in a nutshell.</p>
+
+      <p>You're not making the AI smarter. You're giving it what it needs to do its best work. And the difference in output quality is night and day.</p>
+
+      <hr>
+
+      <h2>See the difference</h2>
+
+      <figure>
+        <img src="assets/issue#3/4.jpg" alt="Bad Context vs Good Context comparison" loading="lazy" decoding="async">
+        <figcaption>Bad Context vs Good Context — same model, two very different results</figcaption>
+      </figure>
+
+      <div class="callout">
+        <span class="callout-label">❌ Weak prompt</span>
+        <p><strong>"Write me a LinkedIn post."</strong></p>
+        <p><em>The AI has to guess your tone, topic, audience, length, and goal. It guesses wrong on most of them. The result feels generic because the input was generic.</em></p>
+      </div>
+
+      <div class="callout">
+        <span class="callout-label">✅ Prompt with context</span>
+        <p><strong>"Write a LinkedIn post for software engineers. Topic: why side projects help career growth. Tone: conversational and encouraging. Under 150 words. End with a question to drive comments."</strong></p>
+        <p><em>Specific. Tailored. Clear constraints. Great output.</em></p>
+      </div>
+
+      <p>Same model. Same capability. But the second prompt works because I told it <em>who</em> it's for, <em>what</em> to write about, <em>how</em> it should sound, <em>how long</em> it should be, and <em>how</em> to end.</p>
+
+      <p>That's not prompt magic. That's just giving better context.</p>
+
+      <hr>
+
+      <h2>The context pipeline</h2>
+
+      <figure>
+        <img src="assets/issue#3/5.jpg" alt="The Context Pipeline" loading="lazy" decoding="async">
+        <figcaption>The Context Pipeline — Goal, Background, Constraints, Example</figcaption>
+      </figure>
+
+      <p>I use a simple mental framework whenever I write an important prompt. Good context usually has four parts:</p>
+
+      <pre><code>🎯 Goal  →  📋 Background  →  🚧 Constraints  →  💡 Example  →  ✅ Better Result</code></pre>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Piece</th>
+              <th>What it does</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Goal</strong></td>
+              <td>What you want</td>
+              <td>"Write a product description"</td>
+            </tr>
+            <tr>
+              <td><strong>Background</strong></td>
+              <td>What the AI needs to know</td>
+              <td>"It's a noise-canceling headphone for remote workers"</td>
+            </tr>
+            <tr>
+              <td><strong>Constraints</strong></td>
+              <td>Rules and boundaries</td>
+              <td>"Under 80 words. No technical jargon."</td>
+            </tr>
+            <tr>
+              <td><strong>Example</strong></td>
+              <td>What good looks like</td>
+              <td>"Here's a description from our site we like…"</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>You don't always need all four. But the more you provide, the less the AI has to guess — and guessing is where things go wrong.</p>
+
+      <hr>
+
+      <h2>Why this actually matters</h2>
+
+      <figure>
+        <img src="assets/issue#3/6.jpg" alt="Context engineering powers real-world AI systems" loading="lazy" decoding="async">
+        <figcaption>Context engineering powers real-world AI systems</figcaption>
+      </figure>
+
+      <p>Context engineering isn't just a prompting trick for getting better ChatGPT answers. It's the core skill behind every AI system that actually works in the real world.</p>
+
+      <ul>
+        <li><strong>Chatbots</strong> that answer customer questions correctly — because they receive the right documents, not the entire knowledge base.</li>
+        <li><strong>AI agents</strong> that complete tasks reliably — because someone defined the rules and boundaries clearly.</li>
+        <li><strong>Writing tools</strong> that match your brand voice — because you showed them examples of what good looks like.</li>
+        <li><strong>Automation</strong> that doesn't break — because someone thought about the edge cases upfront.</li>
+      </ul>
+
+      <p>Every production AI system you've ever used runs on carefully engineered context behind the scenes. The prompt you see is just the tip of the iceberg.</p>
+
+      <hr>
+
+      <h2>The takeaway</h2>
+
+      <figure>
+        <img src="assets/issue#3/7.jpg" alt="Master context, master the output" loading="lazy" decoding="async">
+        <figcaption>Master context, master the output</figcaption>
+      </figure>
+
+      <div class="callout">
+        <span class="callout-label">Bottom Line</span>
+        <p><strong>You don't need a better model. You need to give your model better context.</strong></p>
+        <p>The best AI results come from the best inputs — not the best prompts alone.</p>
+        <p>Master context, and you master the output.</p>
+      </div>
+
+      <hr>
+
+      <h2>❓ Try it yourself</h2>
+
+      <p>Here's a challenge. Take a prompt you've used recently — one where the output disappointed you.</p>
+
+      <p>Before rewriting the words, ask yourself one question:</p>
+
+      <p><em>Did I give the AI enough context to succeed?</em></p>
+
+      <p>In my experience, that single question will improve your results more than any prompt trick ever will. 🧠</p>
+      </div>
+
+      <aside class="toc-sidebar" aria-label="Table of contents">
+        <div class="toc-sticky">
+          <div class="toc__title">On this page</div>
+          <ul class="toc__list" id="toc-list"></ul>
+        </div>
+      </aside>
+    </div>
+
+  <!-- Article End Navigation -->
+  <div class="article-end">
+    <div class="article-end__nav">
+      <a href="issue-2.html" class="article-end__link article-end__link--prev">
+        <span class="article-end__link-label">Previous Issue</span>
+        <span class="article-end__link-title">RAG Isn't Dead. Most People Just Don't Understand It.</span>
+      </a>
+      <div></div>
+    </div>
+  </div>
+
+  <!-- Article Reactions -->
+  <section class="reactions-section reveal">
+    <div class="reactions-title">Was this issue helpful?</div>
+    <div class="reactions-grid">
+      <button type="button" class="reaction-btn" data-reaction="mindblowing">
+        <span>Mind-blowing</span> <span class="reaction-count">38</span>
+      </button>
+      <button type="button" class="reaction-btn" data-reaction="insightful">
+        <span>Insightful</span> <span class="reaction-count">92</span>
+      </button>
+      <button type="button" class="reaction-btn" data-reaction="actionable">
+        <span>Actionable</span> <span class="reaction-count">64</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Discussion Board -->
+  <section class="discussion-section reveal">
+    <div class="discussion-header">
+      <h3 class="discussion-title">Discussion</h3>
+      <span class="discussion-count" id="discussion-count">2 thoughts</span>
+    </div>
+
+    <form class="comment-form" id="comment-form">
+      <textarea class="comment-textarea" id="comment-body" placeholder="Share your perspective or ask a question..." required></textarea>
+      <div class="comment-form__row">
+        <input type="text" class="comment-input-name" id="comment-author" placeholder="Your name / title (optional)">
+        <button type="submit" class="comment-submit-btn">Post Comment</button>
+      </div>
+    </form>
+
+    <div class="comments-list" id="comments-list">
+      <article class="comment-card">
+        <div class="comment-card__header">
+          <span class="comment-card__author">David Wright &bull; Product Lead</span>
+          <span class="comment-card__date">1 day ago</span>
+        </div>
+        <p class="comment-card__body">The new teammate analogy is something I'm going to share with my entire non-technical product team. Simple, obvious, and transformative.</p>
+      </article>
+
+      <article class="comment-card">
+        <div class="comment-card__header">
+          <span class="comment-card__author">Priya Sharma &bull; AI UX Researcher</span>
+          <span class="comment-card__date">3 days ago</span>
+        </div>
+        <p class="comment-card__body">Goal, Background, Constraints, Example. That 4-part framework is gold. Instant improvement in output quality.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Subscribe CTA -->
+  <section class="subscribe section--border-top" id="subscribe">
+    <div class="container">
+      <h2 class="subscribe__heading reveal">Understand systems,<br>not trends.</h2>
+      <p class="subscribe__subtitle reveal reveal-delay-1">Join engineers and builders who want first-principles clarity on AI. Free, forever.</p>
+      <form class="subscribe__form reveal reveal-delay-2" data-subscribe aria-label="Subscribe to newsletter">
+        <input type="email" class="subscribe__input" placeholder="your@email.com" required autocomplete="email" aria-label="Email address">
+        <button type="submit" class="subscribe__submit">Subscribe</button>
+      </form>
+      <p class="subscribe__note reveal reveal-delay-3">No spam. Unsubscribe anytime.</p>
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">AI Fundamentals</p>
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a href="index.html#issues" class="footer__link">Issues</a>
+          <a href="index.html#about" class="footer__link">About</a>
+          <a href="index.html#subscribe" class="footer__link">Subscribe</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
