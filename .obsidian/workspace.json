@@ -37,12 +37,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AREAS/newsletter/README.md",
+                "file": "AREAS/newsletter/memory.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "memory"
             }
           }
         ],
@@ -225,6 +225,7 @@
   },
   "active": "87e4f87bec7d5515",
   "lastOpenFiles": [
+    "AREAS/newsletter/README.md",
     "AREAS/newsletter/memory.md",
     "AREAS/newsletter/issue#3.md",
     "AREAS/newsletter/issue#2.md",
@@ -233,7 +234,6 @@
     "AREAS/newsletter/site/assets/ai_stack_pyramid.jpg",
     "AREAS/newsletter/site/assets/ai_fundamentals_hero.jpg",
     "AREAS/newsletter/site/assets/abstraction_trap_vs_fundamentals.jpg",
-    "AREAS/newsletter/README.md",
     "AREAS/newsletter/AGENTS.md",
     "AREAS/newsletter/GEMINI.md",
     "AREAS/newsletter/assets/issue#1/5.jpg",
