@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AREAS/newsletter/issue#4.md",
-                "mode": "preview",
+                "file": "AREAS/newsletter/issue#2.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "issue#4"
+              "title": "issue#2"
             }
           },
           {
@@ -238,13 +238,18 @@
   },
   "active": "7d8e5569821e2c55",
   "lastOpenFiles": [
+    "01_RAW/CAPTURE/Steal My Exact AI OS Setup (5 simple tips).md",
+    "01_RAW/CAPTURE/Why You Feel Depressed (And How to Fix It).md",
+    "01_RAW/CAPTURE/Success is the Best Revenge.md",
+    "01_RAW/CAPTURE/Why I Stopped Calling My Friends After Success  STORY TIME.md",
+    "01_RAW/CAPTURE/Loneliness is a Blessing, Not a Curse.md",
+    "AREAS/newsletter/issue#4.md",
     "AREAS/newsletter/assets/issue#3/1.jpg",
     "AREAS/newsletter/site/assets/issue#4",
     "AREAS/newsletter/site/issue-4.html",
     "AREAS/newsletter/memory.md",
     "AREAS/newsletter/issue#2.md",
     "AREAS/newsletter/issue#3.md",
-    "AREAS/newsletter/issue#4.md",
     "AREAS/newsletter/assets/issue#4",
     "AREAS/newsletter/issue#1.md",
     "AREAS/newsletter/assets/issue#3/2.jpg",
@@ -278,10 +283,6 @@
     "01_RAW/CAPTURE/You only need 6 months to change your life.md",
     "NODES/activation-function.md",
     "nexusdb-web/README.md",
-    "01_RAW/PROCESS/What is RAG Retrieval Augmented Generation.md",
-    "01_RAW/CAPTURE/What Is an LLM Everything You Need to Know in 10 Minutes.md",
-    "01_RAW/PROCESS/detailed-study-notes-building-wealth-is-easier-than-you-think.md",
-    "01_RAW/PROCESS/detailed-study-notes-watch-this-before-you-waste-another-year.md",
-    "NOTES/What is RAG Retrieval Augmented Generation.md"
+    "01_RAW/PROCESS/What is RAG Retrieval Augmented Generation.md"
   ]
 }
