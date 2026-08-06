@@ -1,0 +1,49 @@
+# Dependency directories
+node_modules/
+.pnpm-store/
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.ruff_cache/
+
+# Build outputs
+.next/
+out/
+build/
+dist/
+*.egg-info/
+
+# Local Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Databases & Local Runtime Storage
+*.db
+*.sqlite
+*.sqlite3
+.piyush/
+chroma_db/
+data/
+
+# Testing & Coverage
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+
+# System & IDE files
+.DS_Store
+Thumbs.db
+*.log
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json

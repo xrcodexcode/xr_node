@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "FastAPI Backend (Debug)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["app.main:app", "--reload", "--port", "8000"],
+      "cwd": "${workspaceFolder}/backend",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/backend"
+      }
+    },
+    {
+      "name": "Next.js Web (Client & Server)",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npx pnpm --filter web dev",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

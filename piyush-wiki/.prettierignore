@@ -1,0 +1,11 @@
+node_modules/
+.next/
+out/
+dist/
+build/
+coverage/
+.venv/
+__pycache__/
+*.min.js
+*.min.css
+pnpm-lock.yaml

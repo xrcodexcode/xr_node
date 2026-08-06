@@ -1,5 +1,5 @@
 {
-  "name": "@piyush-wiki/types",
+  "name": "@piyush-wiki/shared",
   "version": "1.0.0",
   "private": true,
   "main": "./src/index.ts",
@@ -7,6 +7,9 @@
   "scripts": {
     "build": "tsc --noEmit",
     "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@piyush-wiki/types": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.4.0"

@@ -3,12 +3,21 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev:web": "pnpm --filter web dev",
-    "dev:backend": "cd backend && uv run uvicorn app.main:app --reload --port 8000",
-    "build:web": "pnpm --filter web build",
-    "test": "pnpm --filter web test && cd backend && pytest"
+    "dev": "pnpm --filter web dev",
+    "dev:backend": "cd backend && python -m uvicorn app.main:app --reload --port 8000",
+    "build": "pnpm --filter web build",
+    "lint": "pnpm --filter web lint",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "typecheck": "pnpm --recursive run typecheck",
+    "test": "pnpm --filter web test && cd backend && python -m pytest",
+    "test:web": "pnpm --filter web test",
+    "test:backend": "cd backend && python -m pytest",
+    "test:e2e": "pnpm --filter web test:e2e",
+    "prepare": "husky install"
   },
   "devDependencies": {
+    "husky": "^9.0.11",
+    "prettier": "^3.2.5",
     "typescript": "^5.4.0"
   }
 }

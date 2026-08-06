@@ -1,8 +1,29 @@
 /**
- * Piyush Wiki Core Domain Types
+ * Piyush Wiki Core Domain & API Types
  */
 
-export interface NoteMetadata {
+export interface SystemStatus {
+  status: 'online' | 'degraded' | 'offline';
+  version: string;
+  environment: 'development' | 'production' | 'test';
+  database: 'connected' | 'disconnected';
+  vectorStore: 'connected' | 'disconnected';
+  uptimeSeconds: number;
+}
+
+export interface ApiErrorDetail {
+  code: string;
+  message: string;
+  details?: Record<string, unknown>;
+  timestamp: string;
+}
+
+export interface ApiResponse<T> {
+  data?: T;
+  error?: ApiErrorDetail;
+}
+
+export interface VaultNodeMetadata {
   id: string;
   filePath: string;
   title: string;
@@ -12,52 +33,15 @@ export interface NoteMetadata {
   readingTimeMinutes: number;
   tags: string[];
   aliases: string[];
+  ownerMoc?: string;
+  confidence?: number;
   createdAt: string;
   updatedAt: string;
 }
 
-export interface NoteDetail extends NoteMetadata {
-  content: string;
-  frontmatter: Record<string, unknown>;
-  outgoingLinks: NoteLink[];
-  backlinks: NoteLink[];
-}
-
-export interface NoteLink {
-  id: number;
-  sourceNoteId: string;
-  targetNoteTitle: string;
-  targetNoteId?: string;
-  contextSnippet?: string;
-  isEmbed: boolean;
-}
-
-export interface GraphNode {
-  id: string;
-  label: string;
-  slug: string;
-  clusterId?: number;
-  degree: number;
-  val: number;
-}
-
-export interface GraphEdge {
-  source: string;
-  target: string;
-  label?: string;
-}
-
-export interface GraphData {
-  nodes: GraphNode[];
-  edges: GraphEdge[];
-}
-
-export interface SearchResult {
-  id: string;
-  title: string;
-  slug: string;
-  snippet: string;
-  score: number;
-  matchType: 'lexical' | 'semantic' | 'hybrid';
-  tags: string[];
+export interface AppConfig {
+  apiBaseUrl: string;
+  vaultPath: string;
+  environment: 'development' | 'production' | 'test';
+  debug: boolean;
 }
