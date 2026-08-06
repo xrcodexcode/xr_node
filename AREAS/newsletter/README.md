@@ -21,17 +21,20 @@ newsletter/
 ├── issue#2.md              # RAG Isn't Dead
 ├── issue#3.md              # Context Engineering
 ├── issue#4.md              # Harness Engineering
+├── issue#5.md              # Loop Engineering
 ├── assets/                 # Visual assets organized by issue
 │   ├── issue#1/            # Images for Issue #1 (1.jpg to 5.jpg)
 │   ├── issue#2/            # Images for Issue #2 (1.jpg to 6.jpg)
 │   ├── issue#3/            # Images for Issue #3 (1.jpg to 7.jpg)
-│   └── issue#4/            # Images for Issue #4 (1.jpg to 7.jpg)
+│   ├── issue#4/            # Images for Issue #4 (1.jpg to 7.jpg)
+│   └── issue#5/            # Images & SVGs for Issue #5 (1.svg to 6.svg)
 └── site/                   # Published static website
     ├── index.html          # Landing page
     ├── issue-1.html        # Issue #1 web page
     ├── issue-2.html        # Issue #2 web page
     ├── issue-3.html        # Issue #3 web page
     ├── issue-4.html        # Issue #4 web page
+    ├── issue-5.html        # Issue #5 web page
     ├── rss.xml             # RSS feed
     ├── manifest.json       # Web app manifest
     ├── css/                # Stylesheets
@@ -49,6 +52,7 @@ newsletter/
 | 2 | [RAG Isn't Dead. Most People Just Don't Understand It.](./issue%232.md) | Why retrieval still matters in a world of large context windows |
 | 3 | [Better Input, Better Output. That's Context Engineering.](./issue%233.md) | The skill of giving AI the right information to produce better results |
 | 4 | [The Prompt Is Just One Ingredient. The Harness Is the Kitchen.](./issue%234.md) | Why the smartest AI needs tools, not just instructions |
+| 5 | [Loop Engineering — What Makes AI Agents Improve Themselves?](./issue%235.md) | Why the best AI output comes from continuous self-refinement |
 
 ---
 

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issue #5: Loop Engineering — AI Fundamentals</title>
+  <meta name="description" content="Why the best AI output comes from continuous self-refinement. Learn how Loop Engineering powers autonomous AI agents.">
+  <meta name="theme-color" content="#0A0A0A">
+  <meta property="og:title" content="Issue #5: Loop Engineering — AI Fundamentals">
+  <meta property="og:description" content="What makes AI agents improve themselves? Discover the architecture behind iterative self-refinement.">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Issue #5: Loop Engineering — AI Fundamentals">
+  <meta name="twitter:description" content="What makes AI agents improve themselves? Discover the architecture behind iterative self-refinement.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "Issue #5: Loop Engineering — What Makes AI Agents Improve Themselves?",
+    "description": "Why the best AI output doesn't come from a single guess, but from continuous self-refinement.",
+    "datePublished": "2026-08-06",
+    "author": {
+      "@type": "Organization",
+      "name": "AI Fundamentals"
+    }
+  }
+  </script>
+  <style>
+    /* Issue 5 Specific Interactive Block Styles */
+    .quiz-card {
+      background: #161B22;
+      border: 1px solid #30363D;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s ease;
+    }
+    .quiz-card:hover {
+      border-color: #58A6FF;
+    }
+    .quiz-card__question {
+      font-weight: 700;
+      color: #F0F6FC;
+      margin-bottom: 12px;
+      font-size: 1.05rem;
+    }
+    .quiz-card__answer {
+      display: none;
+      background: #0D1117;
+      border-left: 3px solid #238636;
+      padding: 12px 16px;
+      margin-top: 10px;
+      border-radius: 0 8px 8px 0;
+      color: #7EE787;
+      font-size: 0.95rem;
+    }
+    .quiz-toggle-btn {
+      background: #21262D;
+      color: #58A6FF;
+      border: 1px solid #30363D;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .quiz-toggle-btn:hover {
+      background: #30363D;
+      color: #79C0FF;
+    }
+    .step-card {
+      background: #161B22;
+      border: 1px solid #30363D;
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 14px;
+      position: relative;
+    }
+    .step-card__badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .badge-draft { background: #388BFD33; color: #58A6FF; border: 1px solid #388BFD66; }
+    .badge-review { background: #D2992233; color: #F2CC60; border: 1px solid #D2992266; }
+    .badge-final { background: #23863633; color: #7EE787; border: 1px solid #23863666; }
+
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+    @media (max-width: 640px) {
+      .checklist-grid { grid-template-columns: 1fr; }
+    }
+    .checklist-box {
+      background: #161B22;
+      border-radius: 12px;
+      padding: 18px;
+    }
+    .checklist-box--do { border: 1px solid #238636; }
+    .checklist-box--dont { border: 1px solid #DA3633; }
+    .checklist-box h4 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+    .checklist-box--do h4 { color: #7EE787; }
+    .checklist-box--dont h4 { color: #F85149; }
+    .checklist-box ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .checklist-box li {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+  <nav class="nav nav--article" id="nav" aria-label="Article navigation">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__back">
+          <span class="nav__back-arrow" aria-hidden="true">&larr;</span>
+          AI Fundamentals
+        </a>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button type="button" class="tag-pill" id="nav-cmd-k" style="font-size:11px;padding:3px 8px;">⌘K Search</button>
+          <a href="index.html#subscribe" class="nav__cta">Subscribe</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="article-header">
+      <div class="article-header__meta">
+        <span>Issue 05</span>
+        <span class="article-header__meta-divider" aria-hidden="true"></span>
+        <span>August 2026</span>
+        <span class="article-header__meta-divider" aria-hidden="true"></span>
+        <span>6 min read</span>
+        <span class="article-header__meta-divider" aria-hidden="true"></span>
+        <button type="button" class="font-size-toggle" id="font-size-toggle">Font: Normal</button>
+      </div>
+      <h1 class="article-header__title">Issue #5: Loop Engineering — What Makes AI Agents Improve Themselves?</h1>
+      <p class="article-header__lede">Why the best AI output doesn't come from a single guess, but from continuous self-refinement.</p>
+    </header>
+
+    <div class="article-hero">
+      <img src="assets/issue#5/1.svg" alt="What is Loop Engineering?" width="960" height="540" decoding="async">
+    </div>
+
+    <div class="article-grid">
+      <div class="prose">
+        <p>Imagine asking a chef to cook a complex signature dish in one single attempt—without tasting the broth, adjusting the spices, or checking the oven temperature.</p>
+
+        <p>No matter how talented the chef is, the result won't be perfect. Great cooking requires tasting, tweaking, and refining before serving.</p>
+
+        <p>That is the essence of <strong>Loop Engineering</strong>. It is the system design pattern that transforms AI from a one-shot guessing engine into a self-improving autonomous agent.</p>
+
+        <hr>
+
+        <h2>What is Loop Engineering?</h2>
+
+        <div class="callout">
+          <span class="callout-label">Core Definition</span>
+          <p><strong>Loop Engineering</strong> is the practice of designing closed-loop feedback systems around an AI model so it can evaluate its own work, fix errors, and iteratively improve output until quality targets are met.</p>
+        </div>
+
+        <p>Think of a writer crafting an essay:</p>
+
+        <ul>
+          <li><strong>Draft 1</strong>: Outline thoughts quickly (raw draft).</li>
+          <li><strong>Review</strong>: Re-read for clarity, logic gaps, and grammar errors.</li>
+          <li><strong>Revision</strong>: Rewrite weak paragraphs and polish flow.</li>
+        </ul>
+
+        <p>Without a review-and-edit loop, human writing stays unpolished. Loop Engineering gives AI models that exact same self-editing workflow.</p>
+
+        <hr>
+
+        <h2>Why AI Needs Loops</h2>
+
+        <p>Most people interact with AI through <strong>one-shot prompting</strong>: they send a prompt, get an answer, and accept whatever comes out.</p>
+
+        <p>For simple questions, one-shot works fine. But for complex tasks—like writing software, conducting deep research, or generating reports—single pass AI breaks down.</p>
+
+        <figure>
+          <img src="assets/issue#5/2.svg" alt="One-shot AI vs Loop Engineering" loading="lazy" decoding="async">
+          <figcaption>Comparison: Single-pass One-Shot Prompting vs Multi-pass Loop Engineering</figcaption>
+        </figure>
+
+        <table style="width:100%; margin:20px 0; border-collapse:collapse; text-align:left;">
+          <thead>
+            <tr style="border-bottom:2px solid #30363D; color:#8B949E;">
+              <th style="padding:10px;">Feature</th>
+              <th style="padding:10px;">⚡ One-Shot Prompting</th>
+              <th style="padding:10px;">🔄 Loop Engineering</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #21262D;">
+              <td style="padding:10px; font-weight:600;">Execution</td>
+              <td style="padding:10px; color:#F85149;">Single prompt & answer</td>
+              <td style="padding:10px; color:#7EE787;">Iterative generate-review cycles</td>
+            </tr>
+            <tr style="border-bottom:1px solid #21262D;">
+              <td style="padding:10px; font-weight:600;">Error Handling</td>
+              <td style="padding:10px; color:#F85149;">Fails silently on mistake</td>
+              <td style="padding:10px; color:#7EE787;">Self-detects & fixes errors</td>
+            </tr>
+            <tr style="border-bottom:1px solid #21262D;">
+              <td style="padding:10px; font-weight:600;">Output Quality</td>
+              <td style="padding:10px; color:#F85149;">Capped by single guess</td>
+              <td style="padding:10px; color:#7EE787;">Compounding quality ceiling</td>
+            </tr>
+            <tr>
+              <td style="padding:10px; font-weight:600;">Best For</td>
+              <td style="padding:10px;">Quick Q&A, simple summaries</td>
+              <td style="padding:10px; font-weight:600; color:#58A6FF;">Coding, research, complex tasks</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <hr>
+
+        <h2>The Core Loop</h2>
+
+        <p>Every loop engineering system operates on five fundamental steps:</p>
+
+        <ol>
+          <li><strong>Plan</strong>: Deconstruct the objective into clear, manageable steps.</li>
+          <li><strong>Generate</strong>: Create the initial draft or execution attempt.</li>
+          <li><strong>Review</strong>: Evaluate output against strict constraints or test cases.</li>
+          <li><strong>Improve</strong>: Apply targeted corrections based on review feedback.</li>
+          <li><strong>Repeat</strong>: Pass refined context back into the loop until verified.</li>
+        </ol>
+
+        <hr>
+
+        <h2>How AI Agents Use Loops</h2>
+
+        <p>Autonomous AI agents do not rely on a single prompt. Instead, they split work across specialized functional nodes:</p>
+
+        <figure>
+          <img src="assets/issue#5/3.svg" alt="AI Agent Loop Architecture" loading="lazy" decoding="async">
+          <figcaption>Architecture: Planner, Executor, Reviewer, and Memory cooperating inside the loop</figcaption>
+        </figure>
+
+        <ul>
+          <li><strong>🧠 Planner</strong>: Deconstructs user requests into structured step-by-step action plans.</li>
+          <li><strong>🛠️ Executor</strong>: Calls tools, runs code, or writes content for the current step.</li>
+          <li><strong>🔍 Reviewer</strong>: Validates output against rules, unit tests, or quality benchmarks.</li>
+          <li><strong>💾 Memory</strong>: Stores feedback history so subsequent iterations learn from past mistakes.</li>
+        </ul>
+
+        <hr>
+
+        <h2>The 6-Stage Loop Lifecycle</h2>
+
+        <p>To guarantee stable and deterministic outcomes, professional agent systems follow a 6-stage lifecycle:</p>
+
+        <figure>
+          <img src="assets/issue#5/4.svg" alt="Loop Lifecycle (6 Stages)" loading="lazy" decoding="async">
+          <figcaption>The 6-stage lifecycle of autonomous agent execution</figcaption>
+        </figure>
+
+        <ol>
+          <li><strong>Planning</strong>: Defining target metrics, schemas, and action sequences.</li>
+          <li><strong>Execution</strong>: Running tools, querying models, or generating code.</li>
+          <li><strong>Evaluation</strong>: Measuring accuracy, schema validity, or syntax correctness.</li>
+          <li><strong>Reflection</strong>: Analyzing <em>why</em> an evaluation check failed.</li>
+          <li><strong>Optimization</strong>: Constructing precise corrective instructions.</li>
+          <li><strong>Repeat</strong>: Re-entering execution with updated context.</li>
+        </ol>
+
+        <hr>
+
+        <h2>Real-World Applications</h2>
+
+        <p>Loop Engineering powers every modern flagship AI workflow you rely on today:</p>
+
+        <figure>
+          <img src="assets/issue#5/5.svg" alt="Real-World Agent Applications" loading="lazy" decoding="async">
+          <figcaption>Real-world agent systems driven by a central loop engine</figcaption>
+        </figure>
+
+        <ul>
+          <li><strong>💻 Coding Agents</strong>: Write code &rarr; run test suite &rarr; catch error trace &rarr; rewrite code &rarr; tests pass.</li>
+          <li><strong>✍️ Writing Assistants</strong>: Outline &rarr; draft section &rarr; check tone &amp; length &rarr; edit prose.</li>
+          <li><strong>🔍 Research Agents</strong>: Search web &rarr; cross-verify facts &rarr; identify gaps &rarr; search again.</li>
+          <li><strong>🧠 Knowledge Base &amp; RAG</strong>: Extract entities &rarr; deduplicate notes &rarr; link graph &rarr; verify connections.</li>
+        </ul>
+
+        <hr>
+
+        <h2>Stopping Conditions: Knowing When to Stop</h2>
+
+        <p>Loops without boundaries are dangerous. They consume API credits, increase latency, and can fall into endless cycles.</p>
+
+        <figure>
+          <img src="assets/issue#5/6.svg" alt="Stopping Conditions" loading="lazy" decoding="async">
+          <figcaption>Four decision criteria that safely exit a loop</figcaption>
+        </figure>
+
+        <p>A resilient loop engine requires clear <strong>Stopping Conditions</strong>:</p>
+
+        <ul>
+          <li>🎯 <strong>Quality Target Reached</strong>: Output passes all validation checks or test cases.</li>
+          <li>🔢 <strong>Maximum Iterations</strong>: Safeguard limit (e.g., stop after 5 iterations).</li>
+          <li>🛑 <strong>No Further Improvement</strong>: Output delta between loops is below threshold.</li>
+          <li>⏳ <strong>Time / Token Limit</strong>: Budget cap prevents resource exhaustion.</li>
+        </ul>
+
+        <hr>
+
+        <h2>Step-by-Step Example: Refining a Technical Article</h2>
+
+        <p>Watch how a loop transforms a weak, generic draft into a high-quality article:</p>
+
+        <div class="step-card">
+          <span class="step-card__badge badge-draft">Iteration 1 — Draft</span>
+          <p><strong>Prompt:</strong> <em>"Write about AI context windows."</em></p>
+          <p><strong>Output:</strong> "Context windows are how much text AI can read at once. Bigger is better."</p>
+          <p style="color:#F85149; font-size:0.85rem; margin-bottom:0;"><strong>Review Feedback:</strong> ❌ Too brief, lacks technical depth, missing real-world analogies.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-card__badge badge-review">Iteration 2 — Refinement</span>
+          <p><strong>Prompt:</strong> <em>"Expand with a real-world analogy and detail limits."</em></p>
+          <p><strong>Output:</strong> "Context windows are like an AI's workbench memory. A 128k window holds ~300 pages..."</p>
+          <p style="color:#D29922; font-size:0.85rem; margin-bottom:0;"><strong>Review Feedback:</strong> ⚠️ Good analogy, but missing actionable developer guidance.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-card__badge badge-final">Iteration 3 — Final Polish</span>
+          <p><strong>Prompt:</strong> <em>"Add key developer takeaways and formatting."</em></p>
+          <p><strong>Output:</strong> "Context windows measure transient working memory. 3 rules: 1) Compress prompts..."</p>
+          <p style="color:#7EE787; font-size:0.85rem; margin-bottom:0;"><strong>Review Feedback:</strong> ✅ All quality criteria satisfied (Score: 98/100).</p>
+        </div>
+
+        <hr>
+
+        <h2>Best Practices Checklist</h2>
+
+        <div class="checklist-grid">
+          <div class="checklist-box checklist-box--do">
+            <h4>✅ DO</h4>
+            <ul>
+              <li>Define concrete, measurable evaluation criteria.</li>
+              <li>Keep iteration history in memory to avoid repeating mistakes.</li>
+              <li>Set hard upper bounds on iteration count (max 3–5 iterations).</li>
+            </ul>
+          </div>
+          <div class="checklist-box checklist-box--dont">
+            <h4>❌ DON'T</h4>
+            <ul>
+              <li>Don't pass vague feedback like <em>"make it better"</em>.</li>
+              <li>Don't run loops without stopping conditions.</li>
+              <li>Don't over-engineer simple tasks that only require one-shot answers.</li>
+            </ul>
+          </div>
+        </div>
+
+        <hr>
+
+        <h2>Common Mistakes to Avoid</h2>
+
+        <ul>
+          <li>♾️ <strong>Infinite Loops</strong>: Running without max iteration safeguards, burning API budget.</li>
+          <li>🙈 <strong>Blind Loops</strong>: Repeating prompts without evaluating intermediate output quality.</li>
+          <li>💬 <strong>Weak Feedback</strong>: Telling the model <em>that</em> it failed without explaining <em>how</em> to fix it.</li>
+          <li>🎨 <strong>Over-Polishing</strong>: Running 10+ iterations when quality plateaued at iteration 3.</li>
+        </ul>
+
+        <hr>
+
+        <h2>Summary Recap</h2>
+
+        <div class="callout" style="border-left-color: #A855F7; background: #161B22;">
+          <span class="callout-label" style="color:#C084FC;">Takeaway</span>
+          <p><strong>The magic of AI agents isn't single-pass brilliance. It's the patience of iterative refinement.</strong></p>
+          <p style="margin-top:6px; font-size:0.95rem; color:#8B949E;">One-shot prompting gets you a quick draft. Loop Engineering gets you production-ready quality.</p>
+        </div>
+
+        <hr>
+
+        <h2>❓ Mini Quiz: Test Your Knowledge</h2>
+
+        <div class="quiz-card">
+          <div class="quiz-card__question">Q1: What is the main difference between one-shot prompting and loop engineering?</div>
+          <button type="button" class="quiz-toggle-btn" onclick="toggleQuiz(1)">Show Answer</button>
+          <div class="quiz-card__answer" id="quiz-ans-1">
+            <strong>Answer:</strong> One-shot produces a single answer immediately, whereas loop engineering uses feedback cycles to evaluate and refine output iteratively.
+          </div>
+        </div>
+
+        <div class="quiz-card">
+          <div class="quiz-card__question">Q2: Which agent component is responsible for checking output against rules or tests?</div>
+          <button type="button" class="quiz-toggle-btn" onclick="toggleQuiz(2)">Show Answer</button>
+          <div class="quiz-card__answer" id="quiz-ans-2">
+            <strong>Answer:</strong> The <strong>Reviewer</strong> node.
+          </div>
+        </div>
+
+        <div class="quiz-card">
+          <div class="quiz-card__question">Q3: Why are stopping conditions mandatory in loop engineering?</div>
+          <button type="button" class="quiz-toggle-btn" onclick="toggleQuiz(3)">Show Answer</button>
+          <div class="quiz-card__answer" id="quiz-ans-3">
+            <strong>Answer:</strong> To prevent infinite loops, control API costs, and avoid wasting computation when quality plateaus.
+          </div>
+        </div>
+
+        <div class="quiz-card">
+          <div class="quiz-card__question">Q4: What happens during the Reflection stage of the loop lifecycle?</div>
+          <button type="button" class="quiz-toggle-btn" onclick="toggleQuiz(4)">Show Answer</button>
+          <div class="quiz-card__answer" id="quiz-ans-4">
+            <strong>Answer:</strong> The agent analyzes <em>why</em> an evaluation check failed and determines what specific changes are required.
+          </div>
+        </div>
+
+        <div class="quiz-card">
+          <div class="quiz-card__question">Q5: True or False: Adding more loop iterations always improves quality indefinitely.</div>
+          <button type="button" class="quiz-toggle-btn" onclick="toggleQuiz(5)">Show Answer</button>
+          <div class="quiz-card__answer" id="quiz-ans-5">
+            <strong>Answer:</strong> <strong>False</strong>. Quality plateaus after a few iterations, and excessive loops waste resources or over-edit content.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" style="margin-top:60px; padding:40px 0; border-top:1px solid #21262D;">
+    <div class="container" style="text-align:center; color:#8B949E; font-size:0.9rem;">
+      <p>© 2026 AI Fundamentals Newsletter. First-principles knowledge that compounds.</p>
+      <p style="margin-top:8px;">
+        <a href="index.html" style="color:#58A6FF;">Home</a> &bull;
+        <a href="issue-4.html" style="color:#58A6FF;">Previous: Harness Engineering</a> &bull;
+        <a href="index.html#subscribe" style="color:#58A6FF;">Subscribe</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleQuiz(id) {
+      const ans = document.getElementById('quiz-ans-' + id);
+      if (ans.style.display === 'block') {
+        ans.style.display = 'none';
+      } else {
+        ans.style.display = 'block';
+      }
+    }
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

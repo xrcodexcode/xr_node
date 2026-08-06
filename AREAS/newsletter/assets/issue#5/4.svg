@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg-grad)" rx="16"/>
+  <rect x="20" y="20" width="760" height="410" fill="none" stroke="#334155" stroke-width="1" rx="12" stroke-dasharray="4 4"/>
+
+  <!-- Title Badge -->
+  <rect x="290" y="30" width="220" height="32" rx="16" fill="#1E293B" stroke="#A855F7" stroke-width="1"/>
+  <text x="400" y="51" fill="#C084FC" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">LOOP LIFECYCLE (6 STAGES)</text>
+
+  <!-- Central Refinement Circle -->
+  <circle cx="400" cy="235" r="75" fill="#1E293B" stroke="#6366F1" stroke-width="2" filter="url(#glow)"/>
+  <circle cx="400" cy="235" r="65" fill="#0F172A" stroke="#818CF8" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="400" y="230" fill="#818CF8" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">REFINEMENT</text>
+  <text x="400" y="248" fill="#F8FAFC" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="800" text-anchor="middle">ENGINE</text>
+
+  <!-- Outer Orbit Line -->
+  <circle cx="400" cy="235" r="145" fill="none" stroke="#334155" stroke-width="2" stroke-dasharray="6 6"/>
+
+  <!-- Stage 1: Planning (Top 12 o'clock) -->
+  <g transform="translate(400, 90)">
+    <rect x="-60" y="-20" width="120" height="40" rx="10" fill="#1E293B" stroke="#F59E0B" stroke-width="2"/>
+    <text x="0" y="5" fill="#FBBF24" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">1. Planning</text>
+  </g>
+
+  <!-- Stage 2: Execution (Top Right 2 o'clock) -->
+  <g transform="translate(525, 160)">
+    <rect x="-60" y="-20" width="120" height="40" rx="10" fill="#1E293B" stroke="#38BDF8" stroke-width="2"/>
+    <text x="0" y="5" fill="#38BDF8" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">2. Execution</text>
+  </g>
+
+  <!-- Stage 3: Evaluation (Bottom Right 4 o'clock) -->
+  <g transform="translate(525, 310)">
+    <rect x="-60" y="-20" width="120" height="40" rx="10" fill="#1E293B" stroke="#10B981" stroke-width="2"/>
+    <text x="0" y="5" fill="#34D399" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">3. Evaluation</text>
+  </g>
+
+  <!-- Stage 4: Reflection (Bottom 6 o'clock) -->
+  <g transform="translate(400, 380)">
+    <rect x="-60" y="-20" width="120" height="40" rx="10" fill="#1E293B" stroke="#A855F7" stroke-width="2"/>
+    <text x="0" y="5" fill="#C084FC" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">4. Reflection</text>
+  </g>
+
+  <!-- Stage 5: Optimization (Bottom Left 8 o'clock) -->
+  <g transform="translate(275, 310)">
+    <rect x="-65" y="-20" width="130" height="40" rx="10" fill="#1E293B" stroke="#EC4899" stroke-width="2"/>
+    <text x="0" y="5" fill="#F472B6" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">5. Optimization</text>
+  </g>
+
+  <!-- Stage 6: Repeat (Top Left 10 o'clock) -->
+  <g transform="translate(275, 160)">
+    <rect x="-60" y="-20" width="120" height="40" rx="10" fill="#1E293B" stroke="#6366F1" stroke-width="2"/>
+    <text x="0" y="5" fill="#818CF8" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">6. Repeat</text>
+  </g>
+
+  <!-- Directional Arrows along perimeter -->
+  <path d="M 465 95 Q 520 115, 525 135" fill="none" stroke="#F59E0B" stroke-width="2"/>
+  <path d="M 545 185 Q 560 235, 545 285" fill="none" stroke="#38BDF8" stroke-width="2"/>
+  <path d="M 505 330 Q 450 370, 440 375" fill="none" stroke="#10B981" stroke-width="2"/>
+  <path d="M 335 375 Q 290 355, 275 335" fill="none" stroke="#A855F7" stroke-width="2"/>
+  <path d="M 255 285 Q 240 235, 255 185" fill="none" stroke="#EC4899" stroke-width="2"/>
+  <path d="M 295 135 Q 350 95, 365 95" fill="none" stroke="#6366F1" stroke-width="2"/>
+</svg>

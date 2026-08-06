@@ -4,7 +4,7 @@ title: Memory Log — AI Fundamentals Newsletter
 type: agent-memory
 status: active
 created: 2026-08-04
-modified: 2026-08-04
+modified: 2026-08-05
 tags:
   - reference
   - newsletter
@@ -40,7 +40,8 @@ This file serves as persistent memory for agents working on the **AI Fundamental
 - `issue#2.md`: RAG Isn't Dead. Most People Just Don't Understand It.
 - `issue#3.md`: Better Input, Better Output. That's Context Engineering.
 - `issue#4.md`: The Prompt Is Just One Ingredient. The Harness Is the Kitchen.
-- `assets/`: Organized by issue subfolders (`issue#1/`, `issue#2/`, `issue#3/`, `issue#4/`).
+- `issue#5.md`: Loop Engineering — What Makes AI Agents Improve Themselves?
+- `assets/`: Organized by issue subfolders (`issue#1/`, `issue#2/`, `issue#3/`, `issue#4/`, `issue#5/`).
 - `site/`: Static HTML web build.
 
 ## 📜 Session History & Key Milestones
@@ -49,3 +50,6 @@ This file serves as persistent memory for agents working on the **AI Fundamental
 - **2026-08-04**: Reorganized `assets/` folder into structured subdirectories (`assets/issue#1/`, `assets/issue#2/`, `assets/issue#3/`).
 - **2026-08-04**: Updated `README.md` with complete sitemap, issue matrix, and style guide.
 - **2026-08-04**: Built `site/issue-4.html` for Issue #4 (Harness Engineering). Updated `site/index.html` (featured issue, archive grid, metrics, tag filter), `site/rss.xml` (new item), `site/issue-3.html` (next-issue nav link), and `site/js/main.js` (⌘K command palette). Created `site/assets/issue#4/` directory.
+- **2026-08-05**: Generated and saved seven editorial JPEG visuals for Issue #4 in `assets/issue#4/` as `1.jpg` through `7.jpg`, matching the article's existing image references.
+- **2026-08-06**: Designed and published Issue #5 (Loop Engineering). Created 6 custom vector SVGs (`1.svg` to `6.svg`) in `assets/issue#5/` and `site/assets/issue#5/`. Built `issue#5.md` (~850 words) and `site/issue-5.html` with interactive Q&A cards and step-by-step draft cards. Updated `site/index.html` (featured issue & grid), `site/rss.xml`, and `README.md`.
+

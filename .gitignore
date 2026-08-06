@@ -3,3 +3,8 @@
 credentials.json
 token.json
 client_secret*.json
+
+
+
+# Ignore Smart Environment folder
+.smart-env

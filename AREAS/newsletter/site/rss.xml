@@ -5,8 +5,16 @@
     <link>http://localhost:3000</link>
     <description>Understand systems, not trends. A newsletter for curious builders who want first-principles clarity on AI.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Aug 2026 23:30:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 06 Aug 2026 21:00:00 GMT</lastBuildDate>
     <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>Issue 05: Loop Engineering — What Makes AI Agents Improve Themselves?</title>
+      <link>http://localhost:3000/issue-5.html</link>
+      <guid isPermaLink="true">http://localhost:3000/issue-5.html</guid>
+      <pubDate>Thu, 06 Aug 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[Why the best AI output doesn't come from a single guess, but from continuous self-refinement. Discover the architecture behind closed-loop AI agent systems.]]></description>
+    </item>
 
     <item>
       <title>Issue 04: The Prompt Is Just One Ingredient. The Harness Is the Kitchen.</title>

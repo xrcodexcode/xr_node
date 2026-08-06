@@ -1,0 +1,14 @@
+{
+  "name": "piyush-wiki-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:web": "pnpm --filter web dev",
+    "dev:backend": "cd backend && uv run uvicorn app.main:app --reload --port 8000",
+    "build:web": "pnpm --filter web build",
+    "test": "pnpm --filter web test && cd backend && pytest"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

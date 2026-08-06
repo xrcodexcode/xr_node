@@ -1,0 +1,30 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "piyush-wiki-backend"
+version = "1.0.0"
+description = "FastAPI backend for Piyush Wiki personal knowledge platform"
+authors = ["Piyush"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.110.0"
+uvicorn = {extras = ["standard"], version = "^0.28.0"}
+pydantic = "^2.6.0"
+pydantic-settings = "^2.2.0"
+sqlalchemy = "^2.0.28"
+aiosqlite = "^0.20.0"
+watchdog = "^4.0.0"
+chromadb = "^0.4.24"
+python-frontmatter = "^1.1.0"
+networkx = "^3.2.1"
+litellm = "^1.30.0"
+argon2-cffi = "^23.1.0"
+pyjwt = "^2.8.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.1.0"
+pytest-asyncio = "^0.23.5"
+httpx = "^0.27.0"

@@ -5,7 +5,7 @@
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": false,
+  "collapse-color-groups": true,
   "colorGroups": [
     {
       "query": "path:03_MOC",
@@ -35,10 +35,10 @@
   "nodeSizeMultiplier": 0.92006237006237,
   "lineSizeMultiplier": 0.1,
   "collapse-forces": false,
-  "centerStrength": 0.895010395010395,
-  "repelStrength": 7.92099792099792,
-  "linkStrength": 0,
+  "centerStrength": 1,
+  "repelStrength": 0,
+  "linkStrength": 1,
   "linkDistance": 500,
-  "scale": 0.23581067441680212,
+  "scale": 0.43701442907818944,
   "close": true
 }

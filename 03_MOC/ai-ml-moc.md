@@ -16,6 +16,14 @@ Index of artificial intelligence, machine learning, and LLM concept notes.
 ## 📝 Concept & Study Notes
 | Note Title | Link | Type | Tags | Backlinks |
 | :--- | :--- | :--- | :--- | :--- |
+| AI/ML Engineer Interview Guide 2026 Part 1 | [[02_NEW-KNOWLEDGE/the-aiml-engineer-interview-guide-2026-part-1-study-note\|The AI/ML Engineer Interview Guide for 2026 - Part 1 Study Note]] | `literature-note` | #article, #ai, #ml, #llm | **8** |
+| FlashAttention | [[NODES/FlashAttention\|FlashAttention]] | `atomic-note` | #ai, #ml, #llm, #attention | **2** |
+| Rotary Positional Embedding | [[NODES/Rotary Positional Embedding\|Rotary Positional Embedding]] | `atomic-note` | #ai, #ml, #llm, #rope | **2** |
+| Direct Preference Optimization | [[NODES/Direct Preference Optimization\|Direct Preference Optimization]] | `atomic-note` | #ai, #ml, #llm, #dpo | **2** |
+| Group Relative Policy Optimization | [[NODES/Group Relative Policy Optimization\|Group Relative Policy Optimization]] | `atomic-note` | #ai, #ml, #llm, #grpo | **2** |
+| Multimodal RAG Architecture | [[NODES/Multimodal RAG Architecture\|Multimodal RAG Architecture]] | `atomic-note` | #ai, #ml, #rag, #multimodal | **2** |
+| Model Calibration and Reliability | [[NODES/Model Calibration and Reliability\|Model Calibration and Reliability]] | `atomic-note` | #ai, #ml, #calibration | **2** |
+| Target Encoding Data Leakage | [[NODES/Target Encoding Data Leakage\|Target Encoding Data Leakage]] | `atomic-note` | #ai, #ml, #leakage | **2** |
 | Prompt Combination Codes | [[prompt-combination-codes\|Prompt Combination Codes]] | `atomic-note` | #framework, #ai, #productivity, #strategy, #llm, #processed | **12** |
 | Prompt Thinking Mode Codes | [[prompt-thinking-codes\|Prompt Thinking Mode Codes]] | `atomic-note` | #technique, #ai, #productivity, #llm, #processed | **12** |
 | Cheatsheet — Learn 99% Claude & Codex in 25 mins | [[learn-99-percent-claude-and-codex-in-25-mins-cheatsheet\|Cheatsheet — Learn 99% Claude & Codex in 25 mins]] | `atomic-note` | #ai, #ml, #yt, #productivity | **7** |

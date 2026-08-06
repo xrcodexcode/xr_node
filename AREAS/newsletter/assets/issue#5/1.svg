@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="card-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="accent-indigo" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#A855F7"/>
+    </linearGradient>
+    <linearGradient id="accent-emerald" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#14B8A6"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#818CF8"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#34D399"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg-grad)" rx="16"/>
+  <rect x="20" y="20" width="760" height="410" fill="none" stroke="#334155" stroke-width="1" rx="12" stroke-dasharray="4 4"/>
+
+  <!-- Title Badge -->
+  <rect x="270" y="32" width="260" height="32" rx="16" fill="#1E293B" stroke="#6366F1" stroke-width="1"/>
+  <text x="400" y="53" fill="#818CF8" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" text-anchor="middle">WHAT IS LOOP ENGINEERING?</text>
+
+  <!-- Process Pipeline Nodes -->
+  <!-- 1. Task -->
+  <g transform="translate(60, 150)" filter="url(#shadow)">
+    <rect width="110" height="70" rx="12" fill="#1E293B" stroke="#475569" stroke-width="1.5"/>
+    <text x="55" y="35" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">START</text>
+    <text x="55" y="52" fill="#F8FAFC" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">Task</text>
+  </g>
+
+  <!-- Arrow Task -> Generate -->
+  <path d="M 170 185 L 205 185" stroke="#818CF8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 2. Generate -->
+  <g transform="translate(210, 150)" filter="url(#shadow)">
+    <rect width="110" height="70" rx="12" fill="#1E293B" stroke="#38BDF8" stroke-width="2"/>
+    <text x="55" y="33" fill="#38BDF8" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">STEP 1</text>
+    <text x="55" y="52" fill="#F8FAFC" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">Generate</text>
+  </g>
+
+  <!-- Arrow Generate -> Review -->
+  <path d="M 320 185 L 355 185" stroke="#818CF8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 3. Review -->
+  <g transform="translate(360, 150)" filter="url(#shadow)">
+    <rect width="110" height="70" rx="12" fill="#1E293B" stroke="#F59E0B" stroke-width="2"/>
+    <text x="55" y="33" fill="#F59E0B" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">STEP 2</text>
+    <text x="55" y="52" fill="#F8FAFC" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">Review</text>
+  </g>
+
+  <!-- Arrow Review -> Improve -->
+  <path d="M 470 185 L 505 185" stroke="#818CF8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 4. Improve -->
+  <g transform="translate(510, 150)" filter="url(#shadow)">
+    <rect width="110" height="70" rx="12" fill="#1E293B" stroke="#A855F7" stroke-width="2"/>
+    <text x="55" y="33" fill="#A855F7" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">STEP 3</text>
+    <text x="55" y="52" fill="#F8FAFC" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">Improve</text>
+  </g>
+
+  <!-- Circular Repeat Loop (From Improve back to Generate) -->
+  <path d="M 565 220 C 565 310, 265 310, 265 225" fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+  
+  <g transform="translate(360, 280)">
+    <rect x="-65" y="-14" width="130" height="28" rx="14" fill="#0F172A" stroke="#F59E0B" stroke-width="1.5"/>
+    <text x="0" y="4" fill="#FBBF24" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">🔄 REPEAT LOOP</text>
+  </g>
+
+  <!-- Arrow Improve -> Final Output (when Quality Met) -->
+  <path d="M 620 185 L 655 185" stroke="#34D399" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+
+  <!-- 5. Final Output -->
+  <g transform="translate(660, 145)" filter="url(#shadow)">
+    <rect width="110" height="80" rx="12" fill="url(#accent-emerald)"/>
+    <text x="55" y="35" fill="#ECFDF5" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">GOAL MET</text>
+    <text x="55" y="54" fill="#FFFFFF" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="800" text-anchor="middle">Final Output</text>
+  </g>
+
+  <!-- Footer Tagline -->
+  <text x="400" y="395" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" text-anchor="middle">Continuous feedback transforms raw drafts into polished, high-accuracy results.</text>
+</svg>

@@ -8,58 +8,73 @@
         "type": "tabs",
         "children": [
           {
-            "id": "7d8e5569821e2c55",
+            "id": "eb97b3c5474a274d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AREAS/newsletter/issue#2.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "issue#2"
-            }
-          },
-          {
-            "id": "b106b36e9e53e463",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
+              "type": "smart-release-notes-view",
               "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "icon": "file-text",
+              "title": "Release Notes"
             }
           },
           {
-            "id": "87e4f87bec7d5515",
+            "id": "50940b7473db9e94",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AREAS/newsletter/memory.md",
+                "file": "01_RAW/CAPTURE/You only need 6 months to change your life.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "memory"
+              "title": "You only need 6 months to change your life"
             }
           },
           {
-            "id": "3fba9393d7e285a2",
+            "id": "44b1826161c97113",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AREAS/newsletter/issue#2.md",
-                "mode": "source",
+                "file": "01_RAW/GITHUB/The AIML Engineer Interview Guide for 2026 - Part 1.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "issue#2"
+              "title": "The AIML Engineer Interview Guide for 2026 - Part 1"
+            }
+          },
+          {
+            "id": "d9d4489f196a282a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "AREAS/newsletter/issue#5.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "issue#5"
+            }
+          },
+          {
+            "id": "57d18f2d95f2adc9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "01_RAW/GITHUB/Why Obsidian + Claude  RAG but.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Why Obsidian + Claude  RAG but"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -211,14 +226,34 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "01_RAW/PROCESS/detailed-study-notes-learn-all-ai-terms-in-1-video-part-01.md"
+                "file": "01_RAW/CAPTURE/Untitled.base"
               },
               "icon": "lucide-info",
-              "title": "File properties for detailed-study-notes-learn-all-ai-terms-in-1-video-part-01"
+              "title": "File properties"
+            }
+          },
+          {
+            "id": "d2972adb31d79c5b",
+            "type": "leaf",
+            "state": {
+              "type": "smart-env-status-view",
+              "state": {},
+              "icon": "gauge",
+              "title": "Smart Environment Status"
+            }
+          },
+          {
+            "id": "e4d772375ce6ba32",
+            "type": "leaf",
+            "state": {
+              "type": "smart-connections-view",
+              "state": {},
+              "icon": "smart-connections",
+              "title": "Connections"
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 7
       }
     ],
     "direction": "horizontal",
@@ -233,56 +268,60 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "smart-connections:Smart Connections: Open random connection": false,
+      "smart-connections:Smart Connections: Open connections view": false,
+      "smart-connections:Toggle Footer Connections": false
     }
   },
-  "active": "7d8e5569821e2c55",
+  "active": "1a698b583bbbe23f",
   "lastOpenFiles": [
-    "01_RAW/CAPTURE/Steal My Exact AI OS Setup (5 simple tips).md",
-    "01_RAW/CAPTURE/Why You Feel Depressed (And How to Fix It).md",
-    "01_RAW/CAPTURE/Success is the Best Revenge.md",
-    "01_RAW/CAPTURE/Why I Stopped Calling My Friends After Success  STORY TIME.md",
-    "01_RAW/CAPTURE/Loneliness is a Blessing, Not a Curse.md",
-    "AREAS/newsletter/issue#4.md",
-    "AREAS/newsletter/assets/issue#3/1.jpg",
-    "AREAS/newsletter/site/assets/issue#4",
-    "AREAS/newsletter/site/issue-4.html",
-    "AREAS/newsletter/memory.md",
-    "AREAS/newsletter/issue#2.md",
-    "AREAS/newsletter/issue#3.md",
-    "AREAS/newsletter/assets/issue#4",
-    "AREAS/newsletter/issue#1.md",
-    "AREAS/newsletter/assets/issue#3/2.jpg",
-    "AREAS/newsletter/assets/context_pipeline_flow.jpg",
-    "AREAS/newsletter/assets/rag_is_dead_debate.jpg",
-    "AREAS/newsletter/site/issue-3.html",
-    "AREAS/newsletter/site/assets/issue#2/6.jpg",
-    "AREAS/newsletter/site/assets/issue#2/5.jpg",
-    "AREAS/newsletter/site/assets/issue#2/4.jpg",
-    "AREAS/newsletter/site/assets/issue#2/3.jpg",
-    "AREAS/newsletter/site/assets/issue#2/2.jpg",
-    "AREAS/newsletter/site/assets/issue#2/1.jpg",
-    "AREAS/newsletter/site/assets/issue#2",
-    "AREAS/newsletter/site/assets/issue#1",
-    "Untitled.md",
-    "01_RAW/CAPTURE/Why Your RAG Chatbot Gives Wrong Answers It's a Chunking Problem.md",
-    "AREAS/newsletter/README.md",
-    "AREAS/newsletter/AGENTS.md",
-    "AREAS/newsletter/GEMINI.md",
-    "AREAS/newsletter/assets/issue#3",
-    "AREAS/newsletter/assets/issue#2",
-    "AREAS/newsletter/assets/issue#1",
-    "01_RAW/CAPTURE/AI Agent Harness Explained In 18 Minutes.md",
-    "AREAS/newsletter/site/manifest.json",
-    "AREAS/newsletter/AI Fundamentals in a World Obsessed with Hype.md",
-    "01_RAW/CAPTURE/Only the Strongest Minds Should Watch This Video.md",
-    "02_NEW-KNOWLEDGE/detailed-study-notes-only-the-strongest-minds-should-watch-this-video.md",
-    "01_RAW/SOURCE/Only the Strongest Minds Should Watch This Video.md",
-    "01_RAW/PROCESS/detailed-study-notes-only-the-strongest-minds-should-watch-this-video.md",
-    "01_RAW/CAPTURE/What is RAG Retrieval Augmented Generation Explained in Under 30 Minutes.md",
+    "piyush-wiki/apps/web/package.json",
+    "piyush-wiki/apps/web",
+    "piyush-wiki/apps",
+    "piyush-wiki/packages/types/src/index.ts",
+    "piyush-wiki/packages/types/src",
+    "piyush-wiki/packages/types/package.json",
+    "piyush-wiki/packages/types",
+    "piyush-wiki/packages",
+    "piyush-wiki/backend/app/main.py",
+    "piyush-wiki/backend/app",
+    "piyush-wiki/backend/pyproject.toml",
+    "piyush-wiki/README.md",
+    "01_RAW/GITHUB/Why Obsidian + Claude  RAG but.md",
+    "01_RAW/GITHUB/The AIML Engineer Interview Guide for 2026 - Part 2.md",
+    "01_RAW/GITHUB/The AIML Engineer Interview Guide for 2026 - Part 2 1.md",
+    "01_RAW/GITHUB/The AIML Engineer Interview Guide for 2026 - Part 1 2.md",
+    "01_RAW/GITHUB/The AIML Engineer Interview Guide for 2026 - Part 1 1.md",
+    "01_RAW/GITHUB/The AIML Engineer Interview Guide for 2026 - Part 1.md",
+    "AREAS/newsletter/assets/issue#5/6.svg",
+    "AREAS/newsletter/assets/issue#5/5.svg",
+    "AREAS/newsletter/assets/issue#5/4.svg",
+    "AREAS/newsletter/assets/issue#5/3.svg",
+    "AREAS/newsletter/assets/issue#5/2.svg",
+    "AREAS/newsletter/assets/issue#5/1.svg",
+    "AREAS/newsletter/issue#5.md",
+    "AREAS/newsletter/site/assets/issue#5/6.svg",
+    "AREAS/newsletter/site/assets/issue#5/5.svg",
+    "AREAS/newsletter/site/assets/issue#5/4.svg",
+    "AREAS/newsletter/site/assets/issue#5/3.svg",
+    "01_RAW/GITHUB/SUBSTACK-The AIML Engineer Interview Guide for 2026 - Part 1.md",
+    "01_RAW/CAPTURE/the-aiml-engineer-interview-guide-for-2026-part-1.md",
     "01_RAW/CAPTURE/You only need 6 months to change your life.md",
-    "NODES/activation-function.md",
-    "nexusdb-web/README.md",
-    "01_RAW/PROCESS/What is RAG Retrieval Augmented Generation.md"
+    "01_RAW/CAPTURE/Why Your RAG Chatbot Gives Wrong Answers It's a Chunking Problem.md",
+    "01_RAW/CAPTURE/Why You Feel Depressed (And How to Fix It).md",
+    "01_RAW/CAPTURE/Why I Stopped Calling My Friends After Success  STORY TIME.md",
+    "01_RAW/CAPTURE/What Is an LLM Everything You Need to Know in 10 Minutes.md",
+    "01_RAW/CAPTURE/Watch this before you waste another Year.md",
+    "01_RAW/CAPTURE/Steal My Exact AI OS Setup (5 simple tips).md",
+    "01_RAW/CAPTURE/Success is the Best Revenge.md",
+    "01_RAW/CAPTURE/Loneliness is a Blessing, Not a Curse.md",
+    "01_RAW/CAPTURE/Isteefa Mila hai, Paper Leak Nahi Rukega….md",
+    "01_RAW/CAPTURE/HTML Complete Tutorial Your First Step into Web Development 1.md",
+    "01_RAW/CAPTURE/Give me 30 Minutes, I’ll make you FOCUSED.md",
+    "01_RAW/CAPTURE/Building WEALTH Is Easier Than YOU THINK !!.md",
+    "01_RAW/CAPTURE/Best AI model for Your Projects in 2026.md",
+    "01_RAW/CAPTURE/AI Agent Harness Explained In 18 Minutes.md"
   ]
 }
