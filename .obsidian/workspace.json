@@ -52,7 +52,7 @@
               "type": "markdown",
               "state": {
                 "file": "AREAS/newsletter/issue#5.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -74,7 +74,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -275,20 +275,20 @@
       "smart-connections:Toggle Footer Connections": false
     }
   },
-  "active": "1a698b583bbbe23f",
+  "active": "57d18f2d95f2adc9",
   "lastOpenFiles": [
-    "piyush-wiki/backend/tests/__pycache__/conftest.cpython-313-pytest-8.4.2.pyc",
-    "piyush-wiki/backend/tests/__pycache__/__init__.cpython-313.pyc",
-    "piyush-wiki/backend/tests/__pycache__",
+    "AREAS/newsletter/issue#5.md",
+    "piyush-wiki/node_modules/prettier/internal/legacy-cli.mjs",
+    "piyush-wiki/node_modules/prettier/internal/experimental-cli.mjs",
+    "piyush-wiki/node_modules/prettier/internal/experimental-cli-worker.mjs",
+    "piyush-wiki/node_modules/prettier/internal",
+    "piyush-wiki/node_modules/typescript/lib/zh-tw/diagnosticMessages.generated.json",
+    "piyush-wiki/node_modules/typescript/lib/zh-cn/diagnosticMessages.generated.json",
+    "piyush-wiki/node_modules/typescript/lib/tr/diagnosticMessages.generated.json",
+    "piyush-wiki/node_modules/typescript/lib/pt-br/diagnosticMessages.generated.json",
+    "piyush-wiki/node_modules/typescript/lib/ru/diagnosticMessages.generated.json",
+    "piyush-wiki/node_modules/typescript/lib/pl/diagnosticMessages.generated.json",
     "piyush-wiki/assets/README.md",
-    "piyush-wiki/assets",
-    "piyush-wiki/scripts/check.ps1",
-    "piyush-wiki/scripts/build.ps1",
-    "piyush-wiki/scripts/dev.ps1",
-    "piyush-wiki/scripts",
-    "piyush-wiki/tests/e2e/health.spec.ts",
-    "piyush-wiki/tests/e2e",
-    "piyush-wiki/tests",
     "piyush-wiki/docs/engineering-tech-spec.md",
     "piyush-wiki/README.md",
     "01_RAW/GITHUB/Why Obsidian + Claude  RAG but.md",
@@ -303,7 +303,6 @@
     "AREAS/newsletter/assets/issue#5/3.svg",
     "AREAS/newsletter/assets/issue#5/2.svg",
     "AREAS/newsletter/assets/issue#5/1.svg",
-    "AREAS/newsletter/issue#5.md",
     "AREAS/newsletter/site/assets/issue#5/6.svg",
     "AREAS/newsletter/site/assets/issue#5/5.svg",
     "AREAS/newsletter/site/assets/issue#5/4.svg",
