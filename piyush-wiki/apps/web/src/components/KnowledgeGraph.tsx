@@ -2,8 +2,8 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { ZoomIn, ZoomOut, RotateCcw, Maximize2, Sparkles, Filter } from 'lucide-react';
-import { KnowledgeGraphData, GraphNode, GraphEdge } from '@/types/wiki';
+import { ZoomIn, ZoomOut, RotateCcw, Filter } from 'lucide-react';
+import { KnowledgeGraphData, GraphNode } from '@/types/wiki';
 
 interface KnowledgeGraphProps {
   data: KnowledgeGraphData;
@@ -253,9 +253,9 @@ export function KnowledgeGraph({ data, height = 'h-[500px]', onSelectNode }: Kno
   const handleClick = () => {
     if (hoveredNode) {
       if (onSelectNode) {
-        onSelectNode(hoveredNode.slug);
+        onSelectNode(hoveredNode.id);
       } else {
-        router.push(`/article/${hoveredNode.slug}`);
+        router.push(`/article/${hoveredNode.id}`);
       }
     }
   };

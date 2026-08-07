@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { FileText, Clock, Award, ArrowUpRight, Link2 } from 'lucide-react';
+import { Clock, Award, ArrowUpRight, Link2 } from 'lucide-react';
 import { NoteMetadata } from '@/types/wiki';
 
 interface ArticleCardProps {

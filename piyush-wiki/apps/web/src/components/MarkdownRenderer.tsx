@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
-import Link from 'next/link';
-import { Copy, Check, Info, AlertTriangle, Lightbulb, ShieldAlert, ExternalLink, Code } from 'lucide-react';
+import { Copy, Check, Info, AlertTriangle, Lightbulb, ShieldAlert, Code } from 'lucide-react';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
+import { WikiLinkPreview } from './WikiLinkPreview';
 
 interface MarkdownRendererProps {
   content: string;
@@ -264,15 +264,7 @@ export function MarkdownRenderer({
           const alias = match[2]?.trim() || target;
           const slug = target.toLowerCase().replace(/\s+/g, '-');
 
-          return (
-            <Link
-              key={idx}
-              href={`/article/${slug}`}
-              className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 hover:text-sky-300 border border-sky-500/30 font-mono text-[0.9em] font-semibold transition-all shadow-xs"
-            >
-              <span>{alias}</span>
-            </Link>
-          );
+          return <WikiLinkPreview key={idx} target={target} alias={alias} slug={slug} />;
         }
       }
 

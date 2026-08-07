@@ -67,12 +67,12 @@ gantt
 
 | # | Note | Key Topics | Est. Days |
 |---|------|-----------|-----------|
-| 1 | [[Python Syntax Power Moves]] | f-strings, unpacking, walrus `:=`, type hints, slicing, Pythonic patterns | 3 |
-| 2 | [[Python Data Structures Builtins]] | Lists, dicts, sets, tuples, deque, heapq, comprehensions | 3 |
-| 3 | [[Python Functions Advanced]] | First-class functions, closures, decorators, generators, iterators, functools | 4 |
-| 4 | [[Python OOP Mastery]] | Dunder methods, inheritance, abstract classes, dataclasses, design patterns | 4 |
-| 5 | [[Python Error Handling and File IO]] | Custom exceptions, context managers, JSON/CSV, pathlib, logging | 3 |
-| 6 | [[Python Standard Library Gems]] | collections, itertools, functools, heapq, bisect, regex, datetime | 3 |
+| 1 | [[02_NEW-KNOWLEDGE/python-syntax-power-moves\|Python Syntax Power Moves]] | f-strings, unpacking, walrus `:=`, type hints, slicing, Pythonic patterns | 3 |
+| 2 | [[02_NEW-KNOWLEDGE/python-data-structures-builtins\|Python Data Structures Builtins]] | Lists, dicts, sets, tuples, deque, heapq, comprehensions | 3 |
+| 3 | [[02_NEW-KNOWLEDGE/python-functions-advanced\|Python Functions Advanced]] | First-class functions, closures, decorators, generators, iterators, functools | 4 |
+| 4 | [[02_NEW-KNOWLEDGE/python-oop-mastery\|Python OOP Mastery]] | Dunder methods, inheritance, abstract classes, dataclasses, design patterns | 4 |
+| 5 | [[02_NEW-KNOWLEDGE/python-error-handling-file-io\|Python Error Handling and File IO]] | Custom exceptions, context managers, JSON/CSV, pathlib, logging | 3 |
+| 6 | [[02_NEW-KNOWLEDGE/python-standard-library-gems\|Python Standard Library Gems]] | collections, itertools, functools, heapq, bisect, regex, datetime | 3 |
 
 ---
 
@@ -80,8 +80,8 @@ gantt
 
 | # | Note | Key Topics | Est. Days |
 |---|------|-----------|-----------|
-| 7 | [[Python NumPy Essentials]] | Arrays, broadcasting, vectorization, linear algebra, random | 4 |
-| 8 | [[Python Pandas Essentials]] | DataFrames, groupby, merge, pivot, apply, feature engineering | 4 |
+| 7 | [[02_NEW-KNOWLEDGE/python-numpy-essentials\|Python NumPy Essentials]] | Arrays, broadcasting, vectorization, linear algebra, random | 4 |
+| 8 | [[02_NEW-KNOWLEDGE/python-pandas-essentials\|Python Pandas Essentials]] | DataFrames, groupby, merge, pivot, apply, feature engineering | 4 |
 
 ---
 
@@ -91,22 +91,22 @@ gantt
 
 | # | Note | Key Topics | Difficulty | Est. Days |
 |---|------|-----------|-----------|-----------|
-| 9 | [[DSA Complexity Analysis]] | Big O, time/space complexity, Python operation costs | ⭐ | 2 |
-| 10 | [[DSA Arrays and Strings]] | Two pointers, sliding window, prefix sum, Kadane's, matrix ops | ⭐⭐ | 5 |
-| 11 | [[DSA Hashing]] | Hash maps, frequency counting, Two Sum, Group Anagrams, LRU Cache | ⭐⭐ | 4 |
-| 12 | [[DSA Linked Lists]] | Singly/doubly LL, fast/slow pointers, reversal, merge | ⭐⭐ | 4 |
-| 13 | [[DSA Stacks and Queues]] | Monotonic stack, min stack, priority queue, sliding window max | ⭐⭐ | 4 |
-| 14 | [[DSA Recursion and Backtracking]] | Memoization, subsets, permutations, N-Queens, Sudoku solver | ⭐⭐⭐ | 5 |
-| 15 | [[DSA Sorting and Searching]] | Merge/Quick sort, binary search mastery, search in rotated array | ⭐⭐ | 5 |
+| 9 | [[02_NEW-KNOWLEDGE/dsa-complexity-analysis\|DSA Complexity Analysis]] | Big O, time/space complexity, Python operation costs | ⭐ | 2 |
+| 10 | [[02_NEW-KNOWLEDGE/dsa-arrays-strings\|DSA Arrays and Strings]] | Two pointers, sliding window, prefix sum, Kadane's, matrix ops | ⭐⭐ | 5 |
+| 11 | [[02_NEW-KNOWLEDGE/dsa-hashing\|DSA Hashing]] | Hash maps, frequency counting, Two Sum, Group Anagrams, LRU Cache | ⭐⭐ | 4 |
+| 12 | [[02_NEW-KNOWLEDGE/dsa-linked-lists\|DSA Linked Lists]] | Singly/doubly LL, fast/slow pointers, reversal, merge | ⭐⭐ | 4 |
+| 13 | [[02_NEW-KNOWLEDGE/dsa-stacks-queues\|DSA Stacks and Queues]] | Monotonic stack, min stack, priority queue, sliding window max | ⭐⭐ | 4 |
+| 14 | [[02_NEW-KNOWLEDGE/dsa-recursion-backtracking\|DSA Recursion and Backtracking]] | Memoization, subsets, permutations, N-Queens, Sudoku solver | ⭐⭐⭐ | 5 |
+| 15 | [[02_NEW-KNOWLEDGE/dsa-sorting-searching\|DSA Sorting and Searching]] | Merge/Quick sort, binary search mastery, search in rotated array | ⭐⭐ | 5 |
 
 ### Month 3: Advanced
 
 | # | Note | Key Topics | Difficulty | Est. Days |
 |---|------|-----------|-----------|-----------|
-| 16 | [[DSA Trees]] | BST, traversals, LCA, Trie, heap, serialization | ⭐⭐⭐ | 5 |
-| 17 | [[DSA Graphs]] | BFS, DFS, topological sort, Dijkstra's, Union-Find | ⭐⭐⭐ | 5 |
-| 18 | [[DSA Dynamic Programming]] | 1D/2D DP, knapsack, LCS, LIS, coin change, state machine DP | ⭐⭐⭐⭐ | 7 |
-| 19 | [[DSA Greedy Algorithms]] | Activity selection, interval scheduling, Huffman, jump game | ⭐⭐⭐ | 4 |
+| 16 | [[02_NEW-KNOWLEDGE/dsa-trees\|DSA Trees]] | BST, traversals, LCA, Trie, heap, serialization | ⭐⭐⭐ | 5 |
+| 17 | [[02_NEW-KNOWLEDGE/dsa-graphs\|DSA Graphs]] | BFS, DFS, topological sort, Dijkstra's, Union-Find | ⭐⭐⭐ | 5 |
+| 18 | [[02_NEW-KNOWLEDGE/dsa-dynamic-programming\|DSA Dynamic Programming]] | 1D/2D DP, knapsack, LCS, LIS, coin change, state machine DP | ⭐⭐⭐⭐ | 7 |
+| 19 | [[02_NEW-KNOWLEDGE/dsa-greedy-algorithms\|DSA Greedy Algorithms]] | Activity selection, interval scheduling, Huffman, jump game | ⭐⭐⭐ | 4 |
 
 ---
 
@@ -114,7 +114,7 @@ gantt
 
 | # | Note | Projects |
 |---|------|---------|
-| 20 | [[Python ML Projects Portfolio]] | Custom DS Library, TF-IDF Search Engine, ML Pipeline from Scratch, Maze Solver, Data Dashboard |
+| 20 | [[02_NEW-KNOWLEDGE/python-ml-projects-portfolio\|Python ML Projects Portfolio]] | Custom DS Library, TF-IDF Search Engine, ML Pipeline from Scratch, Maze Solver, Data Dashboard |
 
 ---
 
@@ -238,12 +238,12 @@ graph LR
 
 ## 📚 Core Courses & Reference Material
 
-- [[Python 101 Syntax For Java Programmers]] — Comprehensive side-by-side Java to Python syntax reference guide.
-- [[Python For AI Beginner Course]] — Full beginner course notes covering Python environment, syntax, data structures, and packages.
-- [[Python AI ML Projects Beginner To Intermediate]] — Curated beginner to intermediate project guides (Chatbots, Scrapers, Sentiment Analysis, Predictors).
-- [[Complete Python for AI & ML (Beginner to Pro) - Part 01]] — Foundation concepts and environment setup.
-- [[Complete Python for AI & ML (Beginner to Pro) - Part 02]] — Advanced syntax, functions, and control flow.
-- [[Complete Python for AI & ML Part 2 (Intermediate to Advanced) - Part 01: Functions & Data Structures Overview]] — Deep dive into intermediate functions and data structures.
-- [[Complete Python for AI & ML Part 2 (Intermediate to Advanced) - Part 02: Lists & List Operations]] — Intermediate list operations and memory mechanics.
-- [[DSA Arrays And Strings]] — Core array and string manipulation strategies for interviews and ML vectorization.
-- [[Python Error Handling And File Io]] — Professional error handling and file I/O practices.
+- [[02_NEW-KNOWLEDGE/python-101|Python 101 Syntax For Java Programmers]] — Comprehensive side-by-side Java to Python syntax reference guide.
+- [[02_NEW-KNOWLEDGE/python-for-ai-beginner-course|Python For AI Beginner Course]] — Full beginner course notes covering Python environment, syntax, data structures, and packages.
+- [[02_NEW-KNOWLEDGE/python-ai-ml-projects|Python AI ML Projects Beginner To Intermediate]] — Curated beginner to intermediate project guides (Chatbots, Scrapers, Sentiment Analysis, Predictors).
+- [[02_NEW-KNOWLEDGE/complete-python-for-ai-ml-beginner-to-pro|Complete Python for AI & ML (Beginner to Pro) - Part 01]] — Foundation concepts and environment setup.
+- [[02_NEW-KNOWLEDGE/complete-python-for-ai-ml-part-2|Complete Python for AI & ML (Beginner to Pro) - Part 02]] — Advanced syntax, functions, and control flow.
+- [[02_NEW-KNOWLEDGE/complete-python-for-ai-ml-part-2|Complete Python for AI & ML Part 2 (Intermediate to Advanced) - Part 01: Functions & Data Structures Overview]] — Deep dive into intermediate functions and data structures.
+- [[02_NEW-KNOWLEDGE/complete-python-for-ai-ml-part-2|Complete Python for AI & ML Part 2 (Intermediate to Advanced) - Part 02: Lists & List Operations]] — Intermediate list operations and memory mechanics.
+- [[02_NEW-KNOWLEDGE/dsa-arrays-strings|DSA Arrays And Strings]] — Core array and string manipulation strategies for interviews and ML vectorization.
+- [[02_NEW-KNOWLEDGE/python-error-handling-file-io|Python Error Handling And File Io]] — Professional error handling and file I/O practices.

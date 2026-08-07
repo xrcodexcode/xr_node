@@ -23,7 +23,7 @@ Comprehensive Map of Content organizing the life, leadership evolution, strategi
 
 ## 01. Central Study Note
 
-- [[02_NEW-KNOWLEDGE/Steve Jobs in Exile - Study Note|Steve Jobs in Exile - Study Note]] — Complete synthesis of the 12-year exile, key timeline events, verbatim quotes, and strategic lessons.
+- [[02_NEW-KNOWLEDGE/steve-jobs-in-exile-study-note|Steve Jobs in Exile - Study Note]] — Complete synthesis of the 12-year exile, key timeline events, verbatim quotes, and strategic lessons.
 
 ---
 

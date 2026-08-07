@@ -46,7 +46,7 @@ The contrast between working code and empty reputation led Apple to acquire NeXT
 
 - [[NODES/Inverted Power Hierarchy]] — Technical collaboration required to engineer working code platforms.
 - [[NODES/Perfectionism Execution Trap]] — Navigating the boundary between shipping working code and delaying for perfection.
-- [[02_NEW-KNOWLEDGE/Steve Jobs in Exile - Study Note]] — Primary study note chronicling the Apple-NeXT acquisition pitch duel.
+- [[02_NEW-KNOWLEDGE/steve-jobs-in-exile-study-note|Steve Jobs in Exile - Study Note]] — Primary study note detailing NeXTSTEP software development.
 
 ## Source
 

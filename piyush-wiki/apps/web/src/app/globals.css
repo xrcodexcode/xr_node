@@ -3,25 +3,49 @@
 @tailwind utilities;
 
 :root {
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-serif: 'Lora', 'Merriweather', Georgia, serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif;
+  --font-serif: 'Linux Libertine', 'Georgia', 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono', 'Menlo', 'Consolas', monospace;
 
   --wiki-bg: #ffffff;
   --wiki-surface: #f8f9fa;
+  --wiki-surface-alt: #f1f3f5;
   --wiki-text: #202122;
   --wiki-muted: #54595d;
-  --wiki-border: #eaecf0;
-  --wiki-accent: #3366cc;
+  --wiki-border: #a2a9b1;
+  --wiki-border-light: #eaecf0;
+  --wiki-blue: #3366cc;
+  --wiki-blue-hover: #2a4b8d;
+  --wiki-red: #ba0000;
+  --wiki-visited: #0b0080;
+
+  --wiki-box-blue-bg: #cef;
+  --wiki-box-blue-border: #a3b8cc;
+  --wiki-box-green-bg: #e6f2e6;
+  --wiki-box-green-border: #b2d8b2;
+  --wiki-box-purple-bg: #e8e8ff;
+  --wiki-box-purple-border: #b8b8ff;
 }
 
 .dark {
   --wiki-bg: #0f172a;
   --wiki-surface: #1e293b;
+  --wiki-surface-alt: #0f172a;
   --wiki-text: #f8fafc;
-  --wiki-muted: #cbd5e1;
+  --wiki-muted: #94a3b8;
   --wiki-border: #334155;
-  --wiki-accent: #60a5fa;
+  --wiki-border-light: #1e293b;
+  --wiki-blue: #38bdf8;
+  --wiki-blue-hover: #7dd3fc;
+  --wiki-red: #f87171;
+  --wiki-visited: #c084fc;
+
+  --wiki-box-blue-bg: #0369a1;
+  --wiki-box-blue-border: #0284c7;
+  --wiki-box-green-bg: #065f46;
+  --wiki-box-green-border: #047857;
+  --wiki-box-purple-bg: #581c87;
+  --wiki-box-purple-border: #7e22ce;
 }
 
 body {
@@ -31,4 +55,60 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
+}
+
+/* Wikipedia Link Styles */
+.wiki-link {
+  color: var(--wiki-blue);
+  text-decoration: none;
+}
+
+.wiki-link:hover {
+  text-decoration: underline;
+  color: var(--wiki-blue-hover);
+}
+
+.wiki-link-red {
+  color: var(--wiki-red);
+  text-decoration: none;
+}
+
+.wiki-link-red:hover {
+  text-decoration: underline;
+}
+
+/* Wikipedia Article Typography */
+.article-body p {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+  line-height: 1.6;
+}
+
+.article-body h1, .article-body h2 {
+  font-family: var(--font-serif);
+  border-bottom: 1px solid var(--wiki-border-light);
+  padding-bottom: 0.25em;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Wikipedia Infobox Table Styling */
+.wiki-infobox-table {
+  border: 1px solid var(--wiki-border);
+  background-color: var(--wiki-surface);
+  font-size: 0.8rem;
+  width: 100%;
+}
+
+.wiki-infobox-header {
+  background-color: var(--wiki-surface-alt);
+  font-family: var(--font-serif);
+  font-weight: bold;
+  text-align: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--wiki-border);
+}
+
+.wiki-infobox-row {
+  border-bottom: 1px solid var(--wiki-border-light);
 }

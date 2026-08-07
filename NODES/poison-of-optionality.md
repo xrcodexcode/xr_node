@@ -50,7 +50,7 @@ Recognizing optionality as a form of self-sabotage allows individuals to intenti
 ## Relations
 
 - [[unemployment-optionality-paradox]] — `effect_of`
-- [[Opportunity Cost Heuristic]] — `related_to`
+- [[opportunity-cost-heuristic|Opportunity Cost Heuristic]] — `related_to`
 
 ## Source
 

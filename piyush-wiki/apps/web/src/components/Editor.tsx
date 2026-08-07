@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { Save, Bold, Italic, Code, Link2, Eye, Edit3, Check, Sparkles, RefreshCw, FileText } from 'lucide-react';
+import React, { useState } from 'react';
+import { Save, Bold, Italic, Code, Link2, Edit3, Check, RefreshCw } from 'lucide-react';
 import { MarkdownRenderer } from './MarkdownRenderer';
 import { saveNoteContent } from '@/lib/api';
 

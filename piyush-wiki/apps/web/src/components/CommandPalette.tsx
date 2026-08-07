@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Search, Command, X, ArrowRight, FileText, Tag, Folder } from 'lucide-react';
+import { Search, X, ArrowRight, FileText } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { fetchNotes } from '@/lib/api';
 import { NoteMetadata } from '@/types/wiki';

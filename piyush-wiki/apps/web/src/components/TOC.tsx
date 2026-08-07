@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { List, ChevronRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { ChevronDown, ChevronUp, AlignLeft } from 'lucide-react';
 
 export interface TOCItem {
   id: string;
@@ -14,68 +14,66 @@ interface TOCProps {
 }
 
 export function TOC({ items }: TOCProps) {
-  const [activeId, setActiveId] = useState<string>('');
+  const [collapsed, setCollapsed] = useState(false);
 
-  useEffect(() => {
-    if (items.length === 0) return;
+  if (!items || items.length === 0) return null;
 
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: '-80px 0px -60% 0px' }
-    );
+  // Build Wikipedia-style hierarchical numbering (1, 1.1, 1.2, 2, 2.1...)
+  let mainIndex = 0;
+  let subIndex = 0;
 
-    items.forEach(item => {
-      const el = document.getElementById(item.id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, [items]);
-
-  const scrollToHeading = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setActiveId(id);
+  const numberedItems = items.map(item => {
+    if (item.level === 1 || item.level === 2) {
+      mainIndex++;
+      subIndex = 0;
+      return { ...item, number: `${mainIndex}` };
+    } else {
+      subIndex++;
+      return { ...item, number: `${mainIndex}.${subIndex}` };
     }
-  };
-
-  if (items.length === 0) return null;
+  });
 
   return (
-    <div className="bg-slate-900/40 border border-slate-800/80 rounded-2xl p-4 sticky top-24">
-      <div className="flex items-center gap-2 mb-3 pb-2 border-b border-slate-800/80 text-xs font-mono font-semibold text-slate-300">
-        <List className="w-4 h-4 text-sky-400" />
-        <span>Table of Contents</span>
+    <nav className="w-full rounded-2xl bg-slate-900/90 border border-slate-800 p-4 space-y-3 shadow-xl font-sans text-xs sticky top-32">
+      {/* Wikipedia Table of Contents Header */}
+      <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
+        <div className="flex items-center gap-2">
+          <AlignLeft className="w-4 h-4 text-sky-400" />
+          <span className="font-serif font-bold text-slate-100 text-sm tracking-tight">Contents</span>
+        </div>
+        <button
+          onClick={() => setCollapsed(!collapsed)}
+          className="text-[11px] font-mono text-sky-400 hover:underline flex items-center gap-1 font-semibold"
+        >
+          <span>[{collapsed ? 'show' : 'hide'}]</span>
+          {collapsed ? <ChevronDown className="w-3 h-3" /> : <ChevronUp className="w-3 h-3" />}
+        </button>
       </div>
 
-      <nav className="space-y-1 max-h-[65vh] overflow-y-auto pr-1 text-xs">
-        {items.map(item => {
-          const isActive = activeId === item.id;
-          const indent = item.level === 3 ? 'pl-4' : item.level === 4 ? 'pl-6' : 'pl-0';
-
-          return (
-            <button
+      {/* Numbered List */}
+      {!collapsed && (
+        <ol className="space-y-1.5 pt-1 text-slate-300 font-sans leading-relaxed max-h-[calc(100vh-16rem)] overflow-y-auto pr-1">
+          {numberedItems.map(item => (
+            <li
               key={item.id}
-              onClick={() => scrollToHeading(item.id)}
-              className={`w-full text-left py-1 px-2 rounded-md transition-colors flex items-center gap-1.5 ${indent} ${
-                isActive
-                  ? 'bg-sky-500/15 text-sky-400 font-semibold border-l-2 border-sky-400'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
-              }`}
+              style={{ paddingLeft: `${(item.level - 1) * 0.75}rem` }}
+              className="group"
             >
-              {isActive && <ChevronRight className="w-3 h-3 shrink-0 text-sky-400" />}
-              <span className="truncate">{item.text}</span>
-            </button>
-          );
-        })}
-      </nav>
-    </div>
+              <a
+                href={`#${item.id}`}
+                className="flex items-baseline gap-2 py-0.5 hover:text-sky-400 transition-colors"
+              >
+                <span className="font-mono text-[10px] text-sky-500/80 font-semibold group-hover:text-sky-400">
+                  {item.number}
+                </span>
+                <span className="truncate group-hover:underline decoration-sky-400/50 underline-offset-4">
+                  {item.text}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      )}
+    </nav>
   );
 }

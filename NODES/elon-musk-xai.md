@@ -37,7 +37,7 @@ xAI's first product was Grok, a chatbot integrated into X (formerly Twitter). In
 
 ## Related
 
-- [[ai-risk-philosophy]] — motivation for founding
+- [[musk-ai-risk-philosophy|ai-risk-philosophy]] — motivation for founding
 - [[elon-musk-neuralink]] — related AI safety venture
 - [[first-principles-thinking]] — applied to AI architecture decisions
 - [[openai-founding]] — Musk's earlier AI venture

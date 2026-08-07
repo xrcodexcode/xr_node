@@ -45,7 +45,7 @@ During his early career (1985–1991), Jobs utilized a volatile "hero / shit rol
 
 - [[NODES/Capital Abundance Trap]] — Contrast between top-down spending authority and talent empowerment.
 - [[NODES/Working Code Paradigm]] — How elite engineering talent produces demonstrable outcomes under inverted leadership.
-- [[02_NEW-KNOWLEDGE/Steve Jobs in Exile - Study Note]] — Primary study note detailing Jobs's management transformation.
+- [[02_NEW-KNOWLEDGE/steve-jobs-in-exile-study-note|Steve Jobs in Exile - Study Note]] — Primary study note detailing the organizational structure at NeXT.
 
 ## Source
 

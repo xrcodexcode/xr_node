@@ -47,7 +47,7 @@ As competitors advanced, NeXT's hardware became obsolete before reaching scale, 
 
 - [[NODES/Capital Abundance Trap]] — How excess capital funds prolonged perfectionism loops.
 - [[NODES/Channel Stuffing Vulnerability]] — Secondary financial distorting tactics deployed when perfectionism delays revenue.
-- [[02_NEW-KNOWLEDGE/Steve Jobs in Exile - Study Note]] — Primary study note covering the NeXT Cube production crisis.
+- [[02_NEW-KNOWLEDGE/steve-jobs-in-exile-study-note|Steve Jobs in Exile - Study Note]] — Primary study note detailing NeXT hardware delays.
 
 ## Source
 

@@ -1,6 +1,6 @@
 # Promotion Candidates Report
 
-Last scanned on 356 notes.
+Last scanned on 373 notes.
 
 | Note Title | Current Status | Suggested Status | Backlink Count | Reason |
 | :--- | :--- | :--- | :--- | :--- |

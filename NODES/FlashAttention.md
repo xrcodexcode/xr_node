@@ -20,7 +20,7 @@ tags:
   - reference
 owner_moc: 🤖 AI & Machine Learning Map of Content
 sources:
-  - 01_RAW/capture/the-aiml-engineer-interview-guide-for-2026-part-1.md
+  - [[02_NEW-KNOWLEDGE/the-aiml-engineer-interview-guide-2026-part-1-study-note|The AI/ML Engineer Interview Guide 2026 Part 1]]
 related:
   - [[NODES/Rotary Positional Embedding]]
   - [[NODES/RAG vs Long Context Windows]]

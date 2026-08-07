@@ -1,6 +1,6 @@
 # Orphan Notes Report
 
-Last scanned on 356 notes.
+Last scanned on 373 notes.
 
 | Note Title | Link | Backlinks | Suggested MOC | Suggested Connections | Suggested Merge |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -15,9 +15,11 @@ Last scanned on 356 notes.
 | emotional-healing-and-moving-forward | [[emotional-healing-and-moving-forward\|emotional-healing-and-moving-forward.md]] | 0 | [[yt-moc|YouTube MOC]] | [[be-mentally-strong\|be-mentally-strong]], [[beating-the-odds-when-things-get-hard\|beating-the-odds-when-things-get-hard]] | None |
 | emotional-strength | [[emotional-strength\|emotional-strength.md]] | 0 | [[yt-moc|YouTube MOC]] | [[be-mentally-strong\|be-mentally-strong]], [[beating-the-odds-when-things-get-hard\|beating-the-odds-when-things-get-hard]] | None |
 | finding-your-inner-strength | [[finding-your-inner-strength\|finding-your-inner-strength.md]] | 0 | [[yt-moc|YouTube MOC]] | [[be-mentally-strong\|be-mentally-strong]], [[beating-the-odds-when-things-get-hard\|beating-the-odds-when-things-get-hard]] | None |
+| Definition | [[hypothetical document embedding\|Hypothetical Document Embedding.md]] | 0 | [[ai-ml-moc|AI & ML MOC]] | [[contextual retrieval\|Definition]], [[rag pipeline architecture\|Definition]] | None |
 | Interactive Python with Jupyter | [[interactive-python-jupyter\|interactive-python-jupyter.md]] | 0 | [[HOME-BASE|Home Base]] | None | None |
+| Model Calibration and Reliability | [[model calibration and reliability\|Model Calibration and Reliability.md]] | 0 | [[ai-ml-moc|AI & ML MOC]] | [[direct preference optimization\|Direct Preference Optimization]], [[flashattention\|FlashAttention]] | None |
 | motivation-and-inspiration | [[motivation-and-inspiration\|motivation-and-inspiration.md]] | 0 | [[yt-moc|YouTube MOC]] | [[be-mentally-strong\|be-mentally-strong]], [[beating-the-odds-when-things-get-hard\|beating-the-odds-when-things-get-hard]] | None |
-| AI Existential Risk Philosophy | [[musk-ai-risk-philosophy\|musk-ai-risk-philosophy.md]] | 0 | [[ai-ml-moc|AI & ML MOC]] | [[elon-musk-xai\|xAI Founding]], [[first-principles-prompting\|First Principles Prompting]] | None |
+| Multimodal RAG Architecture | [[multimodal rag architecture\|Multimodal RAG Architecture.md]] | 0 | [[ai-ml-moc|AI & ML MOC]] | [[direct preference optimization\|Direct Preference Optimization]], [[flashattention\|FlashAttention]] | None |
 | Direct Communication Mandate | [[musk-communication-pattern\|musk-communication-pattern.md]] | 0 | [[HOME-BASE|Home Base]] | [[delete-before-optimize\|Delete Before Optimize]], [[elon-musk-hiring-philosophy\|Evidence of Exceptional Ability Hiring]] | None |
 | "Failure is an option here. If things are not failing, you are not innovating enough." | [[musk-on-failure-quote\|musk-on-failure-quote.md]] | 0 | [[HOME-BASE|Home Base]] | [[elon-musk-neuralink\|Neuralink Mission]], [[elon-musk-the-boring-company\|The Boring Company Concept]] | [[musk-on-first-principles-quote\|"I think it's important to reason from first principles rather than by analogy. The normal way we conduct our lives is we reason by analogy. You boil things down to the most fundamental truths you can imagine, and then reason up from there."]] |
 | "I think it's important to reason from first principles rather than by analogy. The normal way we conduct our lives is we reason by analogy. You boil things down to the most fundamental truths you can imagine, and then reason up from there." | [[musk-on-first-principles-quote\|musk-on-first-principles-quote.md]] | 0 | [[HOME-BASE|Home Base]] | [[bayesian-decision-making\|Bayesian Decision Making]], [[fermi-estimation\|Fermi Estimation]] | [[musk-on-failure-quote\|"Failure is an option here. If things are not failing, you are not innovating enough."]] |
@@ -31,5 +33,6 @@ Last scanned on 356 notes.
 | reclaiming-your-personal-power | [[reclaiming-your-personal-power\|reclaiming-your-personal-power.md]] | 0 | [[yt-moc|YouTube MOC]] | [[be-mentally-strong\|be-mentally-strong]], [[beating-the-odds-when-things-get-hard\|beating-the-odds-when-things-get-hard]] | None |
 | relationships | [[relationships\|relationships.md]] | 0 | [[yt-moc|YouTube MOC]] | [[be-mentally-strong\|be-mentally-strong]], [[beating-the-odds-when-things-get-hard\|beating-the-odds-when-things-get-hard]] | None |
 | self-improvement-strategies | [[self-improvement-strategies\|self-improvement-strategies.md]] | 0 | [[yt-moc|YouTube MOC]] | [[be-mentally-strong\|be-mentally-strong]], [[beating-the-odds-when-things-get-hard\|beating-the-odds-when-things-get-hard]] | None |
+| Target Encoding Data Leakage | [[target encoding data leakage\|Target Encoding Data Leakage.md]] | 0 | [[ai-ml-moc|AI & ML MOC]] | [[direct preference optimization\|Direct Preference Optimization]], [[flashattention\|FlashAttention]] | None |
 | Uncomfortable Truths 2 Cheatsheet | [[uncomfortable-truths-2-cheatsheet\|uncomfortable-truths-2-cheatsheet.md]] | 0 | [[HOME-BASE|Home Base]] | [[activation-function\|Activation Function]], [[asynchronous-subagents\|Asynchronous Subagents]] | None |
 | Cheatsheet — Why You Are Feeling STUCK In Your 20s | [[why-you-are-feeling-stuck-in-your-20s-cheatsheet\|why-you-are-feeling-stuck-in-your-20s-cheatsheet.md]] | 0 | [[HOME-BASE|Home Base]] | [[keep-moving-heuristic\|Keep Moving Heuristic]], [[unemployment-optionality-paradox\|Unemployment Optionality Paradox]] | None |

@@ -37,7 +37,7 @@ Musk's reasoning: if humans cannot communicate faster than verbal speech (limite
 
 ## Related
 
-- [[ai-risk-philosophy]] — Neuralink's long-term motivation
+- [[musk-ai-risk-philosophy|ai-risk-philosophy]] — Neuralink's long-term motivation
 - [[elon-musk-xai]] — related AI safety venture
 - [[first-principles-thinking]] — applied to neural interface design
 

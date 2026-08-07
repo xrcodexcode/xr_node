@@ -46,20 +46,6 @@
             }
           },
           {
-            "id": "d9d4489f196a282a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AREAS/newsletter/issue#5.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "issue#5"
-            }
-          },
-          {
             "id": "57d18f2d95f2adc9",
             "type": "leaf",
             "state": {
@@ -74,7 +60,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -263,10 +249,10 @@
   "left-ribbon": {
     "hiddenItems": {
       "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
+      "graph:Open graph view": false,
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
       "obsidian-excalidraw-plugin:New drawing": false,
@@ -275,19 +261,26 @@
       "smart-connections:Toggle Footer Connections": false
     }
   },
-  "active": "1a698b583bbbe23f",
+  "active": "57d18f2d95f2adc9",
   "lastOpenFiles": [
+    "NODES/law-45-preach-change-reform-slowly.md",
+    "Excalidraw/Drawing 2026-08-06 18.55.22.excalidraw.md",
+    "AREAS/newsletter/issue#5.md",
+    "01_RAW/GITHUB/Why Obsidian + Claude  RAG but.md",
+    "01_RAW/CAPTURE/This Claude Skill Just Killed PowerPoint.md",
+    "piyush-wiki/vault/why-obsidian-claude-rag.md",
+    "explain/dist/index.html",
+    "explain/dist/assets/index-Dx5LPASu.css",
+    "explain/dist/assets/index-BLLHQjfe.js",
+    "explain/dist/assets",
+    "explain/node_modules/lightningcss-win32-x64-msvc/lightningcss.win32-x64-msvc.node",
+    "explain/dist/icons.svg",
+    "explain/dist/favicon.svg",
+    "explain/dist",
+    "explain/node_modules/@rolldown/binding-win32-x64-msvc/rolldown-binding.win32-x64-msvc.node",
     "explain/src/components/Footer.tsx",
     "explain/src/components/VaultExplorer.tsx",
     "explain/src/components/QuizSection.tsx",
-    "explain/src/components/AtomizerPlayground.tsx",
-    "explain/src/components/PipelineVisualizer.tsx",
-    "explain/src/components/GraphSimulator.tsx",
-    "explain/src/components/HeroSection.tsx",
-    "explain/src/components/Header.tsx",
-    "explain/src/components/AnalogySection.tsx",
-    "explain/src/components",
-    "explain/node_modules/lucide-react/dist/esm/shared/src/utils/toPascalCase.mjs.map",
     "explain/node_modules/@jridgewell/trace-mapping/README.md",
     "explain/node_modules/@jridgewell/sourcemap-codec/README.md",
     "explain/node_modules/@jridgewell/resolve-uri/README.md",
@@ -310,18 +303,11 @@
     "explain/public/icons.svg",
     "explain/public/favicon.svg",
     "explain/README.md",
-    "AREAS/newsletter/issue#5.md",
     "piyush-wiki/assets/README.md",
     "piyush-wiki/docs/engineering-tech-spec.md",
     "piyush-wiki/README.md",
-    "01_RAW/GITHUB/Why Obsidian + Claude  RAG but.md",
-    "01_RAW/GITHUB/The AIML Engineer Interview Guide for 2026 - Part 2.md",
-    "01_RAW/GITHUB/The AIML Engineer Interview Guide for 2026 - Part 2 1.md",
-    "01_RAW/GITHUB/The AIML Engineer Interview Guide for 2026 - Part 1 2.md",
     "AREAS/newsletter/assets/issue#5/6.svg",
     "AREAS/newsletter/assets/issue#5/5.svg",
-    "AREAS/newsletter/assets/issue#5/4.svg",
-    "AREAS/newsletter/assets/issue#5/3.svg",
-    "AREAS/newsletter/assets/issue#5/2.svg"
+    "AREAS/newsletter/assets/issue#5/4.svg"
   ]
 }

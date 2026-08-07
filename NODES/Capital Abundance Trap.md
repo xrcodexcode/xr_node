@@ -47,7 +47,7 @@ Without financial scarcity, NeXT burned through over $1M per month, creating a f
 
 - [[NODES/Perfectionism Execution Trap]] — Aesthetic perfectionism enabled by capital abundance.
 - [[NODES/Channel Stuffing Vulnerability]] — Financial engineering mechanisms used when capital runs dry.
-- [[02_NEW-KNOWLEDGE/Steve Jobs in Exile - Study Note]] — Primary study note detailing the NeXT financial trajectory.
+- [[02_NEW-KNOWLEDGE/steve-jobs-in-exile-study-note|Steve Jobs in Exile - Study Note]] — Primary study note detailing the NeXT financial trajectory.
 
 ## Source
 

@@ -77,6 +77,24 @@ def main():
                 name_lower = os.path.splitext(f)[0].lower()
                 valid_targets[name_lower] = os.path.join(source_dir, f)
 
+    # 02_NEW-KNOWLEDGE directory
+    new_knowledge_dir = os.path.join(vault_root, "02_NEW-KNOWLEDGE")
+    if os.path.exists(new_knowledge_dir):
+        for f in os.listdir(new_knowledge_dir):
+            if f.endswith('.md'):
+                name_lower = os.path.splitext(f)[0].lower()
+                valid_targets[name_lower] = os.path.join(new_knowledge_dir, f)
+                valid_targets[f"02_new-knowledge/{name_lower}"] = os.path.join(new_knowledge_dir, f)
+
+    # NOTES directory
+    stable_notes_dir = os.path.join(vault_root, "NOTES")
+    if os.path.exists(stable_notes_dir):
+        for f in os.listdir(stable_notes_dir):
+            if f.endswith('.md'):
+                name_lower = os.path.splitext(f)[0].lower()
+                valid_targets[name_lower] = os.path.join(stable_notes_dir, f)
+                valid_targets[f"notes/{name_lower}"] = os.path.join(stable_notes_dir, f)
+
     directories_to_scan = [nodes_dir, mocs_dir]
     for directory in directories_to_scan:
         if not os.path.exists(directory):
