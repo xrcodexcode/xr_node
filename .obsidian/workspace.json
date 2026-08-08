@@ -274,8 +274,17 @@
       "smart-connections:Toggle Footer Connections": false
     }
   },
-  "active": "44b1826161c97113",
+  "active": "1a698b583bbbe23f",
   "lastOpenFiles": [
+    "01_RAW/PROCESS/_orphans/untitled.md",
+    "01_RAW/PROCESS/_orphans/piyush-pal-instruction.md",
+    "02_NEW-KNOWLEDGE/karpathy-llm-wiki-welcome.md",
+    "03_MOC/_attachments/excalidraw/Drawing 2026-08-08 10.05.12.excalidraw.md",
+    "01_RAW/PROCESS/_orphans",
+    "03_MOC/_attachments/excalidraw/Drawing 2026-08-06 18.55.25.excalidraw.md",
+    "03_MOC/_attachments/excalidraw/Drawing 2026-08-06 18.55.22.excalidraw.md",
+    "03_MOC/_attachments/excalidraw",
+    "03_MOC/_attachments",
     "AREAS/newsletter/issue#6.md",
     "AREAS/newsletter/issue#5.md",
     "AREAS/newsletter/site/assets/issue#4/7.jpg",
@@ -298,10 +307,7 @@
     "01_RAW/GITHUB/The AIML Engineer Interview Guide for 2026 - Part 1 1.md",
     "01_RAW/GITHUB/The AIML Engineer Interview Guide for 2026 - Part 1.md",
     "AREAS/newsletter/assets/issue#6",
-    "AREAS/newsletter/site/issue-6/assets",
-    "AREAS/newsletter/site/issue-6",
     "Piyush Pal/instruction.md",
-    "Piyush Pal",
     "01_RAW/GITHUB/The AIML Engineer Interview Guide for 2026 - Part 2.md",
     "01_RAW/GITHUB/The AIML Engineer Interview Guide for 2026 - Part 2 1.md",
     "01_RAW/GITHUB/Why Obsidian + Claude  RAG but.md",
@@ -315,11 +321,6 @@
     "claude/agents/youtube-ingestion-agent.md",
     "claude/agents/youtube-knowledge-ingestion.md",
     "nexusdb-web/README.md",
-    "01_RAW/CAPTURE/You only need 6 months to change your life.md",
-    "Excalidraw/Drawing 2026-08-08 10.05.12.excalidraw.md",
-    "wiki/Welcome to Karpathy LLM Wiki.md",
-    "01_RAW/CAPTURE/Give me 9 mins, and I'll Make You Dangerously Motivated.md",
-    "NODES/law-45-preach-change-reform-slowly.md",
-    "Excalidraw/Drawing 2026-08-06 18.55.22.excalidraw.md"
+    "01_RAW/CAPTURE/You only need 6 months to change your life.md"
   ]
 }
