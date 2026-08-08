@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issue #6: Graph Engineering — AI Fundamentals</title>
+  <meta name="description" content="An interactive Graph Engineering Lab. Learn how graphs represent relationships and how graph algorithms power real-world systems — from Google Maps to knowledge graphs.">
+  <meta name="theme-color" content="#0D1117">
+  <meta property="og:title" content="Issue #6: Graph Engineering — AI Fundamentals">
+  <meta property="og:description" content="Build, visualize, and understand graphs. An interactive lab for graph theory, algorithms, and real-world engineering.">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Issue #6: Graph Engineering — AI Fundamentals">
+  <meta name="twitter:description" content="Build, visualize, and understand graphs. An interactive lab for graph theory, algorithms, and real-world engineering.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "Issue #6: Graph Engineering — The Data Structure Behind Everything",
+    "description": "An interactive Graph Engineering Lab teaching graph theory, algorithms, and real-world applications.",
+    "datePublished": "2026-08-08",
+    "author": {
+      "@type": "Organization",
+      "name": "AI Fundamentals"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════ NAVIGATION ═══════════════════════════════════════════ -->
+<nav id="main-nav">
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-brand">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><line x1="7" y1="6" x2="10" y2="10"/><line x1="17" y1="6" x2="14" y2="10"/><line x1="7" y1="18" x2="10" y2="14"/><line x1="17" y1="18" x2="14" y2="14"/></svg>
+      Graph Engineering Lab
+    </a>
+    <div class="nav-links" id="nav-links">
+      <a href="#fundamentals" class="nav-link" data-section="fundamentals">Fundamentals</a>
+      <a href="#playground" class="nav-link" data-section="playground">Playground</a>
+      <a href="#representations" class="nav-link" data-section="representations">Representations</a>
+      <a href="#algo-lab" class="nav-link" data-section="algo-lab">Algorithms</a>
+      <a href="#engineering" class="nav-link" data-section="engineering">Engineering</a>
+    </div>
+    <div class="nav-actions">
+      <button id="theme-toggle" class="btn-icon" aria-label="Toggle theme">
+        <svg id="theme-icon-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg id="theme-icon-light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="#fundamentals" class="nav-link">Fundamentals</a>
+    <a href="#playground" class="nav-link">Playground</a>
+    <a href="#representations" class="nav-link">Representations</a>
+    <a href="#algo-lab" class="nav-link">Algorithms</a>
+    <a href="#engineering" class="nav-link">Engineering</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════ HERO ═══════════════════════════════════════════ -->
+<section id="hero" class="section">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="container hero-content">
+    <span class="hero-badge">Issue #6 — AI Fundamentals</span>
+    <h1 class="hero-title">
+      <span class="gradient-text">Graph Engineering</span><br>
+      The Data Structure Behind Everything
+    </h1>
+    <p class="hero-subtitle">
+      From Google Maps to social networks, from recommendation engines to knowledge graphs — 
+      the most powerful systems in computing run on graphs. Build one yourself.
+    </p>
+    <div class="hero-cta">
+      <a href="#playground" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Open the Lab
+      </a>
+      <a href="#fundamentals" class="btn btn-secondary">Learn the Fundamentals</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ VISUAL LEARNING PIPELINE ═══════════════════════════════════════════ -->
+<section class="section" id="pipeline-section">
+  <div class="container">
+    <div class="section-header" style="text-align:center">
+      <span class="section-badge">The Learning Path</span>
+      <h2 class="section-title" style="margin:0 auto">From Real World to Algorithm</h2>
+      <p class="section-desc" style="margin:12px auto 0">Every graph journey follows this pipeline. You'll experience each stage hands-on.</p>
+    </div>
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <div class="pipeline-step__icon" style="background:rgba(88,166,255,0.15);color:var(--accent-blue)">🌍</div>
+        <div class="pipeline-step__label">Real World</div>
+        <div class="pipeline-step__desc">Relationships exist</div>
+      </div>
+      <div class="pipeline-arrow">→</div>
+      <div class="pipeline-step">
+        <div class="pipeline-step__icon" style="background:rgba(88,166,255,0.15);color:var(--accent-blue)">🔗</div>
+        <div class="pipeline-step__label">Relationship</div>
+        <div class="pipeline-step__desc">Identify connections</div>
+      </div>
+      <div class="pipeline-arrow">→</div>
+      <div class="pipeline-step">
+        <div class="pipeline-step__icon" style="background:rgba(126,231,135,0.15);color:var(--accent-green)">⬡</div>
+        <div class="pipeline-step__label">Node + Edge</div>
+        <div class="pipeline-step__desc">Model as data</div>
+      </div>
+      <div class="pipeline-arrow">→</div>
+      <div class="pipeline-step">
+        <div class="pipeline-step__icon" style="background:rgba(126,231,135,0.15);color:var(--accent-green)">📊</div>
+        <div class="pipeline-step__label">Graph</div>
+        <div class="pipeline-step__desc">Build the structure</div>
+      </div>
+      <div class="pipeline-arrow">→</div>
+      <div class="pipeline-step">
+        <div class="pipeline-step__icon" style="background:rgba(240,136,62,0.15);color:var(--accent-orange)">📋</div>
+        <div class="pipeline-step__label">Representation</div>
+        <div class="pipeline-step__desc">Store efficiently</div>
+      </div>
+      <div class="pipeline-arrow">→</div>
+      <div class="pipeline-step">
+        <div class="pipeline-step__icon" style="background:rgba(240,136,62,0.15);color:var(--accent-orange)">🔍</div>
+        <div class="pipeline-step__label">Traversal</div>
+        <div class="pipeline-step__desc">Explore the graph</div>
+      </div>
+      <div class="pipeline-arrow">→</div>
+      <div class="pipeline-step">
+        <div class="pipeline-step__icon" style="background:rgba(188,140,255,0.15);color:var(--accent-purple)">⚙️</div>
+        <div class="pipeline-step__label">Algorithm</div>
+        <div class="pipeline-step__desc">Compute answers</div>
+      </div>
+      <div class="pipeline-arrow">→</div>
+      <div class="pipeline-step">
+        <div class="pipeline-step__icon" style="background:rgba(188,140,255,0.15);color:var(--accent-purple)">💡</div>
+        <div class="pipeline-step__label">Result</div>
+        <div class="pipeline-step__desc">Extract insight</div>
+      </div>
+    </div>
+    <figure style="text-align:center;margin-top:24px">
+      <img src="assets/9.jpg" alt="Graph Engineering Pipeline — Data to Nodes to Edges to Graph to Algorithm to Insight" class="section-image">
+      <figcaption class="image-caption">The Graph Engineering Pipeline: turning raw data into actionable insight</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ FUNDAMENTALS ═══════════════════════════════════════════ -->
+<section class="section" id="fundamentals">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Section A</span>
+      <h2 class="section-title">Graph Fundamentals</h2>
+      <p class="section-desc">The building blocks of every graph. Master these, and everything else follows.</p>
+    </div>
+
+    <figure style="text-align:center;margin-bottom:40px">
+      <img src="assets/1.jpg" alt="Graph Anatomy — node, edge, degree, path, and cycle annotated on a graph" class="section-image">
+      <figcaption class="image-caption">Graph anatomy: nodes, edges, degree, paths, and cycles</figcaption>
+    </figure>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <div class="concept-card__icon">⬡</div>
+        <h3 class="concept-card__title">Vertex / Node</h3>
+        <p class="concept-card__desc">A single entity in your graph. A person, a city, a web page, an idea — anything you want to model.</p>
+        <span class="concept-card__tag">fundamental</span>
+      </div>
+      <div class="concept-card">
+        <div class="concept-card__icon">⎯</div>
+        <h3 class="concept-card__title">Edge</h3>
+        <p class="concept-card__desc">A connection between two nodes. Friendships, roads, hyperlinks, dependencies — edges capture relationships.</p>
+        <span class="concept-card__tag">fundamental</span>
+      </div>
+      <div class="concept-card">
+        <div class="concept-card__icon">3️⃣</div>
+        <h3 class="concept-card__title">Degree</h3>
+        <p class="concept-card__desc">The number of edges connected to a node. A node with degree 5 has five connections — it's well-connected.</p>
+        <span class="concept-card__tag">property</span>
+      </div>
+      <div class="concept-card">
+        <div class="concept-card__icon">➡️</div>
+        <h3 class="concept-card__title">Path</h3>
+        <p class="concept-card__desc">A sequence of nodes connected by edges. Like walking through a network from A to B, following valid connections.</p>
+        <span class="concept-card__tag">traversal</span>
+      </div>
+      <div class="concept-card">
+        <div class="concept-card__icon">🔄</div>
+        <h3 class="concept-card__title">Cycle</h3>
+        <p class="concept-card__desc">A path that starts and ends at the same node. Like a circular dependency or a round trip — you end up where you began.</p>
+        <span class="concept-card__tag">structure</span>
+      </div>
+      <div class="concept-card">
+        <div class="concept-card__icon">🔗</div>
+        <h3 class="concept-card__title">Connected Graph</h3>
+        <p class="concept-card__desc">A graph where every node can be reached from every other node. No isolated islands — everything is linked.</p>
+        <span class="concept-card__tag">property</span>
+      </div>
+    </div>
+
+    <!-- Directed vs Undirected -->
+    <div style="margin-top:48px">
+      <h3 class="section-title" style="font-size:1.5rem;margin-bottom:24px">Directed vs. Undirected</h3>
+      <figure style="text-align:center;margin-bottom:24px">
+        <img src="assets/2.jpg" alt="Side-by-side comparison of directed and undirected graphs" class="section-image">
+        <figcaption class="image-caption">Directed graphs have arrows showing direction; undirected edges go both ways</figcaption>
+      </figure>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px" class="two-col-grid">
+        <div class="info-box key-insight">
+          <div class="info-box__title">↗ Directed Graph</div>
+          <p>Edges have direction. "A follows B" doesn't mean "B follows A." Think Twitter: following is one-way.</p>
+        </div>
+        <div class="info-box tip">
+          <div class="info-box__title">↔ Undirected Graph</div>
+          <p>Edges go both ways. "A is friends with B" means "B is friends with A." Think Facebook friendships.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Weighted vs Unweighted -->
+    <div style="margin-top:48px">
+      <h3 class="section-title" style="font-size:1.5rem;margin-bottom:24px">Weighted vs. Unweighted</h3>
+      <figure style="text-align:center;margin-bottom:24px">
+        <img src="assets/3.jpg" alt="A weighted graph with numerical values on edges" class="section-image">
+        <figcaption class="image-caption">Weighted edges carry numerical values — distances, costs, strengths</figcaption>
+      </figure>
+      <div class="info-box key-insight">
+        <div class="info-box__title">💡 Why Weights Matter</div>
+        <p>In Google Maps, edge weights represent distance or travel time. In a social network, they could represent interaction frequency. Weights let algorithms find the <em>best</em> path, not just <em>any</em> path.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ GRAPH PLAYGROUND ═══════════════════════════════════════════ -->
+<section class="section" id="playground-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Interactive Lab</span>
+      <h2 class="section-title">Graph Playground</h2>
+      <p class="section-desc">Build your own graph. Add nodes, connect them, drag them around. Every change updates live.</p>
+    </div>
+
+    <div id="playground">
+      <div class="playground-toolbar">
+        <div class="toolbar-group">
+          <button class="btn btn-sm btn-primary" id="btn-add-node" title="Add Node">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            Add Node
+          </button>
+          <button class="btn btn-sm btn-secondary" id="btn-add-edge" title="Connect two selected nodes">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><circle cx="5" cy="12" r="3"/><circle cx="19" cy="12" r="3"/></svg>
+            Add Edge
+          </button>
+          <button class="btn btn-sm btn-danger" id="btn-delete" title="Delete selected node or edge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
+            Delete
+          </button>
+        </div>
+        <div class="toolbar-separator"></div>
+        <div class="toolbar-group">
+          <button class="btn btn-sm btn-ghost" id="btn-rename" title="Rename selected node">✏️ Rename</button>
+          <button class="btn btn-sm btn-ghost" id="btn-edit-weight" title="Edit selected edge weight">⚖️ Weight</button>
+          <button class="btn btn-sm btn-ghost" id="btn-flip-edge" title="Flip selected edge direction">🔄 Flip</button>
+        </div>
+        <div class="toolbar-separator"></div>
+        <div class="toolbar-group">
+          <div class="toggle-group">
+            <span>Undirected</span>
+            <button class="toggle" id="toggle-directed" role="switch" aria-checked="false" aria-label="Toggle directed mode"></button>
+            <span>Directed</span>
+          </div>
+          <div class="toggle-group">
+            <span>Unweighted</span>
+            <button class="toggle" id="toggle-weighted" role="switch" aria-checked="false" aria-label="Toggle weighted mode"></button>
+            <span>Weighted</span>
+          </div>
+        </div>
+        <div class="toolbar-separator"></div>
+        <div class="toolbar-group">
+          <select id="example-select" class="btn btn-sm btn-ghost" style="appearance:auto;padding-right:24px">
+            <option value="">Load Example…</option>
+            <option value="simple">Simple Graph</option>
+            <option value="tree">Binary Tree</option>
+            <option value="complete">Complete K5</option>
+            <option value="dag">DAG</option>
+            <option value="weighted">Weighted Network</option>
+            <option value="disconnected">Disconnected</option>
+            <option value="bipartite">Bipartite</option>
+          </select>
+          <button class="btn btn-sm btn-ghost" id="btn-reset" title="Clear the graph">🗑️ Reset</button>
+          <button class="btn btn-sm btn-ghost" id="btn-fit" title="Fit graph to view">📐 Fit</button>
+        </div>
+      </div>
+
+      <div class="playground-canvas" id="cy-container"></div>
+
+      <div class="playground-status">
+        <div class="status-item">
+          <span class="status-dot" id="status-mode-dot"></span>
+          <span id="status-mode">Undirected</span>
+        </div>
+        <div class="status-item">
+          <span class="status-dot" id="status-weight-dot"></span>
+          <span id="status-weight">Unweighted</span>
+        </div>
+        <div class="status-item">
+          Nodes: <strong id="status-nodes">0</strong>
+        </div>
+        <div class="status-item">
+          Edges: <strong id="status-edges">0</strong>
+        </div>
+        <div class="status-item" id="status-selection" style="display:none">
+          Selected: <strong id="status-selected-label"></strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ REPRESENTATIONS ═══════════════════════════════════════════ -->
+<section class="section" id="representations-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Section B</span>
+      <h2 class="section-title">Graph Representations</h2>
+      <p class="section-desc">The same graph, three views. Change the graph above — watch all representations update live.</p>
+    </div>
+
+    <figure style="text-align:center;margin-bottom:32px">
+      <img src="assets/4.jpg" alt="Same graph shown as visual, adjacency list, and adjacency matrix" class="section-image">
+      <figcaption class="image-caption">One graph, three representations — each optimized for different use cases</figcaption>
+    </figure>
+
+    <div id="representations">
+      <div class="repr-panel">
+        <div class="repr-header">
+          <span>Adjacency List</span>
+          <span class="repr-badge" style="font-size:0.75rem;color:var(--accent-green)">O(V + E) space</span>
+        </div>
+        <div class="repr-body" id="adj-list-display">
+          <div class="empty-state" style="color:var(--text-muted);text-align:center;padding:40px 0">
+            Add nodes and edges in the playground above to see the adjacency list.
+          </div>
+        </div>
+      </div>
+      <div class="repr-panel">
+        <div class="repr-header">
+          <span>Adjacency Matrix</span>
+          <span class="repr-badge" style="font-size:0.75rem;color:var(--accent-orange)">O(V²) space</span>
+        </div>
+        <div class="repr-body" id="adj-matrix-display">
+          <div class="empty-state" style="color:var(--text-muted);text-align:center;padding:40px 0">
+            Add nodes and edges in the playground above to see the adjacency matrix.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px" class="two-col-grid">
+      <div class="info-box tip">
+        <div class="info-box__title">📋 Adjacency List</div>
+        <p>Best for <strong>sparse graphs</strong> (few edges relative to nodes). Most real-world graphs are sparse. Uses less memory, faster neighbor iteration.</p>
+      </div>
+      <div class="info-box warning">
+        <div class="info-box__title">📊 Adjacency Matrix</div>
+        <p>Best for <strong>dense graphs</strong> or when you need O(1) edge lookup. Simple to implement, but wastes space when edges are few.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ ALGORITHM LAB ═══════════════════════════════════════════ -->
+<section class="section" id="algo-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Section C</span>
+      <h2 class="section-title">Graph Algorithms Lab</h2>
+      <p class="section-desc">Watch algorithms run step-by-step on your graph. Select an algorithm, pick a start node, and hit play.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px" class="two-col-grid">
+      <figure style="text-align:center">
+        <img src="assets/5.jpg" alt="BFS visualization — layer-by-layer traversal" class="section-image" style="margin:0 auto">
+        <figcaption class="image-caption">BFS: explores layer by layer, like ripples in water</figcaption>
+      </figure>
+      <figure style="text-align:center">
+        <img src="assets/6.jpg" alt="DFS visualization — depth-first exploration" class="section-image" style="margin:0 auto">
+        <figcaption class="image-caption">DFS: dives deep before backtracking</figcaption>
+      </figure>
+    </div>
+
+    <figure style="text-align:center;margin-bottom:32px">
+      <img src="assets/7.jpg" alt="Shortest path visualization — Dijkstra's algorithm finding optimal route" class="section-image">
+      <figcaption class="image-caption">Dijkstra's algorithm: finding the shortest path through a weighted graph</figcaption>
+    </figure>
+
+    <div id="algo-lab">
+      <div class="algo-selector" id="algo-selector">
+        <button class="algo-btn active" data-algo="bfs">BFS</button>
+        <button class="algo-btn" data-algo="dfs">DFS</button>
+        <button class="algo-btn" data-algo="dijkstra">Dijkstra</button>
+        <button class="algo-btn" data-algo="shortestPath">Shortest Path</button>
+        <button class="algo-btn" data-algo="connectedComponents">Components</button>
+        <button class="algo-btn" data-algo="cycleDetection">Cycle Detection</button>
+        <button class="algo-btn" data-algo="topologicalSort">Topo Sort</button>
+      </div>
+
+      <div class="algo-config" id="algo-config">
+        <div>
+          <label class="modal-label" style="margin-top:0">Start Node</label>
+          <select id="algo-start-node" style="background:var(--bg-tertiary);border:1px solid var(--border-default);border-radius:var(--radius-sm);padding:6px 10px;color:var(--text-primary);font-size:0.85rem">
+            <option value="">Select…</option>
+          </select>
+        </div>
+        <div id="algo-end-node-group">
+          <label class="modal-label" style="margin-top:0">End Node</label>
+          <select id="algo-end-node" style="background:var(--bg-tertiary);border:1px solid var(--border-default);border-radius:var(--radius-sm);padding:6px 10px;color:var(--text-primary);font-size:0.85rem">
+            <option value="">Select…</option>
+          </select>
+        </div>
+        <button class="btn btn-sm btn-primary" id="btn-run-algo">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Run Algorithm
+        </button>
+      </div>
+
+      <div class="algo-controls" id="algo-controls" style="display:none">
+        <button class="btn btn-sm btn-ghost" id="btn-algo-restart" title="Restart">⏮</button>
+        <button class="btn btn-sm btn-ghost" id="btn-algo-prev" title="Previous Step">⏪</button>
+        <button class="btn btn-sm btn-primary" id="btn-algo-play" title="Play / Pause">▶</button>
+        <button class="btn btn-sm btn-ghost" id="btn-algo-next" title="Next Step">⏩</button>
+        <button class="btn btn-sm btn-ghost" id="btn-algo-end" title="Jump to End">⏭</button>
+        <span class="step-counter" id="step-counter">Step 0 / 0</span>
+        <div class="speed-control">
+          <span style="font-size:0.8rem;color:var(--text-secondary)">Speed</span>
+          <input type="range" id="speed-slider" min="1" max="10" value="5" title="Animation speed">
+        </div>
+      </div>
+
+      <div class="step-display" id="step-display">
+        <div class="empty-state" style="color:var(--text-muted);text-align:center;padding:20px 0">
+          Select an algorithm and click "Run" to see it in action.
+        </div>
+      </div>
+
+      <div class="data-structure-display" id="ds-display" style="display:none">
+        <!-- Populated dynamically -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ GRAPH ENGINEERING ═══════════════════════════════════════════ -->
+<section class="section" id="engineering">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Section D</span>
+      <h2 class="section-title">Graph Engineering in the Real World</h2>
+      <p class="section-desc">Graphs aren't academic exercises. They power the systems you use every day.</p>
+    </div>
+
+    <figure style="text-align:center;margin-bottom:40px">
+      <img src="assets/8.jpg" alt="Real-world graph systems — maps, social networks, recommendations, and knowledge graphs" class="section-image">
+      <figcaption class="image-caption">Graphs are everywhere: maps, social networks, recommendations, and knowledge systems</figcaption>
+    </figure>
+
+    <div class="use-case-grid">
+      <div class="use-case-card">
+        <div class="use-case-card__visual" style="background:linear-gradient(135deg, rgba(88,166,255,0.1), rgba(88,166,255,0.03))">🗺️</div>
+        <div class="use-case-card__body">
+          <h3 class="use-case-card__title">Google Maps</h3>
+          <p class="use-case-card__desc">Intersections are nodes, roads are weighted edges. Dijkstra's algorithm (and its variants) finds the fastest route between any two points.</p>
+          <div class="use-case-card__graph-type">Weighted Directed Graph + Dijkstra</div>
+        </div>
+      </div>
+      <div class="use-case-card">
+        <div class="use-case-card__visual" style="background:linear-gradient(135deg, rgba(126,231,135,0.1), rgba(126,231,135,0.03))">👥</div>
+        <div class="use-case-card__body">
+          <h3 class="use-case-card__title">Social Networks</h3>
+          <p class="use-case-card__desc">People are nodes, friendships/follows are edges. BFS finds degrees of separation. Connected components find communities.</p>
+          <div class="use-case-card__graph-type">Directed/Undirected Graph + BFS + Components</div>
+        </div>
+      </div>
+      <div class="use-case-card">
+        <div class="use-case-card__visual" style="background:linear-gradient(135deg, rgba(240,136,62,0.1), rgba(240,136,62,0.03))">🎯</div>
+        <div class="use-case-card__body">
+          <h3 class="use-case-card__title">Recommendation Systems</h3>
+          <p class="use-case-card__desc">Users and items are nodes, interactions are edges. Graph algorithms find similar users and suggest items they haven't discovered yet.</p>
+          <div class="use-case-card__graph-type">Bipartite Graph + Graph Traversal</div>
+        </div>
+      </div>
+      <div class="use-case-card">
+        <div class="use-case-card__visual" style="background:linear-gradient(135deg, rgba(188,140,255,0.1), rgba(188,140,255,0.03))">🧠</div>
+        <div class="use-case-card__body">
+          <h3 class="use-case-card__title">Knowledge Graphs</h3>
+          <p class="use-case-card__desc">Concepts are nodes, relationships are labeled edges. Google's Knowledge Graph connects billions of facts to answer questions like "Who invented the telephone?"</p>
+          <div class="use-case-card__graph-type">Directed Labeled Graph + Search</div>
+        </div>
+      </div>
+      <div class="use-case-card">
+        <div class="use-case-card__visual" style="background:linear-gradient(135deg, rgba(121,192,255,0.1), rgba(121,192,255,0.03))">🌐</div>
+        <div class="use-case-card__body">
+          <h3 class="use-case-card__title">Computer Networks</h3>
+          <p class="use-case-card__desc">Routers are nodes, connections are edges. Shortest path algorithms route data packets efficiently across the internet.</p>
+          <div class="use-case-card__graph-type">Weighted Graph + Shortest Path</div>
+        </div>
+      </div>
+      <div class="use-case-card">
+        <div class="use-case-card__visual" style="background:linear-gradient(135deg, rgba(210,153,34,0.1), rgba(210,153,34,0.03))">📦</div>
+        <div class="use-case-card__body">
+          <h3 class="use-case-card__title">Dependency Systems</h3>
+          <p class="use-case-card__desc">Packages are nodes, dependencies are directed edges. Topological sort determines the correct build order. Cycle detection finds circular dependencies.</p>
+          <div class="use-case-card__graph-type">DAG + Topological Sort + Cycle Detection</div>
+        </div>
+      </div>
+      <div class="use-case-card">
+        <div class="use-case-card__visual" style="background:linear-gradient(135deg, rgba(248,81,73,0.1), rgba(248,81,73,0.03))">🗃️</div>
+        <div class="use-case-card__body">
+          <h3 class="use-case-card__title">Personal Knowledge Management</h3>
+          <p class="use-case-card__desc">Notes are nodes, links are edges. Your Obsidian vault, Roam Research, or Notion workspace is a knowledge graph that you traverse every day.</p>
+          <div class="use-case-card__graph-type">Directed Graph + Traversal + Components</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ TAKEAWAY ═══════════════════════════════════════════ -->
+<section class="section" id="takeaway">
+  <div class="container" style="text-align:center;max-width:720px">
+    <div class="info-box key-insight" style="text-align:left;font-size:1.1rem;line-height:1.7;padding:32px;border-radius:var(--radius-lg);border-left-width:4px">
+      <div class="info-box__title" style="font-size:1.2rem;margin-bottom:12px">🧩 The Key Insight</div>
+      <p style="margin-bottom:16px"><strong>A graph is not just a picture.</strong> It is a data structure for representing relationships.</p>
+      <p style="margin-bottom:16px">Once you see the world as nodes and edges, you unlock algorithms that have been solving problems for decades:</p>
+      <p style="font-family:var(--font-mono);font-size:0.95rem;color:var(--accent-blue)">
+        Graph → Representation → Traversal → Algorithm → Computation → Insight
+      </p>
+    </div>
+    <p style="margin-top:32px;color:var(--text-secondary)">
+      Now go back to the <a href="#playground" style="color:var(--accent-blue)">playground</a>, build a graph that models something from your life, and run an algorithm on it. That's when it clicks.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ FOOTER ═══════════════════════════════════════════ -->
+<footer id="footer">
+  <div class="container">
+    <p class="footer-text">AI Fundamentals Newsletter — Issue #6: Graph Engineering</p>
+    <div class="footer-links">
+      <a href="../index.html" class="footer-link">← All Issues</a>
+      <a href="../issue-5.html" class="footer-link">← Previous: Loop Engineering</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════ MODALS ═══════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-rename">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Rename Node</h3>
+      <button class="btn-icon modal-close" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <label class="modal-label" style="margin-top:0">New Label</label>
+      <input type="text" class="modal-input" id="input-rename" placeholder="Enter new label…" maxlength="12">
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-sm btn-ghost modal-close">Cancel</button>
+      <button class="btn btn-sm btn-primary" id="btn-confirm-rename">Rename</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-weight">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Set Edge Weight</h3>
+      <button class="btn-icon modal-close" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <label class="modal-label" style="margin-top:0">Weight</label>
+      <input type="number" class="modal-input" id="input-weight" placeholder="Enter weight…" min="0" step="1">
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-sm btn-ghost modal-close">Cancel</button>
+      <button class="btn btn-sm btn-primary" id="btn-confirm-weight">Set Weight</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-add-edge">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Add Edge</h3>
+      <button class="btn-icon modal-close" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <label class="modal-label" style="margin-top:0">Source Node</label>
+      <select class="modal-input" id="input-edge-source" style="appearance:auto"></select>
+      <label class="modal-label">Target Node</label>
+      <select class="modal-input" id="input-edge-target" style="appearance:auto"></select>
+      <label class="modal-label" id="label-edge-weight-input">Weight</label>
+      <input type="number" class="modal-input" id="input-edge-weight" placeholder="1" min="0" step="1" value="1">
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-sm btn-ghost modal-close">Cancel</button>
+      <button class="btn btn-sm btn-primary" id="btn-confirm-edge">Add Edge</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SCRIPTS ═══════════════════════════════════════════ -->
+<script src="https://unpkg.com/cytoscape@3.30.4/dist/cytoscape.min.js"></script>
+<script src="graph-engine.js"></script>
+<script src="algorithms.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

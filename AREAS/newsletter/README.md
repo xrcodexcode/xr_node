@@ -22,12 +22,14 @@ newsletter/
 ├── issue#3.md              # Context Engineering
 ├── issue#4.md              # Harness Engineering
 ├── issue#5.md              # Loop Engineering
+├── issue#6.md              # Graph Engineering
 ├── assets/                 # Visual assets organized by issue
 │   ├── issue#1/            # Images for Issue #1 (1.jpg to 5.jpg)
 │   ├── issue#2/            # Images for Issue #2 (1.jpg to 6.jpg)
 │   ├── issue#3/            # Images for Issue #3 (1.jpg to 7.jpg)
 │   ├── issue#4/            # Images for Issue #4 (1.jpg to 7.jpg)
-│   └── issue#5/            # Images & SVGs for Issue #5 (1.svg to 6.svg)
+│   ├── issue#5/            # Images & SVGs for Issue #5 (1.svg to 6.svg)
+│   └── issue#6/            # Images for Issue #6 (1.jpg to 9.jpg)
 └── site/                   # Published static website
     ├── index.html          # Landing page
     ├── issue-1.html        # Issue #1 web page
@@ -35,6 +37,7 @@ newsletter/
     ├── issue-3.html        # Issue #3 web page
     ├── issue-4.html        # Issue #4 web page
     ├── issue-5.html        # Issue #5 web page
+    ├── issue-6/            # Issue #6 interactive web experience
     ├── rss.xml             # RSS feed
     ├── manifest.json       # Web app manifest
     ├── css/                # Stylesheets
@@ -53,6 +56,7 @@ newsletter/
 | 3 | [Better Input, Better Output. That's Context Engineering.](./issue%233.md) | The skill of giving AI the right information to produce better results |
 | 4 | [The Prompt Is Just One Ingredient. The Harness Is the Kitchen.](./issue%234.md) | Why the smartest AI needs tools, not just instructions |
 | 5 | [Loop Engineering — What Makes AI Agents Improve Themselves?](./issue%235.md) | Why the best AI output comes from continuous self-refinement |
+| 6 | [Graph Engineering — The Data Structure Behind Everything](./site/issue-6/index.html) | Interactive lab: graphs, algorithms, and real-world systems |
 
 ---
 

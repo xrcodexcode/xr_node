@@ -1,0 +1,339 @@
+.mindmap-container {
+    --mindmap-node-border: var(--color-cyan);
+    --mindmap-node-border-selected: var(--interactive-accent);
+    --mindmap-tree-connection: var(--color-cyan);
+    --mindmap-cross-connection: var(--color-purple);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    background: var(--background-primary);
+}
+
+.mindmap-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid var(--background-modifier-border);
+    background: var(--background-secondary);
+}
+
+.mindmap-toolbar button {
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 6px;
+    border: 1px solid var(--background-modifier-border);
+    background: var(--interactive-normal);
+    color: var(--text-normal);
+}
+
+.mindmap-toolbar button:hover {
+    background: var(--interactive-hover);
+}
+
+.mindmap-toolbar button.is-active {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    border-color: var(--interactive-accent);
+}
+
+.mindmap-mode-status {
+    margin-left: auto;
+    color: var(--text-muted);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.mindmap-canvas {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 240px;
+    overflow: auto;
+    outline: none;
+    background:
+        linear-gradient(var(--background-modifier-border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--background-modifier-border) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-color: var(--background-primary);
+}
+
+.mindmap-svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+}
+
+.mindmap-canvas.is-panning,
+.mindmap-canvas.is-panning .mindmap-svg {
+    cursor: grabbing;
+}
+
+.mindmap-canvas.is-space-pan .mindmap-svg {
+    cursor: grab;
+}
+
+.mindmap-canvas [data-node-id] {
+    cursor: grab;
+}
+
+.mindmap-canvas [data-node-id]:active {
+    cursor: grabbing;
+}
+
+.mindmap-edge {
+    stroke: var(--mindmap-tree-connection);
+    pointer-events: none;
+    opacity: 0.78;
+}
+
+.mindmap-cross-connection {
+    stroke: var(--mindmap-cross-connection);
+    stroke-dasharray: 8 5;
+    opacity: 0.95;
+}
+
+.mindmap-node-box {
+    fill: var(--background-primary);
+    stroke: var(--mindmap-node-border);
+    stroke-width: 2;
+    filter: drop-shadow(0 2px 5px rgb(0 0 0 / 0.18));
+}
+
+.mindmap-node-box.is-selected {
+    stroke: var(--mindmap-node-border-selected);
+    stroke-width: 2.5;
+}
+
+.mindmap-node-box.is-connecting {
+    stroke: var(--text-accent);
+    stroke-width: 3;
+    stroke-dasharray: 7 4;
+}
+
+.mindmap-node-box.is-merging {
+    stroke: var(--color-orange);
+    stroke-width: 3;
+    stroke-dasharray: 4 3;
+}
+
+.mindmap-node-label {
+    fill: var(--text-normal);
+    font-family: var(--font-interface);
+    font-size: 14px;
+    font-weight: 500;
+    pointer-events: none;
+}
+
+.mindmap-inline-rename {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--interactive-accent);
+    border-radius: 6px;
+    padding: 0 8px;
+    background: var(--background-primary);
+    color: var(--text-normal);
+    font-family: var(--font-interface);
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+}
+
+.mindmap-selection-box {
+    fill: color-mix(in srgb, var(--interactive-accent) 16%, transparent);
+    stroke: var(--interactive-accent);
+    stroke-width: 1.5;
+    stroke-dasharray: 6 4;
+    pointer-events: none;
+}
+
+.mindmap-node-count {
+    fill: var(--text-muted);
+    font-family: var(--font-interface);
+    font-size: 11px;
+    pointer-events: none;
+}
+
+.mindmap-node-note-indicator {
+    pointer-events: none;
+}
+
+.mindmap-node-note-bubble {
+    fill: var(--text-accent);
+    stroke: var(--background-primary);
+    stroke-width: 2;
+}
+
+.mindmap-node-note-text {
+    fill: var(--text-on-accent);
+    font-family: var(--font-interface);
+    font-size: 10px;
+    font-weight: 700;
+    pointer-events: none;
+}
+
+.mindmap-node-action {
+    cursor: pointer;
+}
+
+.mindmap-node-action-circle {
+    fill: var(--background-secondary);
+    stroke: var(--background-modifier-border);
+    stroke-width: 1;
+}
+
+.mindmap-node-action:hover .mindmap-node-action-circle {
+    fill: var(--interactive-accent);
+    stroke: var(--interactive-accent);
+}
+
+.mindmap-node-action-danger:hover .mindmap-node-action-circle {
+    fill: var(--text-error);
+    stroke: var(--text-error);
+}
+
+.mindmap-node-action-text {
+    fill: var(--text-muted);
+    font-family: var(--font-interface);
+    font-size: 13px;
+    font-weight: 700;
+    pointer-events: none;
+}
+
+.mindmap-node-action:hover .mindmap-node-action-text {
+    fill: var(--text-on-accent);
+}
+
+.mindmap-minimap {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 180px;
+    height: 120px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--background-secondary) 92%, transparent);
+    box-shadow: 0 4px 14px rgb(0 0 0 / 0.18);
+    pointer-events: none;
+    z-index: 20;
+}
+
+.mindmap-minimap-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.mindmap-minimap-edge {
+    stroke: var(--background-modifier-border-hover);
+    stroke-width: 1;
+}
+
+.mindmap-minimap-node {
+    fill: var(--background-primary);
+    stroke: var(--text-muted);
+    stroke-width: 1;
+}
+
+.mindmap-minimap-node.is-selected {
+    fill: var(--interactive-accent);
+    stroke: var(--interactive-accent);
+}
+
+.mindmap-minimap-viewport {
+    fill: transparent;
+    stroke: var(--text-accent);
+    stroke-width: 1.5;
+}
+
+.mindmap-text-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mindmap-text-modal-input {
+    width: 100%;
+}
+
+.mindmap-text-modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.mindmap-node-note-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: auto;
+    min-width: 0;
+    box-sizing: border-box;
+    max-height: calc(90vh - 96px);
+    overflow: hidden;
+}
+
+.modal.mindmap-node-note-modal-shell {
+    width: min(640px, calc(100vw - 48px));
+    max-width: calc(100vw - 48px);
+    max-height: 90vh;
+    box-sizing: border-box;
+}
+
+.mindmap-node-note-modal textarea.mindmap-node-note-textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 180px;
+    flex: 1 1 auto;
+    box-sizing: border-box;
+    resize: vertical;
+    font-family: var(--font-text);
+}
+
+.mindmap-node-note-modal .mindmap-text-modal-buttons {
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    padding-top: 4px;
+    background: var(--background-primary);
+}
+
+.mindmap-guide-modal {
+    max-height: 70vh;
+    overflow: auto;
+}
+
+.mindmap-guide-modal h3 {
+    margin: 18px 0 8px;
+    font-size: 14px;
+    color: var(--text-normal);
+}
+
+.mindmap-guide-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.mindmap-guide-table th,
+.mindmap-guide-table td {
+    padding: 6px 8px;
+    border-top: 1px solid var(--background-modifier-border);
+    vertical-align: top;
+}
+
+.mindmap-guide-table th {
+    width: 34%;
+    color: var(--text-normal);
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.mindmap-guide-table td {
+    color: var(--text-muted);
+}

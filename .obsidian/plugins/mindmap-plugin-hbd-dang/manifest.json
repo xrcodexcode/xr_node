@@ -1,0 +1,11 @@
+{
+  "id": "mindmap-plugin-hbd-dang",
+  "name": "Mind Map Visual",
+  "version": "1.0.2",
+  "minAppVersion": "1.0.0",
+  "description": "Brainstorming-focused mind map plugin with auto-organized layouts and keyboard shortcuts.",
+  "author": "William Dang",
+  "authorUrl": "https://github.com/duybaodg",
+  "helpUrl": "https://github.com/duybaodg/obsidian-mindmap-plugin-hbd-dang",
+  "isDesktopOnly": false
+}

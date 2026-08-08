@@ -5,8 +5,16 @@
     <link>http://localhost:3000</link>
     <description>Understand systems, not trends. A newsletter for curious builders who want first-principles clarity on AI.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 06 Aug 2026 21:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 08 Aug 2026 12:00:00 GMT</lastBuildDate>
     <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>Issue 06: Graph Engineering — The Data Structure Behind Everything</title>
+      <link>http://localhost:3000/issue-6/index.html</link>
+      <guid isPermaLink="true">http://localhost:3000/issue-6/index.html</guid>
+      <pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[An interactive Graph Engineering Lab. Build graphs, run BFS/DFS/Dijkstra step-by-step, and discover how graphs power Google Maps, social networks, recommendation systems, and knowledge graphs.]]></description>
+    </item>
 
     <item>
       <title>Issue 05: Loop Engineering — What Makes AI Agents Improve Themselves?</title>
