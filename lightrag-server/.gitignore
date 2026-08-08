@@ -1,0 +1,7 @@
+data/
+logs/
+*.log
+lightrag.log
+.env.local
+__pycache__/
+*.pyc

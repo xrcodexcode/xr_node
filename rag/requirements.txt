@@ -1,10 +1,12 @@
-chromadb>=0.4.22
-langchain>=0.1.0
-langchain-community>=0.0.20
-sentence-transformers>=2.2.2
-rank-bm25>=0.2.2
-watchdog>=3.0.0
-ollama>=0.1.6
-pyyaml>=6.0
-pydantic>=2.0.0
-pypdf>=4.0.0
+# NexusDB LightRAG client (rag/ directory)
+#
+# These deps are consumed by ingest.py / query.py / watcher.py. The LightRAG
+# server itself (lightrag-server/) has its own deps installed via
+# `uv pip install "lightrag-hku[api]"` and lives in the project .venv.
+#
+# We deliberately keep this list minimal: the heavy lifting (embeddings,
+# vector storage, graph extraction, reranker) happens inside the LightRAG
+# server, not in this client.
+
+httpx>=0.27          # REST client for /documents, /query, /health
+watchdog>=3.0        # filesystem events for the watcher daemon

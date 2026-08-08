@@ -1,77 +1,60 @@
 """
-RAG Configuration Module for NexusDB
-Loads configuration settings from .antigravity/CONFIG.yaml or uses default settings.
+LightRAG client config for NexusDB.
+
+Reads connection settings from environment with sensible defaults pointing at
+the local server started by lightrag-server/.env. The vault-aware client code
+in ingest.py / query.py / watcher.py imports from here.
+
+Environment overrides (all optional):
+    LIGHTRAG_URL          default: http://127.0.0.1:9621
+    LIGHTRAG_API_KEY      default: empty (server is in guest mode)
+    LIGHTRAG_TIMEOUT_S    default: 30 (per HTTP call; extraction is async on
+                                  the server side, so this only covers the
+                                  initial POST and any sync calls)
 """
 
+from __future__ import annotations
+import os
 from pathlib import Path
-from typing import List, Dict, Any
-import yaml
 
-# Base directory for the vault (root of project)
+# LightRAG server connection
+LIGHTRAG_URL: str = os.environ.get("LIGHTRAG_URL", "http://127.0.0.1:9621").rstrip("/")
+LIGHTRAG_API_KEY: str = os.environ.get("LIGHTRAG_API_KEY", "")
+LIGHTRAG_TIMEOUT_S: float = float(os.environ.get("LIGHTRAG_TIMEOUT_S", "30"))
+
+# Vault paths
 RAG_DIR = Path(__file__).resolve().parent
 VAULT_ROOT = RAG_DIR.parent
-CONFIG_PATH = VAULT_ROOT / ".antigravity" / "CONFIG.yaml"
 
-DEFAULT_CONFIG: Dict[str, Any] = {
-    "rag": {
-        "enabled": True,
-        "chroma_db_path": str(RAG_DIR / "chroma"),
-        "index_cache_path": str(RAG_DIR / ".index_cache.json"),
-        "embedding_model": "BAAI/bge-small-en-v1.5",
-        "vector_database": "chromadb",
-        "indexed_directories": [
-            "02_NEW-KNOWLEDGE",
-            "NOTES",
-            "NODES",
-            "03_MOC",
-            "01_RAW"
-        ],
-        "supported_extensions": [".md", ".markdown", ".pdf"],
-        "chunk_size": 800,
-        "chunk_overlap": 150,
-        "hybrid_search": {
-            "enabled": True,
-            "rrf_k": 60,
-            "vector_weight": 0.6,
-            "bm25_weight": 0.4
-        },
-        "reranker": {
-            "enabled": True,
-            "model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
-            "candidate_k": 20
-        },
-        "link_expansion": {
-            "enabled": True,
-            "max_expanded_links": 3
-        },
-        "retriever": {
-            "top_k": 5,
-        },
-        "llm": {
-            "provider": "ollama",
-            "model": "gemma3",
-            "base_url": "http://localhost:11434"
-        }
-    }
-}
+# Default index scope. --scope CLI flag in ingest.py can override.
+DEFAULT_INDEXED_DIRS = [
+    "NODES",
+    "NOTES",
+    "03_MOC",
+    "02_NEW-KNOWLEDGE",
+]
+
+# File types LightRAG's native parser handles without external services.
+SUPPORTED_EXTENSIONS = (".md", ".markdown")
+
+# Vault-only files we never want to index (server-side configs, plugins, etc.)
+SKIP_PATH_PATTERNS = (
+    "/.obsidian/",
+    "/.trash/",
+    "/.git/",
+    "/lightrag-server/",
+    "/rag/__pycache__/",
+    "/01_RAW/PROCESS/_orphans/",
+)
+
+# Headers helper
+def auth_headers() -> dict[str, str]:
+    h = {"Content-Type": "application/json"}
+    if LIGHTRAG_API_KEY:
+        h["Authorization"] = f"Bearer {LIGHTRAG_API_KEY}"
+    return h
 
 
-def load_config() -> Dict[str, Any]:
-    """Load configuration from .antigravity/CONFIG.yaml if available, else return defaults."""
-    if CONFIG_PATH.exists():
-        try:
-            with open(CONFIG_PATH, "r", encoding="utf-8") as f:
-                data = yaml.safe_load(f)
-                if data and "rag" in data:
-                    merged = DEFAULT_CONFIG.copy()
-                    merged["rag"].update(data["rag"])
-                    return merged
-        except Exception as e:
-            print(f"[Warning] Failed to read {CONFIG_PATH}: {e}. Using default config.")
-    return DEFAULT_CONFIG
-
-
-def get_rag_settings() -> Dict[str, Any]:
-    """Return RAG-specific settings dictionary."""
-    config = load_config()
-    return config.get("rag", DEFAULT_CONFIG["rag"])
+def is_skipped(path: Path) -> bool:
+    s = str(path).replace("\\", "/")
+    return any(p in s for p in SKIP_PATH_PATTERNS)

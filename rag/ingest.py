@@ -1,325 +1,257 @@
 """
-Advanced RAG Ingestion & Incremental Indexing Engine for NexusDB
-Handles incremental hash tracking, WikiLink extraction, Markdown/PDF document parsing,
-chunking, embedding generation, and ChromaDB persistence.
+Vault walker → LightRAG /documents/text ingester.
+
+Walks the NexusDB vault (NODES/, NOTES/, 03_MOC/, 02_NEW-KNOWLEDGE/) and POSTs
+each markdown file to the running LightRAG server's /documents/text endpoint.
+The server does its own async chunking + LLM extraction + graph build.
+
+We do NOT call the LightRAG SDK directly — we go through its REST API per the
+framework's official guidance ("SDK is for embedded/research use only").
+
+Usage:
+    python rag/ingest.py                    # default scope (NODES)
+    python rag/ingest.py --scope all        # NODES + NOTES + 03_MOC + 02_NEW-KNOWLEDGE
+    python rag/ingest.py --scope nodes --limit 10
+    python rag/ingest.py --dry-run          # print what would be ingested
+    python rag/ingest.py --reset            # clear LightRAG workspace first
+
+Why we strip frontmatter:
+    LightRAG's native parser is markdown-aware and handles frontmatter OK, but
+    our vault frontmatter uses non-standard fields (schema_version, owner_moc,
+    aliases) that confuse downstream extraction. Stripping the YAML block and
+    sending only body content gives cleaner entities/relations.
 """
 
-import os
-import re
-import json
-import yaml
+from __future__ import annotations
+
+import argparse
 import hashlib
+import json
+import re
+import sys
+import time
 from pathlib import Path
-from typing import List, Dict, Any, Optional
-import chromadb
-from chromadb.utils import embedding_functions
 
-from rag.config import get_rag_settings, VAULT_ROOT, RAG_DIR
+# Allow `python rag/ingest.py` from the project root.
+_PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
 
-try:
-    import pypdf
-    HAS_PYPDF = True
-except ImportError:
-    HAS_PYPDF = False
+import httpx
+
+from rag.config import (
+    LIGHTRAG_TIMEOUT_S,
+    LIGHTRAG_URL,
+    RAG_DIR,
+    SUPPORTED_EXTENSIONS,
+    VAULT_ROOT,
+    auth_headers,
+    is_skipped,
+)
 
 
-def compute_file_hash(file_path: Path) -> str:
-    """Compute SHA-256 hash of file content."""
-    hasher = hashlib.sha256()
+# ---------------------------------------------------------------------------
+# Frontmatter handling
+# ---------------------------------------------------------------------------
+
+FRONTMATTER_RE = re.compile(r"^---\s*\n.*?\n---\s*\n", re.DOTALL)
+
+
+def strip_frontmatter(text: str) -> str:
+    """Remove YAML frontmatter (delimited by --- on its own lines).
+
+    Keeps the body. LightRAG's native parser sees cleaner markdown this way.
+    """
+    m = FRONTMATTER_RE.match(text)
+    return text[m.end():] if m else text
+
+
+def file_hash(path: Path) -> str:
+    h = hashlib.sha256()
     try:
-        with open(file_path, "rb") as f:
-            while chunk := f.read(8192):
-                hasher.update(chunk)
-        return hasher.hexdigest()
-    except Exception:
+        with open(path, "rb") as f:
+            for chunk in iter(lambda: f.read(8192), b""):
+                h.update(chunk)
+    except OSError:
         return ""
+    return h.hexdigest()
 
 
-def extract_wikilinks(content: str) -> List[str]:
-    """Extract Obsidian [[WikiLink]] targets from note text."""
-    matches = re.findall(r"\[\[([^\]\|]+)(?:\|[^\]]+)?\]\]", content)
-    unique_links = list(dict.fromkeys([m.strip() for m in matches if m.strip()]))
-    return unique_links
+# ---------------------------------------------------------------------------
+# Vault walker
+# ---------------------------------------------------------------------------
 
 
-def parse_pdf_document(file_path: Path) -> Dict[str, Any]:
-    """Extract text pages from PDF document."""
-    if not HAS_PYPDF:
-        print(f"[Warning] pypdf not installed. Skipping PDF: {file_path.name}")
-        return {"title": file_path.stem, "tags": ["pdf"], "body": "", "frontmatter": {}, "wikilinks": []}
+def walk_vault(scope: str) -> list[Path]:
+    """Return the list of files we plan to ingest under the chosen scope."""
+    from rag.config import DEFAULT_INDEXED_DIRS
 
-    text_pages = []
-    try:
-        reader = pypdf.PdfReader(str(file_path))
-        for idx, page in enumerate(reader.pages):
-            txt = page.extract_text() or ""
-            if txt.strip():
-                text_pages.append(f"## Page {idx + 1}\n{txt.strip()}")
-    except Exception as e:
-        print(f"[Error] Failed to read PDF {file_path}: {e}")
-
-    body = "\n\n".join(text_pages)
-    return {
-        "title": file_path.stem,
-        "tags": ["pdf", "document"],
-        "body": body,
-        "frontmatter": {"type": "pdf"},
-        "wikilinks": [],
-        "file_path": str(file_path),
-        "relative_path": str(file_path.relative_to(VAULT_ROOT)).replace("\\", "/")
-    }
-
-
-def parse_markdown_note(file_path: Path) -> Dict[str, Any]:
-    """Extract frontmatter, text body, and wikilinks from a Markdown note."""
-    content = ""
-    try:
-        with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
-            content = f.read()
-    except Exception as e:
-        print(f"[Error] Failed to read {file_path}: {e}")
-        return {"title": file_path.stem, "tags": [], "body": "", "frontmatter": {}, "wikilinks": []}
-
-    frontmatter = {}
-    body = content
-
-    fm_match = re.match(r"^---\s*\n(.*?)\n---\s*\n(.*)$", content, re.DOTALL)
-    if fm_match:
-        try:
-            raw_fm, body = fm_match.group(1), fm_match.group(2)
-            parsed = yaml.safe_load(raw_fm)
-            if isinstance(parsed, dict):
-                frontmatter = parsed
-        except Exception:
-            pass
-
-    title = frontmatter.get("title") or file_path.stem
-    tags = frontmatter.get("tags", [])
-    if isinstance(tags, str):
-        tags = [t.strip() for t in tags.split(",") if t.strip()]
-
-    wikilinks = extract_wikilinks(body)
-
-    return {
-        "title": str(title),
-        "tags": tags,
-        "body": body.strip(),
-        "frontmatter": frontmatter,
-        "wikilinks": wikilinks,
-        "file_path": str(file_path),
-        "relative_path": str(file_path.relative_to(VAULT_ROOT)).replace("\\", "/")
-    }
-
-
-def chunk_document(parsed_doc: Dict[str, Any], chunk_size: int = 800, chunk_overlap: int = 150) -> List[Dict[str, Any]]:
-    """Split note/document body into semantic chunks by headers and sliding window."""
-    body = parsed_doc["body"]
-    if not body:
-        return []
-
-    chunks = []
-    sections = re.split(r"(^|\n)(?=#+\s+)", body)
-    clean_sections = [s.strip() for s in sections if s and s.strip()]
-    if not clean_sections:
-        clean_sections = [body]
-
-    current_heading = "Overview"
-
-    for sec in clean_sections:
-        heading_match = re.match(r"^(#+)\s+(.+)$", sec, re.MULTILINE)
-        if heading_match:
-            current_heading = heading_match.group(2).strip()
-
-        if len(sec) <= chunk_size:
-            chunks.append({
-                "heading": current_heading,
-                "text": sec,
-            })
-        else:
-            start = 0
-            while start < len(sec):
-                end = min(start + chunk_size, len(sec))
-                sub_text = sec[start:end]
-                chunks.append({
-                    "heading": current_heading,
-                    "text": sub_text.strip(),
-                })
-                if end == len(sec):
-                    break
-                start += chunk_size - chunk_overlap
-
-    formatted_chunks = []
-    rel_path = parsed_doc["relative_path"]
-    total = len(chunks)
-    wikilinks_str = ",".join(parsed_doc["wikilinks"]) if parsed_doc["wikilinks"] else ""
-    tags_str = ",".join(parsed_doc["tags"]) if isinstance(parsed_doc["tags"], list) else str(parsed_doc["tags"])
-    doc_type = str(parsed_doc["frontmatter"].get("type", "note"))
-    doc_status = str(parsed_doc["frontmatter"].get("status", "active"))
-
-    for idx, c in enumerate(chunks):
-        chunk_text = f"# {parsed_doc['title']}\nSection: {c['heading']}\n\n{c['text']}"
-
-        formatted_chunks.append({
-            "id": f"{rel_path}#chunk-{idx}",
-            "text": chunk_text,
-            "metadata": {
-                "source_path": str(parsed_doc["file_path"]),
-                "relative_path": rel_path,
-                "title": parsed_doc["title"],
-                "heading": c["heading"],
-                "chunk_index": idx,
-                "total_chunks": total,
-                "tags": tags_str,
-                "wikilinks": wikilinks_str,
-                "type": doc_type,
-                "status": doc_status
-            }
-        })
-
-    return formatted_chunks
-
-
-class VaultIngester:
-    def __init__(self):
-        self.settings = get_rag_settings()
-        self.db_path = Path(self.settings.get("chroma_db_path", RAG_DIR / "chroma"))
-        self.db_path.mkdir(parents=True, exist_ok=True)
-        self.cache_path = Path(self.settings.get("index_cache_path", RAG_DIR / ".index_cache.json"))
-        self.model_name = self.settings.get("embedding_model", "BAAI/bge-small-en-v1.5")
-        
-        self.hash_cache = self._load_cache()
-        self.chroma_client = chromadb.PersistentClient(path=str(self.db_path))
-        
-        try:
-            self.embedding_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
-                model_name=self.model_name
-            )
-        except Exception as e:
-            print(f"[Info] Falling back to default Chroma embedding function: {e}")
-            self.embedding_fn = embedding_functions.DefaultEmbeddingFunction()
-
-        self.collection = self.chroma_client.get_or_create_collection(
-            name="nexusdb_notes",
-            embedding_function=self.embedding_fn
+    if scope == "all":
+        targets = DEFAULT_INDEXED_DIRS
+    elif scope == "nodes":
+        targets = ["NODES"]
+    elif scope == "notes":
+        targets = ["NOTES"]
+    elif scope == "mocs":
+        targets = ["03_MOC"]
+    elif scope == "study":
+        targets = ["02_NEW-KNOWLEDGE"]
+    else:
+        raise ValueError(
+            f"Unknown scope '{scope}'. "
+            f"Use one of: all, nodes, notes, mocs, study"
         )
 
-    def _load_cache(self) -> Dict[str, str]:
-        if self.cache_path.exists():
-            try:
-                with open(self.cache_path, "r", encoding="utf-8") as f:
-                    return json.load(f)
-            except Exception:
-                pass
-        return {}
-
-    def _save_cache(self):
-        try:
-            with open(self.cache_path, "w", encoding="utf-8") as f:
-                json.dump(self.hash_cache, f, indent=2)
-        except Exception as e:
-            print(f"[Warning] Failed to save index cache: {e}")
-
-    def ingest_file(self, file_path: Path, force: bool = False) -> int:
-        """Ingest single file with incremental hash checking."""
-        ext = file_path.suffix.lower()
-        supported = self.settings.get("supported_extensions", [".md", ".markdown", ".pdf"])
-        if ext not in supported:
-            return 0
-
-        rel_path = str(file_path.relative_to(VAULT_ROOT)).replace("\\", "/")
-        current_hash = compute_file_hash(file_path)
-
-        # Incremental check: Skip if file hash unchanged
-        if not force and self.hash_cache.get(rel_path) == current_hash and current_hash != "":
-            return 0  # Unchanged file
-
-        # Remove old chunks
-        try:
-            self.collection.delete(where={"relative_path": rel_path})
-        except Exception:
-            pass
-
-        if ext == ".pdf":
-            parsed = parse_pdf_document(file_path)
-        else:
-            parsed = parse_markdown_note(file_path)
-
-        if not parsed["body"]:
-            return 0
-
-        chunks = chunk_document(
-            parsed,
-            chunk_size=self.settings.get("chunk_size", 800),
-            chunk_overlap=self.settings.get("chunk_overlap", 150)
-        )
-
-        if not chunks:
-            return 0
-
-        ids = [c["id"] for c in chunks]
-        documents = [c["text"] for c in chunks]
-        metadatas = [c["metadata"] for c in chunks]
-
-        self.collection.add(
-            ids=ids,
-            documents=documents,
-            metadatas=metadatas
-        )
-
-        # Update cache hash
-        self.hash_cache[rel_path] = current_hash
-        self._save_cache()
-        return len(chunks)
-
-    def remove_file(self, file_path: Path):
-        """Remove file from ChromaDB & cache."""
-        rel_path = str(file_path.relative_to(VAULT_ROOT)).replace("\\", "/")
-        try:
-            self.collection.delete(where={"relative_path": rel_path})
-        except Exception:
-            pass
-        if rel_path in self.hash_cache:
-            del self.hash_cache[rel_path]
-            self._save_cache()
-        print(f"[Ingester] Removed {rel_path} from vector database and index cache.")
-
-    def ingest_vault(self, force: bool = False) -> Dict[str, int]:
-        """Scan vault directories and incrementally ingest modified files."""
-        indexed_dirs = self.settings.get("indexed_directories", [
-            "02_NEW-KNOWLEDGE", "NOTES", "NODES", "03_MOC", "01_RAW"
-        ])
-        supported = tuple(self.settings.get("supported_extensions", [".md", ".markdown", ".pdf"]))
-
-        total_scanned = 0
-        total_updated = 0
-        total_chunks = 0
-
-        for dir_name in indexed_dirs:
-            target_dir = VAULT_ROOT / dir_name
-            if not target_dir.exists():
+    files: list[Path] = []
+    for dirname in targets:
+        root = VAULT_ROOT / dirname
+        if not root.exists():
+            print(f"[warn] scope dir not found: {root}", file=sys.stderr)
+            continue
+        for p in root.rglob("*"):
+            if not p.is_file():
                 continue
+            if p.suffix.lower() not in SUPPORTED_EXTENSIONS:
+                continue
+            if is_skipped(p):
+                continue
+            files.append(p)
+    return sorted(files)
 
-            for root, _, files in os.walk(target_dir):
-                for f in files:
-                    if f.endswith(supported):
-                        full_path = Path(root) / f
-                        total_scanned += 1
-                        added = self.ingest_file(full_path, force=force)
-                        if added > 0:
-                            total_updated += 1
-                            total_chunks += added
 
-        print(f"[Incremental Ingestion Complete] Scanned {total_scanned} files, updated {total_updated} files ({total_chunks} chunks).")
-        return {"scanned": total_scanned, "updated": total_updated, "chunks": total_chunks}
+# ---------------------------------------------------------------------------
+# LightRAG REST client
+# ---------------------------------------------------------------------------
+
+
+def server_health() -> dict:
+    """Return LightRAG /health JSON or raise on connection error."""
+    r = httpx.get(f"{LIGHTRAG_URL}/health", timeout=LIGHTRAG_TIMEOUT_S)
+    r.raise_for_status()
+    return r.json()
+
+
+def clear_documents() -> dict:
+    """Wipe all documents from the LightRAG workspace (for a clean re-ingest)."""
+    r = httpx.delete(f"{LIGHTRAG_URL}/documents", headers=auth_headers(),
+                     timeout=LIGHTRAG_TIMEOUT_S)
+    r.raise_for_status()
+    return r.json()
+
+
+def upload_text(text: str, file_source: str) -> dict:
+    """POST one document. Returns the {status, track_id} envelope.
+
+    Long extraction is async; we only wait for the POST to be accepted.
+    """
+    payload = {"text": text, "file_source": file_source}
+    r = httpx.post(
+        f"{LIGHTRAG_URL}/documents/text",
+        headers=auth_headers(),
+        content=json.dumps(payload),
+        timeout=LIGHTRAG_TIMEOUT_S,
+    )
+    if r.status_code == 409:
+        # Already indexed with same source key
+        return {"status": "duplicate", "detail": r.json().get("detail")}
+    r.raise_for_status()
+    return r.json()
+
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
+    ap.add_argument("--scope", default="nodes",
+                    help="Scope to ingest: nodes | notes | mocs | study | all")
+    ap.add_argument("--limit", type=int, default=0,
+                    help="Stop after N files (0 = no limit)")
+    ap.add_argument("--dry-run", action="store_true",
+                    help="Print files that would be ingested; do not upload")
+    ap.add_argument("--reset", action="store_true",
+                    help="DELETE /documents before starting (full re-ingest)")
+    ap.add_argument("--skip-hash-check", action="store_true",
+                    help="Always upload, even if LightRAG already has the file")
+    args = ap.parse_args()
+
+    try:
+        health = server_health()
+    except Exception as e:
+        print(f"[error] Cannot reach LightRAG at {LIGHTRAG_URL}: {e}",
+              file=sys.stderr)
+        print("        Start it with:  cd lightrag-server && lightrag-server",
+              file=sys.stderr)
+        return 2
+
+    print(f"[ok] LightRAG v{health.get('core_version')} "
+          f"(pipeline_busy={health.get('pipeline_busy')})")
+
+    if args.reset and not args.dry_run:
+        ans = input("Reset will DELETE all LightRAG documents. Continue? [y/N] ")
+        if ans.strip().lower() != "y":
+            print("Aborted.")
+            return 1
+        clear_documents()
+        print("[ok] LightRAG workspace cleared.")
+
+    files = walk_vault(args.scope)
+    if args.limit:
+        files = files[: args.limit]
+
+    print(f"[plan] {len(files)} files in scope '{args.scope}'")
+    if args.dry_run:
+        for p in files[:30]:
+            print(f"  would ingest: {p.relative_to(VAULT_ROOT)}")
+        if len(files) > 30:
+            print(f"  ... and {len(files) - 30} more")
+        return 0
+
+    ingested = 0
+    duplicate = 0
+    errors = 0
+    started = time.time()
+
+    for i, path in enumerate(files, 1):
+        try:
+            content = path.read_text(encoding="utf-8", errors="ignore")
+        except OSError as e:
+            print(f"  [{i:3}] read error: {path.name}: {e}", file=sys.stderr)
+            errors += 1
+            continue
+
+        body = strip_frontmatter(content)
+        if not body.strip():
+            continue  # skip empty body (e.g. Untitled.md stubs)
+
+        rel = path.relative_to(VAULT_ROOT).as_posix()
+        try:
+            resp = upload_text(body, file_source=rel)
+        except httpx.HTTPError as e:
+            print(f"  [{i:3}] HTTP error: {rel}: {e}", file=sys.stderr)
+            errors += 1
+            continue
+
+        status = resp.get("status")
+        if status == "duplicate":
+            duplicate += 1
+            print(f"  [{i:3}] dup:        {rel}")
+        else:
+            ingested += 1
+            track = resp.get("track_id", "?")
+            print(f"  [{i:3}] queued:     {rel}  (track={track})")
+
+    elapsed = time.time() - started
+    print()
+    print(f"[done] ingested={ingested} duplicate={duplicate} errors={errors}"
+          f" in {elapsed:.1f}s")
+    print()
+    print("Extraction runs asynchronously on the server. Check progress with:")
+    print(f"  curl {LIGHTRAG_URL}/documents/pipeline_status")
+    return 0 if errors == 0 else 1
 
 
 if __name__ == "__main__":
-    import argparse
-    parser = argparse.ArgumentParser(description="NexusDB Incremental Ingester")
-    parser.add_argument("--force", action="store_true", help="Force re-indexing of all files regardless of cache")
-    args = parser.parse_args()
-
-    print("Starting NexusDB incremental vault ingestion...")
-    ingester = VaultIngester()
-    stats = ingester.ingest_vault(force=args.force)
-    print(f"Done! Scanned: {stats['scanned']}, Updated: {stats['updated']}, Total Chunks: {stats['chunks']}")
+    sys.exit(main())

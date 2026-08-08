@@ -8,3 +8,20 @@ client_secret*.json
 
 # Ignore Smart Environment folder
 .smart-env
+
+# LightRAG server runtime artefacts (data, logs, local env overrides)
+lightrag-server/data/
+lightrag-server/logs/
+lightrag-server/.env.local
+
+# Old rag/ cache (kept until LightRAG migration is confirmed working)
+rag/chroma/
+rag/.index_cache.json
+rag/__pycache__/
+rag/**/__pycache__/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
