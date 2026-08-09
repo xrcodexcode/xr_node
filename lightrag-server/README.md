@@ -42,14 +42,26 @@ lightrag-server
 
 ## Endpoints used by rag/
 
-| LightRAG endpoint | rag/ caller       | Purpose                          |
-| ----------------- | ----------------- | -------------------------------- |
-| `GET  /health`    | `query.py`        | Smoke-test before any operation  |
-| `POST /documents` | `ingest.py`       | Insert vault files (batched)     |
-| `POST /query`     | `query.py`        | Retrieve + LLM-grounded answer   |
-| `POST /clear`     | `ingest.py`       | Reset workspace before re-ingest |
+| LightRAG endpoint              | rag/ caller       | Purpose                              |
+| ------------------------------- | ----------------- | ------------------------------------ |
+| `GET    /health`                | `query.py`        | Smoke-test before any operation      |
+| `GET    /documents/pipeline_status` | `query.py`/`ingest.py` | Check async extraction progress |
+| `POST   /documents/text`        | `ingest.py`       | Insert a single text document        |
+| `POST   /documents/texts`       | `ingest.py`       | Insert N text documents in one call  |
+| `POST   /documents/paginated`   | `ingest.py`/`watcher.py` | Walk indexed docs (needed to resolve `file_path` → `doc_id` for deletion) |
+| `DELETE /documents/delete_document` | `watcher.py` | Delete documents by doc_id           |
+| `POST   /clear_cache`           | n/a               | Wipe LLM cache (NOT a workspace wipe) |
+| `POST   /query`                 | `query.py`        | Retrieve + LLM-grounded answer       |
+| `POST   /query/stream`          | (streaming clients) | Same but server-sent stream       |
 
-Full API spec: https://github.com/HKUDS/LightRAG/blob/main/docs/LightRAG-API-Server.md
+> **Note on clearing the workspace.** There is no `POST /clear` endpoint
+> in LightRAG 1.5+ (the old docs mention one, it was removed). To wipe
+> the workspace, `rag/ingest.py --reset` calls `POST /documents/paginated`
+> to collect every doc_id and then `DELETE /documents/delete_document`
+> with the full list. `POST /clear_cache` only clears the LLM response
+> cache (it does NOT remove documents or extracted entities).
+
+Full API spec: <https://github.com/HKUDS/LightRAG/blob/main/docs/LightRAG-API-Server.md>
 
 ## Config
 
@@ -94,11 +106,31 @@ lightrag-server/
 
 ## Re-ingesting
 
-To rebuild from scratch:
+To rebuild from scratch, you have two options. Both are safe to run
+mid-pipeline; the first one (server-side wipe) is the one we use.
+
+**Option A — let `rag/ingest.py --reset` handle it (recommended):**
 
 ```bash
-curl -X POST http://127.0.0.1:9621/clear -H 'Content-Type: application/json' -d '{}'
-rm -rf data/*
 python ../rag/ingest.py --scope nodes --limit 50   # smoke-test batch
+python ../rag/ingest.py --reset                     # wipe all docs
+python ../rag/ingest.py --scope nodes              # full re-ingest
+```
+
+`--reset` internally calls `POST /documents/paginated` to collect every
+`doc_id`, then `DELETE /documents/delete_document` with the full list
+and `delete_llm_cache=True`. It does NOT touch the on-disk JSON store
+in `data/`, so the working dir keeps its KV/Vector/Graph structure.
+
+**Option B — full data-dir wipe (hard reset, kills everything):**
+
+```bash
+# Stop the server first
+rm -rf data/*
+python ../rag/ingest.py --scope nodes --limit 5    # smoke-test
 python ../rag/ingest.py --scope nodes              # full NODES/
 ```
+
+Use option B only when you want to start truly fresh (different model,
+different chunk size, corrupted state). It loses ALL the cached LLM
+extractions, embeddings, and the graph.
