@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "cef21d7c79390858",
+        "id": "d9a12b74ba7a7d42",
         "type": "tabs",
         "children": [
           {
-            "id": "825ca8be653c922c",
+            "id": "b617b3014ca8039e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AREAS/newsletter/issue#6.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "issue#6"
+              "title": "New tab"
             }
           }
         ]
@@ -235,32 +231,37 @@
       "smart-connections:Toggle Footer Connections": false
     }
   },
-  "active": "825ca8be653c922c",
+  "active": "b617b3014ca8039e",
   "lastOpenFiles": [
-    "AREAS/newsletter/issue#5.md",
+    "ALWAYS-WITHIN-ME/EXAMPLES.md",
+    "ALWAYS-WITHIN-ME/QUOTES/18-07-2026.md",
+    "ALWAYS-WITHIN-ME/QUOTES/20-07-2026.md",
+    "NOTES/What is RAG Retrieval Augmented Generation.md",
+    "NODES/python-programming-language.md",
+    "NOTES/python-for-ai-beginner-course.md",
+    "NOTES/finally-agent-loops-clearly-explained.md",
+    "NOTES/48-laws-of-power.md",
+    "02_NEW-KNOWLEDGE/why-you-are-feeling-stuck-in-your-20s.md",
+    "02_NEW-KNOWLEDGE/python-pandas-essentials.md",
+    "02_NEW-KNOWLEDGE/13-hobbies-that-replace-scrolling-and-improve-your-life.md",
     "AREAS/newsletter/issue#6.md",
+    "AREAS/newsletter/issue#5.md",
+    "AREAS/newsletter/issue#4.md",
+    "01_RAW/CAPTURE/Drawing 2026-08-09 13.06.51.excalidraw.md",
+    "01_RAW/CAPTURE/Best AI model for Your Projects in 2026.md",
+    "01_RAW/CAPTURE/AI Agent Harness Explained In 18 Minutes.md",
     "01_RAW/CAPTURE/2026   12+ Hours Complete JS Tutorial for Beginners.md",
+    "01_RAW/CAPTURE/Best Entry-Level AI Jobs for Freshers Ranked Easy to Hard.md",
     "lightrag-server/README.md",
     "AREAS/newsletter/site/assets/issue.md",
     "01_RAW/CAPTURE/Untitled.base",
-    "01_RAW/CAPTURE/Drawing 2026-08-09 13.06.51.excalidraw.md",
     "01_RAW/GITHUB/The AIML Engineer Interview Guide for 2026 - Part 1 2.md",
     "01_RAW/CAPTURE/MCP Complete Explanation.md",
     "01_RAW/GITHUB/The AIML Engineer Interview Guide for 2026 - Part 1 1.md",
-    "ALWAYS-WITHIN-ME/EXAMPLES.md",
-    "ALWAYS-WITHIN-ME/QUOTES/18-07-2026.md",
     "VAULT-STRUCTURE.md",
     "memory.md",
-    "HOME-BASE.md",
-    "GEMINI.md",
-    "CODEX.md",
-    "CLAUDE.md",
-    "AGENT.md",
-    "wiki/Welcome to Karpathy LLM Wiki.md",
-    "01_RAW/CAPTURE/Ultimate Guide to ChatGPT Codex in 35 Mins!.md",
     "lightrag-server/data/kv_store_llm_response_cache.json",
     "lightrag-server/run_server.py",
-    "01_RAW/GITHUB/The AIML Engineer Interview Guide for 2026 - Part 1.md",
     "rag/__init__.py",
     "lightrag-server/data/kv_store_doc_status.json",
     "lightrag-server/data/kv_store_full_docs.json",
@@ -268,11 +269,6 @@
     "lightrag-server/logs/lightrag.log",
     "lightrag-server/lightrag.log",
     "lightrag-server/logs",
-    "01_RAW/CAPTURE/You only need 6 months to change your life.md",
-    "AREAS/newsletter/AGENTS.md",
-    "01_RAW/PROCESS/_orphans/untitled.md",
-    "01_RAW/PROCESS/_orphans/piyush-pal-instruction.md",
-    "02_NEW-KNOWLEDGE/karpathy-llm-wiki-welcome.md",
     "AREAS/newsletter/site/assets/issue#4/7.jpg",
     "AREAS/newsletter/site/assets/issue#4/6.jpg",
     "AREAS/newsletter/site/assets/issue#4/5.jpg",
