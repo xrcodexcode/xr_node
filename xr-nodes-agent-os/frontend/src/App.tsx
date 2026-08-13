@@ -2,35 +2,27 @@ import React, { useState, useEffect } from 'react'
 import {
   LayoutDashboard,
   Bot,
-  ListTodo,
-  Network,
-  Wrench,
   Sparkles,
-  Activity,
-  Settings,
-  Database,
-  Cpu,
-  Plus,
-  Clock,
-  BookOpen,
   Anchor,
+  Brain,
+  Activity,
+  Search,
+  Cpu,
   Zap,
   Play,
   CheckCircle,
-  Layers,
-  Sun,
-  Terminal
+  Clock,
+  ListTodo,
+  Database
 } from 'lucide-react'
 
-import KnowledgeGraph from './components/KnowledgeGraph'
 import KnowledgeQuery from './components/KnowledgeQuery'
 import SkillsView from './components/SkillsView'
 import ActivityFeed from './components/ActivityFeed'
 import HooksView from './components/HooksView'
 import AgentsEcosystem from './components/AgentsEcosystem'
-import LightRAGGraph from './components/LightRAGGraph'
-import Cinematic3DMemoryGalaxy from './components/Cinematic3DMemoryGalaxy'
 import AgentOutputConsole from './components/AgentOutputConsole'
+import UnifiedMemoryHub from './components/UnifiedMemoryHub'
 
 const MAIN_AGENTS = [
   {
@@ -80,11 +72,10 @@ const MAIN_AGENTS = [
 ]
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'console' | 'query' | 'galaxy' | 'lightrag' | 'graph' | 'hooks' | 'skills' | 'agents' | 'tasks' | 'tools' | 'activity' | 'settings'>('dashboard')
+  const [activeTab, setActiveTab] = useState<'home' | 'agents' | 'skills' | 'hooks' | 'memory' | 'activity' | 'query'>('home')
   const [status, setStatus] = useState<any>(null)
   const [agents, setAgents] = useState<any[]>([])
   const [tasks, setTasks] = useState<any[]>([])
-  const [tools, setTools] = useState<any[]>([])
   const [skills, setSkills] = useState<any[]>([])
   const [hooks, setHooks] = useState<any[]>([])
   const [selectedAgentId, setSelectedAgentId] = useState('antigravity')
@@ -94,18 +85,16 @@ export default function App() {
 
   const fetchData = async () => {
     try {
-      const [resStatus, resAgents, resTasks, resTools, resSkills, resHooks] = await Promise.all([
+      const [resStatus, resAgents, resTasks, resSkills, resHooks] = await Promise.all([
         fetch('/api/v1/health/status').then(r => r.json()),
         fetch('/api/v1/agents').then(r => r.json()),
         fetch('/api/v1/tasks').then(r => r.json()),
-        fetch('/api/v1/tools').then(r => r.json()),
         fetch('/api/v1/skills').then(r => r.json()),
         fetch('/api/v1/hooks').then(r => r.json())
       ])
       setStatus(resStatus || {})
       setAgents(Array.isArray(resAgents) ? resAgents : [])
       setTasks(Array.isArray(resTasks) ? resTasks : [])
-      setTools(Array.isArray(resTools) ? resTools : [])
       setSkills(Array.isArray(resSkills) ? resSkills : [])
       setHooks(Array.isArray(resHooks) ? resHooks : [])
     } catch (e) {
@@ -146,7 +135,7 @@ export default function App() {
 
   return (
     <div className="flex h-screen bg-[#09090b] text-gray-100 font-sans overflow-hidden">
-      {/* Sidebar */}
+      {/* Streamlined Clean Sidebar */}
       <aside className="w-64 bg-[#121215] border-r border-zinc-800 flex flex-col justify-between p-4">
         <div>
           {/* Logo */}
@@ -160,22 +149,16 @@ export default function App() {
             </div>
           </div>
 
-          {/* Nav Items */}
-          <nav className="space-y-1">
+          {/* Clean Streamlined 7 Navigation Items */}
+          <nav className="space-y-1.5">
             {[
-              { id: 'dashboard', label: 'Overview Dashboard', icon: LayoutDashboard },
-              { id: 'console', label: 'Live Agent Console', icon: Terminal },
-              { id: 'query', label: 'Vault Query & RAG', icon: BookOpen },
-              { id: 'galaxy', label: '3D Memory Galaxy', icon: Sun },
-              { id: 'lightrag', label: 'LightRAG Dual Graph', icon: Layers },
-              { id: 'graph', label: 'Obsidian Canvas Graph', icon: Network },
-              { id: 'hooks', label: 'Automation Hooks', icon: Anchor, count: hooks.length },
-              { id: 'skills', label: 'Skills & Workflows', icon: Sparkles, count: skills.length },
-              { id: 'agents', label: 'Agents Ecosystem', icon: Bot, count: 4 },
-              { id: 'tasks', label: 'Tasks & Planning', icon: ListTodo, count: tasks.length },
-              { id: 'tools', label: 'Tool System', icon: Wrench, count: tools.length },
-              { id: 'activity', label: 'Live Activity Stream', icon: Activity },
-              { id: 'settings', label: 'Settings & Models', icon: Settings }
+              { id: 'home', label: 'Home', icon: LayoutDashboard },
+              { id: 'agents', label: 'Agents', icon: Bot, count: 4 },
+              { id: 'skills', label: 'Skills', icon: Sparkles, count: skills.length },
+              { id: 'hooks', label: 'Hooks', icon: Anchor, count: hooks.length },
+              { id: 'memory', label: 'Memory', icon: Brain },
+              { id: 'activity', label: 'Activity', icon: Activity },
+              { id: 'query', label: 'Query', icon: Search }
             ].map(item => {
               const Icon = item.icon
               const active = activeTab === item.id
@@ -183,18 +166,18 @@ export default function App() {
                 <button
                   key={item.id}
                   onClick={() => setActiveTab(item.id as any)}
-                  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-xs font-medium transition-all ${
+                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-medium transition-all ${
                     active
-                      ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 font-semibold'
+                      ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 font-semibold shadow-md'
                       : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/50'
                   }`}
                 >
-                  <div className="flex items-center gap-2.5">
+                  <div className="flex items-center gap-3">
                     <Icon className="w-4 h-4" />
-                    <span>{item.label}</span>
+                    <span className="text-sm">{item.label}</span>
                   </div>
                   {item.count !== undefined && (
-                    <span className="text-[10px] bg-zinc-800 px-1.5 py-0.5 rounded text-zinc-400 font-mono">
+                    <span className="text-[10px] bg-zinc-800 px-2 py-0.5 rounded-full text-zinc-400 font-mono">
                       {item.count}
                     </span>
                   )}
@@ -205,7 +188,7 @@ export default function App() {
         </div>
 
         {/* System Health Card */}
-        <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-3 text-xs space-y-2">
+        <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-3.5 text-xs space-y-2">
           <div className="flex items-center justify-between">
             <span className="text-zinc-400">System Status</span>
             <span className="flex items-center gap-1.5 text-emerald-400 text-[10px] font-mono">
@@ -213,7 +196,7 @@ export default function App() {
               ONLINE
             </span>
           </div>
-          <div className="grid grid-cols-2 gap-2 text-[11px] font-mono pt-1 text-zinc-400 border-t border-zinc-800/50">
+          <div className="grid grid-cols-2 gap-2 text-[11px] font-mono pt-1.5 text-zinc-400 border-t border-zinc-800/50">
             <div>
               <p className="text-[9px] text-zinc-500">NODES</p>
               <p className="text-zinc-200">{status?.vault_nodes || 0}</p>
@@ -228,7 +211,7 @@ export default function App() {
 
       {/* Main Content Area */}
       <main className="flex-1 overflow-y-auto p-8 bg-[#09090b]">
-        {activeTab === 'dashboard' && (
+        {activeTab === 'home' && (
           <div className="space-y-8 max-w-6xl mx-auto">
             {/* Top Bar & Quick Task Dispatcher */}
             <div className="flex items-center justify-between bg-[#121215] border border-zinc-800 p-5 rounded-2xl">
@@ -277,11 +260,11 @@ export default function App() {
               </div>
             )}
 
-            {/* Direct Core Agent Roster Grid (Antigravity, Claude Code, Codex, Hermes) */}
+            {/* Core Agent Roster Grid (Antigravity, Claude Code, Codex, Hermes) */}
             <div className="space-y-3">
               <h3 className="text-xs font-bold text-zinc-400 uppercase tracking-wider flex items-center gap-2">
                 <Bot className="w-4 h-4 text-cyan-400" />
-                Core Integrated AI Agents
+                Integrated AI Agents
               </h3>
 
               <div className="grid grid-cols-4 gap-4">
@@ -315,7 +298,7 @@ export default function App() {
               </div>
             </div>
 
-            {/* Metrics Grid */}
+            {/* System Metrics Grid */}
             <div className="grid grid-cols-4 gap-4">
               {[
                 { label: 'Active Agents', value: status?.agents || 0, icon: Bot, color: 'text-cyan-400' },
@@ -338,74 +321,17 @@ export default function App() {
               })}
             </div>
 
-            {/* Integrated Live Agent Output Console */}
+            {/* Live Agent Output Console */}
             <AgentOutputConsole />
           </div>
         )}
 
-        {activeTab === 'console' && <AgentOutputConsole />}
-        {activeTab === 'query' && <KnowledgeQuery />}
-        {activeTab === 'galaxy' && <Cinematic3DMemoryGalaxy />}
-        {activeTab === 'lightrag' && <LightRAGGraph />}
-        {activeTab === 'graph' && <KnowledgeGraph />}
-        {activeTab === 'hooks' && <HooksView />}
-        {activeTab === 'skills' && <SkillsView />}
         {activeTab === 'agents' && <AgentsEcosystem apiAgents={agents} />}
+        {activeTab === 'skills' && <SkillsView />}
+        {activeTab === 'hooks' && <HooksView />}
+        {activeTab === 'memory' && <UnifiedMemoryHub />}
         {activeTab === 'activity' && <ActivityFeed />}
-
-        {activeTab === 'tasks' && (
-          <div className="space-y-6 max-w-6xl mx-auto">
-            <h2 className="text-xl font-bold text-white">Tasks & Orchestration History</h2>
-            <div className="bg-[#121215] border border-zinc-800 rounded-xl p-5">
-              <div className="space-y-3">
-                {tasks.map(t => (
-                  <div key={t.id} className="bg-zinc-900/60 border border-zinc-800 rounded-lg p-4 space-y-2 text-xs">
-                    <div className="flex items-center justify-between">
-                      <h4 className="font-semibold text-white text-sm">{t.title}</h4>
-                      <span className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded font-mono text-[10px]">{t.status}</span>
-                    </div>
-                    <p className="text-zinc-400 text-[11px]">Task ID: <span className="font-mono text-zinc-300">{t.id}</span> • Created: {t.created_at}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {activeTab === 'tools' && (
-          <div className="space-y-6 max-w-6xl mx-auto">
-            <h2 className="text-xl font-bold text-white">Registered Tools ({tools.length})</h2>
-            <div className="grid grid-cols-3 gap-4">
-              {tools.map(t => (
-                <div key={t.name} className="bg-[#121215] border border-zinc-800 rounded-xl p-4 space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-cyan-400 font-semibold text-xs">{t.name}</span>
-                    <span className={`text-[9px] px-1.5 py-0.5 rounded font-mono uppercase ${
-                      t.risk_level === 'low' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-                    }`}>{t.risk_level} risk</span>
-                  </div>
-                  <p className="text-xs text-zinc-400">{t.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {activeTab === 'settings' && (
-          <div className="space-y-6 max-w-4xl mx-auto">
-            <h2 className="text-xl font-bold text-white">System Settings & Configuration</h2>
-            <div className="bg-[#121215] border border-zinc-800 rounded-xl p-6 space-y-4 text-xs">
-              <div>
-                <label className="block text-zinc-400 mb-1 font-medium">Vault Path</label>
-                <input type="text" readOnly value={status?.vault_path || ''} className="w-full bg-zinc-900 border border-zinc-800 rounded px-3 py-2 font-mono text-zinc-300" />
-              </div>
-              <div>
-                <label className="block text-zinc-400 mb-1 font-medium">API Endpoint</label>
-                <input type="text" readOnly value="http://127.0.0.1:8000/api/v1" className="w-full bg-zinc-900 border border-zinc-800 rounded px-3 py-2 font-mono text-zinc-300" />
-              </div>
-            </div>
-          </div>
-        )}
+        {activeTab === 'query' && <KnowledgeQuery />}
       </main>
     </div>
   )
