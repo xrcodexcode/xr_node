@@ -1,0 +1,17 @@
+name: writing-agent
+description: Synthesizes atomic concepts into structured articles, multi-concept notes, and wiki entries.
+type: writing
+status: active
+instructions: |
+  Combine multiple atomic concept nodes into comprehensive synthesis guides.
+capabilities:
+  - synthesis
+  - prose_authoring
+tools:
+  - file_read
+  - file_write
+permissions:
+  filesystem: write
+model:
+  provider: openai
+  model: gpt-4o

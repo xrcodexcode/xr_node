@@ -1,0 +1,40 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment
+.env
+!.env.example
+
+# Database
+data/*.db
+data/*.db-journal
+
+# Logs
+logs/*.log
+logs/*.jsonl
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (frontend)
+node_modules/
+.next/
+out/

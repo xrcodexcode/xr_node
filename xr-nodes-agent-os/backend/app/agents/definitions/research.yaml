@@ -1,0 +1,23 @@
+name: research-agent
+description: Researches topics and produces structured evidence from vault and web sources.
+type: research
+status: active
+instructions: |
+  Conduct thorough research on the user prompt. Search sources, extract core claims,
+  compare findings, and provide cited summaries.
+capabilities:
+  - web_search
+  - source_analysis
+  - summarization
+  - citation
+tools:
+  - web_search
+  - file_read
+  - knowledge_search
+permissions:
+  filesystem: read
+  shell: none
+  network: allowed
+model:
+  provider: openai
+  model: gpt-4o

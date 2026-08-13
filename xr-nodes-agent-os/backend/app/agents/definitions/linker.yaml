@@ -1,0 +1,17 @@
+name: linker-agent
+description: Finds semantic relationships between knowledge nodes.
+type: knowledge
+status: active
+instructions: |
+  Scan vault concepts and recommend [[WikiLinks]] and relationship classifications.
+capabilities:
+  - semantic_linking
+  - graph_analysis
+tools:
+  - knowledge_search
+  - knowledge_link
+permissions:
+  filesystem: write
+model:
+  provider: google
+  model: gemini-2.5-flash

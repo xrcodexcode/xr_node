@@ -1,0 +1,19 @@
+name: coding-agent
+description: Inspects code, writes features, fixes bugs, and executes unit tests.
+type: coding
+status: active
+instructions: |
+  Analyze repositories, write clean modular code, execute test suites, and explain changes.
+capabilities:
+  - code_generation
+  - test_execution
+tools:
+  - file_read
+  - file_write
+  - shell_execute
+permissions:
+  filesystem: write
+  shell: workspace
+model:
+  provider: openai
+  model: gpt-4o

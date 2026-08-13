@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "1e9362866d5768e3",
+        "id": "3166aafb84ed05ae",
         "type": "tabs",
         "children": [
           {
-            "id": "647de1312b2f8318",
+            "id": "0b87329f990efcb8",
             "type": "leaf",
             "state": {
-              "type": "graph",
+              "type": "empty",
               "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -79,8 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "43d09af49b9b51ad",
@@ -232,8 +231,10 @@
       "smart-connections:Toggle Footer Connections": false
     }
   },
-  "active": "647de1312b2f8318",
+  "active": "0b87329f990efcb8",
   "lastOpenFiles": [
+    "NODES/scarcity-bias-investing.md",
+    "NODES/mao-zedong-formlessness.md",
     "AREAS/newsletter/site/assets/issue#1/5.jpg",
     "AREAS/newsletter/site/assets/issue#1/4.jpg",
     "AREAS/newsletter/site/assets/issue#1/3.jpg",
@@ -244,7 +245,6 @@
     "AREAS/newsletter/site/assets/issue#2/2.jpg",
     "AREAS/newsletter/site/assets/issue#2/1.jpg",
     "AREAS/newsletter/site/assets/issue#3/7.jpg",
-    "AREAS/newsletter/site/assets/issue#3/6.jpg",
     "AREAS/newsletter/issue#5.md",
     "AREAS/newsletter/issue#6.md",
     "AREAS/newsletter/issue#4.md",
@@ -269,7 +269,6 @@
     "01_RAW/CAPTURE/research/Claude Code + Graphify = Insane Agentic OS.md",
     "01_RAW/CAPTURE/2026   12+ Hours Complete JS Tutorial for Beginners.md",
     "01_RAW/CAPTURE/research/Fable 5 Agentic OS is Insane... just watch.md",
-    "Untitled.md",
     "01_RAW/CAPTURE/research",
     "01_RAW/CAPTURE/Untitled.base",
     "lightrag-server/data/kv_store_llm_response_cache.json",

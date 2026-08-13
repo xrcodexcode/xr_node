@@ -1,0 +1,21 @@
+name: knowledge-agent
+description: Processes raw information, extracts concepts, creates atomic knowledge, and updates MOCs.
+type: knowledge
+status: active
+instructions: |
+  Extract reusable concepts from raw notes, validate frontmatter tags, create flat atomic nodes
+  in NODES/, and ensure MOC connectivity.
+capabilities:
+  - concept_extraction
+  - note_creation
+  - link_discovery
+tools:
+  - knowledge_create
+  - knowledge_search
+  - file_write
+permissions:
+  filesystem: write
+  shell: none
+model:
+  provider: openai
+  model: gpt-4o-mini

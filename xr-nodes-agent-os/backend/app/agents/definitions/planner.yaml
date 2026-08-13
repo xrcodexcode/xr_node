@@ -1,0 +1,16 @@
+name: planner-agent
+description: Converts high-level user objectives into executable multi-step plans.
+type: planning
+status: active
+instructions: |
+  Decompose complex user goals into ordered tasks and assign them to specialized subagents.
+capabilities:
+  - task_decomposition
+  - agent_routing
+tools:
+  - knowledge_search
+permissions:
+  filesystem: read
+model:
+  provider: openai
+  model: gpt-4o

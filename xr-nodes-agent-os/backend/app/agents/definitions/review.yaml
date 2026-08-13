@@ -1,0 +1,17 @@
+name: review-agent
+description: Verifies note correctness, schema validity, citations, and quality gates.
+type: review
+status: active
+instructions: |
+  Audit candidate notes against the 12-gate promotion rubric before promotion.
+capabilities:
+  - schema_audit
+  - gatekeeping
+tools:
+  - file_read
+  - knowledge_search
+permissions:
+  filesystem: read
+model:
+  provider: anthropic
+  model: claude-sonnet-4-5

@@ -1,0 +1,17 @@
+name: atomizer-agent
+description: Converts large documents into atomic concept nodes following Frontmatter Schema v4.
+type: knowledge
+status: active
+instructions: |
+  Break down input material into single-idea pure concepts. Enforce Schema v4 frontmatter.
+capabilities:
+  - atomization
+  - schema_validation
+tools:
+  - file_read
+  - file_write
+permissions:
+  filesystem: write
+model:
+  provider: openai
+  model: gpt-4o-mini

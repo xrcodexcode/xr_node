@@ -1,0 +1,17 @@
+name: maintenance-agent
+description: Detects duplicate notes, broken links, orphan nodes, and vault structural problems.
+type: maintenance
+status: active
+instructions: |
+  Run vault diagnostics and generate maintenance reports for user review.
+capabilities:
+  - graph_health
+  - orphan_sweeping
+tools:
+  - file_search
+  - directory_list
+permissions:
+  filesystem: read
+model:
+  provider: openai
+  model: gpt-4o-mini

@@ -1,0 +1,68 @@
+# XR-NODES Agent OS — Default Configuration
+# Override via .env or environment variables (XR_ prefix)
+
+project:
+  name: "XR-NODES Agent OS"
+  version: "0.1.0"
+
+server:
+  host: "127.0.0.1"
+  port: 8000
+  cors_origins:
+    - "http://localhost:3000"
+    - "http://127.0.0.1:3000"
+
+vault:
+  # Paths relative to vault root
+  nodes_dir: "NODES"
+  notes_dir: "NOTES"
+  mocs_dir: "03_MOC"
+  raw_capture_dir: "01_RAW/CAPTURE"
+  raw_process_dir: "01_RAW/PROCESS"
+  raw_source_dir: "01_RAW/SOURCE"
+  new_knowledge_dir: "02_NEW-KNOWLEDGE"
+  antigravity_dir: ".antigravity"
+
+agents:
+  max_steps: 50
+  max_retries: 3
+  default_timeout_seconds: 300
+
+tools:
+  shell:
+    enabled: false
+    allowed_commands: []
+    denied_commands:
+      - rm
+      - del
+      - rmdir
+      - format
+      - shutdown
+
+models:
+  default_provider: "openai"
+  default_model: "gpt-4o-mini"
+  routing:
+    classification: "gpt-4o-mini"
+    research: "gpt-4o"
+    coding: "gpt-4o"
+    summarization: "gpt-4o-mini"
+    review: "gpt-4o"
+
+logging:
+  level: "INFO"
+  format: "text"  # text or json
+  file: "logs/xr-nodes.log"
+
+security:
+  require_approval_for:
+    - "file.delete"
+    - "file.write_outside_workspace"
+    - "shell.execute"
+    - "knowledge.delete"
+  auto_approve:
+    - "file.read"
+    - "directory.list"
+    - "knowledge.search"
+    - "git.status"
+    - "git.diff"
