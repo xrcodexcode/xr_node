@@ -35,12 +35,26 @@ class AgentRunner:
             ModelMessage(role="user", content=prompt),
         ]
 
+        from app.core.events import event_bus, Event
+
+        await event_bus.emit(Event(
+            type="agent.started",
+            source=self.agent.name,
+            payload={"agent": self.agent.name, "task_id": task_id, "prompt": prompt}
+        ))
+
         # Call ModelRouter to generate response
         try:
             response = await model_router.generate(
                 messages=messages,
                 task_type=self.agent.type,
             )
+
+            await event_bus.emit(Event(
+                type="agent.completed",
+                source=self.agent.name,
+                payload={"agent": self.agent.name, "task_id": task_id, "output": response.content, "usage": response.usage}
+            ))
 
             return AgentResult(
                 agent_name=self.agent.name,

@@ -62,9 +62,9 @@ async def create_node(req: CreateNodeRequest) -> Dict[str, Any]:
 
 
 @router.get("/graph")
-async def get_knowledge_graph() -> Dict[str, Any]:
-    """Get vault knowledge graph nodes and edges."""
-    return vault_service.get_graph()
+async def get_knowledge_graph(refresh: bool = Query(False, description="Force vault reindex")) -> Dict[str, Any]:
+    """Get vault knowledge graph nodes and edges with real-time refresh capability."""
+    return vault_service.get_graph(force_reindex=refresh)
 
 
 @router.get("/stats")

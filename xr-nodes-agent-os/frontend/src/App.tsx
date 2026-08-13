@@ -13,7 +13,13 @@ import {
   Plus,
   Clock,
   BookOpen,
-  Anchor
+  Anchor,
+  Zap,
+  Play,
+  CheckCircle,
+  Layers,
+  Sun,
+  Terminal
 } from 'lucide-react'
 
 import KnowledgeGraph from './components/KnowledgeGraph'
@@ -22,17 +28,69 @@ import SkillsView from './components/SkillsView'
 import ActivityFeed from './components/ActivityFeed'
 import HooksView from './components/HooksView'
 import AgentsEcosystem from './components/AgentsEcosystem'
+import LightRAGGraph from './components/LightRAGGraph'
+import Cinematic3DMemoryGalaxy from './components/Cinematic3DMemoryGalaxy'
+import AgentOutputConsole from './components/AgentOutputConsole'
+
+const MAIN_AGENTS = [
+  {
+    id: "antigravity",
+    name: "Antigravity",
+    vendor: "Google DeepMind",
+    engine: "Gemini 3.6 Flash / Gemini 3.1 Pro",
+    logo: "🪐",
+    color: "from-cyan-500/20 to-blue-500/10 border-cyan-500/40 text-cyan-400",
+    badge: "bg-cyan-500/10 text-cyan-400 border-cyan-500/30",
+    status: "PRIMARY ACTIVE",
+    role: "System Orchestrator & Knowledge Engine"
+  },
+  {
+    id: "claude-code",
+    name: "Claude Code",
+    vendor: "Anthropic",
+    engine: "Claude Opus 5 / Claude Sonnet 5",
+    logo: "🤖",
+    color: "from-amber-500/20 to-orange-500/10 border-amber-500/40 text-amber-400",
+    badge: "bg-amber-500/10 text-amber-400 border-amber-500/30",
+    status: "READY",
+    role: "Autonomous Lead Software Engineer"
+  },
+  {
+    id: "codex",
+    name: "Codex",
+    vendor: "OpenAI",
+    engine: "GPT-5.6 Sol / GPT-5.6 Terra",
+    logo: "🧠",
+    color: "from-emerald-500/20 to-teal-500/10 border-emerald-500/40 text-emerald-400",
+    badge: "bg-emerald-500/10 text-emerald-400 border-emerald-500/30",
+    status: "READY",
+    role: "Algorithmic Code Intelligence"
+  },
+  {
+    id: "hermes",
+    name: "Hermes Agent",
+    vendor: "Nous Research",
+    engine: "Hermes 4.3 / DeepSeek-R1",
+    logo: "🏛️",
+    color: "from-purple-500/20 to-indigo-500/10 border-purple-500/40 text-purple-400",
+    badge: "bg-purple-500/10 text-purple-400 border-purple-500/30",
+    status: "READY",
+    role: "Autonomous Function Calling & Local Reasoning"
+  }
+]
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'query' | 'graph' | 'hooks' | 'skills' | 'agents' | 'tasks' | 'tools' | 'activity' | 'settings'>('dashboard')
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'console' | 'query' | 'galaxy' | 'lightrag' | 'graph' | 'hooks' | 'skills' | 'agents' | 'tasks' | 'tools' | 'activity' | 'settings'>('dashboard')
   const [status, setStatus] = useState<any>(null)
   const [agents, setAgents] = useState<any[]>([])
   const [tasks, setTasks] = useState<any[]>([])
   const [tools, setTools] = useState<any[]>([])
   const [skills, setSkills] = useState<any[]>([])
   const [hooks, setHooks] = useState<any[]>([])
+  const [selectedAgentId, setSelectedAgentId] = useState('antigravity')
   const [newTaskTitle, setNewTaskTitle] = useState('')
   const [loading, setLoading] = useState(false)
+  const [quickMsg, setQuickMsg] = useState('')
 
   const fetchData = async () => {
     try {
@@ -44,12 +102,12 @@ export default function App() {
         fetch('/api/v1/skills').then(r => r.json()),
         fetch('/api/v1/hooks').then(r => r.json())
       ])
-      setStatus(resStatus)
-      setAgents(resAgents)
-      setTasks(resTasks)
-      setTools(resTools)
-      setSkills(resSkills)
-      setHooks(resHooks)
+      setStatus(resStatus || {})
+      setAgents(Array.isArray(resAgents) ? resAgents : [])
+      setTasks(Array.isArray(resTasks) ? resTasks : [])
+      setTools(Array.isArray(resTools) ? resTools : [])
+      setSkills(Array.isArray(resSkills) ? resSkills : [])
+      setHooks(Array.isArray(resHooks) ? resHooks : [])
     } catch (e) {
       console.error('Failed to fetch backend data:', e)
     }
@@ -65,15 +123,17 @@ export default function App() {
     e.preventDefault()
     if (!newTaskTitle.trim()) return
     setLoading(true)
+    setQuickMsg('')
     try {
       const res = await fetch('/api/v1/tasks', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title: newTaskTitle })
+        body: JSON.stringify({ title: `[${selectedAgentId.toUpperCase()}] ${newTaskTitle}` })
       }).then(r => r.json())
       
       if (res.task_id) {
         await fetch(`/api/v1/tasks/${res.task_id}/execute`, { method: 'POST' })
+        setQuickMsg(`Task assigned to ${selectedAgentId.toUpperCase()} and executing!`)
       }
       setNewTaskTitle('')
       fetchData()
@@ -103,9 +163,12 @@ export default function App() {
           {/* Nav Items */}
           <nav className="space-y-1">
             {[
-              { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
+              { id: 'dashboard', label: 'Overview Dashboard', icon: LayoutDashboard },
+              { id: 'console', label: 'Live Agent Console', icon: Terminal },
               { id: 'query', label: 'Vault Query & RAG', icon: BookOpen },
-              { id: 'graph', label: 'Knowledge Graph', icon: Network },
+              { id: 'galaxy', label: '3D Memory Galaxy', icon: Sun },
+              { id: 'lightrag', label: 'LightRAG Dual Graph', icon: Layers },
+              { id: 'graph', label: 'Obsidian Canvas Graph', icon: Network },
               { id: 'hooks', label: 'Automation Hooks', icon: Anchor, count: hooks.length },
               { id: 'skills', label: 'Skills & Workflows', icon: Sparkles, count: skills.length },
               { id: 'agents', label: 'Agents Ecosystem', icon: Bot, count: 4 },
@@ -166,32 +229,90 @@ export default function App() {
       {/* Main Content Area */}
       <main className="flex-1 overflow-y-auto p-8 bg-[#09090b]">
         {activeTab === 'dashboard' && (
-          <div className="space-y-6 max-w-6xl mx-auto">
-            {/* Header */}
-            <div className="flex items-center justify-between">
+          <div className="space-y-8 max-w-6xl mx-auto">
+            {/* Top Bar & Quick Task Dispatcher */}
+            <div className="flex items-center justify-between bg-[#121215] border border-zinc-800 p-5 rounded-2xl">
               <div>
-                <h2 className="text-xl font-bold text-white">Agent OS Overview</h2>
-                <p className="text-xs text-zinc-400">Real-time status of multi-agent operations and vault knowledge.</p>
+                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                  <Zap className="w-5 h-5 text-cyan-400" />
+                  XR-NODES Agent OS Overview
+                </h2>
+                <p className="text-xs text-zinc-400">Dispatch tasks directly to Antigravity, Claude Code, Codex, or Hermes Agent.</p>
               </div>
 
-              {/* Quick Task Bar */}
               <form onSubmit={handleCreateTask} className="flex gap-2">
+                <select
+                  value={selectedAgentId}
+                  onChange={e => setSelectedAgentId(e.target.value)}
+                  className="bg-zinc-900 border border-zinc-800 text-xs text-cyan-400 font-mono rounded-lg px-3 py-2 focus:outline-none"
+                >
+                  <option value="antigravity">🪐 Antigravity</option>
+                  <option value="claude-code">🤖 Claude Code</option>
+                  <option value="codex">🧠 Codex</option>
+                  <option value="hermes">🏛️ Hermes Agent</option>
+                </select>
+
                 <input
                   type="text"
-                  placeholder="Task prompt... e.g. Research transformers"
+                  placeholder="Dispatch prompt... e.g. Audit codebase security"
                   value={newTaskTitle}
                   onChange={e => setNewTaskTitle(e.target.value)}
-                  className="bg-zinc-900 border border-zinc-800 text-xs text-white rounded-lg px-3 py-2 w-72 focus:outline-none focus:border-cyan-500"
+                  className="bg-zinc-900 border border-zinc-800 text-xs text-white rounded-lg px-3 py-2 w-64 focus:outline-none focus:border-cyan-500"
                 />
                 <button
                   type="submit"
                   disabled={loading}
                   className="bg-cyan-500 hover:bg-cyan-400 text-black text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-1.5 transition-colors disabled:opacity-50"
                 >
-                  <Plus className="w-3.5 h-3.5" />
-                  <span>Execute Task</span>
+                  <Play className="w-3.5 h-3.5" />
+                  <span>Run Agent</span>
                 </button>
               </form>
+            </div>
+
+            {quickMsg && (
+              <div className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 p-3 rounded-xl text-xs font-mono flex items-center gap-2">
+                <CheckCircle className="w-4 h-4" />
+                {quickMsg}
+              </div>
+            )}
+
+            {/* Direct Core Agent Roster Grid (Antigravity, Claude Code, Codex, Hermes) */}
+            <div className="space-y-3">
+              <h3 className="text-xs font-bold text-zinc-400 uppercase tracking-wider flex items-center gap-2">
+                <Bot className="w-4 h-4 text-cyan-400" />
+                Core Integrated AI Agents
+              </h3>
+
+              <div className="grid grid-cols-4 gap-4">
+                {MAIN_AGENTS.map(agent => (
+                  <div
+                    key={agent.id}
+                    onClick={() => setSelectedAgentId(agent.id)}
+                    className={`bg-gradient-to-br ${agent.color} border rounded-xl p-4 space-y-3 cursor-pointer transition-all hover:scale-[1.02] ${
+                      selectedAgentId === agent.id ? 'ring-2 ring-cyan-400 shadow-lg' : ''
+                    }`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-2xl">{agent.logo}</span>
+                      <span className={`text-[9px] font-mono font-semibold px-2 py-0.5 rounded-full border ${agent.badge}`}>
+                        {agent.status}
+                      </span>
+                    </div>
+
+                    <div>
+                      <h4 className="font-bold text-white text-sm">{agent.name}</h4>
+                      <p className="text-[10px] text-zinc-400 font-mono mt-0.5">{agent.vendor}</p>
+                    </div>
+
+                    <div className="bg-black/30 p-2 rounded border border-zinc-800/60 font-mono text-[10px] text-zinc-300">
+                      {agent.engine}
+                    </div>
+
+                    <p className="text-[11px] text-zinc-400 line-clamp-2 leading-relaxed">{agent.role}</p>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Metrics Grid */}
@@ -217,61 +338,15 @@ export default function App() {
               })}
             </div>
 
-            {/* Content Split: Tasks & Agents */}
-            <div className="grid grid-cols-3 gap-6">
-              {/* Active Tasks Panel */}
-              <div className="col-span-2 bg-[#121215] border border-zinc-800 rounded-xl p-5 space-y-4">
-                <div className="flex items-center justify-between border-b border-zinc-800/80 pb-3">
-                  <h3 className="text-sm font-semibold text-white flex items-center gap-2">
-                    <ListTodo className="w-4 h-4 text-cyan-400" />
-                    Recent Tasks & Multi-Agent Execution
-                  </h3>
-                  <button onClick={() => setActiveTab('tasks')} className="text-xs text-cyan-400 hover:underline">View All</button>
-                </div>
-
-                <div className="space-y-2">
-                  {tasks.length === 0 ? (
-                    <p className="text-xs text-zinc-500 py-4 text-center">No tasks executed yet.</p>
-                  ) : (
-                    tasks.slice(0, 5).map(t => (
-                      <div key={t.id} className="bg-zinc-900/50 border border-zinc-800/60 rounded-lg p-3 flex items-center justify-between text-xs">
-                        <div className="space-y-1">
-                          <p className="font-medium text-white">{t.title}</p>
-                          <p className="text-[10px] text-zinc-500 font-mono">ID: {t.id.slice(0, 8)}... • Created {t.created_at.slice(0, 19)}</p>
-                        </div>
-                        <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-medium ${
-                          t.status === 'completed' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-                        }`}>
-                          {t.status}
-                        </span>
-                      </div>
-                    ))
-                  )}
-                </div>
-              </div>
-
-              {/* Registered Agents Panel */}
-              <div className="bg-[#121215] border border-zinc-800 rounded-xl p-5 space-y-4">
-                <div className="flex items-center justify-between border-b border-zinc-800/80 pb-3">
-                  <h3 className="text-sm font-semibold text-white flex items-center gap-2">
-                    <Bot className="w-4 h-4 text-purple-400" />
-                    Core AI Agents
-                  </h3>
-                </div>
-                <div className="space-y-2 max-h-80 overflow-y-auto">
-                  {['Antigravity (Google)', 'Claude Code (Anthropic)', 'Codex (OpenAI)', 'Hermes Agent (Nous)'].map(name => (
-                    <div key={name} className="bg-zinc-900/40 border border-zinc-800/60 rounded-lg p-2.5 text-xs flex items-center justify-between">
-                      <span className="font-semibold text-cyan-400 font-mono">{name}</span>
-                      <span className="text-[9px] bg-emerald-500/10 text-emerald-400 px-1.5 py-0.5 rounded">READY</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            {/* Integrated Live Agent Output Console */}
+            <AgentOutputConsole />
           </div>
         )}
 
+        {activeTab === 'console' && <AgentOutputConsole />}
         {activeTab === 'query' && <KnowledgeQuery />}
+        {activeTab === 'galaxy' && <Cinematic3DMemoryGalaxy />}
+        {activeTab === 'lightrag' && <LightRAGGraph />}
         {activeTab === 'graph' && <KnowledgeGraph />}
         {activeTab === 'hooks' && <HooksView />}
         {activeTab === 'skills' && <SkillsView />}

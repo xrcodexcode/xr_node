@@ -40,15 +40,14 @@ class VaultService:
             self.vault_path / "01_RAW",
         ]
 
-        md_files = list(self.vault_path.glob("*.md"))
+        md_files_set = set(self.vault_path.glob("*.md"))
         for d in target_dirs:
             if d.exists():
-                md_files.extend(d.glob("*.md"))
-                md_files.extend(d.glob("**/*.md"))
+                md_files_set.update(d.rglob("*.md"))
 
-        for file_path in md_files:
+        for file_path in md_files_set:
             rel_str = str(file_path.relative_to(self.vault_path))
-            if any(part.startswith(".") or part in ("node_modules", "dist", "data", "xr-nodes-agent-os", "build") for part in file_path.parts):
+            if any(part.startswith(".") or part in ("node_modules", "dist", "data", "xr-nodes-agent-os", "build", ".venv") for part in file_path.parts):
                 continue
 
             try:
@@ -136,8 +135,9 @@ class VaultService:
         res["backlinks"] = self.backlinks_map.get(slug.lower(), [])
         return res
 
-    def get_graph(self) -> Dict[str, Any]:
-        self.ensure_indexed()
+    def get_graph(self, force_reindex: bool = False) -> Dict[str, Any]:
+        if force_reindex or not self._is_indexed:
+            self.index_vault()
         nodes = []
         edges = []
         edge_set = set()

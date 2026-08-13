@@ -21,7 +21,7 @@ const AGENT_ROSTER: AgentEcosystemItem[] = [
     id: "antigravity",
     name: "Antigravity",
     vendor: "Google DeepMind",
-    engine: "Gemini 1.5 Pro / Flash 3.6",
+    engine: "Gemini 3.6 Flash / Gemini 3.1 Pro",
     logo: "🪐",
     color: "from-cyan-500/20 to-blue-500/10 border-cyan-500/40 text-cyan-400",
     badgeColor: "bg-cyan-500/10 text-cyan-400 border-cyan-500/30",
@@ -35,7 +35,7 @@ const AGENT_ROSTER: AgentEcosystemItem[] = [
     id: "claude-code",
     name: "Claude Code",
     vendor: "Anthropic",
-    engine: "Claude 3.5 Sonnet / Opus",
+    engine: "Claude Opus 5 / Claude Sonnet 5",
     logo: "🤖",
     color: "from-amber-500/20 to-orange-500/10 border-amber-500/40 text-amber-400",
     badgeColor: "bg-amber-500/10 text-amber-400 border-amber-500/30",
@@ -49,7 +49,7 @@ const AGENT_ROSTER: AgentEcosystemItem[] = [
     id: "codex",
     name: "Codex",
     vendor: "OpenAI",
-    engine: "GPT-4o / O3-Mini",
+    engine: "GPT-5.6 Sol / GPT-5.6 Terra",
     logo: "🧠",
     color: "from-emerald-500/20 to-teal-500/10 border-emerald-500/40 text-emerald-400",
     badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/30",
@@ -63,7 +63,7 @@ const AGENT_ROSTER: AgentEcosystemItem[] = [
     id: "hermes",
     name: "Hermes Agent",
     vendor: "Nous Research",
-    engine: "Hermes 3 / Llama 3.1 405B",
+    engine: "Hermes 4.3 (Psyche Network) / DeepSeek-R1",
     logo: "🏛️",
     color: "from-purple-500/20 to-indigo-500/10 border-purple-500/40 text-purple-400",
     badgeColor: "bg-purple-500/10 text-purple-400 border-purple-500/30",
@@ -84,9 +84,9 @@ export default function AgentsEcosystem({ apiAgents = [] }: { apiAgents?: any[] 
       <div>
         <h2 className="text-xl font-bold text-white flex items-center gap-2">
           <Bot className="w-5 h-5 text-cyan-400" />
-          Agent OS Core Ecosystem Roster
+          Agent OS Core Ecosystem Roster (2026 Models)
         </h2>
-        <p className="text-xs text-zinc-400">Autonomous AI agents powered by Google, Anthropic, OpenAI, and Nous Research integrated into XR-NODES.</p>
+        <p className="text-xs text-zinc-400">Verified official model engines powered by Google DeepMind, Anthropic, OpenAI, and Nous Research.</p>
       </div>
 
       {/* Featured 4 Core Agents Grid */}

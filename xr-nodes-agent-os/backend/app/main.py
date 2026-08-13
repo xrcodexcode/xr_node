@@ -33,6 +33,29 @@ async def lifespan(app: FastAPI):
     logger.info("Vault path: %s", settings.VAULT_PATH)
     logger.info("Database: %s", settings.DATABASE_URL)
 
+    # Register global DB event persistence listener
+    async def log_event_to_db(ev: Event):
+        try:
+            from app.database.engine import async_session_factory
+            from app.database.models import EventLog
+            from uuid import uuid4
+            import json
+
+            async with async_session_factory() as session:
+                payload_str = json.dumps(ev.payload) if isinstance(ev.payload, dict) else str(ev.payload)
+                log_entry = EventLog(
+                    id=str(uuid4()),
+                    type=ev.type,
+                    source=ev.source,
+                    payload_json=payload_str,
+                )
+                session.add(log_entry)
+                await session.commit()
+        except Exception as e:
+            logger.error("Failed to log event to DB: %s", e)
+
+    event_bus.on_all(log_event_to_db)
+
     # Initialize database
     await initialize_database()
 

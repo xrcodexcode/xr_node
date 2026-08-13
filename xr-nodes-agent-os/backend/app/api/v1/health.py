@@ -119,6 +119,8 @@ async def system_status() -> StatusResponse:
     hours, remainder = divmod(int(uptime.total_seconds()), 3600)
     minutes, seconds = divmod(remainder, 60)
 
+    uptime_str = f"{hours}h {minutes}m" if hours > 0 else f"{minutes}m"
+
     return StatusResponse(
         status="running",
         version=settings.VERSION,
@@ -128,5 +130,5 @@ async def system_status() -> StatusResponse:
         total_events=total_events,
         vault_nodes=vault_nodes,
         vault_mocs=vault_mocs,
-        uptime=f"{hours}h {minutes}m {seconds}s",
+        uptime=uptime_str,
     )
