@@ -4,7 +4,7 @@ import { Anchor, Play, RefreshCw, CheckCircle, Clock, Zap, FileCode } from 'luci
 interface HookItem {
   id: string;
   name: string;
-  event_trigger: str;
+  event_trigger: string;
   description: string;
   script: string;
   status: string;

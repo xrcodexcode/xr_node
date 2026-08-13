@@ -1,83 +1,75 @@
 """API endpoints for Vault Automation Hooks & Triggers."""
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional
+from pathlib import Path
+from typing import Any, Dict, List
 from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel
 
 from app.core.config import settings
 from app.knowledge.automations import automations_wrapper
 
 router = APIRouter(prefix="/hooks", tags=["Hooks"])
 
-# Predefined vault hooks from .antigravity/rules/automation-hooks.md
-HOOKS_REGISTRY = [
-    {
-        "id": "on_note_created",
-        "name": "Note Creation Hook",
-        "event_trigger": "knowledge.node_created",
-        "description": "Triggered when a new atomic note is created in NODES/. Validates schema v4, tags, and owner MOC.",
-        "script": "validate_tags.py",
-        "status": "active",
-        "execution_mode": "async",
-        "last_run": "2026-08-13 19:35:00",
-        "trigger_count": 42,
-    },
-    {
-        "id": "on_capture_ingested",
-        "name": "Raw Capture Ingestion Hook",
-        "event_trigger": "capture.file_added",
-        "description": "Triggered when new material arrives in 01_RAW/CAPTURE/. Runs deduplication and extraction.",
-        "script": "duplicate_detector.py",
-        "status": "active",
-        "execution_mode": "async",
-        "last_run": "2026-08-13 18:20:00",
-        "trigger_count": 18,
-    },
-    {
-        "id": "on_daily_maintenance",
-        "name": "Daily Vault Graph Audit Hook",
-        "event_trigger": "cron.daily_0000",
-        "description": "Scans for broken wikilinks, orphan nodes, tag schema violations, and stale review dates.",
-        "script": "graph_health.py",
-        "status": "active",
-        "execution_mode": "scheduled",
-        "last_run": "2026-08-13 00:00:00",
-        "trigger_count": 120,
-    },
-    {
-        "id": "on_moc_sync",
-        "name": "MOC Automatic Indexing Hook",
-        "event_trigger": "moc.rebuild_requested",
-        "description": "Regenerates structural MOC index sections when new atomic concepts are added.",
-        "script": "generate_mocs.py",
-        "status": "active",
-        "execution_mode": "event_driven",
-        "last_run": "2026-08-13 19:10:00",
-        "trigger_count": 65,
-    },
-]
+
+def _get_real_hooks() -> List[Dict[str, Any]]:
+    """Dynamically scan .antigravity/automations/*.py for all real vault hooks."""
+    automations_dir = settings.vault_antigravity / "automations"
+    hooks: List[Dict[str, Any]] = []
+
+    descriptions = {
+        "check_vault": "Scans vault structure against GEMINI.md governance rules and schema contracts.",
+        "duplicate_detector": "Runs semantic similarity check to prevent duplicate notes in NODES/.",
+        "generate_mocs": "Regenerates Map of Content index sections with live backlinks.",
+        "gmail_ingest": "Ingests email captures from 01_RAW/capture into vault knowledge pipeline.",
+        "graph_health": "Audits wikilink integrity, orphan nodes, broken links, and tag schema discipline.",
+        "knowledge_pipeline": "Processes raw captured material into Schema v4 atomic notes.",
+        "orphan_sweeper": "Identifies unlinked notes and links them to owner MOCs.",
+        "promotion_enforcer": "Validates frontmatter schema before promoting notes to 02_NEW-KNOWLEDGE/.",
+        "raw_lifecycle": "Manages capture file transitions from 01_RAW/capture to 01_RAW/source archive.",
+        "validate_tags": "Enforces controlled tag vocabulary from tag-schema.md.",
+        "authenticate": "Manages API authentication tokens for external vault connectors."
+    }
+
+    if automations_dir.exists():
+        for py_file in sorted(automations_dir.glob("*.py")):
+            script_id = py_file.stem
+            hooks.append({
+                "id": script_id,
+                "name": f"{script_id.replace('_', ' ').title()} Hook",
+                "event_trigger": f"vault.trigger.{script_id}",
+                "description": descriptions.get(script_id, f"Real automation hook script bound to {py_file.name}"),
+                "script": py_file.name,
+                "status": "active",
+                "execution_mode": "event_driven",
+                "path": f".antigravity/automations/{py_file.name}",
+            })
+
+    return hooks
+
+
+HOOKS_REGISTRY = _get_real_hooks()
 
 
 @router.get("", response_model=List[Dict[str, Any]])
 async def list_hooks() -> List[Dict[str, Any]]:
-    """List all registered vault automation hooks."""
-    return HOOKS_REGISTRY
+    """List all registered vault automation hooks from .antigravity/automations/."""
+    return _get_real_hooks()
 
 
 @router.post("/{hook_id}/trigger")
 async def trigger_hook(hook_id: str) -> Dict[str, Any]:
-    """Manually trigger an automation hook."""
-    hook = next((h for h in HOOKS_REGISTRY if h["id"] == hook_id), None)
-    if not hook:
-        raise HTTPException(status_code=404, detail=f"Hook '{hook_id}' not found.")
+    """Manually trigger a real automation hook script in .antigravity/automations/."""
+    automations_dir = settings.vault_antigravity / "automations"
+    py_file = automations_dir / f"{hook_id}.py"
 
-    # Execute bound script via automations wrapper
-    script_name = hook["script"].replace(".py", "")
-    res = await automations_wrapper.run_automation(script_name)
+    if not py_file.exists():
+        raise HTTPException(status_code=404, detail=f"Hook script '{hook_id}.py' not found in .antigravity/automations/.")
+
+    # Execute real python script via automations wrapper
+    res = await automations_wrapper.run_automation(hook_id)
     return {
         "hook_id": hook_id,
         "triggered": True,
-        "script": hook["script"],
+        "script": py_file.name,
         "result": res,
     }

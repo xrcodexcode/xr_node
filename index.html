@@ -1,0 +1,1127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Standalone overview for XR-NODES Agent OS: an AI-native operating layer for knowledge, research, coding, and automation."
+    />
+    <title>XR-NODES Agent OS — Standalone Overview</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #07070a;
+        --panel: rgba(18, 18, 22, 0.9);
+        --panel-2: rgba(24, 24, 30, 0.95);
+        --border: rgba(255, 255, 255, 0.08);
+        --text: #e9eef7;
+        --muted: #98a2b3;
+        --cyan: #49d5ff;
+        --cyan-2: #0ea5e9;
+        --green: #22c55e;
+        --amber: #f59e0b;
+        --violet: #a855f7;
+        --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+        --radius: 20px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background:
+          radial-gradient(circle at top left, rgba(73, 213, 255, 0.12), transparent 32%),
+          radial-gradient(circle at top right, rgba(168, 85, 247, 0.12), transparent 28%),
+          radial-gradient(circle at bottom center, rgba(34, 197, 94, 0.08), transparent 28%),
+          var(--bg);
+        color: var(--text);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        line-height: 1.5;
+      }
+
+      body {
+        padding: 24px;
+      }
+
+      .frame {
+        max-width: 1320px;
+        margin: 0 auto;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 20px;
+        padding: 16px 18px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+        backdrop-filter: blur(18px);
+        box-shadow: var(--shadow);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        min-width: 0;
+      }
+
+      .brand-mark {
+        width: 44px;
+        height: 44px;
+        display: grid;
+        place-items: center;
+        border-radius: 14px;
+        border: 1px solid rgba(73, 213, 255, 0.24);
+        background: rgba(73, 213, 255, 0.08);
+        color: var(--cyan);
+        font-size: 20px;
+        flex: 0 0 auto;
+      }
+
+      .brand h1 {
+        margin: 0;
+        font-size: 1rem;
+        letter-spacing: 0.08em;
+      }
+
+      .brand p {
+        margin: 2px 0 0;
+        color: var(--cyan);
+        font: 600 0.72rem/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        letter-spacing: 0.16em;
+      }
+
+      .status-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(34, 197, 94, 0.26);
+        background: rgba(34, 197, 94, 0.1);
+        color: #bbf7d0;
+        font: 600 0.78rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        white-space: nowrap;
+      }
+
+      .pulse {
+        width: 9px;
+        height: 9px;
+        border-radius: 999px;
+        background: var(--green);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+        animation: pulse 1.8s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55);
+        }
+        70% {
+          box-shadow: 0 0 0 12px rgba(34, 197, 94, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+        }
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr);
+        gap: 20px;
+      }
+
+      .sidebar,
+      .panel {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.02));
+        backdrop-filter: blur(18px);
+        box-shadow: var(--shadow);
+      }
+
+      .sidebar {
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: calc(100vh - 120px);
+      }
+
+      .nav {
+        display: grid;
+        gap: 10px;
+      }
+
+      .nav button {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 14px;
+        border: 1px solid transparent;
+        background: rgba(255, 255, 255, 0.02);
+        color: var(--muted);
+        text-align: left;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        font: 600 0.92rem/1.2 Inter, system-ui, sans-serif;
+        transition: 160ms ease;
+      }
+
+      .nav button:hover {
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text);
+      }
+
+      .nav button.active {
+        background: rgba(73, 213, 255, 0.12);
+        border-color: rgba(73, 213, 255, 0.25);
+        color: var(--cyan);
+        box-shadow: 0 10px 30px rgba(14, 165, 233, 0.1);
+      }
+
+      .nav .left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .count {
+        padding: 4px 9px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--muted);
+        font: 600 0.72rem/1 ui-monospace, monospace;
+      }
+
+      .stats-card {
+        margin-top: 18px;
+        padding: 14px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(0, 0, 0, 0.18);
+      }
+
+      .stats-label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--muted);
+        font-size: 0.78rem;
+        margin-bottom: 10px;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .stat {
+        padding-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .stat .label {
+        font-size: 0.68rem;
+        color: #64748b;
+        letter-spacing: 0.12em;
+        font-family: ui-monospace, monospace;
+      }
+
+      .stat .value {
+        margin-top: 4px;
+        font-size: 1.1rem;
+        font-weight: 700;
+      }
+
+      .footer-note {
+        margin-top: 16px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .content {
+        min-width: 0;
+      }
+
+      .panel {
+        padding: 22px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.9fr);
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .hero-copy {
+        padding: 8px 0;
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--cyan);
+        font: 700 0.75rem/1 ui-monospace, monospace;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      .hero h2 {
+        margin: 0;
+        font-size: clamp(1.9rem, 3.4vw, 3.35rem);
+        line-height: 1.04;
+        letter-spacing: -0.04em;
+      }
+
+      .hero p {
+        margin: 14px 0 0;
+        max-width: 66ch;
+        color: var(--muted);
+        font-size: 1rem;
+      }
+
+      .hero-actions {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        border-radius: 14px;
+        padding: 11px 14px;
+        text-decoration: none;
+        border: 1px solid transparent;
+        font-weight: 700;
+        font-size: 0.9rem;
+        transition: 160ms ease;
+      }
+
+      .btn.primary {
+        background: linear-gradient(135deg, var(--cyan), var(--cyan-2));
+        color: #001018;
+      }
+
+      .btn.primary:hover {
+        transform: translateY(-1px);
+        filter: brightness(1.04);
+      }
+
+      .btn.secondary {
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text);
+        border-color: rgba(255, 255, 255, 0.08);
+      }
+
+      .btn.secondary:hover {
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .diagram {
+        padding: 18px;
+        border-radius: 18px;
+        border: 1px solid rgba(73, 213, 255, 0.16);
+        background:
+          radial-gradient(circle at top right, rgba(73, 213, 255, 0.1), transparent 45%),
+          rgba(255, 255, 255, 0.02);
+      }
+
+      .diagram h3 {
+        margin: 0 0 10px;
+        font-size: 0.95rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #d9f7ff;
+      }
+
+      .flow {
+        display: grid;
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .flow-step {
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 12px;
+        align-items: center;
+        padding: 10px 12px;
+        border-radius: 14px;
+        background: rgba(0, 0, 0, 0.16);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .flow-step .badge {
+        width: 42px;
+        height: 42px;
+        border-radius: 13px;
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        color: white;
+      }
+
+      .flow-step strong {
+        display: block;
+        margin-bottom: 2px;
+        font-size: 0.95rem;
+      }
+
+      .flow-step span {
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      .metric {
+        padding: 16px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .metric .label {
+        color: var(--muted);
+        font-size: 0.76rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .metric .value {
+        margin-top: 8px;
+        font-size: 1.7rem;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+      }
+
+      .metric .note {
+        margin-top: 6px;
+        color: #cbd5e1;
+        font-size: 0.86rem;
+      }
+
+      .section {
+        margin-top: 20px;
+      }
+
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 16px;
+        margin-bottom: 14px;
+      }
+
+      .section-header h3 {
+        margin: 0;
+        font-size: 1.15rem;
+      }
+
+      .section-header p {
+        margin: 4px 0 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .card {
+        padding: 18px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .agent-card {
+        display: grid;
+        grid-template-columns: 56px minmax(0, 1fr);
+        gap: 14px;
+        align-items: start;
+      }
+
+      .avatar {
+        width: 56px;
+        height: 56px;
+        border-radius: 18px;
+        display: grid;
+        place-items: center;
+        font-size: 1.65rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .agent-card h4,
+      .card h4 {
+        margin: 0;
+        font-size: 1rem;
+      }
+
+      .meta {
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 10px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.03);
+        font: 700 0.72rem/1 ui-monospace, monospace;
+        letter-spacing: 0.08em;
+      }
+
+      .tag.cyan {
+        color: #93e8ff;
+        border-color: rgba(73, 213, 255, 0.22);
+        background: rgba(73, 213, 255, 0.08);
+      }
+
+      .tag.amber {
+        color: #ffd08a;
+        border-color: rgba(245, 158, 11, 0.22);
+        background: rgba(245, 158, 11, 0.08);
+      }
+
+      .tag.green {
+        color: #bbf7d0;
+        border-color: rgba(34, 197, 94, 0.22);
+        background: rgba(34, 197, 94, 0.08);
+      }
+
+      .tag.violet {
+        color: #e9d5ff;
+        border-color: rgba(168, 85, 247, 0.22);
+        background: rgba(168, 85, 247, 0.08);
+      }
+
+      .list {
+        margin: 0;
+        padding-left: 18px;
+        color: #d3dae7;
+      }
+
+      .list li {
+        margin: 8px 0;
+      }
+
+      .mono {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+
+      .tab-panel {
+        display: none;
+      }
+
+      .tab-panel.active {
+        display: block;
+      }
+
+      .diagram-matrix {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .matrix-item {
+        padding: 14px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .matrix-item .k {
+        color: var(--muted);
+        font-size: 0.76rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .matrix-item .v {
+        margin-top: 8px;
+        font-weight: 700;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 10px;
+      }
+
+      .time-item {
+        display: grid;
+        grid-template-columns: 68px minmax(0, 1fr);
+        gap: 14px;
+        padding: 14px 16px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .time-item .t {
+        color: var(--cyan);
+        font: 700 0.8rem/1 ui-monospace, monospace;
+        letter-spacing: 0.12em;
+      }
+
+      .time-item .d {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .query-box {
+        display: grid;
+        gap: 12px;
+      }
+
+      textarea,
+      input,
+      select {
+        font: inherit;
+      }
+
+      .query-box textarea {
+        width: 100%;
+        min-height: 104px;
+        resize: vertical;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(0, 0, 0, 0.2);
+        color: var(--text);
+        padding: 14px 15px;
+        outline: none;
+      }
+
+      .query-box textarea:focus {
+        border-color: rgba(73, 213, 255, 0.32);
+        box-shadow: 0 0 0 4px rgba(73, 213, 255, 0.08);
+      }
+
+      .query-output {
+        padding: 14px 15px;
+        border-radius: 16px;
+        border: 1px solid rgba(73, 213, 255, 0.16);
+        background: rgba(73, 213, 255, 0.06);
+        color: #d9f7ff;
+        min-height: 84px;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .highlight {
+        color: #f8fbff;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      .divider {
+        height: 1px;
+        margin: 18px 0;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+      }
+
+      .small {
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 1100px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          min-height: auto;
+        }
+
+        .hero,
+        .metrics,
+        .cards,
+        .diagram-matrix {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 760px) {
+        body {
+          padding: 14px;
+        }
+
+        .topbar,
+        .hero,
+        .section-header {
+          grid-template-columns: 1fr;
+          flex-direction: column;
+          align-items: start;
+        }
+
+        .hero,
+        .metrics,
+        .cards,
+        .diagram-matrix {
+          grid-template-columns: 1fr;
+        }
+
+        .time-item {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          gap: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">⌘</div>
+          <div>
+            <h1>XR-NODES</h1>
+            <p>AGENT OS v0.1.0</p>
+          </div>
+        </div>
+        <div class="status-pill"><span class="pulse" aria-hidden="true"></span> SYSTEM ONLINE — FOUNDATION COMPLETE</div>
+      </header>
+
+      <div class="grid">
+        <aside class="sidebar">
+          <div>
+            <div class="nav" id="nav">
+              <button class="active" data-tab="overview">
+                <span class="left"><span>◉</span><span>Overview</span></span>
+                <span class="count">HOME</span>
+              </button>
+              <button data-tab="agents">
+                <span class="left"><span>◌</span><span>Agents</span></span>
+                <span class="count">4</span>
+              </button>
+              <button data-tab="capabilities">
+                <span class="left"><span>◌</span><span>Capabilities</span></span>
+                <span class="count">7</span>
+              </button>
+              <button data-tab="architecture">
+                <span class="left"><span>◌</span><span>Architecture</span></span>
+                <span class="count">FLOW</span>
+              </button>
+              <button data-tab="timeline">
+                <span class="left"><span>◌</span><span>Delivery Phases</span></span>
+                <span class="count">6</span>
+              </button>
+              <button data-tab="query">
+                <span class="left"><span>◌</span><span>Query Lab</span></span>
+                <span class="count">DEMO</span>
+              </button>
+            </div>
+
+            <div class="stats-card">
+              <div class="stats-label">
+                <span>System Status</span>
+                <span class="mono" style="color:#86efac">ONLINE</span>
+              </div>
+              <div class="stats-grid">
+                <div class="stat">
+                  <div class="label">NODES</div>
+                  <div class="value">48</div>
+                </div>
+                <div class="stat">
+                  <div class="label">MOCS</div>
+                  <div class="value">12</div>
+                </div>
+                <div class="stat">
+                  <div class="label">AGENTS</div>
+                  <div class="value">4</div>
+                </div>
+                <div class="stat">
+                  <div class="label">HOOKS</div>
+                  <div class="value">9</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-note">
+            Standalone HTML preview for the <span class="highlight">XR-NODES Agent OS</span> project.
+            No build step, no external assets, no JavaScript framework required.
+          </div>
+        </aside>
+
+        <main class="content">
+          <section class="panel tab-panel active" id="overview">
+            <div class="hero">
+              <div class="hero-copy">
+                <p class="eyebrow">AI-native operating layer</p>
+                <h2>XR-NODES Agent OS turns knowledge work into a controlled multi-agent runtime.</h2>
+                <p>
+                  It sits on top of the NexusDB vault and routes requests through intent detection,
+                  task planning, agent selection, tool execution, knowledge retrieval, and verification.
+                  This page is a single-file snapshot of that system: it is useful for sharing, review,
+                  and offline presentation.
+                </p>
+                <div class="hero-actions">
+                  <a class="btn primary" href="#query">Open Query Lab</a>
+                  <a class="btn secondary" href="#agents">Inspect Agents</a>
+                </div>
+              </div>
+
+              <div class="diagram">
+                <h3>Request lifecycle</h3>
+                <div class="flow">
+                  <div class="flow-step">
+                    <div class="badge" style="background: rgba(73, 213, 255, 0.18);">1</div>
+                    <div><strong>User Request</strong><span>Natural language prompt enters the system.</span></div>
+                  </div>
+                  <div class="flow-step">
+                    <div class="badge" style="background: rgba(168, 85, 247, 0.18);">2</div>
+                    <div><strong>Intent + Plan</strong><span>Task boundaries and execution strategy are determined.</span></div>
+                  </div>
+                  <div class="flow-step">
+                    <div class="badge" style="background: rgba(34, 197, 94, 0.18);">3</div>
+                    <div><strong>Agent + Tooling</strong><span>Specialized agents, hooks, and tools are selected.</span></div>
+                  </div>
+                  <div class="flow-step">
+                    <div class="badge" style="background: rgba(245, 158, 11, 0.18);">4</div>
+                    <div><strong>Verify + Return</strong><span>Outputs are checked before results are surfaced.</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="metrics">
+              <div class="metric">
+                <div class="label">Runtime</div>
+                <div class="value">FastAPI</div>
+                <div class="note">Python backend serving orchestration and APIs.</div>
+              </div>
+              <div class="metric">
+                <div class="label">UI</div>
+                <div class="value">Next.js</div>
+                <div class="note">Dashboard frontend with modular views and tabs.</div>
+              </div>
+              <div class="metric">
+                <div class="label">Storage</div>
+                <div class="value">SQLite</div>
+                <div class="note">Local persistence for structured runtime state.</div>
+              </div>
+              <div class="metric">
+                <div class="label">Scope</div>
+                <div class="value">NexusDB</div>
+                <div class="note">Knowledge vault integration and retrieval layer.</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel tab-panel section" id="agents">
+            <div class="section-header">
+              <div>
+                <h3>Agent roster</h3>
+                <p>Four named agents with distinct responsibilities and model families.</p>
+              </div>
+            </div>
+            <div class="cards">
+              <div class="card agent-card">
+                <div class="avatar">🪐</div>
+                <div>
+                  <h4>Antigravity</h4>
+                  <div class="meta">Google DeepMind — Gemini 3.6 Flash / Gemini 3.1 Pro</div>
+                  <div class="tag cyan">PRIMARY ACTIVE</div>
+                  <p class="small muted">System orchestrator and knowledge engine.</p>
+                </div>
+              </div>
+              <div class="card agent-card">
+                <div class="avatar">🤖</div>
+                <div>
+                  <h4>Claude Code</h4>
+                  <div class="meta">Anthropic — Claude Opus 5 / Claude Sonnet 5</div>
+                  <div class="tag amber">READY</div>
+                  <p class="small muted">Autonomous lead software engineer.</p>
+                </div>
+              </div>
+              <div class="card agent-card">
+                <div class="avatar">🧠</div>
+                <div>
+                  <h4>Codex</h4>
+                  <div class="meta">OpenAI — GPT-5.6 Sol / GPT-5.6 Terra</div>
+                  <div class="tag green">READY</div>
+                  <p class="small muted">Algorithmic code intelligence for implementation work.</p>
+                </div>
+              </div>
+              <div class="card agent-card">
+                <div class="avatar">🏛️</div>
+                <div>
+                  <h4>Hermes Agent</h4>
+                  <div class="meta">Nous Research — Hermes 4.3 / DeepSeek-R1</div>
+                  <div class="tag violet">READY</div>
+                  <p class="small muted">Autonomous function calling and local reasoning.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel tab-panel section" id="capabilities">
+            <div class="section-header">
+              <div>
+                <h3>Core capabilities</h3>
+                <p>Operational surfaces exposed by the dashboard and backend.</p>
+              </div>
+            </div>
+            <div class="diagram-matrix">
+              <div class="matrix-item">
+                <div class="k">Intent</div>
+                <div class="v">Task planning and routing</div>
+              </div>
+              <div class="matrix-item">
+                <div class="k">Agents</div>
+                <div class="v">Specialized execution roles</div>
+              </div>
+              <div class="matrix-item">
+                <div class="k">Skills</div>
+                <div class="v">Reusable capability modules</div>
+              </div>
+              <div class="matrix-item">
+                <div class="k">Hooks</div>
+                <div class="v">Automation and event triggers</div>
+              </div>
+              <div class="matrix-item">
+                <div class="k">Memory</div>
+                <div class="v">Vault-backed knowledge layer</div>
+              </div>
+              <div class="matrix-item">
+                <div class="k">Activity</div>
+                <div class="v">Execution log and telemetry</div>
+              </div>
+              <div class="matrix-item">
+                <div class="k">Query</div>
+                <div class="v">Natural language search interface</div>
+              </div>
+              <div class="matrix-item">
+                <div class="k">Verification</div>
+                <div class="v">Result checking before return</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel tab-panel section" id="architecture">
+            <div class="section-header">
+              <div>
+                <h3>System architecture</h3>
+                <p>The end-to-end path from request to verified output.</p>
+              </div>
+            </div>
+            <div class="timeline">
+              <div class="time-item">
+                <div class="t">INPUT</div>
+                <div>
+                  <strong>Intent detection</strong>
+                  <div class="d">The request is classified and bound to a work type, agent, and confidence level.</div>
+                </div>
+              </div>
+              <div class="time-item">
+                <div class="t">PLAN</div>
+                <div>
+                  <strong>Task planning</strong>
+                  <div class="d">The system decomposes the goal into steps, tools, and verification checkpoints.</div>
+                </div>
+              </div>
+              <div class="time-item">
+                <div class="t">EXEC</div>
+                <div>
+                  <strong>Agent selection + tool execution</strong>
+                  <div class="d">Work is dispatched to the most suitable agent and associated helper tools.</div>
+                </div>
+              </div>
+              <div class="time-item">
+                <div class="t">LOOKUP</div>
+                <div>
+                  <strong>Knowledge retrieval</strong>
+                  <div class="d">Relevant vault nodes, references, and prior context are surfaced for grounding.</div>
+                </div>
+              </div>
+              <div class="time-item">
+                <div class="t">CHECK</div>
+                <div>
+                  <strong>Verification</strong>
+                  <div class="d">Results are checked before they are returned or promoted to the next step.</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel tab-panel section" id="timeline">
+            <div class="section-header">
+              <div>
+                <h3>Delivery phases</h3>
+                <p>Project shape as described in the source README.</p>
+              </div>
+            </div>
+            <div class="timeline">
+              <div class="time-item">
+                <div class="t">PHASE 1</div>
+                <div>
+                  <strong>Foundation</strong>
+                  <div class="d">Backend, database, configuration, logging, CLI, health checks, and initial tests.</div>
+                </div>
+              </div>
+              <div class="time-item">
+                <div class="t">PHASE 2</div>
+                <div>
+                  <strong>Agents</strong>
+                  <div class="d">Runtime for specialized agents and orchestration behavior.</div>
+                </div>
+              </div>
+              <div class="time-item">
+                <div class="t">PHASE 3</div>
+                <div>
+                  <strong>Tools</strong>
+                  <div class="d">Tool system for controlled actions and integrations.</div>
+                </div>
+              </div>
+              <div class="time-item">
+                <div class="t">PHASE 4</div>
+                <div>
+                  <strong>Knowledge</strong>
+                  <div class="d">Vault-aware retrieval and knowledge handling.</div>
+                </div>
+              </div>
+              <div class="time-item">
+                <div class="t">PHASE 5</div>
+                <div>
+                  <strong>Orchestration</strong>
+                  <div class="d">Multi-agent coordination and workflow management.</div>
+                </div>
+              </div>
+              <div class="time-item">
+                <div class="t">PHASE 6</div>
+                <div>
+                  <strong>Frontend</strong>
+                  <div class="d">Dashboard experience for visibility, task dispatch, and operational control.</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel tab-panel section" id="query">
+            <div class="section-header">
+              <div>
+                <h3>Query lab</h3>
+                <p>A small interactive area for testing prompts against the system model.</p>
+              </div>
+            </div>
+            <div class="query-box">
+              <label class="small muted" for="prompt">Prompt</label>
+              <textarea id="prompt">Audit the codebase for missing tests and summarize the runtime surface.</textarea>
+              <div class="hero-actions">
+                <button class="btn primary" id="runPrompt" type="button">Simulate Routing</button>
+                <button class="btn secondary" id="clearPrompt" type="button">Reset</button>
+              </div>
+              <div class="query-output" id="output">
+                <strong>Routing result:</strong> This request would likely go to <span class="highlight">Claude Code</span> or
+                <span class="highlight">Codex</span> for implementation analysis, with <span class="highlight">Antigravity</span>
+                coordinating the final plan and verification.
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script>
+      const nav = document.getElementById('nav');
+      const panels = [...document.querySelectorAll('.tab-panel')];
+      const prompt = document.getElementById('prompt');
+      const output = document.getElementById('output');
+      const runBtn = document.getElementById('runPrompt');
+      const clearBtn = document.getElementById('clearPrompt');
+
+      function showTab(id) {
+        panels.forEach((panel) => panel.classList.toggle('active', panel.id === id));
+        nav.querySelectorAll('button').forEach((button) => {
+          button.classList.toggle('active', button.dataset.tab === id);
+        });
+      }
+
+      nav.addEventListener('click', (event) => {
+        const button = event.target.closest('button[data-tab]');
+        if (!button) return;
+        showTab(button.dataset.tab);
+        document.getElementById(button.dataset.tab).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener('click', (event) => {
+          const target = document.querySelector(link.getAttribute('href'));
+          if (!target) return;
+          event.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          showTab(target.id);
+        });
+      });
+
+      runBtn.addEventListener('click', () => {
+        const text = prompt.value.trim().toLowerCase();
+        let routedTo = 'Antigravity';
+        let reason = 'system orchestration and knowledge coordination';
+
+        if (/(code|implement|bug|refactor|test|build)/.test(text)) {
+          routedTo = 'Codex';
+          reason = 'code intelligence and implementation support';
+        } else if (/(design|ui|frontend|dashboard|layout)/.test(text)) {
+          routedTo = 'Claude Code';
+          reason = 'frontend and product engineering';
+        } else if (/(reason|local|offline|function call|automation)/.test(text)) {
+          routedTo = 'Hermes Agent';
+          reason = 'local reasoning and function-calling tasks';
+        }
+
+        output.innerHTML =
+          '<strong>Routing result:</strong> This request would likely go to <span class="highlight">' +
+          routedTo +
+          '</span> for ' +
+          reason +
+          ', with <span class="highlight">Antigravity</span> handling orchestration and verification.';
+      });
+
+      clearBtn.addEventListener('click', () => {
+        prompt.value = '';
+        output.innerHTML =
+          '<strong>Routing result:</strong> Prompt cleared. Enter a task to simulate how XR-NODES would assign work.';
+      });
+    </script>
+  </body>
+</html>

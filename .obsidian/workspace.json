@@ -225,10 +225,7 @@
       "obsidian-excalidraw-plugin:New drawing": false,
       "neural-composer:Open Neural Composer": false,
       "karpathywiki:Ingest current file": false,
-      "karpathywiki:Query wiki": false,
-      "smart-connections:Smart Connections: Open random connection": false,
-      "smart-connections:Smart Connections: Open connections view": false,
-      "smart-connections:Toggle Footer Connections": false
+      "karpathywiki:Query wiki": false
     }
   },
   "active": "0b87329f990efcb8",
