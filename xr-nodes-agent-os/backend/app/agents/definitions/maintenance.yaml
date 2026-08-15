@@ -8,8 +8,8 @@ capabilities:
   - graph_health
   - orphan_sweeping
 tools:
-  - file_search
-  - directory_list
+  - file.search
+  - directory.list
 permissions:
   filesystem: read
 model:

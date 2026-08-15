@@ -27,7 +27,7 @@ def parse_frontmatter(text: str) -> Tuple[Dict[str, Any], str]:
 
 def extract_wikilinks(text: str) -> List[Dict[str, str]]:
     """Extract [[WikiLink|Alias]] targets from content."""
-    matches = re.findall(r"\[\[([^\]\|#\n]+)(?:\|([^\]]+))?\]\]", text)
+    matches = re.findall(r"\[\[([^\]\|#\n]+?)(?:#[^\]\|\n]+)?(?:\|([^\]\n]+))?\]\]", text)
     links = []
     seen = set()
     for target, alias in matches:

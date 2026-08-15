@@ -26,6 +26,8 @@ class MemoryManager:
         mem_id = str(uuid4())
         now = datetime.now(timezone.utc)
 
+        import json
+
         async with async_session_factory() as session:
             mem = Memory(
                 id=mem_id,
@@ -33,7 +35,7 @@ class MemoryManager:
                 agent_id=agent_id,
                 task_id=task_id,
                 content=content,
-                metadata_json=str(metadata or {}),
+                metadata_json=json.dumps(metadata or {}, default=str),
                 created_at=now,
             )
             session.add(mem)

@@ -171,5 +171,114 @@ class VaultService:
             "last_indexed": datetime.now().isoformat(),
         }
 
+    def get_file_tree(self) -> List[Dict[str, Any]]:
+        """Return hierarchical tree of vault folders and markdown notes."""
+        self.ensure_indexed()
+        folders: Dict[str, List[Dict[str, Any]]] = {
+            "NODES": [],
+            "03_MOC": [],
+            "02_NEW-KNOWLEDGE": [],
+            "NOTES": [],
+            "01_RAW": [],
+            "root": []
+        }
+        for slug, note in sorted(self.notes_cache.items(), key=lambda x: x[1]["title"].lower()):
+            folder_key = note["folder"]
+            if folder_key not in folders:
+                folders[folder_key] = []
+            folders[folder_key].append({
+                "slug": slug,
+                "title": note["title"],
+                "relative_path": note["relative_path"],
+                "type": note["type"],
+                "status": note["status"],
+                "tags": note["tags"],
+                "word_count": note["word_count"],
+                "backlinks_count": len(self.backlinks_map.get(slug, [])),
+                "links_count": len(note["links"]),
+            })
+        
+        tree = []
+        order = ["03_MOC", "NODES", "02_NEW-KNOWLEDGE", "NOTES", "01_RAW", "root"]
+        for f_name in order:
+            if f_name in folders and folders[f_name]:
+                tree.append({
+                    "name": f_name,
+                    "count": len(folders[f_name]),
+                    "files": folders[f_name]
+                })
+        for f_name, files in folders.items():
+            if f_name not in order and files:
+                tree.append({
+                    "name": f_name,
+                    "count": len(files),
+                    "files": files
+                })
+        return tree
+
+    def save_note(self, slug: str, raw_text: str) -> Dict[str, Any]:
+        """Save updated raw markdown to disk and refresh note cache."""
+        self.ensure_indexed()
+        note = self.notes_cache.get(slug.lower())
+        if not note:
+            target_path = self.vault_path / "NODES" / f"{slug}.md"
+            if not target_path.parent.exists():
+                target_path = self.vault_path / f"{slug}.md"
+        else:
+            target_path = Path(note["absolute_path"])
+
+        target_path.parent.mkdir(parents=True, exist_ok=True)
+        target_path.write_text(raw_text, encoding="utf-8")
+        
+        self.index_vault()
+        return self.get_note(slug) or {"status": "saved", "path": str(target_path)}
+
+    def get_local_graph(self, slug: str) -> Dict[str, Any]:
+        """Return 1-hop local graph neighborhood for a specific note."""
+        self.ensure_indexed()
+        slug_lower = slug.lower()
+        active_note = self.notes_cache.get(slug_lower)
+        if not active_note:
+            return {"nodes": [], "edges": []}
+
+        node_ids = {slug_lower}
+        edges = []
+
+        # Outgoing links
+        for link in active_note["links"]:
+            t_slug = link["target_slug"]
+            node_ids.add(t_slug)
+            edges.append({"source": slug_lower, "target": t_slug, "label": link.get("alias")})
+
+        # Incoming backlinks
+        for b in self.backlinks_map.get(slug_lower, []):
+            s_slug = b["source_slug"]
+            node_ids.add(s_slug)
+            edges.append({"source": s_slug, "target": slug_lower, "label": b.get("alias")})
+
+        nodes = []
+        for nid in node_ids:
+            n_data = self.notes_cache.get(nid)
+            if n_data:
+                nodes.append({
+                    "id": nid,
+                    "title": n_data["title"],
+                    "folder": n_data["folder"],
+                    "type": n_data["type"],
+                    "val": 1 + len(n_data["links"]) + len(self.backlinks_map.get(nid, [])),
+                    "isActive": nid == slug_lower
+                })
+            else:
+                nodes.append({
+                    "id": nid,
+                    "title": nid,
+                    "folder": "uncreated",
+                    "type": "unresolved",
+                    "val": 1,
+                    "isActive": False
+                })
+
+        return {"nodes": nodes, "edges": edges, "center": slug_lower}
+
 
 vault_service = VaultService()

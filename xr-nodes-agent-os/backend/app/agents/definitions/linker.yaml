@@ -8,8 +8,8 @@ capabilities:
   - semantic_linking
   - graph_analysis
 tools:
-  - knowledge_search
-  - knowledge_link
+  - knowledge.search
+  - knowledge.link
 permissions:
   filesystem: write
 model:

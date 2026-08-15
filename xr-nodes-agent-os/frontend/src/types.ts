@@ -3,8 +3,8 @@ export interface SystemHealth {
   version: string;
   environment: string;
   timestamp: string;
-  vault_connected: bool;
-  database_connected: bool;
+  vault_connected: boolean;
+  database_connected: boolean;
   vault_path: string;
 }
 

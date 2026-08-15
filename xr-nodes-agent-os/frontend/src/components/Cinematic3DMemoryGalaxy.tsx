@@ -262,8 +262,8 @@ export default function Cinematic3DMemoryGalaxy() {
 
       // Draw Depth-Sorted 3D Planets & Satellites
       currentPlanets.forEach(p => {
-        const isHovered = hoveredNode?.id === p.id
-        const isSelected = selectedNode?.id === p.id
+        const isHovered = hoveredPlanet?.id === p.id
+        const isSelected = selectedPlanet?.id === p.id
         const screenR = p.radius3D * p.scale * (isHovered || isSelected ? 1.4 : 1)
 
         // 3D Orbital Vector line to sun if selected/hovered
@@ -310,7 +310,7 @@ export default function Cinematic3DMemoryGalaxy() {
       running = false
       if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current)
     }
-  }, [hoveredNode, selectedNode, isOrbiting, cinematicCam])
+  }, [hoveredPlanet, selectedPlanet, isOrbiting, cinematicCam])
 
   // 3D Mouse Drag Orbiting
   const handleMouseDown = (e: React.MouseEvent<HTMLCanvasElement>) => {
@@ -328,7 +328,7 @@ export default function Cinematic3DMemoryGalaxy() {
     })
 
     if (clickedPlanet) {
-      setSelectedNode(clickedPlanet)
+      setSelectedPlanet(clickedPlanet)
     } else {
       isDraggingRef.current = true
       dragStartRef.current = { x: e.clientX, y: e.clientY }
@@ -413,10 +413,10 @@ export default function Cinematic3DMemoryGalaxy() {
         </div>
       </div>
 
-      {/* 3D Canvas Visualizer & Property Inspector */}
-      <div className="grid grid-cols-4 gap-6">
-        {/* 3D Deep Space Canvas */}
-        <div className="col-span-3 bg-[#020204] border border-zinc-800 rounded-2xl relative overflow-hidden flex flex-col justify-between shadow-2xl">
+      {/* 3D Viewport & Planet Inspector */}
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        {/* 3D WebGL/Canvas Viewport */}
+        <div className="col-span-1 lg:col-span-3 bg-[#030305] border border-zinc-800 rounded-2xl relative overflow-hidden flex flex-col justify-between shadow-2xl">
           <canvas
             ref={canvasRef}
             width={850}
@@ -428,38 +428,38 @@ export default function Cinematic3DMemoryGalaxy() {
             className="w-full h-[550px] cursor-grab active:cursor-grabbing"
           />
 
-          <div className="absolute bottom-4 left-4 bg-zinc-900/80 backdrop-blur-md border border-zinc-800 p-2 rounded-lg text-zinc-400 text-[10px] font-mono">
-            <span>3D Camera: Drag Mouse to Rotate • Scroll to Zoom Depth</span>
+          <div className="absolute bottom-4 left-4 bg-zinc-900/80 backdrop-blur-md border border-zinc-800 p-2 rounded-lg text-zinc-400 text-[10px] font-mono hidden sm:block">
+            <span>3D Camera: Drag to Rotate • Scroll to Zoom</span>
           </div>
 
-          <div className="absolute bottom-4 right-4 bg-zinc-900/80 backdrop-blur-md border border-zinc-800 px-3 py-1.5 rounded-lg flex items-center gap-4 text-[10px] font-mono text-zinc-400">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-amber-400" /> NexusDB Sun</span>
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-purple-400" /> MOC Suns</span>
-            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-cyan-400" /> Atomic Planets</span>
-            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-emerald-400" /> Outer Comets</span>
+          <div className="absolute bottom-4 right-4 bg-zinc-900/80 backdrop-blur-md border border-zinc-800 px-3 py-1.5 rounded-lg flex items-center gap-3 sm:gap-4 text-[10px] font-mono text-zinc-400">
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-amber-400" /> Core</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-purple-400" /> MOCs</span>
+            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-cyan-400" /> NODES</span>
+            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-emerald-400" /> Comets</span>
           </div>
         </div>
 
         {/* 3D Planet Property Inspector */}
-        <div className="bg-[#121215] border border-zinc-800 rounded-2xl p-5 space-y-4">
+        <div className="col-span-1 lg:col-span-1 bg-[#121215] border border-zinc-800 rounded-2xl p-5 space-y-4">
           <h3 className="text-xs font-bold text-zinc-400 uppercase tracking-wider flex items-center gap-1.5">
             <Globe className="w-4 h-4 text-cyan-400" />
             3D Planetary Memory Inspector
           </h3>
 
-          {selectedNode ? (
+          {selectedPlanet ? (
             <div className="space-y-4 text-xs">
               <div>
                 <span className="text-[10px] font-mono bg-purple-500/10 text-purple-400 border border-purple-500/20 px-2 py-0.5 rounded">
-                  {selectedNode.folder} • 3D RADIUS {Math.round(selectedNode.orbitRadius)} AU
+                  {selectedPlanet.folder} • 3D RADIUS {Math.round(selectedPlanet.orbitRadius)} AU
                 </span>
-                <h4 className="font-bold text-white text-base mt-1.5">{selectedNode.title}</h4>
+                <h4 className="font-bold text-white text-base mt-1.5">{selectedPlanet.title}</h4>
               </div>
 
               <div className="bg-zinc-900 p-3 rounded-lg border border-zinc-800 space-y-1.5 font-mono text-[11px]">
-                <p><span className="text-zinc-500">3D Position:</span> <span className="text-cyan-400">[{Math.round(selectedNode.x3D)}, {Math.round(selectedNode.y3D)}, {Math.round(selectedNode.z3D)}]</span></p>
-                <p><span className="text-zinc-500">Perspective Scale:</span> <span className="text-purple-400">{(selectedNode.scale).toFixed(2)}x</span></p>
-                <p><span className="text-zinc-500">Wikilink Degree:</span> <span className="text-emerald-400">{selectedNode.val} Connections</span></p>
+                <p><span className="text-zinc-500">3D Position:</span> <span className="text-cyan-400">[{Math.round(selectedPlanet.x3D)}, {Math.round(selectedPlanet.y3D)}, {Math.round(selectedPlanet.z3D)}]</span></p>
+                <p><span className="text-zinc-500">Perspective Scale:</span> <span className="text-purple-400">{(selectedPlanet.scale).toFixed(2)}x</span></p>
+                <p><span className="text-zinc-500">Wikilink Degree:</span> <span className="text-emerald-400">{selectedPlanet.val} Connections</span></p>
               </div>
             </div>
           ) : (

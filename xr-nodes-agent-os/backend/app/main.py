@@ -42,7 +42,7 @@ async def lifespan(app: FastAPI):
             import json
 
             async with async_session_factory() as session:
-                payload_str = json.dumps(ev.payload) if isinstance(ev.payload, dict) else str(ev.payload)
+                payload_str = json.dumps(ev.payload, default=str) if isinstance(ev.payload, dict) else str(ev.payload)
                 log_entry = EventLog(
                     id=str(uuid4()),
                     type=ev.type,
@@ -58,6 +58,11 @@ async def lifespan(app: FastAPI):
 
     # Initialize database
     await initialize_database()
+
+    # Load default tool registry (idempotent)
+    from app.tools.registry import ensure_default_tools_loaded
+    ensure_default_tools_loaded()
+    logger.info("Tools registered: %d", len(__import__("app.tools.registry", fromlist=["tool_registry"]).tool_registry.list_names()))
 
     # Emit startup event
     await event_bus.emit(Event(

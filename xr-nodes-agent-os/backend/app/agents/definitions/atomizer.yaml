@@ -8,8 +8,8 @@ capabilities:
   - atomization
   - schema_validation
 tools:
-  - file_read
-  - file_write
+  - file.read
+  - file.write
 permissions:
   filesystem: write
 model:

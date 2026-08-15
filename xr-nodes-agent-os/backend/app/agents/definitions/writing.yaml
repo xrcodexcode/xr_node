@@ -8,8 +8,8 @@ capabilities:
   - synthesis
   - prose_authoring
 tools:
-  - file_read
-  - file_write
+  - file.read
+  - file.write
 permissions:
   filesystem: write
 model:

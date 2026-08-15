@@ -426,9 +426,9 @@ export default function LightRAGGraph() {
       </div>
 
       {/* Main Graph & Dual LightRAG Inspector */}
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         {/* Canvas Visualizer */}
-        <div className="col-span-3 bg-[#0a0a0f] border border-zinc-800 rounded-2xl relative overflow-hidden flex flex-col justify-between shadow-2xl">
+        <div className="col-span-1 lg:col-span-3 bg-[#0a0a0f] border border-zinc-800 rounded-2xl relative overflow-hidden flex flex-col justify-between shadow-2xl">
           <canvas
             ref={canvasRef}
             width={850}
@@ -441,13 +441,13 @@ export default function LightRAGGraph() {
           />
 
           <div className="absolute bottom-4 right-4 bg-zinc-900/80 backdrop-blur-md border border-zinc-800 px-3 py-1.5 rounded-lg flex items-center gap-4 text-[10px] font-mono text-zinc-400">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full border-2 border-purple-400 bg-purple-400/40" /> High-Level Themes (MOCs)</span>
-            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-cyan-400" /> Low-Level Atomic Entities</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full border-2 border-purple-400 bg-purple-400/40" /> High-Level (MOCs)</span>
+            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-cyan-400" /> Low-Level Atomic</span>
           </div>
         </div>
 
         {/* LightRAG Dual Retrieval Snippet Panel */}
-        <div className="bg-[#121215] border border-zinc-800 rounded-2xl p-5 space-y-4 flex flex-col justify-between">
+        <div className="col-span-1 lg:col-span-1 bg-[#121215] border border-zinc-800 rounded-2xl p-5 space-y-4 flex flex-col justify-between">
           <div className="space-y-3">
             <h3 className="text-xs font-bold text-zinc-400 uppercase tracking-wider flex items-center gap-1.5">
               <BookOpen className="w-4 h-4 text-purple-400" />

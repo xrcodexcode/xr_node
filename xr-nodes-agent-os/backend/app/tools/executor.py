@@ -8,12 +8,14 @@ from typing import Any, Dict, Optional
 from app.core.logging import get_logger
 from app.tools.base import BaseTool, ToolResult
 from app.tools.permissions import permission_manager
-from app.tools.registry import tool_registry
+from app.tools.registry import ensure_default_tools_loaded, tool_registry
 
 logger = get_logger(__name__)
 
 
 class ToolExecutor:
+    def __init__(self) -> None:
+        ensure_default_tools_loaded()
     """Executor engine for running tools."""
 
     async def execute_tool(

@@ -11,9 +11,9 @@ capabilities:
   - summarization
   - citation
 tools:
-  - web_search
-  - file_read
-  - knowledge_search
+  - web.search
+  - file.read
+  - knowledge.search
 permissions:
   filesystem: read
   shell: none

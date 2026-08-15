@@ -33,4 +33,37 @@ class WebFetchTool(BaseTool):
             return ToolResult(tool_name=self.name, success=False, output=None, error=str(e))
 
 
+class WebSearchTool(BaseTool):
+    def __init__(self):
+        super().__init__(
+            name="web.search",
+            description="Search the web for information or queries.",
+            risk_level=RiskLevel.LOW,
+            parameters={
+                "type": "object",
+                "properties": {
+                    "query": {"type": "string", "description": "Search query string"}
+                },
+                "required": ["query"]
+            }
+        )
+
+    async def execute(self, query: str, **kwargs: Any) -> ToolResult:
+        # Mock/safe web search provider
+        results = [
+            {
+                "title": f"Information regarding {query}",
+                "snippet": f"Summary and analysis regarding {query}.",
+                "url": f"https://en.wikipedia.org/wiki/{query.replace(' ', '_')}"
+            }
+        ]
+        return ToolResult(
+            tool_name=self.name,
+            success=True,
+            output=results,
+            metadata={"query": query, "count": len(results)}
+        )
+
+
 tool_registry.register(WebFetchTool())
+tool_registry.register(WebSearchTool())

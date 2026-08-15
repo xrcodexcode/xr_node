@@ -11,10 +11,14 @@
             "id": "0b87329f990efcb8",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "02_NEW-KNOWLEDGE/2026-will-be-the-year-of-multi-agent-ais.md",
+                "mode": "preview",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "2026-will-be-the-year-of-multi-agent-ais"
             }
           }
         ]
@@ -174,39 +178,9 @@
               "icon": "lucide-info",
               "title": "File properties"
             }
-          },
-          {
-            "id": "d2972adb31d79c5b",
-            "type": "leaf",
-            "state": {
-              "type": "smart-env-status-view",
-              "state": {},
-              "icon": "gauge",
-              "title": "Smart Environment Status"
-            }
-          },
-          {
-            "id": "e4d772375ce6ba32",
-            "type": "leaf",
-            "state": {
-              "type": "smart-connections-view",
-              "state": {},
-              "icon": "smart-connections",
-              "title": "Connections"
-            }
-          },
-          {
-            "id": "4706dc96278706d5",
-            "type": "leaf",
-            "state": {
-              "type": "neuralcmp-chat-view",
-              "state": {},
-              "icon": "brain-circuit",
-              "title": "Neural Composer chat"
-            }
           }
         ],
-        "currentTab": 8
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -222,14 +196,28 @@
       "graph:Open graph view": false,
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
-      "obsidian-excalidraw-plugin:New drawing": false,
-      "neural-composer:Open Neural Composer": false,
-      "karpathywiki:Ingest current file": false,
-      "karpathywiki:Query wiki": false
+      "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "0b87329f990efcb8",
+  "active": "1a698b583bbbe23f",
   "lastOpenFiles": [
+    "xr-nodes-agent-os/data/xr-nodes-test.db-journal",
+    "xr-nodes-agent-os/frontend/dist/index.html",
+    "xr-nodes-agent-os/frontend/dist/assets/index-KAGJQjxo.js",
+    "xr-nodes-agent-os/frontend/dist/assets/index-D9CAVgj0.css",
+    "xr-nodes-agent-os/frontend/dist/assets",
+    "xr-nodes-agent-os/backend/app/api/v1/__pycache__/knowledge.cpython-311.pyc.2428171318032",
+    "xr-nodes-agent-os/frontend/vite.config.ts.timestamp-1786726866377-083b191049bdd8.mjs",
+    "xr-nodes-agent-os/frontend/dist/assets/index-BmsDhHK-.css",
+    "xr-nodes-agent-os/frontend/dist/assets/index-BJb3eDs2.js",
+    "xr-nodes-agent-os/frontend/dist",
+    "xr-nodes-agent-os/frontend/tsconfig.json",
+    "02_NEW-KNOWLEDGE/detailed-study-notes-the-decision-making-framework-i-wish-i-knew-at-18.md",
+    "02_NEW-KNOWLEDGE/designing-building-pr-review-multi-agent-system-3-hours-build.md",
+    "02_NEW-KNOWLEDGE/2026-will-be-the-year-of-multi-agent-ais.md",
+    "NODES/two-way-vs-one-way-doors.md",
+    "01_RAW/SOURCE/why-you-are-feeling-stuck-in-your-20s.md",
+    "AREAS/README.md",
     "NODES/scarcity-bias-investing.md",
     "NODES/mao-zedong-formlessness.md",
     "AREAS/newsletter/site/assets/issue#1/5.jpg",
@@ -255,26 +243,9 @@
     "01_RAW/PROCESS/detailed-study-notes-build-sell-claude-code-operating-systems-part-03.md",
     "01_RAW/PROCESS/_orphans/piyush-pal-instruction.md",
     "01_RAW/CAPTURE/Build & Sell Claude Code Operating Systems (2+ Hour Course).md",
-    "01_RAW/CAPTURE/research/Claude Code + Karpathy's Obsidian = New Meta.md",
-    "01_RAW/CAPTURE/research/Build & Sell Claude Code Operating Systems (2+ Hour Course).md",
-    "01_RAW/CAPTURE/research/Claude Code just changed Memory Forever (Tutorial).md",
-    "01_RAW/CAPTURE/research/This Memory System just 10x'd Claude Code.md",
-    "01_RAW/CAPTURE/research/I replaced Hermes... Claude Agent 2.0.md",
-    "01_RAW/CAPTURE/research/Claude Code Agentic OS… It self improves.md",
-    "01_RAW/CAPTURE/research/Hermes Agent has a NEW SuperPower (NotebookLM).md",
-    "01_RAW/CAPTURE/research/Hermes Agentic OS is Insane... just watch.md",
-    "01_RAW/CAPTURE/research/Claude Code + Graphify = Insane Agentic OS.md",
-    "01_RAW/CAPTURE/2026   12+ Hours Complete JS Tutorial for Beginners.md",
-    "01_RAW/CAPTURE/research/Fable 5 Agentic OS is Insane... just watch.md",
-    "01_RAW/CAPTURE/research",
-    "01_RAW/CAPTURE/Untitled.base",
-    "lightrag-server/data/kv_store_llm_response_cache.json",
-    "lightrag-server/run_server.py",
-    "rag/__init__.py",
-    "lightrag-server/data/kv_store_doc_status.json",
-    "lightrag-server/data/kv_store_full_docs.json",
-    "lightrag-server/inputs",
-    "lightrag-server/logs/lightrag.log",
-    "lightrag-server/lightrag.log"
+    "01_RAW/CAPTURE/research-yt/Claude Code + Karpathy's Obsidian = New Meta.md",
+    "01_RAW/CAPTURE/research-yt/Build & Sell Claude Code Operating Systems (2+ Hour Course).md",
+    "01_RAW/CAPTURE/research-yt/Claude Code just changed Memory Forever (Tutorial).md",
+    "01_RAW/CAPTURE/research-yt/This Memory System just 10x'd Claude Code.md"
   ]
 }

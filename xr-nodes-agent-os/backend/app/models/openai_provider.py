@@ -46,12 +46,20 @@ class OpenAIProvider(ModelProvider):
             )
 
         headers = {"Authorization": f"Bearer {self.api_key}"}
+        serialized_messages: List[Dict[str, Any]] = []
+        for m in messages:
+            msg_dict: Dict[str, Any] = {"role": m.role, "content": m.content or ""}
+            if m.name:
+                msg_dict["name"] = m.name
+            if m.tool_call_id:
+                msg_dict["tool_call_id"] = m.tool_call_id
+            if m.tool_calls:
+                msg_dict["tool_calls"] = m.tool_calls
+            serialized_messages.append(msg_dict)
+
         payload: Dict[str, Any] = {
             "model": target_model,
-            "messages": [
-                {"role": m.role, "content": m.content, **({"name": m.name} if m.name else {})}
-                for m in messages
-            ],
+            "messages": serialized_messages,
             "temperature": temperature,
         }
         if max_tokens:
@@ -98,9 +106,20 @@ class OpenAIProvider(ModelProvider):
             return
 
         headers = {"Authorization": f"Bearer {self.api_key}"}
+        serialized_messages: List[Dict[str, Any]] = []
+        for m in messages:
+            msg_dict: Dict[str, Any] = {"role": m.role, "content": m.content or ""}
+            if m.name:
+                msg_dict["name"] = m.name
+            if m.tool_call_id:
+                msg_dict["tool_call_id"] = m.tool_call_id
+            if m.tool_calls:
+                msg_dict["tool_calls"] = m.tool_calls
+            serialized_messages.append(msg_dict)
+
         payload: Dict[str, Any] = {
             "model": target_model,
-            "messages": [{"role": m.role, "content": m.content} for m in messages],
+            "messages": serialized_messages,
             "temperature": temperature,
             "stream": True,
         }

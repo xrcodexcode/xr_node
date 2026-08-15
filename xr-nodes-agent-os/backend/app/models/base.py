@@ -33,6 +33,18 @@ class ModelProvider(ABC):
         self.provider_name = provider_name
         self.default_model = default_model
 
+    def is_available(self) -> bool:
+        """Return True if the provider has credentials configured.
+
+        Providers with a non-empty ``api_key`` are available.
+        Ollama has no key (local server) and is available if ``base_url`` is an http(s) URL.
+        """
+        if self.provider_name == "ollama":
+            base_url = getattr(self, "base_url", None)
+            return bool(base_url and base_url.startswith(("http://", "https://")))
+        api_key = getattr(self, "api_key", None)
+        return bool(api_key)
+
     @abstractmethod
     async def generate(
         self,

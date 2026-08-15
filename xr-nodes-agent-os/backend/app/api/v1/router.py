@@ -1,7 +1,18 @@
 """API v1 router — combines all sub-routers."""
 from fastapi import APIRouter
 
-from app.api.v1 import health, agents, tools, knowledge, tasks, skills, events, hooks
+from app.api.v1 import (
+    agents,
+    approvals,
+    creator,
+    events,
+    health,
+    hooks,
+    knowledge,
+    skills,
+    tasks,
+    tools,
+)
 
 api_router = APIRouter()
 
@@ -13,5 +24,7 @@ api_router.include_router(tasks.router)
 api_router.include_router(skills.router)
 api_router.include_router(events.router)
 api_router.include_router(hooks.router)
+api_router.include_router(approvals.router)
+api_router.include_router(creator.router)
 
 

@@ -104,7 +104,47 @@ class DirectoryListTool(BaseTool):
             return ToolResult(tool_name=self.name, success=False, output=None, error=str(e))
 
 
+class FileSearchTool(BaseTool):
+    def __init__(self):
+        super().__init__(
+            name="file.search",
+            description="Search for files matching a pattern or keyword in filename/path.",
+            risk_level=RiskLevel.LOW,
+            parameters={
+                "type": "object",
+                "properties": {
+                    "pattern": {"type": "string", "description": "Search pattern or keyword (e.g. *.md, test)"},
+                    "path": {"type": "string", "description": "Search root directory (defaults to vault root)"}
+                }
+            }
+        )
+
+    async def execute(self, pattern: str = "*.md", path: str = ".", **kwargs: Any) -> ToolResult:
+        dir_path = Path(path)
+        if not dir_path.is_absolute():
+            dir_path = settings.VAULT_PATH / path
+
+        if not dir_path.exists() or not dir_path.is_dir():
+            return ToolResult(tool_name=self.name, success=False, output=None, error=f"Directory not found: {dir_path}")
+
+        try:
+            results = []
+            pat_lower = pattern.lower()
+            for p in dir_path.rglob("*"):
+                if any(part.startswith(".") or part in ("node_modules", "dist", ".venv", "__pycache__") for part in p.parts):
+                    continue
+                if p.is_file():
+                    if pat_lower in p.name.lower() or ("*" in pattern and p.match(pattern)):
+                        results.append(str(p.relative_to(settings.VAULT_PATH) if p.is_relative_to(settings.VAULT_PATH) else p))
+                        if len(results) >= 50:
+                            break
+            return ToolResult(tool_name=self.name, success=True, output=results, metadata={"count": len(results)})
+        except Exception as e:
+            return ToolResult(tool_name=self.name, success=False, output=None, error=str(e))
+
+
 # Register filesystem tools
 tool_registry.register(FileReadTool())
 tool_registry.register(FileWriteTool())
+tool_registry.register(FileSearchTool())
 tool_registry.register(DirectoryListTool())

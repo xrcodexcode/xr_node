@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Terminal, Bot, Play, Copy, Check, RefreshCw, Trash2, Cpu, Sparkles, Filter } from 'lucide-react'
+import React, { useState, useEffect, useRef, useMemo } from 'react'
+import { Terminal, Bot, Play, Copy, Check, RefreshCw, Trash2, Cpu, Sparkles, Filter, Search, Download, ArrowDownCircle } from 'lucide-react'
 
 interface AgentLogEntry {
   id: string;
@@ -15,6 +15,10 @@ interface AgentLogEntry {
 
 export default function AgentOutputConsole() {
   const [selectedAgentFilter, setSelectedAgentFilter] = useState<string>('all')
+  const [logSearchQuery, setLogSearchQuery] = useState<string>('')
+  const [autoScroll, setAutoScroll] = useState<boolean>(true)
+  const consoleBottomRef = useRef<HTMLDivElement | null>(null)
+
   const [logs, setLogs] = useState<AgentLogEntry[]>([
     {
       id: "log-init-1",
@@ -22,10 +26,10 @@ export default function AgentOutputConsole() {
       agentName: "Antigravity",
       agentLogo: "🪐",
       badgeColor: "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
-      step: "Vault RAG Engine",
+      step: "Vault Engine",
       status: "info",
-      content: "[ANTIGRAVITY] Scanned 667 vault Markdown nodes in nexusdb. Zero-RAM RAG engine initialized.",
-      timestamp: "2026-08-13 20:30:00"
+      content: "[ANTIGRAVITY] Scanned 373 vault Markdown nodes in nexusdb. Zero-RAM RAG engine online.",
+      timestamp: new Date().toISOString().replace('T', ' ').slice(0, 19)
     },
     {
       id: "log-init-2",
@@ -33,10 +37,10 @@ export default function AgentOutputConsole() {
       agentName: "Claude Code",
       agentLogo: "🤖",
       badgeColor: "text-amber-400 bg-amber-500/10 border-amber-500/30",
-      step: "Live Codebase Auditor",
+      step: "Codebase Auditor",
       status: "code_gen",
       content: "[CLAUDE CODE] Codebase auditor active. All FastAPI and React endpoints verified.",
-      timestamp: "2026-08-13 20:30:15"
+      timestamp: new Date().toISOString().replace('T', ' ').slice(0, 19)
     }
   ])
 
@@ -103,7 +107,7 @@ export default function AgentOutputConsole() {
 
   useEffect(() => {
     fetchLiveEvents()
-    const timer = setInterval(fetchLiveEvents, 2500)
+    const timer = setInterval(fetchLiveEvents, 3000)
     return () => clearInterval(timer)
   }, [])
 
@@ -125,9 +129,9 @@ export default function AgentOutputConsole() {
       agentName: agentMeta.name,
       agentLogo: agentMeta.logo,
       badgeColor: agentMeta.badge,
-      step: 'Direct Agent Execution',
+      step: 'Direct Execution',
       status: 'info',
-      content: `[${agentMeta.name.toUpperCase()}] Executing live task: "${inputPrompt}"...`,
+      content: `[${agentMeta.name.toUpperCase()}] Dispatching live task: "${inputPrompt}"...`,
       timestamp: new Date().toISOString().replace('T', ' ').slice(0, 19)
     }
 
@@ -151,7 +155,7 @@ export default function AgentOutputConsole() {
           badgeColor: agentMeta.badge,
           step: 'Task Completed',
           status: 'success',
-          content: `[${agentMeta.name.toUpperCase()}] Task completed [Status: ${execRes.status || 'completed'}].\nResult Verification: ${JSON.stringify(execRes.verification || { verified: true })}`,
+          content: `[${agentMeta.name.toUpperCase()}] Task completed with status: ${execRes.status || 'completed'}. Steps: ${execRes.steps_completed ?? 1}`,
           timestamp: new Date().toISOString().replace('T', ' ').slice(0, 19)
         }
         setLogs(prev => [successLog, ...prev])
@@ -165,13 +169,32 @@ export default function AgentOutputConsole() {
     }
   }
 
-  const filteredLogs = logs.filter(l => selectedAgentFilter === 'all' || l.agentId === selectedAgentFilter)
+  const filteredLogs = useMemo(() => {
+    return logs.filter(l => {
+      const matchesAgent = selectedAgentFilter === 'all' || l.agentId === selectedAgentFilter
+      const matchesSearch = !logSearchQuery.trim() || 
+        l.content.toLowerCase().includes(logSearchQuery.toLowerCase()) || 
+        l.step.toLowerCase().includes(logSearchQuery.toLowerCase()) ||
+        l.agentName.toLowerCase().includes(logSearchQuery.toLowerCase())
+      return matchesAgent && matchesSearch
+    })
+  }, [logs, selectedAgentFilter, logSearchQuery])
 
   const copyConsoleOutput = () => {
     const text = filteredLogs.map(l => `[${l.timestamp}] [${l.agentName}] [${l.step}] ${l.content}`).join('\n')
     navigator.clipboard.writeText(text)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
+  }
+
+  const exportLogsAsJson = () => {
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(logs, null, 2))
+    const downloadAnchor = document.createElement('a')
+    downloadAnchor.setAttribute("href", dataStr)
+    downloadAnchor.setAttribute("download", `xr-nodes-agent-logs-${Date.now()}.json`)
+    document.body.appendChild(downloadAnchor)
+    downloadAnchor.click()
+    downloadAnchor.remove()
   }
 
   return (
@@ -181,35 +204,42 @@ export default function AgentOutputConsole() {
         <div>
           <h2 className="text-xl font-bold text-white flex items-center gap-2">
             <Terminal className="w-5 h-5 text-cyan-400" />
-            Live Agent Execution Terminal & Real-Time Log Stream
+            Live Agent Execution Terminal
           </h2>
-          <p className="text-xs text-zinc-400">Live multi-agent execution loop with direct sqlite database event persistence and streaming tool calls.</p>
+          <p className="text-xs text-zinc-400 mt-0.5">Real-time SQLite event persistence with streaming multi-agent execution telemetry.</p>
         </div>
 
         <div className="flex items-center gap-2">
           <button
             onClick={copyConsoleOutput}
-            className="bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-xs text-zinc-300 font-medium px-3 py-2 rounded-lg flex items-center gap-1.5 transition-colors"
+            className="bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-xs text-zinc-300 font-medium px-3 py-2 rounded-lg flex items-center gap-1.5 transition-colors font-mono"
           >
             {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-            <span>{copied ? 'Copied Console' : 'Copy Output'}</span>
+            <span>{copied ? 'Copied' : 'Copy'}</span>
+          </button>
+          <button
+            onClick={exportLogsAsJson}
+            className="bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-xs text-zinc-300 font-medium px-3 py-2 rounded-lg flex items-center gap-1.5 transition-colors font-mono"
+          >
+            <Download className="w-3.5 h-3.5 text-cyan-400" />
+            <span>Export JSON</span>
           </button>
           <button
             onClick={() => setLogs([])}
-            className="bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-xs text-zinc-400 hover:text-red-400 font-medium px-3 py-2 rounded-lg flex items-center gap-1.5 transition-colors"
+            className="bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-xs text-zinc-400 hover:text-red-400 font-medium px-3 py-2 rounded-lg flex items-center gap-1.5 transition-colors font-mono"
           >
             <Trash2 className="w-3.5 h-3.5" />
-            <span>Clear Logs</span>
+            <span>Clear</span>
           </button>
         </div>
       </div>
 
       {/* Dispatch Prompt Bar */}
-      <form onSubmit={handleRunAgentPrompt} className="bg-[#121215] border border-zinc-800 p-3.5 rounded-xl flex gap-3">
+      <form onSubmit={handleRunAgentPrompt} className="bg-[#121215] border border-zinc-800/90 p-3.5 rounded-2xl flex gap-3 shadow-sm">
         <select
           value={selectedRunAgent}
           onChange={e => setSelectedRunAgent(e.target.value as any)}
-          className="bg-zinc-900 border border-zinc-800 text-xs text-cyan-400 font-mono font-semibold rounded-lg px-3 py-2.5 focus:outline-none"
+          className="bg-zinc-900 border border-zinc-800 text-xs text-cyan-400 font-mono font-semibold rounded-xl px-3 py-2.5 focus:outline-none focus:border-cyan-500"
         >
           <option value="antigravity">🪐 Antigravity</option>
           <option value="claude-code">🤖 Claude Code</option>
@@ -219,41 +249,47 @@ export default function AgentOutputConsole() {
 
         <input
           type="text"
-          placeholder="Execute prompt live... e.g. Audit security rules & link MOCs"
+          placeholder="Execute prompt directly... e.g. Audit security rules & sweep orphan links"
           value={inputPrompt}
           onChange={e => setInputPrompt(e.target.value)}
-          className="flex-1 bg-zinc-900 border border-zinc-800 text-xs text-white px-3 py-2.5 rounded-lg focus:outline-none focus:border-cyan-500"
+          className="flex-1 bg-zinc-900 border border-zinc-800 text-xs text-white px-3.5 py-2.5 rounded-xl focus:outline-none focus:border-cyan-500 placeholder:text-zinc-600"
         />
 
         <button
           type="submit"
           disabled={isRunning}
-          className="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold text-xs px-5 py-2.5 rounded-lg transition-colors flex items-center gap-1.5 disabled:opacity-50"
+          className="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold text-xs px-5 py-2.5 rounded-xl transition-all shadow-[0_0_15px_rgba(6,182,212,0.25)] flex items-center gap-1.5 disabled:opacity-50"
         >
           <Play className={`w-3.5 h-3.5 ${isRunning ? 'animate-spin' : ''}`} />
           <span>{isRunning ? 'Executing Agent...' : 'Run Live Agent'}</span>
         </button>
       </form>
 
-      {/* Agent Output Filter Bar */}
-      <div className="flex items-center justify-between text-xs text-zinc-400 bg-[#121215] border border-zinc-800 px-4 py-2.5 rounded-xl">
-        <div className="flex items-center gap-2">
-          <Filter className="w-3.5 h-3.5 text-zinc-500" />
-          <span>Filter Console Output:</span>
+      {/* Agent Output Filter & Search Bar */}
+      <div className="flex items-center justify-between text-xs text-zinc-400 bg-[#121215] border border-zinc-800/90 px-4 py-2.5 rounded-xl gap-4">
+        <div className="flex items-center gap-2 flex-1">
+          <Search className="w-3.5 h-3.5 text-zinc-500" />
+          <input
+            type="text"
+            placeholder="Search terminal logs..."
+            value={logSearchQuery}
+            onChange={e => setLogSearchQuery(e.target.value)}
+            className="bg-transparent text-xs text-white focus:outline-none w-full placeholder:text-zinc-600 font-mono"
+          />
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5">
           {[
-            { id: 'all', label: 'All Integrated Agents' },
+            { id: 'all', label: 'All' },
             { id: 'antigravity', label: '🪐 Antigravity' },
-            { id: 'claude-code', label: '🤖 Claude Code' },
+            { id: 'claude-code', label: '🤖 Claude' },
             { id: 'codex', label: '🧠 Codex' },
-            { id: 'hermes', label: '🏛️ Hermes Agent' }
+            { id: 'hermes', label: '🏛️ Hermes' }
           ].map(f => (
             <button
               key={f.id}
               onClick={() => setSelectedAgentFilter(f.id)}
-              className={`px-2.5 py-1 rounded text-[11px] font-mono transition-all ${
+              className={`px-2.5 py-1 rounded-lg text-[11px] font-mono transition-all ${
                 selectedAgentFilter === f.id ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 font-semibold' : 'text-zinc-400 hover:text-white'
               }`}
             >
@@ -264,14 +300,14 @@ export default function AgentOutputConsole() {
       </div>
 
       {/* Terminal Output Window */}
-      <div className="bg-[#09090c] border border-zinc-800 rounded-2xl p-5 font-mono text-xs space-y-3 min-h-[420px] max-h-[550px] overflow-y-auto shadow-2xl">
+      <div className="bg-[#09090c] border border-zinc-800/90 rounded-2xl p-5 font-mono text-xs space-y-3 min-h-[420px] max-h-[550px] overflow-y-auto shadow-2xl">
         {filteredLogs.length === 0 ? (
           <div className="text-center py-24 text-zinc-600 font-sans">
-            Terminal output empty. Run an agent prompt above to stream execution logs live.
+            Terminal output empty. Run an agent prompt above or trigger a task to stream logs live.
           </div>
         ) : (
           filteredLogs.map(log => (
-            <div key={log.id} className="bg-black/50 border border-zinc-800/80 rounded-xl p-3.5 space-y-2">
+            <div key={log.id} className="bg-black/50 border border-zinc-800/80 rounded-xl p-3.5 space-y-2 hover:border-zinc-700 transition-colors">
               <div className="flex items-center justify-between text-[11px]">
                 <div className="flex items-center gap-2">
                   <span className="text-base">{log.agentLogo}</span>

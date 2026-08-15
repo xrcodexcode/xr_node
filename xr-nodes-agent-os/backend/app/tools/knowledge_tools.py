@@ -80,5 +80,49 @@ class KnowledgeCreateTool(BaseTool):
             return ToolResult(tool_name=self.name, success=False, output=None, error=str(e))
 
 
+class KnowledgeLinkTool(BaseTool):
+    def __init__(self):
+        super().__init__(
+            name="knowledge.link",
+            description="Add a wikilink connection between two notes in the vault.",
+            risk_level=RiskLevel.MEDIUM,
+            parameters={
+                "type": "object",
+                "properties": {
+                    "source_note": {"type": "string", "description": "Title or slug of source note"},
+                    "target_note": {"type": "string", "description": "Title of note to link to"}
+                },
+                "required": ["source_note", "target_note"]
+            }
+        )
+
+    async def execute(self, source_note: str, target_note: str, **kwargs: Any) -> ToolResult:
+        from app.knowledge.vault import vault_service
+
+        note_slug = source_note.lower().replace(" ", "-")
+        note = vault_service.get_note(note_slug)
+        if not note:
+            return ToolResult(tool_name=self.name, success=False, output=None, error=f"Source note '{source_note}' not found in vault.")
+
+        file_path = Path(note["absolute_path"])
+        try:
+            content = file_path.read_text(encoding="utf-8")
+            wikilink = f"[[{target_note}]]"
+            if wikilink in content:
+                return ToolResult(tool_name=self.name, success=True, output=f"Note '{source_note}' already links to '{target_note}'.")
+
+            if "## Related" in content:
+                content = content.replace("## Related", f"## Related\n- {wikilink}")
+            else:
+                content += f"\n\n## Related Notes\n- {wikilink}\n"
+
+            file_path.write_text(content, encoding="utf-8")
+            vault_service.index_vault()
+            return ToolResult(tool_name=self.name, success=True, output=f"Linked '{source_note}' -> '{target_note}'.")
+        except Exception as e:
+            return ToolResult(tool_name=self.name, success=False, output=None, error=str(e))
+
+
 tool_registry.register(KnowledgeSearchTool())
 tool_registry.register(KnowledgeCreateTool())
+tool_registry.register(KnowledgeLinkTool())

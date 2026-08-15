@@ -90,7 +90,7 @@ export default function AgentsEcosystem({ apiAgents = [] }: { apiAgents?: any[] 
       </div>
 
       {/* Featured 4 Core Agents Grid */}
-      <div className="grid grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {AGENT_ROSTER.map(agent => {
           const isSelected = selectedAgent.id === agent.id
           return (
@@ -145,9 +145,9 @@ export default function AgentsEcosystem({ apiAgents = [] }: { apiAgents?: any[] 
             <Cpu className="w-4 h-4 text-purple-400" />
             Specialized Vault Agent Definitions ({apiAgents.length})
           </h3>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {apiAgents.map(a => (
-              <div key={a.name} className="bg-[#121215] border border-zinc-800 rounded-xl p-4 space-y-2">
+              <div key={a.name} className="bg-[#121215] border border-zinc-800/90 rounded-2xl p-4 space-y-2 hover:border-zinc-700 transition-colors">
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-cyan-400 font-semibold text-xs">{a.name}</span>
                   <span className="text-[9px] bg-zinc-800 text-zinc-400 px-1.5 py-0.5 rounded font-mono">{a.type}</span>

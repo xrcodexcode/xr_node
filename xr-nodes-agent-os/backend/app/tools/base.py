@@ -53,3 +53,19 @@ class BaseTool(ABC):
             "parameters": self.parameters,
             "timeout_seconds": self.timeout_seconds,
         }
+
+    def to_provider_spec(self, provider: str = "openai") -> Dict[str, Any]:
+        """Return a provider-friendly tool schema.
+
+        Today the OpenAI ``{"type": "function", "function": {...}}`` shape is
+        universal enough that we emit it for every provider. Individual
+        providers can wrap/translate as needed.
+        """
+        return {
+            "type": "function",
+            "function": {
+                "name": self.name,
+                "description": self.description,
+                "parameters": self.parameters or {"type": "object", "properties": {}},
+            },
+        }

@@ -34,6 +34,16 @@ async def search_knowledge(
     return vault_service.search(query=q or "", tag=tag, folder=folder)
 
 
+class SaveNoteRequest(BaseModel):
+    raw_text: str
+
+
+@router.get("/tree")
+async def get_vault_file_tree() -> List[Dict[str, Any]]:
+    """Get complete hierarchical tree of vault folders and notes."""
+    return vault_service.get_file_tree()
+
+
 @router.get("/notes/{slug}")
 async def get_note(slug: str) -> Dict[str, Any]:
     """Get note details by slug."""
@@ -41,6 +51,21 @@ async def get_note(slug: str) -> Dict[str, Any]:
     if not note:
         raise HTTPException(status_code=404, detail=f"Note '{slug}' not found in vault")
     return note
+
+
+@router.put("/notes/{slug}")
+async def save_note(slug: str, req: SaveNoteRequest) -> Dict[str, Any]:
+    """Save/update markdown content of a note directly."""
+    try:
+        return vault_service.save_note(slug, req.raw_text)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+
+@router.get("/notes/{slug}/local-graph")
+async def get_note_local_graph(slug: str) -> Dict[str, Any]:
+    """Get 1-hop local graph neighborhood for a note."""
+    return vault_service.get_local_graph(slug)
 
 
 @router.post("/nodes")

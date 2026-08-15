@@ -10,9 +10,9 @@ capabilities:
   - note_creation
   - link_discovery
 tools:
-  - knowledge_create
-  - knowledge_search
-  - file_write
+  - knowledge.create
+  - knowledge.search
+  - file.write
 permissions:
   filesystem: write
   shell: none

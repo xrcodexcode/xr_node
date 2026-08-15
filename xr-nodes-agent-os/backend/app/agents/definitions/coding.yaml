@@ -8,9 +8,9 @@ capabilities:
   - code_generation
   - test_execution
 tools:
-  - file_read
-  - file_write
-  - shell_execute
+  - file.read
+  - file.write
+  - shell.execute
 permissions:
   filesystem: write
   shell: workspace

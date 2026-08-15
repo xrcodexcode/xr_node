@@ -377,5 +377,89 @@ def doctor():
         console.print("[yellow]Run 'pip install -e .[dev]' to install missing dependencies.[/yellow]\n")
 
 
+@cli.group()
+def approval():
+    """Human-in-the-loop approval management."""
+    pass
+
+
+@approval.command("list")
+@click.option("--all", "show_all", is_flag=True, help="Show all approvals including resolved")
+def approval_list(show_all):
+    """List pending or recent approval requests."""
+    async def _list():
+        from app.core.logging import setup_logging
+        from app.database.engine import engine
+        from app.database.models import Base
+        from app.security.approval import approval_queue
+
+        setup_logging(level="WARNING")
+        async with engine.begin() as conn:
+            await conn.run_sync(Base.metadata.create_all)
+
+        rows = await approval_queue.list_all() if show_all else await approval_queue.list_pending()
+        if not rows:
+            console.print("\n[green]No pending approvals.[/green]\n")
+            return
+
+        table = Table(title="\n🛡️ Approvals", border_style="yellow")
+        table.add_column("Approval ID", style="dim")
+        table.add_column("Action", style="bold yellow")
+        table.add_column("Risk", style="bold")
+        table.add_column("Status")
+        table.add_column("Created At", style="dim")
+
+        for r in rows:
+            status_color = "[green]" if r["status"] == "approved" else "[yellow]" if r["status"] == "pending" else "[red]"
+            table.add_row(
+                r["id"][:8] + "...",
+                r["action"],
+                r["risk_level"].upper(),
+                f"{status_color}{r['status']}[/]",
+                str(r.get("created_at", ""))[:19],
+            )
+
+        console.print(table)
+        console.print()
+
+    _run_async(_list())
+
+
+@approval.command("approve")
+@click.argument("approval_id")
+@click.option("--reason", default="", help="Optional decision rationale")
+def approval_approve(approval_id, reason):
+    """Approve a pending approval request."""
+    async def _approve():
+        from app.core.logging import setup_logging
+        from app.security.approval import approval_queue
+
+        setup_logging(level="WARNING")
+        res = await approval_queue.decide(approval_id=approval_id, approve=True, decided_by="cli", reason=reason)
+        if res.approved:
+            console.print(f"\n[green]✅ Approval {approval_id} approved.[/green]\n")
+        else:
+            console.print(f"\n[red]❌ Decision failed:[/red] {res.reason}\n")
+
+    _run_async(_approve())
+
+
+@approval.command("deny")
+@click.argument("approval_id")
+@click.option("--reason", default="", help="Optional decision rationale")
+def approval_deny(approval_id, reason):
+    """Deny a pending approval request."""
+    async def _deny():
+        from app.core.logging import setup_logging
+        from app.security.approval import approval_queue
+
+        setup_logging(level="WARNING")
+        res = await approval_queue.decide(approval_id=approval_id, approve=False, decided_by="cli", reason=reason)
+        console.print(f"\n[red]🛑 Approval {approval_id} denied.[/red]\n")
+
+    _run_async(_deny())
+
+
 if __name__ == "__main__":
     cli()
+

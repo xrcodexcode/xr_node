@@ -44,6 +44,27 @@ async def test_shell_tool_denylist():
 
 
 @pytest.mark.asyncio
+async def test_file_search_and_web_search():
+    """Test file.search and web.search execution."""
+    res_search = await tool_executor.execute_tool("file.search", {"pattern": "*.md"})
+    assert res_search.success is True
+    assert isinstance(res_search.output, list)
+
+    res_web = await tool_executor.execute_tool("web.search", {"query": "neural networks"})
+    assert res_web.success is True
+    assert isinstance(res_web.output, list)
+
+
+def test_tool_registry_normalization():
+    """Tool registry should resolve both dot and underscore notation."""
+    tool1 = tool_registry.get("file_read")
+    tool2 = tool_registry.get("file.read")
+    assert tool1 is not None
+    assert tool1.name == "file.read"
+    assert tool1 == tool2
+
+
+@pytest.mark.asyncio
 async def test_tools_api_endpoints(client):
     """Test GET /api/v1/tools endpoint."""
     response = await client.get("/api/v1/tools")
@@ -51,3 +72,4 @@ async def test_tools_api_endpoints(client):
     data = response.json()
     assert isinstance(data, list)
     assert len(data) >= 5
+

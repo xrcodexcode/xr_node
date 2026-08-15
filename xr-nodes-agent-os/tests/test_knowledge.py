@@ -14,16 +14,21 @@ title: Sample Note
 tags: [ai, ml]
 ---
 # Sample Note
-Content here with [[Link Target|Alias]].
+Content here with [[Link Target|Alias]] and [[Other Note#Section|Section Alias]] and [[Simple Note#Header]].
 """
     fm, body = parse_frontmatter(sample)
     assert fm["title"] == "Sample Note"
     assert extract_tags(fm) == ["ai", "ml"]
 
     links = extract_wikilinks(body)
-    assert len(links) == 1
+    assert len(links) == 3
     assert links[0]["target"] == "Link Target"
     assert links[0]["alias"] == "Alias"
+    assert links[1]["target"] == "Other Note"
+    assert links[1]["alias"] == "Section Alias"
+    assert links[2]["target"] == "Simple Note"
+    assert links[2]["alias"] == "Simple Note"
+
 
 
 def test_vault_service_indexing():

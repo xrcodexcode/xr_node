@@ -8,7 +8,7 @@ capabilities:
   - task_decomposition
   - agent_routing
 tools:
-  - knowledge_search
+  - knowledge.search
 permissions:
   filesystem: read
 model:

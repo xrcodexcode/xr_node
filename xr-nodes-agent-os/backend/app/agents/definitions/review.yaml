@@ -8,8 +8,8 @@ capabilities:
   - schema_audit
   - gatekeeping
 tools:
-  - file_read
-  - knowledge_search
+  - file.read
+  - knowledge.search
 permissions:
   filesystem: read
 model:

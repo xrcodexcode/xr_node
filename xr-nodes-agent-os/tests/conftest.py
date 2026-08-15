@@ -20,6 +20,26 @@ os.environ["XR_DATABASE_URL"] = "sqlite+aiosqlite:///./data/xr-nodes-test.db"
 os.environ["XR_LOG_LEVEL"] = "WARNING"
 
 
+@pytest_asyncio.fixture(scope="session", autouse=True)
+async def _ensure_db():
+    """Make sure the test SQLite has tables for any test that hits the DB.
+
+    Runs once per session so pure unit tests (e.g. agent loop, approval
+    queue) can persist rows without each one going through the full
+    ``client`` ASGI app lifecycle.
+    """
+    from app.database.engine import engine
+    from app.database.migrations import initialize_database
+    from app.database.models import Base
+
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+    await initialize_database()
+    yield
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.drop_all)
+
+
 @pytest_asyncio.fixture
 async def client():
     """Async test client for the FastAPI app."""
@@ -28,9 +48,8 @@ async def client():
     from app.database.engine import engine
     from app.database.models import Base
 
-    # Create tables for test database
+    # Ensure tables exist for test database
     async with engine.begin() as conn:
-        await conn.run_sync(Base.metadata.drop_all)
         await conn.run_sync(Base.metadata.create_all)
 
     await initialize_database()
@@ -39,6 +58,4 @@ async def client():
     async with AsyncClient(transport=transport, base_url="http://test") as ac:
         yield ac
 
-    # Cleanup: drop all tables
-    async with engine.begin() as conn:
-        await conn.run_sync(Base.metadata.drop_all)
+

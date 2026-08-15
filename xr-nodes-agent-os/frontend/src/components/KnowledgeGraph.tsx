@@ -427,9 +427,9 @@ export default function KnowledgeGraph() {
       </div>
 
       {/* Main Canvas Graph & Inspector */}
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         {/* Canvas Visualizer */}
-        <div className="col-span-3 bg-[#0b0b0e] border border-zinc-800 rounded-2xl relative overflow-hidden flex flex-col justify-between shadow-2xl">
+        <div className="col-span-1 lg:col-span-3 bg-[#0b0b0e] border border-zinc-800 rounded-2xl relative overflow-hidden flex flex-col justify-between shadow-2xl">
           <canvas
             ref={canvasRef}
             width={850}
@@ -446,21 +446,21 @@ export default function KnowledgeGraph() {
             <button onClick={resetView} className="hover:text-white p-1" title="Reset View">
               <Maximize2 className="w-4 h-4" />
             </button>
-            <span className="text-[10px] font-mono border-l border-zinc-800 pl-2">
+            <span className="text-[10px] font-mono border-l border-zinc-800 pl-2 hidden sm:inline">
               Pan: Drag Canvas • Move Node: Drag Node
             </span>
           </div>
 
-          <div className="absolute bottom-4 right-4 bg-zinc-900/80 backdrop-blur-md border border-zinc-800 px-3 py-1.5 rounded-lg flex items-center gap-4 text-[10px] font-mono text-zinc-400">
+          <div className="absolute bottom-4 right-4 bg-zinc-900/80 backdrop-blur-md border border-zinc-800 px-3 py-1.5 rounded-lg flex items-center gap-3 sm:gap-4 text-[10px] font-mono text-zinc-400">
             <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-cyan-400" /> NODES</span>
             <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-purple-400" /> 03_MOC</span>
-            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-emerald-400" /> 02_NEW-KNOWLEDGE</span>
+            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-emerald-400" /> 02_NEW</span>
             <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-amber-400" /> NOTES</span>
           </div>
         </div>
 
         {/* Node Detail Inspector */}
-        <div className="bg-[#121215] border border-zinc-800 rounded-2xl p-5 space-y-4">
+        <div className="col-span-1 lg:col-span-1 bg-[#121215] border border-zinc-800 rounded-2xl p-5 space-y-4">
           <h3 className="text-xs font-bold text-zinc-400 uppercase tracking-wider flex items-center gap-1.5">
             <Eye className="w-4 h-4 text-cyan-400" />
             Node Property Inspector
