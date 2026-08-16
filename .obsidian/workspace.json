@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "3166aafb84ed05ae",
+        "id": "aea423d7d372e48f",
         "type": "tabs",
         "children": [
           {
-            "id": "0b87329f990efcb8",
+            "id": "12c919c54caa6757",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "02_NEW-KNOWLEDGE/2026-will-be-the-year-of-multi-agent-ais.md",
+                "file": "README.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-will-be-the-year-of-multi-agent-ais"
+              "title": "README"
             }
           }
         ]
@@ -172,9 +172,7 @@
             "type": "leaf",
             "state": {
               "type": "file-properties",
-              "state": {
-                "file": "01_RAW/CAPTURE/Untitled.base"
-              },
+              "state": {},
               "icon": "lucide-info",
               "title": "File properties"
             }
@@ -199,8 +197,44 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "1a698b583bbbe23f",
+  "active": "12c919c54caa6757",
   "lastOpenFiles": [
+    "Untitled.md",
+    "README.md",
+    "memory.md",
+    "HOME-BASE.md",
+    "GEMINI.md",
+    "CODEX.md",
+    "CLAUDE.md",
+    "AGENT.md",
+    "lightrag-server/README.md",
+    "AREAS/README.md",
+    "AREAS/newsletter/issue#6.md",
+    "AREAS/newsletter/AGENTS.md",
+    "AREAS/newsletter/site/assets/abstraction_trap_vs_fundamentals.jpg",
+    "AREAS/newsletter/site/assets/ai_fundamentals_hero.jpg",
+    "AREAS/newsletter/site/assets/ai_stack_pyramid.jpg",
+    "AREAS/newsletter/site/assets/library_analogy_hybrid.jpg",
+    "AREAS/newsletter/site/assets/rag_architecture_flow.jpg",
+    "AREAS/newsletter/site/assets/rag_vs_long_context.jpg",
+    "AREAS/newsletter/site/assets/issue#4/1.jpg",
+    "AREAS/newsletter/site/assets/issue#4/2.jpg",
+    "AREAS/newsletter/site/assets/issue#4/6.jpg",
+    "AREAS/newsletter/site/assets/issue#4/5.jpg",
+    "01_RAW/CAPTURE/2026-08-16.md",
+    "01_RAW/CAPTURE/research-yt/I replaced Hermes... Claude Agent 2.0.md",
+    "01_RAW/CAPTURE/Your Team Is Using AI Wrong - Build a Company Brain Instead.md",
+    "01_RAW/CAPTURE/research-yt/Build & Sell Claude Code Operating Systems (2+ Hour Course).md",
+    "02_NEW-KNOWLEDGE/doing-these-10-things-alone-will-change-your-life.md",
+    "02_NEW-KNOWLEDGE/detailed-study-notes-the-decision-making-framework-i-wish-i-knew-at-18.md",
+    "02_NEW-KNOWLEDGE/detailed-study-notes-only-the-strongest-minds-should-watch-this-video.md",
+    "02_NEW-KNOWLEDGE/how-to-create-1m-arr-company-with-claude-2nd-brain.md",
+    "02_NEW-KNOWLEDGE/how-to-learn-anything-faster-than-anyone.md",
+    "02_NEW-KNOWLEDGE/how-you-can-learn-in-a-world-of-information-overload.md",
+    "02_NEW-KNOWLEDGE/learn-core-machine-learning-part-14.md",
+    "02_NEW-KNOWLEDGE/modis-war-against-indians-dhruv-rathee.md",
+    "02_NEW-KNOWLEDGE/steve-jobs-in-exile-study-note.md",
+    "02_NEW-KNOWLEDGE/the-aiml-engineer-interview-guide-2026-part-1-study-note.md",
     "xr-nodes-agent-os/data/xr-nodes-test.db-journal",
     "xr-nodes-agent-os/frontend/dist/index.html",
     "xr-nodes-agent-os/frontend/dist/assets/index-KAGJQjxo.js",
@@ -210,42 +244,6 @@
     "xr-nodes-agent-os/frontend/vite.config.ts.timestamp-1786726866377-083b191049bdd8.mjs",
     "xr-nodes-agent-os/frontend/dist/assets/index-BmsDhHK-.css",
     "xr-nodes-agent-os/frontend/dist/assets/index-BJb3eDs2.js",
-    "xr-nodes-agent-os/frontend/dist",
-    "xr-nodes-agent-os/frontend/tsconfig.json",
-    "02_NEW-KNOWLEDGE/detailed-study-notes-the-decision-making-framework-i-wish-i-knew-at-18.md",
-    "02_NEW-KNOWLEDGE/designing-building-pr-review-multi-agent-system-3-hours-build.md",
-    "02_NEW-KNOWLEDGE/2026-will-be-the-year-of-multi-agent-ais.md",
-    "NODES/two-way-vs-one-way-doors.md",
-    "01_RAW/SOURCE/why-you-are-feeling-stuck-in-your-20s.md",
-    "AREAS/README.md",
-    "NODES/scarcity-bias-investing.md",
-    "NODES/mao-zedong-formlessness.md",
-    "AREAS/newsletter/site/assets/issue#1/5.jpg",
-    "AREAS/newsletter/site/assets/issue#1/4.jpg",
-    "AREAS/newsletter/site/assets/issue#1/3.jpg",
-    "AREAS/newsletter/site/assets/issue#1/2.jpg",
-    "AREAS/newsletter/site/assets/issue#1/1.jpg",
-    "AREAS/newsletter/site/assets/issue#2/4.jpg",
-    "AREAS/newsletter/site/assets/issue#2/3.jpg",
-    "AREAS/newsletter/site/assets/issue#2/2.jpg",
-    "AREAS/newsletter/site/assets/issue#2/1.jpg",
-    "AREAS/newsletter/site/assets/issue#3/7.jpg",
-    "AREAS/newsletter/issue#5.md",
-    "AREAS/newsletter/issue#6.md",
-    "AREAS/newsletter/issue#4.md",
-    "AREAS/newsletter/issue#2.md",
-    "01_RAW/GITHUB/The AIML Engineer Interview Guide for 2026 - Part 1.md",
-    "01_RAW/PROCESS/detailed-study-notes-build-sell-claude-code-operating-systems-part-02.md",
-    "01_RAW/PROCESS/detailed-study-notes-build-sell-claude-code-operating-systems-part-01.md",
-    "01_RAW/PROCESS/detailed-study-notes-build-sell-claude-code-operating-systems-final.md",
-    "01_RAW/PROCESS/detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-01.md",
-    "01_RAW/PROCESS/detailed-study-notes-build-sell-claude-code-operating-systems-part-04.md",
-    "01_RAW/PROCESS/detailed-study-notes-build-sell-claude-code-operating-systems-part-03.md",
-    "01_RAW/PROCESS/_orphans/piyush-pal-instruction.md",
-    "01_RAW/CAPTURE/Build & Sell Claude Code Operating Systems (2+ Hour Course).md",
-    "01_RAW/CAPTURE/research-yt/Claude Code + Karpathy's Obsidian = New Meta.md",
-    "01_RAW/CAPTURE/research-yt/Build & Sell Claude Code Operating Systems (2+ Hour Course).md",
-    "01_RAW/CAPTURE/research-yt/Claude Code just changed Memory Forever (Tutorial).md",
-    "01_RAW/CAPTURE/research-yt/This Memory System just 10x'd Claude Code.md"
+    "xr-nodes-agent-os/frontend/dist"
   ]
 }

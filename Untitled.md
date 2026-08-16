@@ -1,9 +1,0 @@
----
-title:
-source:
-creater:
-published:
-created:
-description:
-tags:
----

@@ -1,0 +1,56 @@
+{
+  "id": "e3fbf452-8473-4915-82b2-17c1bcdaa66e",
+  "title": "hii",
+  "messages": [
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "hii",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\nhii\n\n"
+        }
+      ],
+      "id": "970771b3-e279-4e71-9d89-2d85404d51c1",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": null
+        }
+      ]
+    }
+  ],
+  "createdAt": 1786868899523,
+  "updatedAt": 1786868899523,
+  "schemaVersion": 1
+}

@@ -1,0 +1,21 @@
+/* Web viewer Bookmarks plugin styles */
+
+.bookmark-header {
+	font-size: 16px;
+	color: var(--text-normal);
+}
+
+.bookmark-header-div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.bookmark-container {
+	margin-bottom: 20px;
+	padding: 10px;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 6px;
+	background-color: var(--background-secondary);
+}

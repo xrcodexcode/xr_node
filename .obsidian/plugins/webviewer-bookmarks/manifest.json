@@ -1,0 +1,10 @@
+{
+	"id": "webviewer-bookmarks",
+	"name": "Web viewer Bookmarks",
+	"version": "1.5.0",
+	"minAppVersion": "1.8.0",
+	"description": "Create and manage bookmarks for the built-in Web viewer.",
+	"author": "Stefan Danzl",
+	"authorUrl": "https://github.com/stefandanzl",
+	"isDesktopOnly": false
+}
