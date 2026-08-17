@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "aea423d7d372e48f",
+        "id": "ce2fb494417e7e0e",
         "type": "tabs",
         "children": [
           {
-            "id": "12c919c54caa6757",
+            "id": "db1fa1a1d9e318b7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "HOME-BASE.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "HOME-BASE"
             }
           }
         ]
@@ -197,20 +197,36 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "12c919c54caa6757",
+  "active": "db1fa1a1d9e318b7",
   "lastOpenFiles": [
-    "Untitled.md",
+    "01_RAW/PROCESS/detailed-study-notes-how-to-make-rich-friends.md",
+    "02_NEW-KNOWLEDGE/python-for-ai-beginner-course.md",
+    "02_NEW-KNOWLEDGE/reality-of-20th-july-protest.md",
+    "01_RAW/CAPTURE/image_p69_b0.jpeg.md",
+    "01_RAW/CAPTURE/HTML Complete Tutorial Your First Step into Web Development 1.md",
+    "01_RAW/CAPTURE/How to Make Rich Friends.md",
+    "01_RAW/CAPTURE/Give me 30 Minutes, I’ll make you FOCUSED.md",
+    "01_RAW/CAPTURE/research/How to Make Rich Friends.md",
+    "01_RAW/capture/research/How to Make Rich Friends.md",
+    "01_RAW/CAPTURE/research",
+    "01_RAW/capture/research",
+    "01_RAW/CAPTURE/research-yt/Claude Code Agentic OS… It self improves.md",
+    "01_RAW/CAPTURE/research-yt/Claude Code + Karpathy's Obsidian = New Meta.md",
+    "01_RAW/CAPTURE/research-yt/Claude Code + Graphify = Insane Agentic OS.md",
+    "01_RAW/CAPTURE/research-yt/Build & Sell Claude Code Operating Systems (2+ Hour Course).md",
+    "01_RAW/CAPTURE/research-yt/This Memory System just 10x'd Claude Code.md",
+    "01_RAW/CAPTURE/research-yt/Hermes Agentic OS is Insane... just watch.md",
+    "01_RAW/CAPTURE/research-yt/I replaced Hermes... Claude Agent 2.0.md",
+    "01_RAW/CAPTURE/Give me 9 mins, and I'll Make You Dangerously Motivated.md",
+    "01_RAW/CAPTURE/Why I Stopped Calling My Friends After Success  STORY TIME.md",
+    "01_RAW/CAPTURE/Why You Feel Depressed (And How to Fix It).md",
+    "01_RAW/CAPTURE/Your Team Is Using AI Wrong - Build a Company Brain Instead.md",
+    "01_RAW/CAPTURE/You only need 6 months to change your life.md",
     "README.md",
+    "Untitled.md",
     "memory.md",
     "HOME-BASE.md",
     "GEMINI.md",
-    "CODEX.md",
-    "CLAUDE.md",
-    "AGENT.md",
-    "lightrag-server/README.md",
-    "AREAS/README.md",
-    "AREAS/newsletter/issue#6.md",
-    "AREAS/newsletter/AGENTS.md",
     "AREAS/newsletter/site/assets/abstraction_trap_vs_fundamentals.jpg",
     "AREAS/newsletter/site/assets/ai_fundamentals_hero.jpg",
     "AREAS/newsletter/site/assets/ai_stack_pyramid.jpg",
@@ -221,20 +237,6 @@
     "AREAS/newsletter/site/assets/issue#4/2.jpg",
     "AREAS/newsletter/site/assets/issue#4/6.jpg",
     "AREAS/newsletter/site/assets/issue#4/5.jpg",
-    "01_RAW/CAPTURE/2026-08-16.md",
-    "01_RAW/CAPTURE/research-yt/I replaced Hermes... Claude Agent 2.0.md",
-    "01_RAW/CAPTURE/Your Team Is Using AI Wrong - Build a Company Brain Instead.md",
-    "01_RAW/CAPTURE/research-yt/Build & Sell Claude Code Operating Systems (2+ Hour Course).md",
-    "02_NEW-KNOWLEDGE/doing-these-10-things-alone-will-change-your-life.md",
-    "02_NEW-KNOWLEDGE/detailed-study-notes-the-decision-making-framework-i-wish-i-knew-at-18.md",
-    "02_NEW-KNOWLEDGE/detailed-study-notes-only-the-strongest-minds-should-watch-this-video.md",
-    "02_NEW-KNOWLEDGE/how-to-create-1m-arr-company-with-claude-2nd-brain.md",
-    "02_NEW-KNOWLEDGE/how-to-learn-anything-faster-than-anyone.md",
-    "02_NEW-KNOWLEDGE/how-you-can-learn-in-a-world-of-information-overload.md",
-    "02_NEW-KNOWLEDGE/learn-core-machine-learning-part-14.md",
-    "02_NEW-KNOWLEDGE/modis-war-against-indians-dhruv-rathee.md",
-    "02_NEW-KNOWLEDGE/steve-jobs-in-exile-study-note.md",
-    "02_NEW-KNOWLEDGE/the-aiml-engineer-interview-guide-2026-part-1-study-note.md",
     "xr-nodes-agent-os/data/xr-nodes-test.db-journal",
     "xr-nodes-agent-os/frontend/dist/index.html",
     "xr-nodes-agent-os/frontend/dist/assets/index-KAGJQjxo.js",
@@ -242,8 +244,6 @@
     "xr-nodes-agent-os/frontend/dist/assets",
     "xr-nodes-agent-os/backend/app/api/v1/__pycache__/knowledge.cpython-311.pyc.2428171318032",
     "xr-nodes-agent-os/frontend/vite.config.ts.timestamp-1786726866377-083b191049bdd8.mjs",
-    "xr-nodes-agent-os/frontend/dist/assets/index-BmsDhHK-.css",
-    "xr-nodes-agent-os/frontend/dist/assets/index-BJb3eDs2.js",
-    "xr-nodes-agent-os/frontend/dist"
+    "xr-nodes-agent-os/frontend/dist/assets/index-BmsDhHK-.css"
   ]
 }
