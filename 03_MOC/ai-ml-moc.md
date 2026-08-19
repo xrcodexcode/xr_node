@@ -59,3 +59,12 @@ Index of artificial intelligence, machine learning, and LLM concept notes.
 | AI Existential Risk Philosophy | [[musk-ai-risk-philosophy\|AI Existential Risk Philosophy]] | `atomic-note` | #elon-musk, #ai, #belief, #philosophy | **0** |
 | Definition | [[Hypothetical Document Embedding\|Definition]] | `atomic-note` | #workflow, #ai, #rag, #hyde | **0** |
 | Prompt Meta Announce Code | [[prompt-meta-announce\|Prompt Meta Announce Code]] | `atomic-note` | #technique, #ai, #productivity, #llm, #processed | **0** |
+
+### 📖 Active Literature & Study Notes (`02_NEW-KNOWLEDGE`)
+- **Claude Code & AI Operating Systems**:
+  - [[detailed-study-notes-build-sell-claude-code-operating-systems-final|Build & Sell Claude Code Operating Systems — Master Study Note (Expanded)]]
+  - [[detailed-study-notes-build-sell-claude-code-operating-systems-part-01|Build & Sell Claude Code Operating Systems — Part 1]]
+  - [[detailed-study-notes-build-sell-claude-code-operating-systems-part-02|Build & Sell Claude Code Operating Systems — Part 2]]
+  - [[detailed-study-notes-build-sell-claude-code-operating-systems-part-03|Build & Sell Claude Code Operating Systems — Part 3]]
+  - [[detailed-study-notes-build-sell-claude-code-operating-systems-part-04|Build & Sell Claude Code Operating Systems — Part 4]]
+

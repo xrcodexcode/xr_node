@@ -50,3 +50,24 @@ Index of notes synthesized from YouTube videos and transcripts.
 | reclaiming-your-personal-power | [[reclaiming-your-personal-power\|reclaiming-your-personal-power]] | `atomic-note` | #yt | **0** |
 | relationships | [[relationships\|relationships]] | `atomic-note` | #yt | **0** |
 | self-improvement-strategies | [[self-improvement-strategies\|self-improvement-strategies]] | `atomic-note` | #yt | **0** |
+
+### 📖 Active Literature & Study Notes (`02_NEW-KNOWLEDGE`)
+- **JavaScript Complete Tutorial Series (2026)**:
+  - [[detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-01|Part 01: Core Architecture, Engines, Execution Models & Scoping]]
+  - [[detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-02|Part 02: Primitive vs Reference Types, Memory Heap/Stack & Call Stack]]
+  - [[detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-03|Part 03: Operators, Coercion, Falsy Values & Control Flow]]
+  - [[detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-04|Part 04: Iteration Control Flow, Loops & Array Traversal]]
+  - [[detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-05|Part 05: Loop Labels, Advanced Functions & Rest Parameters]]
+  - [[detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-06|Part 06: Higher-Order Functions, Recursion & Currying]]
+  - [[detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-07|Part 07: Currying, Shallow/Deep Copy, Closures, Event Loop & Async/Await]]
+- **Claude Code & AI Operating Systems**:
+  - [[detailed-study-notes-build-sell-claude-code-operating-systems-final|Build & Sell Claude Code Operating Systems — Master Study Note (Expanded)]]
+  - [[detailed-study-notes-build-sell-claude-code-operating-systems-part-01|Build & Sell Claude Code Operating Systems — Part 1]]
+  - [[detailed-study-notes-build-sell-claude-code-operating-systems-part-02|Build & Sell Claude Code Operating Systems — Part 2]]
+  - [[detailed-study-notes-build-sell-claude-code-operating-systems-part-03|Build & Sell Claude Code Operating Systems — Part 3]]
+  - [[detailed-study-notes-build-sell-claude-code-operating-systems-part-04|Build & Sell Claude Code Operating Systems — Part 4]]
+- **Mindset, Wealth & Career Growth**:
+  - [[detailed-study-notes-building-wealth-is-easier-than-you-think|Building WEALTH Is Easier Than YOU THINK !!]]
+  - [[detailed-study-notes-how-to-make-rich-friends|How to Make Rich Friends]]
+  - [[detailed-study-notes-watch-this-before-you-waste-another-year|Watch This Before You Waste Another Year]]
+

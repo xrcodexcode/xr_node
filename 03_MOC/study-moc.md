@@ -91,3 +91,17 @@ Index of core academic studies, DSA, NIMCET prep, and psychology notes.
 | Jerry Uelsmann Photography Experiment | [[jerry-uelsmann-photography\|Jerry Uelsmann Photography Experiment]] | `example` | #book, #example, #habits, #productivity, #study | **2** |
 | Phelps and El Guerrouj | [[phelps-and-el-guerrouj\|Phelps and El Guerrouj]] | `example` | #book, #habits, #productivity, #psychology | **2** |
 | Reciprocity Tendency | [[reciprocity-tendency\|Reciprocity Tendency]] | `atomic-note` | #psychology | **2** |
+
+### 📖 Active Literature & Study Notes (`02_NEW-KNOWLEDGE`)
+- **JavaScript Complete Tutorial Series (2026)**:
+  - [[detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-01|Part 01: Core Architecture, Engines, Execution Models & Scoping]]
+  - [[detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-02|Part 02: Primitive vs Reference Types, Memory Heap/Stack & Call Stack]]
+  - [[detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-03|Part 03: Operators, Coercion, Falsy Values & Control Flow]]
+  - [[detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-04|Part 04: Iteration Control Flow, Loops & Array Traversal]]
+  - [[detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-05|Part 05: Loop Labels, Advanced Functions & Rest Parameters]]
+  - [[detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-06|Part 06: Higher-Order Functions, Recursion & Currying]]
+  - [[detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-07|Part 07: Currying, Shallow/Deep Copy, Closures, Event Loop & Async/Await]]
+- **Mindset & Strategic Growth**:
+  - [[detailed-study-notes-how-to-make-rich-friends|How to Make Rich Friends]]
+  - [[detailed-study-notes-watch-this-before-you-waste-another-year|Watch This Before You Waste Another Year]]
+
