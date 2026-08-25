@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "de3a652b44b0c853",
+        "id": "eaae0fb501c9a008",
         "type": "tabs",
         "children": [
           {
-            "id": "6b3fcd0c102bfc42",
+            "id": "8ae742ccb6c5351a",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "01_RAW/CAPTURE/AI Agent Harness Explained In 18 Minutes.md",
-                "mode": "preview",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "AI Agent Harness Explained In 18 Minutes"
+              "title": "New tab"
             }
           }
         ]
@@ -197,8 +193,31 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "6b3fcd0c102bfc42",
+  "active": "8ae742ccb6c5351a",
   "lastOpenFiles": [
+    "zarchive/Complete NumPy for Beginners.md",
+    "02 active-learning/nodes/README.md",
+    "02 active-learning/notes/README.md",
+    "01 raw/README.md",
+    "wiki/Welcome to Karpathy LLM Wiki.md",
+    "zarchive/README.md",
+    "03 wiki/quotes/README.md",
+    "03 wiki/people/README.md",
+    "03 wiki/books/README.md",
+    "03 wiki/ideas/README.md",
+    "03 wiki/entities/README.md",
+    "03 wiki/concepts/README.md",
+    "03 wiki/quotes",
+    "03 wiki/people",
+    "03 wiki/ideas",
+    "03 wiki/entities",
+    "03 wiki/concepts",
+    "03 wiki/books",
+    "03 wiki",
+    "02 active-learning/notes",
+    "02 active-learning/nodes",
+    "02 active-learning",
+    "01_RAW/CAPTURE/AI Agent Harness Explained In 18 Minutes.md",
     "01_RAW/CAPTURE/2026   12+ Hours Complete JS Tutorial for Beginners.md",
     "02_NEW-KNOWLEDGE/doing-these-10-things-alone-will-change-your-life.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-only-the-strongest-minds-should-watch-this-video.md",
@@ -212,21 +231,6 @@
     "02_NEW-KNOWLEDGE/detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-05.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-04.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-02.md",
-    "02_NEW-KNOWLEDGE/deepseek-r1-paper-deep-dive-pure-rl-reasoning-emergence.md",
-    "02_NEW-KNOWLEDGE/complete-python-for-ai-ml-beginner-to-pro.md",
-    "02_NEW-KNOWLEDGE/college-first-year-secret-skill-virtual-machines-virtualbox-tutorial.md",
-    "02_NEW-KNOWLEDGE/arnab-warns-youth-from-being-misled.md",
-    "02_NEW-KNOWLEDGE/20-skills-that-changed-my-life-before-25.md",
-    "02_NEW-KNOWLEDGE/13-hobbies-that-replace-scrolling-and-improve-your-life.md",
-    "VAULT-STRUCTURE.md",
-    "AGENT.md",
-    "CODEX.md",
-    "CLAUDE.md",
-    "codex/reports/duplicate-candidates.md",
-    "codex/reports/invalid-tags.md",
-    "codex/reports/promotion-candidates.md",
-    "01_RAW/CAPTURE/research",
-    "01_RAW/capture/research",
     "AREAS/newsletter/site/assets/abstraction_trap_vs_fundamentals.jpg",
     "AREAS/newsletter/site/assets/ai_fundamentals_hero.jpg",
     "AREAS/newsletter/site/assets/ai_stack_pyramid.jpg",
@@ -236,14 +240,6 @@
     "AREAS/newsletter/site/assets/issue#4/1.jpg",
     "AREAS/newsletter/site/assets/issue#4/2.jpg",
     "AREAS/newsletter/site/assets/issue#4/6.jpg",
-    "AREAS/newsletter/site/assets/issue#4/5.jpg",
-    "xr-nodes-agent-os/data/xr-nodes-test.db-journal",
-    "xr-nodes-agent-os/frontend/dist/index.html",
-    "xr-nodes-agent-os/frontend/dist/assets/index-KAGJQjxo.js",
-    "xr-nodes-agent-os/frontend/dist/assets/index-D9CAVgj0.css",
-    "xr-nodes-agent-os/frontend/dist/assets",
-    "xr-nodes-agent-os/backend/app/api/v1/__pycache__/knowledge.cpython-311.pyc.2428171318032",
-    "xr-nodes-agent-os/frontend/vite.config.ts.timestamp-1786726866377-083b191049bdd8.mjs",
-    "xr-nodes-agent-os/frontend/dist/assets/index-BmsDhHK-.css"
+    "AREAS/newsletter/site/assets/issue#4/5.jpg"
   ]
 }
