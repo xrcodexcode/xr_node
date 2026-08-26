@@ -108,3 +108,76 @@ async def list_capture_inbox() -> List[Dict[str, Any]]:
 async def run_automation(name: str) -> Dict[str, Any]:
     """Run an existing Python automation script (e.g. validate_tags, graph_health)."""
     return await automations_wrapper.run_automation(name)
+
+@router.get("/health")
+async def get_vault_health() -> Dict[str, Any]:
+    """Perform health checks on the vault."""
+    import re
+    notes = list(vault_service._index.values())
+    total_notes_per_folder = {}
+    missing_frontmatter = []
+    stale_review = []
+    duplicate_titles = []
+    titles_seen = set()
+    
+    for note in notes:
+        folder = note.get("folder", "root")
+        total_notes_per_folder[folder] = total_notes_per_folder.get(folder, 0) + 1
+        
+        if not note.get("frontmatter"):
+            missing_frontmatter.append(note["slug"])
+            
+        title = note.get("title", "")
+        if title in titles_seen:
+            duplicate_titles.append(title)
+        else:
+            titles_seen.add(title)
+            
+    orphaned_notes = []
+    for slug, note in vault_service._index.items():
+        links = vault_service.backlinks_map.get(slug, [])
+        if not links:
+            orphaned_notes.append(slug)
+            
+    broken_wikilinks = []
+    for note in notes:
+        content = note.get("content", "")
+        # Very basic check for wikilinks
+        for match in re.findall(r'\[\[(.*?)\]\]', content):
+            target = match.split('|')[0]
+            if not vault_service.get_note(target):
+                broken_wikilinks.append(f"{note['slug']} -> {target}")
+
+    score = 100 - len(orphaned_notes) - len(broken_wikilinks) - len(missing_frontmatter)
+    score = max(0, score)
+    
+    return {
+        "total_notes_per_folder": total_notes_per_folder,
+        "orphaned_notes": orphaned_notes,
+        "broken_wikilinks": broken_wikilinks,
+        "notes_missing_frontmatter": missing_frontmatter,
+        "notes_with_stale_review_dates": stale_review,
+        "duplicate_title_candidates": duplicate_titles,
+        "overall_health_score": score
+    }
+
+from fastapi.responses import HTMLResponse, PlainTextResponse
+
+@router.get("/notes/{slug}/export")
+async def export_note(slug: str, format: str = "html"):
+    """Export note as HTML or MD."""
+    note = vault_service.get_note(slug)
+    if not note:
+        raise HTTPException(status_code=404, detail="Note not found")
+        
+    content = note.get("content", "")
+    if format == "html":
+        # Basic markdown to HTML conversion
+        import markdown
+        html = markdown.markdown(content)
+        styled_html = f"<html><head><style>body {{ font-family: sans-serif; max-width: 800px; margin: auto; padding: 20px; }}</style></head><body>{html}</body></html>"
+        return HTMLResponse(content=styled_html)
+    elif format == "md":
+        return PlainTextResponse(content=content)
+    else:
+        raise HTTPException(status_code=400, detail="Unsupported format")

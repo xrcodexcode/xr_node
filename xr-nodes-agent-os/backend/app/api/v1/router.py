@@ -12,6 +12,7 @@ from app.api.v1 import (
     skills,
     tasks,
     tools,
+    websocket,
 )
 
 api_router = APIRouter()
@@ -26,5 +27,4 @@ api_router.include_router(events.router)
 api_router.include_router(hooks.router)
 api_router.include_router(approvals.router)
 api_router.include_router(creator.router)
-
-
+api_router.include_router(websocket.router)

@@ -19,7 +19,8 @@ import {
   X,
   Youtube,
   Workflow,
-  FileText
+  FileText,
+  Settings
 } from 'lucide-react'
 
 import KnowledgeQuery from './components/KnowledgeQuery'
@@ -32,6 +33,9 @@ import UnifiedMemoryHub from './components/UnifiedMemoryHub'
 import CreatorStudio from './components/CreatorStudio'
 import MermaidStudio from './components/MermaidStudio'
 import ObsidianWorkspace from './components/ObsidianWorkspace'
+import SettingsPanel from './components/SettingsPanel'
+import TaskTimeline from './components/TaskTimeline'
+import VaultHealthDashboard from './components/VaultHealthDashboard'
 
 const MAIN_AGENTS = [
   {
@@ -88,7 +92,7 @@ const QUICK_PROMPTS = [
 ]
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'home' | 'obsidian' | 'creator' | 'diagrams' | 'agents' | 'skills' | 'hooks' | 'memory' | 'activity' | 'query'>('home')
+  const [activeTab, setActiveTab] = useState<'home' | 'obsidian' | 'creator' | 'diagrams' | 'agents' | 'skills' | 'hooks' | 'memory' | 'activity' | 'query' | 'timeline' | 'health' | 'settings'>('home')
   const [status, setStatus] = useState<any>(null)
   const [agents, setAgents] = useState<any[]>([])
   const [tasks, setTasks] = useState<any[]>([])
@@ -101,50 +105,67 @@ export default function App() {
   const [latencyMs, setLatencyMs] = useState<number | null>(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  // Memoized fetch function with performance timing
-  const fetchData = useCallback(async () => {
+  // Memoized fetch functions with performance timing and error boundaries
+  const fetchBackgroundData = useCallback(async () => {
     const start = performance.now()
     try {
-      const [resStatus, resAgents, resTasks, resSkills, resHooks] = await Promise.all([
+      const results = await Promise.allSettled([
         fetch('/api/v1/health/status').then(r => r.json()),
         fetch('/api/v1/agents').then(r => r.json()),
-        fetch('/api/v1/tasks').then(r => r.json()),
         fetch('/api/v1/skills').then(r => r.json()),
         fetch('/api/v1/hooks').then(r => r.json())
       ])
-      setStatus(resStatus || {})
-      setAgents(Array.isArray(resAgents) ? resAgents : [])
-      setTasks(Array.isArray(resTasks) ? resTasks : [])
-      setSkills(Array.isArray(resSkills) ? resSkills : [])
-      setHooks(Array.isArray(resHooks) ? resHooks : [])
+      if (results[0].status === 'fulfilled') setStatus(results[0].value || {})
+      if (results[1].status === 'fulfilled') setAgents(Array.isArray(results[1].value) ? results[1].value : [])
+      if (results[2].status === 'fulfilled') setSkills(Array.isArray(results[2].value) ? results[2].value : [])
+      if (results[3].status === 'fulfilled') setHooks(Array.isArray(results[3].value) ? results[3].value : [])
       setLatencyMs(Math.round(performance.now() - start))
     } catch (e) {
-      console.error('Failed to fetch backend data:', e)
+      console.error('Failed to fetch background data:', e)
+    }
+  }, [])
+
+  const fetchTaskData = useCallback(async () => {
+    try {
+      const res = await fetch('/api/v1/tasks');
+      if (res.ok) {
+        const data = await res.json();
+        setTasks(Array.isArray(data) ? data : []);
+      }
+    } catch (e) {
+      console.error('Failed to fetch tasks:', e);
     }
   }, [])
 
   // Smart Visibility-Aware Polling (Pauses when tab hidden to save CPU/battery)
   useEffect(() => {
-    fetchData()
-    let timer: any = null
+    fetchBackgroundData()
+    fetchTaskData()
+    let bgTimer: any = null
+    let taskTimer: any = null
 
     const handleVisibilityChange = () => {
       if (document.hidden) {
-        if (timer) clearInterval(timer)
+        if (bgTimer) clearInterval(bgTimer)
+        if (taskTimer) clearInterval(taskTimer)
       } else {
-        fetchData()
-        timer = setInterval(fetchData, 4000)
+        fetchBackgroundData()
+        fetchTaskData()
+        bgTimer = setInterval(fetchBackgroundData, 8000)
+        taskTimer = setInterval(fetchTaskData, 3000)
       }
     }
 
-    timer = setInterval(fetchData, 4000)
+    bgTimer = setInterval(fetchBackgroundData, 8000)
+    taskTimer = setInterval(fetchTaskData, 3000)
     document.addEventListener('visibilitychange', handleVisibilityChange)
 
     return () => {
-      if (timer) clearInterval(timer)
+      if (bgTimer) clearInterval(bgTimer)
+      if (taskTimer) clearInterval(taskTimer)
       document.removeEventListener('visibilitychange', handleVisibilityChange)
     }
-  }, [fetchData])
+  }, [fetchBackgroundData, fetchTaskData])
 
   // Keyboard shortcut listener (Ctrl/Cmd + K for query)
   useEffect(() => {
@@ -177,7 +198,7 @@ export default function App() {
         setQuickMsg(`Task dispatched to ${selectedAgentId.toUpperCase()} & running!`)
       }
       setNewTaskTitle('')
-      fetchData()
+      fetchTaskData()
     } catch (e) {
       console.error(e)
       setQuickMsg('Failed to dispatch task. Please check server logs.')
@@ -196,7 +217,10 @@ export default function App() {
     { id: 'hooks', label: 'Hooks', icon: Anchor, count: hooks.length },
     { id: 'memory', label: 'Memory Hub', icon: Brain },
     { id: 'activity', label: 'Activity Feed', icon: Activity },
-    { id: 'query', label: 'Vault Query', icon: Search, shortcut: '⌘K' }
+    { id: 'query', label: 'Vault Query', icon: Search, shortcut: '⌘K' },
+    { id: 'timeline', label: 'Task Timeline', icon: Clock, count: tasks.length },
+    { id: 'health', label: 'Vault Health', icon: Activity },
+    { id: 'settings', label: 'Settings', icon: Settings }
   ]
 
   return (
@@ -459,6 +483,9 @@ export default function App() {
         {activeTab === 'memory' && <UnifiedMemoryHub />}
         {activeTab === 'activity' && <ActivityFeed />}
         {activeTab === 'query' && <KnowledgeQuery />}
+        {activeTab === 'timeline' && <TaskTimeline />}
+        {activeTab === 'health' && <VaultHealthDashboard />}
+        {activeTab === 'settings' && <SettingsPanel />}
       </main>
     </div>
   )

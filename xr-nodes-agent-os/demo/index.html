@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XR-NODES Agent OS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #09090b;
+            --bg-panel: #121215;
+            --bg-card: #1a1a1e;
+            --c-cyan: #06b6d4;
+            --c-purple: #a855f7;
+            --c-amber: #f59e0b;
+            --c-emerald: #10b981;
+            --c-red: #ef4444;
+            --text-main: #f4f4f5;
+            --text-muted: #a1a1aa;
+            
+            --font-body: 'Inter', sans-serif;
+            --font-heading: 'Plus Jakarta Sans', sans-serif;
+            --font-code: 'JetBrains Mono', monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        html { scroll-behavior: smooth; }
+        
+        body { 
+            background-color: var(--bg-base); 
+            color: var(--text-main); 
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
+        .font-code { font-family: var(--font-code); }
+        
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+        section { padding: 6rem 0; position: relative; }
+        
+        .text-cyan { color: var(--c-cyan); }
+        .text-purple { color: var(--c-purple); }
+        .text-amber { color: var(--c-amber); }
+        .text-emerald { color: var(--c-emerald); }
+        .text-red { color: var(--c-red); }
+        .text-muted { color: var(--text-muted); }
+
+        .bg-cyan { background-color: var(--c-cyan); }
+        .bg-purple { background-color: var(--c-purple); }
+        .bg-amber { background-color: var(--c-amber); }
+        .bg-emerald { background-color: var(--c-emerald); }
+        .bg-red { background-color: var(--c-red); }
+
+        /* Navbar */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            background: rgba(18, 18, 21, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem 0;
+        }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--font-heading); font-weight: 800; font-size: 1.25rem; letter-spacing: -0.5px; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 2rem; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--text-main); }
+
+        /* Hero */
+        #hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; padding-top: 4rem; }
+        #particles-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+        .hero-content { position: relative; z-index: 10; max-width: 800px; }
+        .hero-title { font-size: 4rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.1; letter-spacing: -1px; }
+        .glowing-text {
+            background: linear-gradient(to right, #06b6d4, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 40px rgba(6, 182, 212, 0.3);
+        }
+        .hero-subtitle { font-size: 1.5rem; color: var(--text-muted); margin-bottom: 2rem; font-weight: 400; }
+        
+        .typing-container {
+            background: var(--bg-panel); border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px; padding: 1rem 1.5rem; display: inline-block;
+            margin-bottom: 3rem; font-family: var(--font-code); color: var(--c-emerald);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            min-width: 320px; text-align: left;
+        }
+        .typing-text::after { content: '|'; animation: blink 1s step-start infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 500;
+            text-decoration: none; transition: all 0.2s; font-family: var(--font-heading);
+            cursor: pointer; border: none;
+        }
+        .btn-primary { background: var(--c-cyan); color: #000; box-shadow: 0 0 20px rgba(6, 182, 212, 0.3); }
+        .btn-primary:hover { background: #08c8ea; box-shadow: 0 0 30px rgba(6, 182, 212, 0.5); transform: translateY(-2px); }
+        .btn-secondary { background: rgba(255, 255, 255, 0.05); color: var(--text-main); border: 1px solid rgba(255, 255, 255, 0.1); margin-left: 1rem; }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-2px); }
+
+        .floating-badges { margin-top: 4rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+        .badge {
+            background: rgba(26, 26, 30, 0.6); backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05); padding: 0.5rem 1rem;
+            border-radius: 20px; font-size: 0.85rem; font-weight: 500;
+            display: flex; align-items: center; gap: 0.5rem;
+            animation: float 6s ease-in-out infinite;
+        }
+        .badge:nth-child(2) { animation-delay: 1s; }
+        .badge:nth-child(3) { animation-delay: 2s; }
+        .badge:nth-child(4) { animation-delay: 3s; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+        /* Section Headers */
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; }
+        .section-desc { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+        /* Features */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+        .feature-card {
+            background: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px; padding: 2rem; transition: transform 0.3s, border-color 0.3s;
+            position: relative; overflow: hidden;
+        }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-icon {
+            width: 48px; height: 48px; border-radius: 10px; display: flex;
+            align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 1.5rem;
+        }
+        .feature-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; }
+        .feature-desc { color: var(--text-muted); font-size: 0.95rem; }
+        
+        /* Terminal */
+        .terminal-wrapper {
+            background: #000; border: 1px solid #333; border-radius: 10px;
+            overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            margin: 0 auto; max-width: 900px;
+        }
+        .terminal-header { background: #1a1a1e; padding: 0.75rem 1rem; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #333; }
+        .term-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .term-dot.r { background: #ff5f56; } .term-dot.y { background: #ffbd2e; } .term-dot.g { background: #27c93f; }
+        .terminal-body { padding: 1.5rem; font-family: var(--font-code); font-size: 0.9rem; line-height: 1.5; color: #a1a1aa; height: 350px; overflow-y: auto; display: flex; flex-direction: column; gap: 0.5rem; }
+        .term-line { display: none; opacity: 0; transform: translateY(10px); animation: fadeInUp 0.3s forwards; }
+        .term-agent { padding: 0.1rem 0.4rem; border-radius: 4px; font-weight: bold; font-size: 0.8rem; margin-right: 0.5rem; }
+        
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+        /* Graph Demo */
+        .graph-container {
+            background: var(--bg-panel); border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px; height: 500px; position: relative; overflow: hidden;
+        }
+        #graph-canvas { width: 100%; height: 100%; cursor: grab; }
+        #graph-canvas:active { cursor: grabbing; }
+        
+        /* Architecture Flow */
+        .arch-flow { display: flex; flex-direction: column; gap: 2rem; max-width: 800px; margin: 0 auto; position: relative; }
+        .arch-flow::before {
+            content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px;
+            background: rgba(255, 255, 255, 0.1); transform: translateX(-50%); z-index: 0;
+        }
+        .arch-step {
+            position: relative; z-index: 1; background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px;
+            padding: 1.5rem; width: 45%;
+        }
+        .arch-step:nth-child(odd) { align-self: flex-start; text-align: right; border-right: 4px solid var(--c-cyan); }
+        .arch-step:nth-child(even) { align-self: flex-end; text-align: left; border-left: 4px solid var(--c-purple); }
+        .arch-step-title { font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem; }
+        
+        /* Agents */
+        .agent-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .agent-card {
+            background: var(--bg-panel); border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px; padding: 1.5rem; text-align: center;
+        }
+        .agent-avatar { font-size: 3rem; margin-bottom: 1rem; }
+        .agent-name { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .agent-engine { font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-code); margin-bottom: 1rem; }
+        
+        /* Stats */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; text-align: center; }
+        .stat-value { font-size: 3.5rem; font-weight: 800; font-family: var(--font-heading); margin-bottom: 0.5rem; }
+        .stat-label { color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Tech Stack */
+        .tech-stack { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+        .tech-pill {
+            background: var(--bg-panel); border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1.5rem; border-radius: 30px; font-weight: 500; font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 4rem 0 2rem; text-align: center; }
+        
+        /* Utility Classes */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .arch-flow::before { left: 20px; }
+            .arch-step { width: calc(100% - 50px); align-self: flex-end !important; text-align: left !important; margin-left: 50px; }
+            .arch-step:nth-child(odd) { border-right: none; border-left: 4px solid var(--c-cyan); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">XR-NODES</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#demo">Console</a>
+                <a href="#graph">Knowledge Graph</a>
+                <a href="#architecture">Architecture</a>
+                <a href="#agents">Agents</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <canvas id="particles-canvas"></canvas>
+        <div class="container hero-content reveal active">
+            <h1 class="hero-title">XR-NODES <br><span class="glowing-text">Agent OS</span></h1>
+            <p class="hero-subtitle">AI-Native Operating Layer for Personal Knowledge Systems</p>
+            
+            <div class="typing-container">
+                <span class="text-purple">></span> <span class="typing-text" id="hero-typing"></span>
+            </div>
+            
+            <div>
+                <a href="#demo" class="btn btn-primary">Explore Dashboard &rarr;</a>
+                <a href="#architecture" class="btn btn-secondary">View Architecture</a>
+            </div>
+            
+            <div class="floating-badges">
+                <div class="badge"><span class="term-dot bg-cyan"></span> 373 Atomic Nodes</div>
+                <div class="badge"><span class="term-dot bg-purple"></span> 22 MOCs</div>
+                <div class="badge"><span class="term-dot bg-emerald"></span> 9 Agents</div>
+                <div class="badge"><span class="term-dot bg-amber"></span> 12 Tools</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="container reveal">
+        <div class="section-header">
+            <h2 class="section-title">Core Features</h2>
+            <p class="section-desc">A unified architecture blending multi-agent reasoning with structured knowledge graphs.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card" style="border-color: rgba(6, 182, 212, 0.2);">
+                <div class="feature-icon" style="background: rgba(6, 182, 212, 0.1); color: var(--c-cyan);">🤖</div>
+                <h3 class="feature-title">Multi-Agent Orchestration</h3>
+                <p class="feature-desc">9 specialized agents collaborating via ReAct reasoning loops to automate complex knowledge tasks.</p>
+            </div>
+            <div class="feature-card" style="border-color: rgba(168, 85, 247, 0.2);">
+                <div class="feature-icon" style="background: rgba(168, 85, 247, 0.1); color: var(--c-purple);">🕸️</div>
+                <h3 class="feature-title">Knowledge Graph Engine</h3>
+                <p class="feature-desc">Force-directed Obsidian-style graph with robust bidirectional backlinks and semantic search.</p>
+            </div>
+            <div class="feature-card" style="border-color: rgba(16, 185, 129, 0.2);">
+                <div class="feature-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--c-emerald);">🛡️</div>
+                <h3 class="feature-title">Human-in-the-Loop Safety</h3>
+                <p class="feature-desc">Risk-classified tool permissions with a secure approval queue for destructive actions.</p>
+            </div>
+            <div class="feature-card" style="border-color: rgba(239, 68, 68, 0.2);">
+                <div class="feature-icon" style="background: rgba(239, 68, 68, 0.1); color: var(--c-red);">🎥</div>
+                <h3 class="feature-title">Creator Studio</h3>
+                <p class="feature-desc">Automated ingestion of YouTube transcripts into structured, atomic study notes.</p>
+            </div>
+            <div class="feature-card" style="border-color: rgba(245, 158, 11, 0.2);">
+                <div class="feature-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--c-amber);">📊</div>
+                <h3 class="feature-title">Real-Time Telemetry</h3>
+                <p class="feature-desc">Live event bus with structured JSON logging, tracing every agent thought and action.</p>
+            </div>
+            <div class="feature-card" style="border-color: rgba(6, 182, 212, 0.2);">
+                <div class="feature-icon" style="background: rgba(6, 182, 212, 0.1); color: var(--c-cyan);">🧠</div>
+                <h3 class="feature-title">Vault Intelligence</h3>
+                <p class="feature-desc">Strict Schema v4 atomic notes structure with auto-maintained Map of Content (MOC) navigation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="container reveal">
+        <div class="section-header">
+            <h2 class="section-title">Agent Console</h2>
+            <p class="section-desc">Watch XR-NODES orchestrate multiple agents to complete a complex objective.</p>
+        </div>
+        <div class="terminal-wrapper">
+            <div class="terminal-header">
+                <div class="term-dot r"></div>
+                <div class="term-dot y"></div>
+                <div class="term-dot g"></div>
+                <div style="margin-left: 1rem; color: #666; font-size: 0.8rem; font-family: var(--font-body);">xr-nodes-cli — zsh</div>
+            </div>
+            <div class="terminal-body" id="term-body">
+                <!-- Lines populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <section id="graph" class="container reveal">
+        <div class="section-header">
+            <h2 class="section-title">Knowledge Graph Visualization</h2>
+            <p class="section-desc">Interactive representation of Vault Intelligence with Nodes, MOCs, and Study Notes.</p>
+        </div>
+        <div class="graph-container">
+            <canvas id="graph-canvas"></canvas>
+            <div style="position: absolute; bottom: 1rem; right: 1rem; display: flex; gap: 1rem; font-size: 0.8rem; background: rgba(0,0,0,0.5); padding: 0.5rem 1rem; border-radius: 20px;">
+                <span style="color: var(--c-cyan);">● Atomic Node</span>
+                <span style="color: var(--c-purple);">● MOC</span>
+                <span style="color: var(--c-emerald);">● Study Note</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="architecture" class="container reveal">
+        <div class="section-header">
+            <h2 class="section-title">System Architecture</h2>
+            <p class="section-desc">The internal flow of an AI-Native Operating Layer.</p>
+        </div>
+        <div class="arch-flow">
+            <div class="arch-step">
+                <div class="arch-step-title text-cyan">1. User Request</div>
+                <p class="text-muted font-code text-sm">"Atomize research on transformer architectures"</p>
+            </div>
+            <div class="arch-step">
+                <div class="arch-step-title text-purple">2. Intent Detection</div>
+                <p class="text-muted text-sm">Antigravity orchestrator analyzes request and classifies intention.</p>
+            </div>
+            <div class="arch-step">
+                <div class="arch-step-title text-amber">3. Task Planning</div>
+                <p class="text-muted text-sm">Decomposes request into a 4-step execution pipeline.</p>
+            </div>
+            <div class="arch-step">
+                <div class="arch-step-title text-emerald">4. Agent Execution & Tools</div>
+                <p class="text-muted text-sm">Specialized agents (Researcher, Atomizer, Linker) execute tools sequentially.</p>
+            </div>
+            <div class="arch-step">
+                <div class="arch-step-title text-cyan">5. Vault Mutator</div>
+                <p class="text-muted text-sm">Applies structured Markdown edits to the Obsidian vault.</p>
+            </div>
+            <div class="arch-step">
+                <div class="arch-step-title text-purple">6. Verification & Telemetry</div>
+                <p class="text-muted text-sm">Checks constraints, logs telemetry, and returns final summary to User.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="agents" class="container reveal">
+        <div class="section-header">
+            <h2 class="section-title">Agent Roster</h2>
+            <p class="section-desc">Meet the specialized intelligences powering your personal knowledge system.</p>
+        </div>
+        <div class="agent-grid">
+            <div class="agent-card" style="border-top: 3px solid var(--c-cyan);">
+                <div class="agent-avatar">🪐</div>
+                <h3 class="agent-name">Antigravity</h3>
+                <div class="agent-engine">Google DeepMind / Gemini</div>
+                <p class="text-muted text-sm">System Orchestrator. Handles routing, intent detection, and final synthesis.</p>
+            </div>
+            <div class="agent-card" style="border-top: 3px solid var(--c-amber);">
+                <div class="agent-avatar">🤖</div>
+                <h3 class="agent-name">Claude Code</h3>
+                <div class="agent-engine">Anthropic / Claude 3.5</div>
+                <p class="text-muted text-sm">Lead Software Engineer. Manages system scripts, schema migrations, and tool building.</p>
+            </div>
+            <div class="agent-card" style="border-top: 3px solid var(--c-emerald);">
+                <div class="agent-avatar">🧠</div>
+                <h3 class="agent-name">Codex</h3>
+                <div class="agent-engine">OpenAI / GPT-4o</div>
+                <p class="text-muted text-sm">Algorithmic Intelligence. Excels at data parsing, structuring, and semantic extraction.</p>
+            </div>
+            <div class="agent-card" style="border-top: 3px solid var(--c-purple);">
+                <div class="agent-avatar">🏛️</div>
+                <h3 class="agent-name">Hermes</h3>
+                <div class="agent-engine">Nous Research / DeepSeek</div>
+                <p class="text-muted text-sm">Local Reasoning. Fast, private local inference for basic classification and MOC linking.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container reveal" style="background: var(--bg-panel); border-radius: 20px; padding: 4rem;">
+        <div class="stats-grid">
+            <div>
+                <div class="stat-value text-cyan" data-target="373">0</div>
+                <div class="stat-label">Atomic Nodes</div>
+            </div>
+            <div>
+                <div class="stat-value text-emerald" data-target="120">0</div>
+                <div class="stat-label">Study Notes</div>
+            </div>
+            <div>
+                <div class="stat-value text-purple" data-target="22">0</div>
+                <div class="stat-label">Maps of Content</div>
+            </div>
+            <div>
+                <div class="stat-value text-amber" data-target="9">0</div>
+                <div class="stat-label">Agents</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container reveal text-center">
+        <h2 class="section-title">Tech Stack</h2>
+        <div class="tech-stack" style="margin-top: 2rem;">
+            <span class="tech-pill">Python 3.11</span>
+            <span class="tech-pill">FastAPI</span>
+            <span class="tech-pill">SQLite (aiosqlite)</span>
+            <span class="tech-pill">React 18</span>
+            <span class="tech-pill">TypeScript</span>
+            <span class="tech-pill">Tailwind CSS</span>
+            <span class="tech-pill">Vite</span>
+            <span class="tech-pill">Obsidian</span>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="logo" style="margin-bottom: 1rem; color: var(--text-muted);">NexusDB &copy; XR-NODES Agent OS</div>
+            <p class="text-muted text-sm font-code">v0.1.0 • MIT License</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Scroll Reveal ---
+        const reveals = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+        reveals.forEach(reveal => revealObserver.observe(reveal));
+
+        // --- Active Nav Link ---
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            document.querySelectorAll('.nav-links a').forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href') === `#${current}`) {
+                    a.classList.add('active');
+                }
+            });
+        });
+
+        // --- Typing Effect ---
+        const typingText = "xr-cli run --agent antigravity --intent 'atomize research'";
+        const typeTarget = document.getElementById('hero-typing');
+        let typeIndex = 0;
+        function type() {
+            if (typeIndex < typingText.length) {
+                typeTarget.textContent += typingText.charAt(typeIndex);
+                typeIndex++;
+                setTimeout(type, Math.random() * 50 + 30);
+            }
+        }
+        setTimeout(type, 1000);
+
+        // --- Hero Canvas Background ---
+        const particlesCanvas = document.getElementById('particles-canvas');
+        const ctxP = particlesCanvas.getContext('2d');
+        let particles = [];
+        
+        function resizeParticles() {
+            particlesCanvas.width = window.innerWidth;
+            particlesCanvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeParticles);
+        resizeParticles();
+
+        for (let i = 0; i < 100; i++) {
+            particles.push({
+                x: Math.random() * particlesCanvas.width,
+                y: Math.random() * particlesCanvas.height,
+                radius: Math.random() * 1.5,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5
+            });
+        }
+
+        function animateParticles() {
+            ctxP.clearRect(0, 0, particlesCanvas.width, particlesCanvas.height);
+            ctxP.fillStyle = 'rgba(255, 255, 255, 0.5)';
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 0) p.x = particlesCanvas.width;
+                if (p.x > particlesCanvas.width) p.x = 0;
+                if (p.y < 0) p.y = particlesCanvas.height;
+                if (p.y > particlesCanvas.height) p.y = 0;
+                
+                ctxP.beginPath();
+                ctxP.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctxP.fill();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // --- Number Counter ---
+        const statValues = document.querySelectorAll('.stat-value');
+        let statsStarted = false;
+        
+        const statsObserver = new IntersectionObserver((entries) => {
+            if(entries[0].isIntersecting && !statsStarted) {
+                statsStarted = true;
+                statValues.forEach(stat => {
+                    const target = +stat.getAttribute('data-target');
+                    const duration = 2000;
+                    const increment = target / (duration / 16);
+                    let current = 0;
+                    
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current < target) {
+                            stat.textContent = Math.ceil(current);
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            stat.textContent = target;
+                        }
+                    };
+                    updateCounter();
+                });
+            }
+        });
+        if (statValues.length > 0) {
+            statsObserver.observe(statValues[0].parentElement.parentElement);
+        }
+
+        // --- Terminal Demo ---
+        const termBody = document.getElementById('term-body');
+        const termScript = [
+            { agent: 'User', color: '#f4f4f5', text: 'Atomize research on transformer architectures' },
+            { agent: 'Planner', color: '#a855f7', text: 'Creating 4-step pipeline: Search -> Extract -> Link -> Review' },
+            { agent: 'Researcher', color: '#06b6d4', text: 'Searching vault... Found 3 relevant source documents.' },
+            { agent: 'Atomizer', color: '#f59e0b', text: 'Extracting concepts: Attention Mechanism, Positional Encoding, Self-Attention.' },
+            { agent: 'Linker', color: '#10b981', text: 'Creating bidirectional links to [[Neural Networks]] MOC.' },
+            { agent: 'Reviewer', color: '#3b82f6', text: 'Validating Schema v4 compliance... Passed.' },
+            { agent: 'System', color: '#ef4444', text: 'Task completed in 4.2s. 3 new atomic notes created.' }
+        ];
+        
+        let termStarted = false;
+        const termObserver = new IntersectionObserver((entries) => {
+            if(entries[0].isIntersecting && !termStarted) {
+                termStarted = true;
+                let delay = 500;
+                termScript.forEach((step, i) => {
+                    setTimeout(() => {
+                        const div = document.createElement('div');
+                        div.className = 'term-line';
+                        div.innerHTML = `<span class="term-agent" style="background: ${step.color}22; color: ${step.color}">${step.agent}</span> ${step.text}`;
+                        termBody.appendChild(div);
+                        termBody.scrollTop = termBody.scrollHeight;
+                    }, delay);
+                    delay += 1000 + Math.random() * 1000; // Random delay between steps
+                });
+            }
+        }, { threshold: 0.5 });
+        termObserver.observe(document.getElementById('demo'));
+
+        // --- Force Directed Graph (Simplified Canvas Demo) ---
+        const canvas = document.getElementById('graph-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        function resizeGraph() {
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+        }
+        window.addEventListener('resize', resizeGraph);
+        resizeGraph();
+
+        const nodes = [];
+        const edges = [];
+        const colors = ['#06b6d4', '#a855f7', '#10b981', '#f59e0b'];
+        
+        // Generate mock data
+        for(let i=0; i<40; i++) {
+            nodes.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: 0, vy: 0,
+                radius: i < 5 ? 8 : (i < 15 ? 5 : 3), // MOCs, Notes, Atoms
+                color: i < 5 ? colors[1] : (i < 15 ? colors[2] : colors[0])
+            });
+        }
+        
+        for(let i=0; i<60; i++) {
+            edges.push({
+                source: Math.floor(Math.random() * nodes.length),
+                target: Math.floor(Math.random() * nodes.length)
+            });
+        }
+
+        let isDragging = false;
+        let draggedNode = null;
+
+        canvas.addEventListener('mousedown', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            for(let node of nodes) {
+                const dx = x - node.x;
+                const dy = y - node.y;
+                if(Math.sqrt(dx*dx + dy*dy) < node.radius + 10) {
+                    isDragging = true;
+                    draggedNode = node;
+                    break;
+                }
+            }
+        });
+
+        window.addEventListener('mouseup', () => { isDragging = false; draggedNode = null; });
+        canvas.addEventListener('mousemove', (e) => {
+            if(isDragging && draggedNode) {
+                const rect = canvas.getBoundingClientRect();
+                draggedNode.x = e.clientX - rect.left;
+                draggedNode.y = e.clientY - rect.top;
+            }
+        });
+
+        function animateGraph() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Very simple force layout approximation
+            for(let i=0; i<nodes.length; i++) {
+                for(let j=i+1; j<nodes.length; j++) {
+                    const dx = nodes[j].x - nodes[i].x;
+                    const dy = nodes[j].y - nodes[i].y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    
+                    if (dist < 100) {
+                        const force = (100 - dist) * 0.001;
+                        nodes[i].vx -= dx * force;
+                        nodes[i].vy -= dy * force;
+                        nodes[j].vx += dx * force;
+                        nodes[j].vy += dy * force;
+                    }
+                }
+                
+                // Center gravity
+                nodes[i].vx += (canvas.width/2 - nodes[i].x) * 0.0001;
+                nodes[i].vy += (canvas.height/2 - nodes[i].y) * 0.0001;
+            }
+            
+            edges.forEach(edge => {
+                const s = nodes[edge.source];
+                const t = nodes[edge.target];
+                
+                // Attraction
+                const dx = t.x - s.x;
+                const dy = t.y - s.y;
+                s.vx += dx * 0.001;
+                s.vy += dy * 0.001;
+                t.vx -= dx * 0.001;
+                t.vy -= dy * 0.001;
+
+                ctx.beginPath();
+                ctx.moveTo(s.x, s.y);
+                ctx.lineTo(t.x, t.y);
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+                ctx.stroke();
+            });
+
+            nodes.forEach(node => {
+                if (node !== draggedNode) {
+                    node.x += node.vx;
+                    node.y += node.vy;
+                    node.vx *= 0.9;
+                    node.vy *= 0.9;
+                }
+                
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+                ctx.fillStyle = node.color;
+                ctx.fill();
+            });
+
+            requestAnimationFrame(animateGraph);
+        }
+        
+        // Start graph animation only when in view for performance
+        let graphAnimating = false;
+        const graphObserver = new IntersectionObserver((entries) => {
+            if(entries[0].isIntersecting && !graphAnimating) {
+                graphAnimating = true;
+                animateGraph();
+            }
+        });
+        graphObserver.observe(document.getElementById('graph'));
+
+    </script>
+</body>
+</html>

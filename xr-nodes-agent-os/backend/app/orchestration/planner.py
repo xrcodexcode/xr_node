@@ -36,7 +36,30 @@ class PlannerEngine:
         step_idx = 1
 
         # Rule-based intelligent planning
-        if "research" in obj_lower or "neural" in obj_lower or "transformer" in obj_lower:
+        if any(kw in obj_lower for kw in ["atomize", "extract", "concept"]):
+            steps = [
+                TaskStepSpec(step_index=1, agent_name="atomizer-agent", action="extract", description="Extract atomic concepts", input_params={"objective": objective}),
+                TaskStepSpec(step_index=2, agent_name="linker-agent", action="link", description="Link concepts", input_params={"objective": objective})
+            ]
+            step_idx = 3
+        elif any(kw in obj_lower for kw in ["audit", "check", "validate", "health"]):
+            steps = [
+                TaskStepSpec(step_index=1, agent_name="maintenance-agent", action="audit", description="Audit vault health", input_params={"objective": objective})
+            ]
+            step_idx = 2
+        elif any(kw in obj_lower for kw in ["write", "synthesize", "article"]):
+            steps = [
+                TaskStepSpec(step_index=1, agent_name="research-agent", action="gather", description="Gather info", input_params={"objective": objective}),
+                TaskStepSpec(step_index=2, agent_name="writer-agent", action="write", description="Write article", input_params={"objective": objective})
+            ]
+            step_idx = 3
+        elif any(kw in obj_lower for kw in ["ingest", "youtube", "video"]):
+            steps = [
+                TaskStepSpec(step_index=1, agent_name="ingestion-agent", action="ingest_video", description="Ingest video transcript", input_params={"objective": objective}),
+                TaskStepSpec(step_index=2, agent_name="atomizer-agent", action="atomize", description="Atomize transcript", input_params={"objective": objective})
+            ]
+            step_idx = 3
+        elif "research" in obj_lower or "neural" in obj_lower or "transformer" in obj_lower:
             steps.append(TaskStepSpec(
                 step_index=step_idx,
                 agent_name="research-agent",
@@ -71,6 +94,7 @@ class PlannerEngine:
                 description="Audit created notes against quality rubric",
                 input_params={"objective": objective}
             ))
+            step_idx += 1
         else:
             # General task plan
             steps.append(TaskStepSpec(
@@ -80,8 +104,12 @@ class PlannerEngine:
                 description=f"Analyze and process: {objective}",
                 input_params={"objective": objective}
             ))
+            step_idx += 1
 
         return TaskPlan(objective=objective, steps=steps, estimated_duration_seconds=step_idx * 30)
+
+    def list_available_pipelines(self) -> List[str]:
+        return ["atomizer", "maintenance", "writing", "ingestion", "research", "general"]
 
 
 planner_engine = PlannerEngine()

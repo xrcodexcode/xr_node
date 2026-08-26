@@ -61,9 +61,30 @@ class PathsModule(types.ModuleType):
         elif name == "MOCS":
             return vault / "03_MOC"
         elif name == "CAPTURE":
-            return vault / "01_RAW" / "CAPTURE"
+            capture = vault / "01_RAW" / "CAPTURE"
+            if not capture.exists():
+                alt = vault / "01 raw"
+                if alt.exists():
+                    return alt
+            return capture
+        elif name == "PROCESS":
+            process = vault / "01_RAW" / "PROCESS"
+            if not process.exists():
+                alt = vault / "01 raw" / "networking"
+                if alt.exists():
+                    return alt
+            return process
+        elif name == "NEW_KNOWLEDGE":
+            return vault / "02_NEW-KNOWLEDGE"
+        elif name == "NOTES":
+            return vault / "NOTES"
         elif name == "SOURCE":
-            return vault / "01_RAW" / "SOURCE"
+            source = vault / "01_RAW" / "SOURCE"
+            if not source.exists():
+                alt = vault / "zarchive"
+                if alt.exists():
+                    return alt
+            return source
         elif name == "REPORTS":
             return vault / ".antigravity" / "reports"
         elif name == "LOGS":
