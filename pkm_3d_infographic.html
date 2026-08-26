@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Knowledge Management System — Cinematic 3D Infographic</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Three.js and OrbitControls -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <!-- GSAP for smooth cinematic animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+      user-select: none;
+    }
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #030712;
+      color: #f3f4f6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    /* Glassmorphism styling */
+    .glass-panel {
+      background: rgba(10, 16, 31, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(56, 189, 248, 0.15);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    }
+    .glass-card {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+    .glass-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
+    }
+    /* Cyber glow text */
+    .glow-cyan {
+      text-shadow: 0 0 12px rgba(6, 182, 212, 0.7), 0 0 25px rgba(6, 182, 212, 0.3);
+    }
+    .glow-blue {
+      text-shadow: 0 0 12px rgba(59, 130, 246, 0.7), 0 0 25px rgba(59, 130, 246, 0.3);
+    }
+    .glow-purple {
+      text-shadow: 0 0 12px rgba(168, 85, 247, 0.7), 0 0 25px rgba(168, 85, 247, 0.3);
+    }
+    .glow-amber {
+      text-shadow: 0 0 12px rgba(245, 158, 11, 0.7), 0 0 25px rgba(245, 158, 11, 0.3);
+    }
+
+    /* Custom scrollbars */
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.5);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(56, 189, 248, 0.3);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(56, 189, 248, 0.6);
+    }
+
+    /* Pulse animations */
+    @keyframes radar-pulse {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.05); opacity: 0.3; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+    .animate-radar {
+      animation: radar-pulse 3s infinite ease-in-out;
+    }
+
+    /* Cinematic scanline overlay */
+    .scanlines {
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+      background-size: 100% 3px, 4px 100%;
+      pointer-events: none;
+    }
+
+    /* Vignette */
+    .vignette {
+      box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.85);
+      pointer-events: none;
+    }
+
+    /* 3D Canvas wrapper */
+    #webgl-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body class="relative w-screen h-screen overflow-hidden select-none bg-slate-950">
+
+  <!-- 3D WebGL Canvas -->
+  <div id="webgl-container"></div>
+
+  <!-- Visual Overlays (Scanlines & Vignette) -->
+  <div class="scanlines absolute inset-0 z-10 pointer-events-none opacity-40"></div>
+  <div class="vignette absolute inset-0 z-10 pointer-events-none"></div>
+
+  <!-- HUD: Top Header -->
+  <header class="absolute top-4 left-6 right-6 z-20 flex items-center justify-between pointer-events-none">
+    <!-- Project Title & Badge -->
+    <div class="flex items-center space-x-4 pointer-events-auto">
+      <div class="p-2.5 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-600/30 border border-cyan-400/30 shadow-[0_0_20px_rgba(6,182,212,0.3)]">
+        <i data-lucide="brain" class="w-6 h-6 text-cyan-400"></i>
+      </div>
+      <div>
+        <div class="flex items-center space-x-2">
+          <span class="px-2 py-0.5 text-[10px] font-mono uppercase tracking-widest bg-cyan-950/80 text-cyan-400 border border-cyan-500/30 rounded">PBL-1 PROJECT</span>
+          <span class="flex h-2 w-2 relative">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+          </span>
+          <span class="text-xs font-mono text-cyan-400/70">GRAPH NODE ACTIVE</span>
+        </div>
+        <h1 class="text-lg md:text-xl font-bold tracking-tight text-white flex items-center gap-2">
+          PERSONAL KNOWLEDGE MANAGEMENT SYSTEM
+          <span class="text-xs font-normal text-slate-400 hidden lg:inline">| Digital Second Brain</span>
+        </h1>
+      </div>
+    </div>
+
+    <!-- Top Action Controls -->
+    <div class="flex items-center space-x-3 pointer-events-auto">
+      <!-- Audio Toggle -->
+      <button id="audio-toggle-btn" class="glass-panel px-3 py-2 rounded-lg text-xs font-medium text-slate-300 hover:text-cyan-300 hover:border-cyan-400/40 transition flex items-center gap-2" title="Toggle Cinematic Ambient Synth">
+        <i data-lucide="volume-2" id="audio-icon" class="w-4 h-4 text-cyan-400"></i>
+        <span id="audio-status-text" class="hidden sm:inline font-mono">AUDIO: ON</span>
+      </button>
+
+      <!-- Theme Switcher -->
+      <div class="glass-panel px-2 py-1.5 rounded-lg flex items-center space-x-1">
+        <button onclick="setTheme('cyber')" class="w-5 h-5 rounded-full bg-cyan-400 hover:scale-110 transition border border-white/40 shadow-[0_0_8px_rgba(6,182,212,0.8)]" title="Cyber Cyan"></button>
+        <button onclick="setTheme('neon')" class="w-5 h-5 rounded-full bg-purple-500 hover:scale-110 transition border border-white/20" title="Neon Violet"></button>
+        <button onclick="setTheme('solar')" class="w-5 h-5 rounded-full bg-amber-400 hover:scale-110 transition border border-white/20" title="Solar Gold"></button>
+        <button onclick="setTheme('matrix')" class="w-5 h-5 rounded-full bg-emerald-400 hover:scale-110 transition border border-white/20" title="Matrix Emerald"></button>
+      </div>
+
+      <!-- Auto Tour Play/Pause -->
+      <button id="tour-btn" class="glass-panel px-3 py-2 rounded-lg text-xs font-medium text-white bg-gradient-to-r from-cyan-600/30 to-blue-600/40 border border-cyan-400/40 hover:border-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.3)] transition flex items-center gap-2">
+        <i data-lucide="play" id="tour-icon" class="w-4 h-4 text-cyan-400 fill-cyan-400"></i>
+        <span class="font-mono">CINEMATIC TOUR</span>
+      </button>
+
+      <!-- Reset Camera -->
+      <button onclick="resetCameraView()" class="glass-panel p-2 rounded-lg text-slate-400 hover:text-white hover:border-slate-400 transition" title="Reset View">
+        <i data-lucide="compass" class="w-4 h-4"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Left Sidebar: Chapter Navigator & Storyline -->
+  <aside class="absolute left-6 top-24 bottom-24 z-20 w-72 md:w-80 pointer-events-none flex flex-col justify-between">
+    <!-- Chapter Cards -->
+    <div class="glass-panel p-4 rounded-2xl pointer-events-auto space-y-2 border border-slate-700/50 shadow-2xl">
+      <div class="flex items-center justify-between pb-2 border-b border-slate-700/60">
+        <span class="text-xs font-mono font-bold text-cyan-400 tracking-wider flex items-center gap-1.5">
+          <i data-lucide="layers" class="w-3.5 h-3.5"></i> PRESENTATION CHAPTERS
+        </span>
+        <span id="chapter-counter" class="text-[11px] font-mono text-slate-400">01 / 05</span>
+      </div>
+
+      <div class="space-y-1.5 pt-1" id="chapter-list">
+        <!-- Chapter 0: Universe Overview -->
+        <button onclick="switchChapter(0)" class="chapter-nav-btn w-full text-left p-2.5 rounded-xl transition duration-200 flex items-center space-x-3 bg-cyan-500/15 border border-cyan-400/40 text-white" data-idx="0">
+          <div class="w-7 h-7 rounded-lg bg-cyan-500/20 flex items-center justify-center font-mono text-xs font-bold text-cyan-400">00</div>
+          <div class="flex-1 min-w-0">
+            <div class="text-xs font-bold truncate">OVERVIEW: SECOND BRAIN</div>
+            <div class="text-[10px] text-slate-400 truncate">Core Constellation & Vision</div>
+          </div>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-400"></i>
+        </button>
+
+        <!-- Chapter 1: The Problem -->
+        <button onclick="switchChapter(1)" class="chapter-nav-btn w-full text-left p-2.5 rounded-xl transition duration-200 flex items-center space-x-3 hover:bg-slate-800/60 border border-transparent text-slate-300" data-idx="1">
+          <div class="w-7 h-7 rounded-lg bg-rose-500/20 flex items-center justify-center font-mono text-xs font-bold text-rose-400">01</div>
+          <div class="flex-1 min-w-0">
+            <div class="text-xs font-bold truncate">01 — THE PROBLEM</div>
+            <div class="text-[10px] text-slate-400 truncate">Knowledge is Scattered in Silos</div>
+          </div>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 opacity-0 group-hover:opacity-100"></i>
+        </button>
+
+        <!-- Chapter 2: The Solution -->
+        <button onclick="switchChapter(2)" class="chapter-nav-btn w-full text-left p-2.5 rounded-xl transition duration-200 flex items-center space-x-3 hover:bg-slate-800/60 border border-transparent text-slate-300" data-idx="2">
+          <div class="w-7 h-7 rounded-lg bg-blue-500/20 flex items-center justify-center font-mono text-xs font-bold text-blue-400">02</div>
+          <div class="flex-1 min-w-0">
+            <div class="text-xs font-bold truncate">02 — THE SOLUTION</div>
+            <div class="text-[10px] text-slate-400 truncate">One Connected Personal Wiki</div>
+          </div>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 opacity-0"></i>
+        </button>
+
+        <!-- Chapter 3: Implementation -->
+        <button onclick="switchChapter(3)" class="chapter-nav-btn w-full text-left p-2.5 rounded-xl transition duration-200 flex items-center space-x-3 hover:bg-slate-800/60 border border-transparent text-slate-300" data-idx="3">
+          <div class="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center font-mono text-xs font-bold text-emerald-400">03</div>
+          <div class="flex-1 min-w-0">
+            <div class="text-xs font-bold truncate">03 — IMPLEMENTATION</div>
+            <div class="text-[10px] text-slate-400 truncate">5-Stage Knowledge Pipeline</div>
+          </div>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 opacity-0"></i>
+        </button>
+
+        <!-- Chapter 4: Outcome -->
+        <button onclick="switchChapter(4)" class="chapter-nav-btn w-full text-left p-2.5 rounded-xl transition duration-200 flex items-center space-x-3 hover:bg-slate-800/60 border border-transparent text-slate-300" data-idx="4">
+          <div class="w-7 h-7 rounded-lg bg-purple-500/20 flex items-center justify-center font-mono text-xs font-bold text-purple-400">04</div>
+          <div class="flex-1 min-w-0">
+            <div class="text-xs font-bold truncate">04 — THE OUTCOME</div>
+            <div class="text-[10px] text-slate-400 truncate">Organized, Searchable, AI-Ready</div>
+          </div>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 opacity-0"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Active Chapter Live Deep Dive Panel -->
+    <div id="dynamic-info-panel" class="glass-panel p-4 rounded-2xl pointer-events-auto border border-cyan-500/30 shadow-2xl transition-all duration-500">
+      <div class="flex items-center gap-2 mb-1.5">
+        <span id="panel-tag" class="px-2 py-0.5 text-[10px] font-mono uppercase bg-cyan-900/60 text-cyan-300 rounded border border-cyan-400/30">CORE ARCHITECTURE</span>
+        <span class="text-[10px] font-mono text-slate-400 ml-auto">LIVE TELEMETRY</span>
+      </div>
+      <h2 id="panel-title" class="text-base font-bold text-white mb-1">Knowledge Constellation</h2>
+      <p id="panel-desc" class="text-xs text-slate-300 leading-relaxed mb-3">
+        Capturing, organizing, connecting, and retrieving all personal intelligence in one interconnected 3D neural graph.
+      </p>
+
+      <!-- Key dynamic metric chips -->
+      <div id="panel-chips" class="grid grid-cols-2 gap-2 text-center font-mono text-xs">
+        <div class="bg-slate-900/80 p-2 rounded-lg border border-slate-700/50">
+          <div class="text-[10px] text-slate-400">NODES</div>
+          <div class="text-cyan-400 font-bold text-sm">4 CORE SILOS</div>
+        </div>
+        <div class="bg-slate-900/80 p-2 rounded-lg border border-slate-700/50">
+          <div class="text-[10px] text-slate-400">PIPELINE</div>
+          <div class="text-emerald-400 font-bold text-sm">5 PHASES</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Right Sidebar: Interactive 3D Node Inspector & Planned Tech Stack -->
+  <aside class="absolute right-6 top-24 bottom-24 z-20 w-72 md:w-88 pointer-events-none flex flex-col justify-between items-end">
+    <!-- 3D Node Quick Inspector -->
+    <div id="node-inspector" class="glass-panel p-4 rounded-2xl pointer-events-auto w-full border border-slate-700/50 shadow-2xl transition-all duration-300">
+      <div class="flex items-center justify-between pb-2 border-b border-slate-700/60">
+        <div class="flex items-center space-x-2">
+          <i data-lucide="crosshair" class="w-4 h-4 text-cyan-400 animate-spin" style="animation-duration: 8s;"></i>
+          <span class="text-xs font-mono font-bold text-white">INTERACTIVE NODE INSPECTOR</span>
+        </div>
+        <span class="text-[10px] font-mono text-cyan-400/80 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800">CLICK 3D NODES</span>
+      </div>
+
+      <div id="inspector-content" class="py-3 space-y-2.5">
+        <div class="flex items-center space-x-3">
+          <div id="inspector-icon-box" class="w-10 h-10 rounded-xl bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.3)]">
+            <i data-lucide="network" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 id="inspector-node-title" class="text-sm font-bold text-white">Personal Wiki (Nexus)</h3>
+            <p id="inspector-node-type" class="text-[11px] font-mono text-cyan-400">CENTRAL KNOWLEDGE CORE</p>
+          </div>
+        </div>
+        <p id="inspector-node-body" class="text-xs text-slate-300 leading-relaxed bg-slate-900/60 p-2.5 rounded-xl border border-slate-800">
+          The central hub that connects scattered thoughts, notes, PDFs, bookmarks, and ideas into a living graph of associations.
+        </p>
+        <div id="inspector-node-tags" class="flex flex-wrap gap-1.5 pt-1">
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-blue-900/40 text-blue-300 border border-blue-700/40">#PersonalWiki</span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-purple-900/40 text-purple-300 border border-purple-700/40">#SecondBrain</span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-emerald-900/40 text-emerald-300 border border-emerald-700/40">#GraphDb</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Planned Architecture Stack Card -->
+    <div class="glass-panel p-4 rounded-2xl pointer-events-auto w-full border border-slate-700/50 shadow-2xl space-y-2.5">
+      <div class="flex items-center justify-between pb-1.5 border-b border-slate-700/60">
+        <span class="text-xs font-mono font-bold text-cyan-400 flex items-center gap-1.5">
+          <i data-lucide="cpu" class="w-3.5 h-3.5"></i> PLANNED SYSTEM STACK
+        </span>
+        <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-1.5 py-0.2 rounded border border-emerald-700/50">MODERN WEB</span>
+      </div>
+
+      <div class="space-y-2 text-xs">
+        <div class="flex items-start space-x-2 bg-slate-900/60 p-2 rounded-lg border border-slate-800">
+          <i data-lucide="layout" class="w-4 h-4 text-cyan-400 mt-0.5 shrink-0"></i>
+          <div>
+            <div class="font-bold text-white text-[11px]">Frontend Layer</div>
+            <div class="text-[10px] text-slate-300 font-mono">HTML5 • Modern CSS • JavaScript ES6+</div>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-2 bg-slate-900/60 p-2 rounded-lg border border-slate-800">
+          <i data-lucide="server" class="w-4 h-4 text-blue-400 mt-0.5 shrink-0"></i>
+          <div>
+            <div class="font-bold text-white text-[11px]">Backend & App API</div>
+            <div class="text-[10px] text-slate-300 font-mono">Next.js • Node.js • FastAPI</div>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-2 bg-slate-900/60 p-2 rounded-lg border border-slate-800">
+          <i data-lucide="database" class="w-4 h-4 text-purple-400 mt-0.5 shrink-0"></i>
+          <div>
+            <div class="font-bold text-white text-[11px]">Database Layer</div>
+            <div class="text-[10px] text-slate-300 font-mono">Structured Knowledge & Graph Storage</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Bottom Timeline & Pipeline Stepper Bar -->
+  <footer class="absolute bottom-4 left-6 right-6 z-20 flex flex-col md:flex-row items-center justify-between gap-3 pointer-events-none">
+    <!-- Pipeline Sequence Flow (01 -> 05) -->
+    <div class="glass-panel px-4 py-2.5 rounded-2xl pointer-events-auto flex items-center space-x-1 sm:space-x-3 w-full md:w-auto overflow-x-auto justify-center border border-cyan-500/20 shadow-2xl">
+      <span class="text-[10px] font-mono font-bold text-cyan-400 uppercase tracking-widest hidden lg:inline mr-2">FLOW PIPELINE:</span>
+
+      <!-- Step 1: Capture -->
+      <button onclick="highlightPipelineStep(1)" id="step-btn-1" class="step-badge flex items-center space-x-1.5 px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-cyan-900/50 border border-slate-700/60 text-xs text-slate-300 hover:text-white transition">
+        <span class="font-mono text-[10px] text-cyan-400 font-bold">01</span>
+        <span class="font-semibold text-[11px]">CAPTURE</span>
+      </button>
+
+      <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-slate-600 shrink-0"></i>
+
+      <!-- Step 2: Organize -->
+      <button onclick="highlightPipelineStep(2)" id="step-btn-2" class="step-badge flex items-center space-x-1.5 px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-cyan-900/50 border border-slate-700/60 text-xs text-slate-300 hover:text-white transition">
+        <span class="font-mono text-[10px] text-blue-400 font-bold">02</span>
+        <span class="font-semibold text-[11px]">ORGANIZE</span>
+      </button>
+
+      <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-slate-600 shrink-0"></i>
+
+      <!-- Step 3: Connect -->
+      <button onclick="highlightPipelineStep(3)" id="step-btn-3" class="step-badge flex items-center space-x-1.5 px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-cyan-900/50 border border-slate-700/60 text-xs text-slate-300 hover:text-white transition">
+        <span class="font-mono text-[10px] text-purple-400 font-bold">03</span>
+        <span class="font-semibold text-[11px]">CONNECT</span>
+      </button>
+
+      <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-slate-600 shrink-0"></i>
+
+      <!-- Step 4: Search -->
+      <button onclick="highlightPipelineStep(4)" id="step-btn-4" class="step-badge flex items-center space-x-1.5 px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-cyan-900/50 border border-slate-700/60 text-xs text-slate-300 hover:text-white transition">
+        <span class="font-mono text-[10px] text-amber-400 font-bold">04</span>
+        <span class="font-semibold text-[11px]">SEARCH</span>
+      </button>
+
+      <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-slate-600 shrink-0"></i>
+
+      <!-- Step 5: Retrieve -->
+      <button onclick="highlightPipelineStep(5)" id="step-btn-5" class="step-badge flex items-center space-x-1.5 px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-cyan-900/50 border border-slate-700/60 text-xs text-slate-300 hover:text-white transition">
+        <span class="font-mono text-[10px] text-emerald-400 font-bold">05</span>
+        <span class="font-semibold text-[11px]">RETRIEVE</span>
+      </button>
+    </div>
+
+    <!-- Quick Camera & UI Helpers -->
+    <div class="glass-panel px-3 py-2 rounded-2xl pointer-events-auto flex items-center space-x-3 text-xs font-mono text-slate-400">
+      <span class="flex items-center gap-1"><i data-lucide="mouse-pointer" class="w-3.5 h-3.5 text-cyan-400"></i> DRAG: ORBIT</span>
+      <span class="text-slate-600">|</span>
+      <span class="flex items-center gap-1"><i data-lucide="zoom-in" class="w-3.5 h-3.5 text-cyan-400"></i> SCROLL: ZOOM</span>
+      <span class="text-slate-600">|</span>
+      <button onclick="toggleFullscreen()" class="hover:text-white transition" title="Toggle Fullscreen">
+        <i data-lucide="maximize" class="w-3.5 h-3.5"></i>
+      </button>
+    </div>
+  </footer>
+
+  <!-- 3D Tooltip Overlay for hovering objects -->
+  <div id="canvas-tooltip" class="absolute pointer-events-none opacity-0 transition-opacity duration-200 z-30 transform -translate-x-1/2 -translate-y-full mb-3 px-3 py-1.5 rounded-lg bg-slate-900/90 border border-cyan-400/50 text-xs text-cyan-300 font-mono shadow-[0_0_15px_rgba(6,182,212,0.4)]">
+    Node Info
+  </div>
+
+  <!-- Sound Synthesis with Web Audio API -->
+  <script>
+    // Web Audio Synthesizer for futuristic sci-fi sound effects
+    class SoundEngine {
+      constructor() {
+        this.ctx = null;
+        this.muted = false;
+      }
+      init() {
+        if (!this.ctx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (AudioContext) {
+            this.ctx = new AudioContext();
+          }
+        }
+      }
+      playChime(freq = 440, type = 'sine', duration = 0.4) {
+        if (this.muted) return;
+        this.init();
+        if (!this.ctx) return;
+        try {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = type;
+          osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(freq * 1.5, this.ctx.currentTime + duration);
+
+          gain.gain.setValueAtTime(0.08, this.ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + duration);
+
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start();
+          osc.stop(this.ctx.currentTime + duration);
+        } catch (e) {}
+      }
+      playWhoosh() {
+        if (this.muted) return;
+        this.init();
+        if (!this.ctx) return;
+        try {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(150, this.ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(800, this.ctx.currentTime + 0.3);
+          osc.frequency.exponentialRampToValueAtTime(120, this.ctx.currentTime + 0.6);
+
+          gain.gain.setValueAtTime(0.001, this.ctx.currentTime);
+          gain.gain.linearRampToValueAtTime(0.05, this.ctx.currentTime + 0.2);
+          gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 0.6);
+
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start();
+          osc.stop(this.ctx.currentTime + 0.6);
+        } catch (e) {}
+      }
+      playPulse() {
+        if (this.muted) return;
+        this.init();
+        if (!this.ctx) return;
+        try {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(520, this.ctx.currentTime);
+          gain.gain.setValueAtTime(0.03, this.ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 0.15);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start();
+          osc.stop(this.ctx.currentTime + 0.15);
+        } catch (e) {}
+      }
+    }
+    const sound = new SoundEngine();
+
+    // Audio Button Listener
+    const audioBtn = document.getElementById('audio-toggle-btn');
+    const audioIcon = document.getElementById('audio-icon');
+    const audioStatusText = document.getElementById('audio-status-text');
+    audioBtn.addEventListener('click', () => {
+      sound.init();
+      sound.muted = !sound.muted;
+      if (sound.muted) {
+        audioIcon.setAttribute('data-lucide', 'volume-x');
+        audioIcon.classList.remove('text-cyan-400');
+        audioIcon.classList.add('text-slate-500');
+        audioStatusText.innerText = 'AUDIO: OFF';
+      } else {
+        audioIcon.setAttribute('data-lucide', 'volume-2');
+        audioIcon.classList.add('text-cyan-400');
+        audioIcon.classList.remove('text-slate-500');
+        audioStatusText.innerText = 'AUDIO: ON';
+        sound.playChime(580);
+      }
+      lucide.createIcons();
+    });
+  </script>
+
+  <!-- Main Three.js 3D Engine Script -->
+  <script>
+    // Chapter Data
+    const chapters = [
+      {
+        id: 0,
+        name: "00 — THE UNIVERSE",
+        tag: "CORE ARCHITECTURE",
+        title: "Personal Knowledge Management System",
+        desc: "A digital second brain designed for capturing, organizing, connecting, and retrieving knowledge without cognitive overload.",
+        camPos: { x: 0, y: 15, z: 42 },
+        target: { x: 0, y: 0, z: 0 },
+        chips: [
+          { label: "NODES", val: "4 CORE SILOS" },
+          { label: "PIPELINE", val: "5 PHASES" }
+        ]
+      },
+      {
+        id: 1,
+        name: "01 — THE PROBLEM",
+        tag: "CURRENT CHALLENGE",
+        title: "Our Knowledge is Scattered",
+        desc: "Information exists everywhere across class notes, PDFs, bookmarks, and random thoughts. Result: harder to find, harder to remember, harder to connect ideas.",
+        camPos: { x: -25, y: 18, z: 30 },
+        target: { x: -6, y: 0, z: 0 },
+        chips: [
+          { label: "SILOS", val: "DISCONNECTED" },
+          { label: "RETRIEVAL", val: "DIFFICULT" }
+        ]
+      },
+      {
+        id: 2,
+        name: "02 — THE SOLUTION",
+        tag: "UNIFIED NEXUS",
+        title: "One Connected Personal Knowledge Base",
+        desc: "Store information once, then unlock its value through links, tags, topics, and machine learning cluster associations (Python, Statistics, Neural Networks, AI).",
+        camPos: { x: 0, y: 8, z: 28 },
+        target: { x: 0, y: 0, z: 0 },
+        chips: [
+          { label: "CENTRAL CORE", val: "PERSONAL WIKI" },
+          { label: "TOPICS", val: "ML / STATS / AI" }
+        ]
+      },
+      {
+        id: 3,
+        name: "03 — IMPLEMENTATION",
+        tag: "WORKFLOW PIPELINE",
+        title: "5-Stage Living Knowledge Flow",
+        desc: "Systematic data flow: Capture notes → Organize tags & topics → Connect concepts → Search efficiently → Retrieve on demand. Powered by Next.js, FastAPI & Graph storage.",
+        camPos: { x: 28, y: 12, z: 24 },
+        target: { x: 5, y: -2, z: 0 },
+        chips: [
+          { label: "BACKEND", val: "FASTAPI / NODE" },
+          { label: "FRONTEND", val: "NEXT.JS / HTML5" }
+        ]
+      },
+      {
+        id: 4,
+        name: "04 — THE OUTCOME",
+        tag: "LONG-TERM VISION",
+        title: "From Scattered Notes to a Second Brain",
+        desc: "Transform chaotic raw notes into an Organized, Searchable, Connected, and Intelligent system equipped for future AI & semantic graph embeddings.",
+        camPos: { x: 0, y: 22, z: 35 },
+        target: { x: 0, y: 0, z: 0 },
+        chips: [
+          { label: "QUADRANTS", val: "4 EVOLUTIONS" },
+          { label: "GOAL", val: "AI-POWERED" }
+        ]
+      }
+    ];
+
+    // Node Information Directory for 3D Node Inspector
+    const nodeDetails = {
+      'core': {
+        title: 'Personal Wiki (The Nexus)',
+        type: 'CENTRAL KNOWLEDGE CORE',
+        body: 'The centralized single source of truth that unifies all captured notes, PDFs, topics, and associations.',
+        tags: ['#PersonalWiki', '#SecondBrain', '#GraphCore', '#SingleSource'],
+        icon: 'network',
+        color: '#38bdf8'
+      },
+      'notes': {
+        title: 'Notes Node',
+        type: 'INGESTION SILO 01',
+        body: 'Class lectures, meeting minutes, fleeting notes, and quick brainstorms saved directly to the system.',
+        tags: ['#ClassNotes', '#QuickIdeas', '#Fleeting', '#Markdown'],
+        icon: 'file-text',
+        color: '#06b6d4'
+      },
+      'pdfs': {
+        title: 'PDFs & Documents Node',
+        type: 'INGESTION SILO 02',
+        body: 'Textbooks, academic research papers, e-books, and reference documents indexed with OCR & metadata.',
+        tags: ['#ResearchPapers', '#Books', '#Documents', '#DeepReading'],
+        icon: 'book-open',
+        color: '#6366f1'
+      },
+      'links': {
+        title: 'Links & Bookmarks Node',
+        type: 'INGESTION SILO 03',
+        body: 'Web articles, GitHub repositories, tools, and bookmarks curated and tagged with context.',
+        tags: ['#Bookmarks', '#WebClipper', '#Resources', '#URLSync'],
+        icon: 'link-2',
+        color: '#0ea5e9'
+      },
+      'ideas': {
+        title: 'Ideas & Insights Node',
+        type: 'INGESTION SILO 04',
+        body: 'Synthesized insights, project proposals, creative connections, and strategic plans.',
+        tags: ['#Insights', '#Projects', '#Synthesis', '#Creative'],
+        icon: 'lightbulb',
+        color: '#f59e0b'
+      },
+      'tags': {
+        title: 'Tags & Taxonomy Node',
+        type: 'METADATA CLUSTER',
+        body: 'Controlled vocabulary ensuring atomicity, discoverability, and clean categorical clustering.',
+        tags: ['#TagSchema', '#Taxonomy', '#Discipline', '#Filter'],
+        icon: 'tag',
+        color: '#a855f7'
+      },
+      'topics': {
+        title: 'Topics Cluster (e.g. Machine Learning)',
+        type: 'SEMANTIC CLUSTER',
+        body: 'Connected domain graphs: Python, Statistics, Neural Networks, AI, Algorithms, and Engineering.',
+        tags: ['#MachineLearning', '#Python', '#NeuralNetworks', '#Statistics', '#AI'],
+        icon: 'cpu',
+        color: '#ec4899'
+      },
+      'search': {
+        title: 'Search & AI Retrieval Engine',
+        type: 'INTELLIGENCE LAYER',
+        body: 'Instant full-text, fuzzy keyword search, and future AI vector embeddings for semantic recall.',
+        tags: ['#SemanticSearch', '#VectorDB', '#FastRetrieval', '#AIReady'],
+        icon: 'search',
+        color: '#10b981'
+      },
+      'p_capture': {
+        title: 'Pipeline Step 01: CAPTURE',
+        type: 'PHASE 1 OF 5',
+        body: 'Fast, frictionless capture of raw notes, PDFs, web links, and ideas into the temporary inbox.',
+        tags: ['#01Capture', '#Frictionless', '#Inbox'],
+        icon: 'inbox',
+        color: '#06b6d4'
+      },
+      'p_organize': {
+        title: 'Pipeline Step 02: ORGANIZE',
+        type: 'PHASE 2 OF 5',
+        body: 'Categorize, tag, and assign structured metadata to incoming materials according to strict rules.',
+        tags: ['#02Organize', '#Taxonomy', '#Folders'],
+        icon: 'folder-tree',
+        color: '#3b82f6'
+      },
+      'p_connect': {
+        title: 'Pipeline Step 03: CONNECT',
+        type: 'PHASE 3 OF 5',
+        body: 'Establish bidirectional links and associative relations between related concepts and atomic notes.',
+        tags: ['#03Connect', '#Backlinks', '#KnowledgeGraph'],
+        icon: 'git-branch',
+        color: '#8b5cf6'
+      },
+      'p_search': {
+        title: 'Pipeline Step 04: SEARCH',
+        type: 'PHASE 4 OF 5',
+        body: 'Find exact concepts, tags, and semantic matches across all stored notes in milliseconds.',
+        tags: ['#04Search', '#FuzzyQuery', '#InstantLookups'],
+        icon: 'search-code',
+        color: '#f59e0b'
+      },
+      'p_retrieve': {
+        title: 'Pipeline Step 05: RETRIEVE',
+        type: 'PHASE 5 OF 5',
+        body: 'Surface relevant knowledge effortlessly for writing, studying, exam review, and building new projects.',
+        tags: ['#05Retrieve', '#Actionable', '#SecondBrainOutput'],
+        icon: 'check-circle-2',
+        color: '#10b981'
+      }
+    };
+
+    // Color Palettes for Themes
+    const themePalettes = {
+      cyber: {
+        bg: 0x030712,
+        core: 0x38bdf8,
+        silos: [0x06b6d4, 0x6366f1, 0x0ea5e9, 0xf59e0b],
+        lines: 0x0284c7,
+        particles: 0x38bdf8
+      },
+      neon: {
+        bg: 0x090214,
+        core: 0xc084fc,
+        silos: [0xa855f7, 0xec4899, 0x8b5cf6, 0x3b82f6],
+        lines: 0x7e22ce,
+        particles: 0xf472b6
+      },
+      solar: {
+        bg: 0x0c0a03,
+        core: 0xfbbf24,
+        silos: [0xf59e0b, 0xf97316, 0xeab308, 0x06b6d4],
+        lines: 0xd97706,
+        particles: 0xfde047
+      },
+      matrix: {
+        bg: 0x020f06,
+        core: 0x34d399,
+        silos: [0x10b981, 0x059669, 0x6ee7b7, 0x14b8a6],
+        lines: 0x047857,
+        particles: 0xa7f3d0
+      }
+    };
+
+    let currentTheme = 'cyber';
+
+    // Scene Variables
+    let scene, camera, renderer, controls;
+    let interactiveObjects = [];
+    let centralCoreGroup, orbitGroup, pipelineGroup, connectionsGroup, particlesSystem, gridPlane;
+    let raycaster, mouse;
+    let hoveredObject = null;
+    let selectedObject = null;
+    let isAutoTour = false;
+    let tourTimer = null;
+    let currentChapterIndex = 0;
+
+    // Initialize WebGL Application
+    function init3D() {
+      const container = document.getElementById('webgl-container');
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+
+      // 1. Scene Setup
+      scene = new THREE.Scene();
+      scene.background = new THREE.Color(themePalettes[currentTheme].bg);
+      scene.fog = new THREE.FogExp2(themePalettes[currentTheme].bg, 0.015);
+
+      // 2. Camera Setup
+      camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+      camera.position.set(0, 15, 42);
+
+      // 3. Renderer Setup
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: "high-performance" });
+      renderer.setSize(width, height);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.2;
+      renderer.shadowMap.enabled = true;
+      container.appendChild(renderer.domElement);
+
+      // 4. Orbit Controls
+      controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+      controls.maxDistance = 85;
+      controls.minDistance = 8;
+      controls.maxPolarAngle = Math.PI / 2 + 0.1;
+
+      // 5. Lighting
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+      scene.add(ambientLight);
+
+      const mainPointLight = new THREE.PointLight(0x38bdf8, 3.5, 80);
+      mainPointLight.position.set(0, 10, 10);
+      scene.add(mainPointLight);
+
+      const secondaryPointLight = new THREE.PointLight(0xa855f7, 2.5, 60);
+      secondaryPointLight.position.set(-15, -5, -10);
+      scene.add(secondaryPointLight);
+
+      const amberLight = new THREE.PointLight(0xf59e0b, 2.0, 50);
+      amberLight.position.set(18, 8, -5);
+      scene.add(amberLight);
+
+      // 6. Starfield & Background Nebulae
+      createStarfield();
+      createHolographicGrid();
+
+      // 7. Core Groups
+      centralCoreGroup = new THREE.Group();
+      orbitGroup = new THREE.Group();
+      pipelineGroup = new THREE.Group();
+      connectionsGroup = new THREE.Group();
+
+      scene.add(centralCoreGroup);
+      scene.add(orbitGroup);
+      scene.add(pipelineGroup);
+      scene.add(connectionsGroup);
+
+      // 8. Build 3D Models & Infographic Components
+      buildCentralNexusCore();
+      buildKnowledgeSilos();
+      buildPipelineGates();
+      buildDynamicConnectionSynapses();
+      buildTopicClusters();
+
+      // 9. Raycasting Setup
+      raycaster = new THREE.Raycaster();
+      mouse = new THREE.Vector2();
+
+      // 10. Event Listeners
+      window.addEventListener('resize', onWindowResize);
+      window.addEventListener('mousemove', onMouseMove);
+      window.addEventListener('click', onCanvasClick);
+
+      // Initialize Lucide icons
+      lucide.createIcons();
+
+      // Start Animation Loop
+      animate();
+    }
+
+    // Starfield Particle Generation
+    function createStarfield() {
+      const starCount = 2000;
+      const starGeometry = new THREE.BufferGeometry();
+      const positions = new Float32Array(starCount * 3);
+      const colors = new Float32Array(starCount * 3);
+
+      for (let i = 0; i < starCount * 3; i += 3) {
+        positions[i] = (Math.random() - 0.5) * 180;
+        positions[i + 1] = (Math.random() - 0.5) * 180;
+        positions[i + 2] = (Math.random() - 0.5) * 180;
+
+        const c = new THREE.Color();
+        c.setHSL(0.55 + Math.random() * 0.2, 0.8, 0.5 + Math.random() * 0.5);
+        colors[i] = c.r;
+        colors[i + 1] = c.g;
+        colors[i + 2] = c.b;
+      }
+
+      starGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      starGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+      const starMaterial = new THREE.PointsMaterial({
+        size: 0.8,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.8,
+        blending: THREE.AdditiveBlending
+      });
+
+      particlesSystem = new THREE.Points(starGeometry, starMaterial);
+      scene.add(particlesSystem);
+    }
+
+    // Holographic Ground Grid
+    function createHolographicGrid() {
+      gridPlane = new THREE.GridHelper(100, 50, 0x06b6d4, 0x1e293b);
+      gridPlane.position.y = -8;
+      gridPlane.material.opacity = 0.25;
+      gridPlane.material.transparent = true;
+      scene.add(gridPlane);
+    }
+
+    // Build Central Personal Wiki (Nexus)
+    function buildCentralNexusCore() {
+      // Inner glowing core
+      const coreGeo = new THREE.IcosahedronGeometry(2.4, 2);
+      const coreMat = new THREE.MeshStandardMaterial({
+        color: 0x38bdf8,
+        emissive: 0x0284c7,
+        emissiveIntensity: 0.6,
+        roughness: 0.2,
+        metalness: 0.8,
+        wireframe: false
+      });
+      const coreMesh = new THREE.Mesh(coreGeo, coreMat);
+      coreMesh.userData = { id: 'core', name: 'Personal Wiki (Nexus)' };
+      interactiveObjects.push(coreMesh);
+      centralCoreGroup.add(coreMesh);
+
+      // Outer Wireframe Cage
+      const cageGeo = new THREE.IcosahedronGeometry(3.2, 1);
+      const cageMat = new THREE.MeshBasicMaterial({
+        color: 0x38bdf8,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.4
+      });
+      const cageMesh = new THREE.Mesh(cageGeo, cageMat);
+      centralCoreGroup.add(cageMesh);
+      centralCoreGroup.userData.cage = cageMesh;
+
+      // Concentric Energy Rings
+      for (let i = 0; i < 3; i++) {
+        const ringGeo = new THREE.TorusGeometry(4.2 + i * 1.2, 0.04, 16, 100);
+        const ringMat = new THREE.MeshBasicMaterial({
+          color: i === 0 ? 0x06b6d4 : i === 1 ? 0xa855f7 : 0x3b82f6,
+          transparent: true,
+          opacity: 0.6
+        });
+        const ringMesh = new THREE.Mesh(ringGeo, ringMat);
+        ringMesh.rotation.x = Math.PI / 2 + (i * 0.3);
+        ringMesh.rotation.y = i * 0.4;
+        centralCoreGroup.add(ringMesh);
+      }
+    }
+
+    // Build 4 Main Knowledge Silos (Notes, PDFs, Links, Ideas)
+    function buildKnowledgeSilos() {
+      const siloData = [
+        { id: 'notes', name: 'NOTES', color: 0x06b6d4, x: -10, y: 3, z: 6, iconGeo: new THREE.BoxGeometry(1.6, 2, 0.4) },
+        { id: 'pdfs', name: 'PDFs', color: 0x6366f1, x: -8, y: -4, z: -8, iconGeo: new THREE.CylinderGeometry(0.9, 0.9, 1.8, 8) },
+        { id: 'links', name: 'LINKS', color: 0x0ea5e9, x: 10, y: 4, z: -6, iconGeo: new THREE.TorusGeometry(1, 0.35, 16, 32) },
+        { id: 'ideas', name: 'IDEAS', color: 0xf59e0b, x: 9, y: -3, z: 8, iconGeo: new THREE.OctahedronGeometry(1.3, 0) }
+      ];
+
+      siloData.forEach((silo) => {
+        const group = new THREE.Group();
+        group.position.set(silo.x, silo.y, silo.z);
+
+        // Glass-like Main Hologram Mesh
+        const mat = new THREE.MeshStandardMaterial({
+          color: silo.color,
+          emissive: silo.color,
+          emissiveIntensity: 0.4,
+          roughness: 0.1,
+          metalness: 0.9,
+          transparent: true,
+          opacity: 0.85
+        });
+
+        const mesh = new THREE.Mesh(silo.iconGeo, mat);
+        mesh.userData = { id: silo.id, name: silo.name, originalPos: { x: silo.x, y: silo.y, z: silo.z } };
+        interactiveObjects.push(mesh);
+        group.add(mesh);
+
+        // Surrounding orbital halo ring
+        const haloGeo = new THREE.RingGeometry(1.8, 2.0, 32);
+        const haloMat = new THREE.MeshBasicMaterial({
+          color: silo.color,
+          side: THREE.DoubleSide,
+          transparent: true,
+          opacity: 0.4
+        });
+        const halo = new THREE.Mesh(haloGeo, haloMat);
+        halo.rotation.x = Math.PI / 2;
+        group.add(halo);
+
+        // 3D floating glowing label sprite
+        const sprite = createTextSprite(silo.name, silo.color);
+        sprite.position.set(0, 2.2, 0);
+        group.add(sprite);
+
+        group.userData = { id: silo.id, mesh: mesh, halo: halo };
+        orbitGroup.add(group);
+      });
+    }
+
+    // Build Semantic Topic Cluster (Machine Learning: Python, Statistics, Neural Networks, AI)
+    function buildTopicClusters() {
+      const topicGroup = new THREE.Group();
+      topicGroup.position.set(0, -6, 0);
+
+      const clusterTopics = [
+        { id: 'topics', name: 'ML', color: 0xec4899, x: -3, y: 0, z: 2 },
+        { id: 'topics', name: 'Python', color: 0x38bdf8, x: -1.5, y: 1.2, z: 3 },
+        { id: 'topics', name: 'Neural Nets', color: 0xa855f7, x: 2, y: -0.5, z: 1.5 },
+        { id: 'topics', name: 'AI', color: 0x10b981, x: 3.5, y: 0.8, z: 2.5 }
+      ];
+
+      clusterTopics.forEach(t => {
+        const geo = new THREE.SphereGeometry(0.55, 16, 16);
+        const mat = new THREE.MeshStandardMaterial({
+          color: t.color,
+          emissive: t.color,
+          emissiveIntensity: 0.5,
+          roughness: 0.3
+        });
+        const node = new THREE.Mesh(geo, mat);
+        node.position.set(t.x, t.y, t.z);
+        node.userData = { id: t.id, name: t.name };
+        interactiveObjects.push(node);
+        topicGroup.add(node);
+
+        const lbl = createTextSprite(t.name, t.color, 0.4);
+        lbl.position.set(t.x, t.y + 0.9, t.z);
+        topicGroup.add(lbl);
+      });
+
+      scene.add(topicGroup);
+    }
+
+    // Build 5-Stage Pipeline Runway (Capture -> Organize -> Connect -> Search -> Retrieve)
+    function buildPipelineGates() {
+      const steps = [
+        { id: 'p_capture', num: '01', name: 'CAPTURE', color: 0x06b6d4, x: -16, z: -14 },
+        { id: 'p_organize', num: '02', name: 'ORGANIZE', color: 0x3b82f6, x: -8, z: -14 },
+        { id: 'p_connect', num: '03', name: 'CONNECT', color: 0x8b5cf6, x: 0, z: -14 },
+        { id: 'p_search', num: '04', name: 'SEARCH', color: 0xf59e0b, x: 8, z: -14 },
+        { id: 'p_retrieve', num: '05', name: 'RETRIEVE', color: 0x10b981, x: 16, z: -14 }
+      ];
+
+      steps.forEach((step, idx) => {
+        const gateGroup = new THREE.Group();
+        gateGroup.position.set(step.x, -3, step.z);
+
+        // Hologram Portal Gate Frame
+        const frameGeo = new THREE.TorusGeometry(1.6, 0.12, 8, 4); // Diamond arch
+        const frameMat = new THREE.MeshStandardMaterial({
+          color: step.color,
+          emissive: step.color,
+          emissiveIntensity: 0.4,
+          roughness: 0.2
+        });
+        const frame = new THREE.Mesh(frameGeo, frameMat);
+        frame.rotation.z = Math.PI / 4;
+        frame.userData = { id: step.id, name: `${step.num} ${step.name}` };
+        interactiveObjects.push(frame);
+        gateGroup.add(frame);
+
+        // Core Glowing Orb
+        const orbGeo = new THREE.SphereGeometry(0.5, 16, 16);
+        const orbMat = new THREE.MeshBasicMaterial({ color: step.color });
+        const orb = new THREE.Mesh(orbGeo, orbMat);
+        gateGroup.add(orb);
+
+        // Floating Title Sprite
+        const sprite = createTextSprite(`${step.num} ${step.name}`, step.color, 0.6);
+        sprite.position.set(0, 2.4, 0);
+        gateGroup.add(sprite);
+
+        pipelineGroup.add(gateGroup);
+
+        // Data runway connector line to next step
+        if (idx < steps.length - 1) {
+          const nextStep = steps[idx + 1];
+          const lineGeo = new THREE.BufferGeometry().setFromPoints([
+            new THREE.Vector3(step.x, -3, step.z),
+            new THREE.Vector3(nextStep.x, -3, nextStep.z)
+          ]);
+          const lineMat = new THREE.LineDashedMaterial({
+            color: 0x38bdf8,
+            dashSize: 0.6,
+            gapSize: 0.3,
+            linewidth: 2,
+            transparent: true,
+            opacity: 0.6
+          });
+          const line = new THREE.Line(lineGeo, lineMat);
+          line.computeLineDistances();
+          pipelineGroup.add(line);
+        }
+      });
+    }
+
+    // Dynamic Pulsing Synapse Connections
+    let synapseCurves = [];
+    function buildDynamicConnectionSynapses() {
+      // Connect each silo to central core and each other
+      const connections = [
+        { from: new THREE.Vector3(-10, 3, 6), to: new THREE.Vector3(0, 0, 0), color: 0x06b6d4 },
+        { from: new THREE.Vector3(-8, -4, -8), to: new THREE.Vector3(0, 0, 0), color: 0x6366f1 },
+        { from: new THREE.Vector3(10, 4, -6), to: new THREE.Vector3(0, 0, 0), color: 0x0ea5e9 },
+        { from: new THREE.Vector3(9, -3, 8), to: new THREE.Vector3(0, 0, 0), color: 0xf59e0b },
+        { from: new THREE.Vector3(-10, 3, 6), to: new THREE.Vector3(9, -3, 8), color: 0xa855f7 },
+        { from: new THREE.Vector3(-8, -4, -8), to: new THREE.Vector3(10, 4, -6), color: 0x38bdf8 }
+      ];
+
+      connections.forEach(conn => {
+        // Curve with arch
+        const midPoint = new THREE.Vector3().addVectors(conn.from, conn.to).multiplyScalar(0.5);
+        midPoint.y += 2.5;
+
+        const curve = new THREE.QuadraticBezierCurve3(conn.from, midPoint, conn.to);
+        const points = curve.getPoints(30);
+        const geometry = new THREE.BufferGeometry().setFromPoints(points);
+
+        const material = new THREE.LineBasicMaterial({
+          color: conn.color,
+          transparent: true,
+          opacity: 0.35
+        });
+
+        const curveObject = new THREE.Line(geometry, material);
+        connectionsGroup.add(curveObject);
+
+        // Add animated photon packet
+        const photonGeo = new THREE.SphereGeometry(0.2, 8, 8);
+        const photonMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+        const photon = new THREE.Mesh(photonGeo, photonMat);
+        scene.add(photon);
+
+        synapseCurves.push({ curve: curve, photon: photon, progress: Math.random() });
+      });
+    }
+
+    // Helper: Create 2D Text Canvas Sprite for Sharp 3D Billboard Labels
+    function createTextSprite(text, colorHex, scaleFactor = 0.5) {
+      const canvas = document.createElement('canvas');
+      canvas.width = 512;
+      canvas.height = 128;
+      const ctx = canvas.getContext('2d');
+
+      ctx.fillStyle = 'rgba(0, 0, 0, 0)';
+      ctx.fillRect(0, 0, 512, 128);
+
+      ctx.font = 'bold 36px "JetBrains Mono", monospace';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+
+      const hexStr = '#' + new THREE.Color(colorHex).getHexString();
+      ctx.fillStyle = hexStr;
+      ctx.shadowColor = hexStr;
+      ctx.shadowBlur = 14;
+      ctx.fillText(text, 256, 64);
+
+      const texture = new THREE.CanvasTexture(canvas);
+      texture.minFilter = THREE.LinearFilter;
+      const spriteMat = new THREE.SpriteMaterial({ map: texture, transparent: true });
+      const sprite = new THREE.Sprite(spriteMat);
+      sprite.scale.set(6 * scaleFactor, 1.5 * scaleFactor, 1);
+      return sprite;
+    }
+
+    // Window Resize Handler
+    function onWindowResize() {
+      const container = document.getElementById('webgl-container');
+      const w = container.clientWidth;
+      const h = container.clientHeight;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+    }
+
+    // Mouse Move & Hover Raycasting
+    function onMouseMove(event) {
+      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(interactiveObjects);
+
+      const tooltip = document.getElementById('canvas-tooltip');
+
+      if (intersects.length > 0) {
+        const hit = intersects[0].object;
+        document.body.style.cursor = 'pointer';
+
+        if (hoveredObject !== hit) {
+          hoveredObject = hit;
+          const nodeData = nodeDetails[hit.userData.id];
+          if (nodeData) {
+            tooltip.innerText = `${nodeData.title} • ${nodeData.type}`;
+            tooltip.style.opacity = '1';
+            tooltip.style.left = `${event.clientX}px`;
+            tooltip.style.top = `${event.clientY}px`;
+            sound.playPulse();
+          }
+        } else {
+          tooltip.style.left = `${event.clientX}px`;
+          tooltip.style.top = `${event.clientY}px`;
+        }
+      } else {
+        document.body.style.cursor = 'default';
+        hoveredObject = null;
+        tooltip.style.opacity = '0';
+      }
+    }
+
+    // Canvas Click: Inspect Node
+    function onCanvasClick(event) {
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(interactiveObjects);
+
+      if (intersects.length > 0) {
+        const hit = intersects[0].object;
+        selectNode(hit.userData.id);
+      }
+    }
+
+    // Select and inspect a specific node
+    function selectNode(id) {
+      const data = nodeDetails[id];
+      if (!data) return;
+
+      sound.playChime(620, 'sine', 0.5);
+
+      // Update Inspector UI
+      document.getElementById('inspector-node-title').innerText = data.title;
+      document.getElementById('inspector-node-type').innerText = data.type;
+      document.getElementById('inspector-node-body').innerText = data.body;
+
+      const tagContainer = document.getElementById('inspector-node-tags');
+      tagContainer.innerHTML = '';
+      data.tags.forEach(tag => {
+        const span = document.createElement('span');
+        span.className = 'text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-800 text-cyan-300 border border-slate-700';
+        span.innerText = tag;
+        tagContainer.appendChild(span);
+      });
+
+      // Quick visual shake / pulse of inspector panel
+      gsap.fromTo('#node-inspector', { scale: 0.96 }, { scale: 1, duration: 0.3, ease: 'back.out(2)' });
+    }
+
+    // Switch Chapter Logic (Slide by Slide Presentation)
+    function switchChapter(index) {
+      if (index < 0 || index >= chapters.length) return;
+      currentChapterIndex = index;
+      const chap = chapters[index];
+
+      sound.playWhoosh();
+
+      // Animate Camera Position & LookAt smoothly with GSAP
+      gsap.to(camera.position, {
+        x: chap.camPos.x,
+        y: chap.camPos.y,
+        z: chap.camPos.z,
+        duration: 1.8,
+        ease: 'power3.inOut'
+      });
+
+      gsap.to(controls.target, {
+        x: chap.target.x,
+        y: chap.target.y,
+        z: chap.target.z,
+        duration: 1.8,
+        ease: 'power3.inOut',
+        onUpdate: () => controls.update()
+      });
+
+      // Update UI Panels
+      document.getElementById('chapter-counter').innerText = `0${index + 1} / 05`;
+      document.getElementById('panel-tag').innerText = chap.tag;
+      document.getElementById('panel-title').innerText = chap.title;
+      document.getElementById('panel-desc').innerText = chap.desc;
+
+      // Update Chip metrics
+      const chipsEl = document.getElementById('panel-chips');
+      chipsEl.innerHTML = '';
+      chap.chips.forEach(chip => {
+        const div = document.createElement('div');
+        div.className = 'bg-slate-900/80 p-2 rounded-lg border border-slate-700/50';
+        div.innerHTML = `
+          <div class="text-[10px] text-slate-400 font-mono">${chip.label}</div>
+          <div class="text-cyan-400 font-bold text-xs font-mono">${chip.val}</div>
+        `;
+        chipsEl.appendChild(div);
+      });
+
+      // Highlight active chapter nav button
+      document.querySelectorAll('.chapter-nav-btn').forEach((btn, idx) => {
+        if (idx === index) {
+          btn.className = 'chapter-nav-btn w-full text-left p-2.5 rounded-xl transition duration-200 flex items-center space-x-3 bg-cyan-500/15 border border-cyan-400/40 text-white shadow-[0_0_15px_rgba(6,182,212,0.2)]';
+        } else {
+          btn.className = 'chapter-nav-btn w-full text-left p-2.5 rounded-xl transition duration-200 flex items-center space-x-3 hover:bg-slate-800/60 border border-transparent text-slate-300';
+        }
+      });
+
+      // Chapter-specific scene transformations
+      handleChapterTransformations(index);
+    }
+
+    // Dynamic 3D Scene morphing per chapter
+    function handleChapterTransformations(idx) {
+      if (idx === 1) {
+        // Chapter 1: The Problem (Disperse Silos outward chaotically)
+        orbitGroup.children.forEach(group => {
+          gsap.to(group.position, {
+            x: group.userData.id === 'notes' ? -18 : group.userData.id === 'pdfs' ? -16 : group.userData.id === 'links' ? 18 : 16,
+            y: group.position.y * 1.5,
+            duration: 1.5,
+            ease: 'power2.out'
+          });
+        });
+        gsap.to(connectionsGroup.children.map(c => c.material), { opacity: 0.05, duration: 1 });
+      } else if (idx === 2) {
+        // Chapter 2: The Solution (Harmonic Gravitation inward to core)
+        orbitGroup.children.forEach(group => {
+          const original = interactiveObjects.find(o => o.userData.id === group.userData.id);
+          if (original && original.userData.originalPos) {
+            gsap.to(group.position, {
+              x: original.userData.originalPos.x,
+              y: original.userData.originalPos.y,
+              z: original.userData.originalPos.z,
+              duration: 1.5,
+              ease: 'elastic.out(1, 0.75)'
+            });
+          }
+        });
+        gsap.to(connectionsGroup.children.map(c => c.material), { opacity: 0.5, duration: 1 });
+      } else {
+        // Default layout
+        orbitGroup.children.forEach(group => {
+          const original = interactiveObjects.find(o => o.userData.id === group.userData.id);
+          if (original && original.userData.originalPos) {
+            gsap.to(group.position, {
+              x: original.userData.originalPos.x,
+              y: original.userData.originalPos.y,
+              z: original.userData.originalPos.z,
+              duration: 1.2
+            });
+          }
+        });
+        gsap.to(connectionsGroup.children.map(c => c.material), { opacity: 0.35, duration: 1 });
+      }
+    }
+
+    // Highlight Pipeline Stepper in footer
+    function highlightPipelineStep(stepNum) {
+      const stepMap = ['p_capture', 'p_organize', 'p_connect', 'p_search', 'p_retrieve'];
+      const id = stepMap[stepNum - 1];
+      selectNode(id);
+
+      // Focus camera towards pipeline area
+      switchChapter(3);
+
+      // Highlight button styles
+      for (let i = 1; i <= 5; i++) {
+        const btn = document.getElementById(`step-btn-${i}`);
+        if (i === stepNum) {
+          btn.classList.add('bg-cyan-500/20', 'border-cyan-400', 'text-white', 'shadow-[0_0_15px_rgba(6,182,212,0.4)]');
+        } else {
+          btn.classList.remove('bg-cyan-500/20', 'border-cyan-400', 'text-white', 'shadow-[0_0_15px_rgba(6,182,212,0.4)]');
+        }
+      }
+    }
+
+    // Reset Camera Button
+    function resetCameraView() {
+      switchChapter(0);
+    }
+
+    // Cinematic Auto-Tour Mode
+    const tourBtn = document.getElementById('tour-btn');
+    tourBtn.addEventListener('click', () => {
+      isAutoTour = !isAutoTour;
+      if (isAutoTour) {
+        tourBtn.classList.add('bg-cyan-500', 'text-slate-950');
+        document.getElementById('tour-icon').setAttribute('data-lucide', 'pause');
+        startAutoTour();
+      } else {
+        tourBtn.classList.remove('bg-cyan-500', 'text-slate-950');
+        document.getElementById('tour-icon').setAttribute('data-lucide', 'play');
+        clearInterval(tourTimer);
+      }
+      lucide.createIcons();
+    });
+
+    function startAutoTour() {
+      clearInterval(tourTimer);
+      tourTimer = setInterval(() => {
+        const nextIdx = (currentChapterIndex + 1) % chapters.length;
+        switchChapter(nextIdx);
+      }, 7000);
+    }
+
+    // Theme Switcher Logic
+    function setTheme(name) {
+      if (!themePalettes[name]) return;
+      currentTheme = name;
+      const pal = themePalettes[name];
+
+      sound.playChime(700);
+
+      // Animate background & fog color
+      gsap.to(scene.background, {
+        r: new THREE.Color(pal.bg).r,
+        g: new THREE.Color(pal.bg).g,
+        b: new THREE.Color(pal.bg).b,
+        duration: 1
+      });
+      gsap.to(scene.fog.color, {
+        r: new THREE.Color(pal.bg).r,
+        g: new THREE.Color(pal.bg).g,
+        b: new THREE.Color(pal.bg).b,
+        duration: 1
+      });
+    }
+
+    // Fullscreen Toggle
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    // Main Render / Animation Loop
+    let clock = new THREE.Clock();
+    function animate() {
+      requestAnimationFrame(animate);
+
+      const delta = clock.getDelta();
+      const time = clock.getElapsedTime();
+
+      // Rotate Central Core & Wireframe Cage
+      if (centralCoreGroup) {
+        centralCoreGroup.rotation.y += 0.005;
+        if (centralCoreGroup.userData.cage) {
+          centralCoreGroup.userData.cage.rotation.x += 0.004;
+          centralCoreGroup.userData.cage.rotation.y -= 0.006;
+        }
+      }
+
+      // Orbit Floating Silos
+      if (orbitGroup) {
+        orbitGroup.children.forEach((group, i) => {
+          group.rotation.y += 0.01;
+          if (group.userData.mesh) {
+            group.userData.mesh.rotation.x += 0.01;
+            group.userData.mesh.rotation.y += 0.015;
+            // Float up and down gently
+            group.position.y += Math.sin(time * 2 + i) * 0.005;
+          }
+        });
+      }
+
+      // Animate Photon Pulses along Synaptic Beziers
+      synapseCurves.forEach(item => {
+        item.progress += 0.008;
+        if (item.progress > 1) item.progress = 0;
+        const pt = item.curve.getPoint(item.progress);
+        item.photon.position.copy(pt);
+      });
+
+      // Slowly rotate starfield
+      if (particlesSystem) {
+        particlesSystem.rotation.y = time * 0.02;
+      }
+
+      // Update Controls
+      controls.update();
+
+      // Render Scene
+      renderer.render(scene, camera);
+    }
+
+    // Initialize once DOM is ready
+    window.addEventListener('DOMContentLoaded', () => {
+      init3D();
+      selectNode('core');
+    });
+  </script>
+</body>
+</html>

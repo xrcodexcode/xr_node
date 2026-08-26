@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "eaae0fb501c9a008",
+        "id": "edbd8a99ea9ffb57",
         "type": "tabs",
         "children": [
           {
-            "id": "8ae742ccb6c5351a",
+            "id": "b390fb4b7e72285c",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -193,13 +193,22 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "8ae742ccb6c5351a",
+  "active": "b390fb4b7e72285c",
   "lastOpenFiles": [
+    "01_RAW/CAPTURE/Joe Rogan Experience 2543 - MrBallen.md",
+    "02_NEW-KNOWLEDGE/75-top-fails-of-modiji-part-1.md",
+    "02_NEW-KNOWLEDGE/20-skills-that-changed-my-life-before-25.md",
+    "02_NEW-KNOWLEDGE/13-hobbies-that-replace-scrolling-and-improve-your-life.md",
+    "02_NEW-KNOWLEDGE/designing-building-pr-review-multi-agent-system-3-hours-build.md",
+    "01_RAW/CAPTURE/research/Joe Rogan Experience 2543 - MrBallen.md",
+    "01_RAW/capture/research/Joe Rogan Experience 2543 - MrBallen.md",
+    "01_RAW/CAPTURE/research",
+    "01_RAW/capture/research",
+    "wiki/Welcome to Karpathy LLM Wiki.md",
     "zarchive/Complete NumPy for Beginners.md",
     "02 active-learning/nodes/README.md",
     "02 active-learning/notes/README.md",
     "01 raw/README.md",
-    "wiki/Welcome to Karpathy LLM Wiki.md",
     "zarchive/README.md",
     "03 wiki/quotes/README.md",
     "03 wiki/people/README.md",
@@ -215,8 +224,6 @@
     "03 wiki/books",
     "03 wiki",
     "02 active-learning/notes",
-    "02 active-learning/nodes",
-    "02 active-learning",
     "01_RAW/CAPTURE/AI Agent Harness Explained In 18 Minutes.md",
     "01_RAW/CAPTURE/2026   12+ Hours Complete JS Tutorial for Beginners.md",
     "02_NEW-KNOWLEDGE/doing-these-10-things-alone-will-change-your-life.md",
@@ -224,13 +231,6 @@
     "02_NEW-KNOWLEDGE/detailed-study-notes-kangana-calls-gen-z-gutter-gen-z-asks-aap-kaun-midweek.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-how-to-make-rich-friends.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-building-wealth-is-easier-than-you-think.md",
-    "02_NEW-KNOWLEDGE/detailed-study-notes-build-sell-claude-code-operating-systems-part-04.md",
-    "02_NEW-KNOWLEDGE/detailed-study-notes-build-sell-claude-code-operating-systems-part-02.md",
-    "02_NEW-KNOWLEDGE/detailed-study-notes-build-sell-claude-code-operating-systems-final.md",
-    "02_NEW-KNOWLEDGE/detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-07.md",
-    "02_NEW-KNOWLEDGE/detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-05.md",
-    "02_NEW-KNOWLEDGE/detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-04.md",
-    "02_NEW-KNOWLEDGE/detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-02.md",
     "AREAS/newsletter/site/assets/abstraction_trap_vs_fundamentals.jpg",
     "AREAS/newsletter/site/assets/ai_fundamentals_hero.jpg",
     "AREAS/newsletter/site/assets/ai_stack_pyramid.jpg",
