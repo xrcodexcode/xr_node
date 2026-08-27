@@ -75,3 +75,30 @@ async def get_task(task_id: str) -> Dict[str, Any]:
             "result": task.result_json,
             "created_at": task.created_at.isoformat() if task.created_at else "",
         }
+
+@router.post("/{task_id}/cancel")
+async def cancel_task(task_id: str) -> Dict[str, Any]:
+    """Cancel a task."""
+    async with async_session_factory() as session:
+        task = await session.get(Task, task_id)
+        if not task:
+            raise HTTPException(status_code=404, detail=f"Task '{task_id}' not found")
+        task.status = "cancelled"
+        await session.commit()
+        return {"id": task.id, "status": task.status}
+
+@router.post("/{task_id}/rerun")
+async def rerun_task(task_id: str) -> Dict[str, Any]:
+    """Rerun a task."""
+    async with async_session_factory() as session:
+        task = await session.get(Task, task_id)
+        if not task:
+            raise HTTPException(status_code=404, detail=f"Task '{task_id}' not found")
+        title = task.title
+        description = task.description
+    
+    new_task = await orchestrator.create_task(title=title, description=description)
+    res = await orchestrator.run_task(new_task["task_id"])
+    if "error" in res:
+        raise HTTPException(status_code=500, detail=res["error"])
+    return res

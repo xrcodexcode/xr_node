@@ -42,6 +42,7 @@ export default function Cinematic3DMemoryGalaxy() {
   // 3D Camera State
   const cameraRef = useRef({ yaw: 0.3, pitch: 0.4, distance: 750, targetX: 0, targetY: 0, targetZ: 0 })
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
+  const canvasContainerRef = useRef<HTMLDivElement | null>(null)
   const isDraggingRef = useRef(false)
   const dragStartRef = useRef({ x: 0, y: 0 })
   const planetsRef = useRef<Planet3D[]>([])
@@ -129,6 +130,27 @@ export default function Cinematic3DMemoryGalaxy() {
     fetchGalaxyData(false)
   }, [])
 
+  // Canvas Responsive Setup
+  useEffect(() => {
+    const container = canvasContainerRef.current
+    const canvas = canvasRef.current
+    if (!container || !canvas) return
+
+    const resizeCanvas = () => {
+      const rect = container.getBoundingClientRect()
+      const dpr = window.devicePixelRatio || 1
+      canvas.width = rect.width * dpr
+      canvas.height = rect.height * dpr
+      canvas.style.width = `${rect.width}px`
+      canvas.style.height = `${rect.height}px`
+    }
+
+    resizeCanvas()
+    const observer = new ResizeObserver(resizeCanvas)
+    observer.observe(container)
+    return () => observer.disconnect()
+  }, [])
+
   // 3D Engine & Shader-style Renderer
   useEffect(() => {
     const canvas = canvasRef.current
@@ -142,8 +164,10 @@ export default function Cinematic3DMemoryGalaxy() {
     const render3DFraming = () => {
       if (!running) return
 
-      const width = canvas.width
-      const height = canvas.height
+      const dpr = window.devicePixelRatio || 1
+      const rect = canvas.getBoundingClientRect()
+      const width = rect.width
+      const height = rect.height
       const centerX = width / 2
       const centerY = height / 2
 
@@ -191,7 +215,10 @@ export default function Cinematic3DMemoryGalaxy() {
       currentPlanets.sort((a, b) => b.z3D - a.z3D)
 
       // Clear Canvas & Draw Deep Space 3D Atmosphere
-      ctx.clearRect(0, 0, width, height)
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.save()
+      ctx.scale(dpr, dpr)
+
       const spaceGlow = ctx.createRadialGradient(centerX, centerY, 50, centerX, centerY, 550)
       spaceGlow.addColorStop(0, '#0a0a14')
       spaceGlow.addColorStop(0.6, '#05050a')
@@ -301,6 +328,7 @@ export default function Cinematic3DMemoryGalaxy() {
         }
       })
 
+      ctx.restore()
       animationFrameRef.current = requestAnimationFrame(render3DFraming)
     }
 
@@ -416,16 +444,14 @@ export default function Cinematic3DMemoryGalaxy() {
       {/* 3D Viewport & Planet Inspector */}
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         {/* 3D WebGL/Canvas Viewport */}
-        <div className="col-span-1 lg:col-span-3 bg-[#030305] border border-zinc-800 rounded-2xl relative overflow-hidden flex flex-col justify-between shadow-2xl">
+        <div ref={canvasContainerRef} className="col-span-1 lg:col-span-3 bg-[#030305] border border-zinc-800 rounded-2xl relative overflow-hidden flex flex-col justify-between shadow-2xl min-h-[550px]">
           <canvas
             ref={canvasRef}
-            width={850}
-            height={550}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onWheel={handleWheel}
-            className="w-full h-[550px] cursor-grab active:cursor-grabbing"
+            className="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing"
           />
 
           <div className="absolute bottom-4 left-4 bg-zinc-900/80 backdrop-blur-md border border-zinc-800 p-2 rounded-lg text-zinc-400 text-[10px] font-mono hidden sm:block">

@@ -34,6 +34,7 @@ export default function LightRAGGraph() {
   const [ragSnippet, setRagSnippet] = useState<string | null>(null)
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
+  const canvasContainerRef = useRef<HTMLDivElement | null>(null)
   const transformRef = useRef({ x: 0, y: 0, k: 1 })
   const isDraggingRef = useRef(false)
   const dragStartRef = useRef({ x: 0, y: 0 })
@@ -52,8 +53,9 @@ export default function LightRAGGraph() {
       const rawNodes: any[] = res.nodes || []
       const rawEdges: any[] = res.edges || []
 
-      const width = 850
-      const height = 550
+      const container = canvasContainerRef.current
+      const width = container ? container.getBoundingClientRect().width : 850
+      const height = container ? container.getBoundingClientRect().height : 550
 
       const relationTypes: ('DEFINES' | 'EXTENDS' | 'IMPLEMENTS' | 'DEPENDS_ON' | 'PART_OF')[] = [
         'DEFINES', 'EXTENDS', 'IMPLEMENTS', 'DEPENDS_ON', 'PART_OF'
@@ -100,6 +102,27 @@ export default function LightRAGGraph() {
     fetchGraph(false)
   }, [])
 
+  // Canvas Responsive Setup
+  useEffect(() => {
+    const container = canvasContainerRef.current
+    const canvas = canvasRef.current
+    if (!container || !canvas) return
+
+    const resizeCanvas = () => {
+      const rect = container.getBoundingClientRect()
+      const dpr = window.devicePixelRatio || 1
+      canvas.width = rect.width * dpr
+      canvas.height = rect.height * dpr
+      canvas.style.width = `${rect.width}px`
+      canvas.style.height = `${rect.height}px`
+    }
+
+    resizeCanvas()
+    const observer = new ResizeObserver(resizeCanvas)
+    observer.observe(container)
+    return () => observer.disconnect()
+  }, [])
+
   // LightRAG Dual-Level Physics & Canvas Render Loop
   useEffect(() => {
     const canvas = canvasRef.current
@@ -108,13 +131,16 @@ export default function LightRAGGraph() {
     if (!ctx) return
 
     let running = true
-    const width = canvas.width
-    const height = canvas.height
-    const centerX = width / 2
-    const centerY = height / 2
 
     const render = () => {
       if (!running) return
+      
+      const dpr = window.devicePixelRatio || 1
+      const rect = canvas.getBoundingClientRect()
+      const width = rect.width
+      const height = rect.height
+      const centerX = width / 2
+      const centerY = height / 2
 
       const currentNodes = nodesRef.current.filter(n => {
         if (mode === 'high') return n.level === 'high'
@@ -192,11 +218,12 @@ export default function LightRAGGraph() {
       }
 
       // Draw LightRAG Canvas
-      ctx.clearRect(0, 0, width, height)
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
       ctx.fillStyle = '#0a0a0f'
-      ctx.fillRect(0, 0, width, height)
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
 
       ctx.save()
+      ctx.scale(dpr, dpr)
       const t = transformRef.current
       ctx.translate(t.x, t.y)
       ctx.scale(t.k, t.k)
@@ -428,16 +455,14 @@ export default function LightRAGGraph() {
       {/* Main Graph & Dual LightRAG Inspector */}
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         {/* Canvas Visualizer */}
-        <div className="col-span-1 lg:col-span-3 bg-[#0a0a0f] border border-zinc-800 rounded-2xl relative overflow-hidden flex flex-col justify-between shadow-2xl">
+        <div ref={canvasContainerRef} className="col-span-1 lg:col-span-3 bg-[#0a0a0f] border border-zinc-800 rounded-2xl relative overflow-hidden flex flex-col justify-between shadow-2xl min-h-[550px]">
           <canvas
             ref={canvasRef}
-            width={850}
-            height={550}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onWheel={handleWheel}
-            className="w-full h-[550px] cursor-grab active:cursor-grabbing"
+            className="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing"
           />
 
           <div className="absolute bottom-4 right-4 bg-zinc-900/80 backdrop-blur-md border border-zinc-800 px-3 py-1.5 rounded-lg flex items-center gap-4 text-[10px] font-mono text-zinc-400">

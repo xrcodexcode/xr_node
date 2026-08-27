@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import mermaid from 'mermaid'
 import {
   Layers,
   Sparkles,
@@ -11,7 +12,8 @@ import {
   Brain,
   Zap,
   ArrowRight,
-  Maximize2
+  Maximize2,
+  AlertTriangle
 } from 'lucide-react'
 
 interface DiagramPreset {
@@ -92,7 +94,40 @@ const PRESETS: DiagramPreset[] = [
 export default function MermaidStudio() {
   const [selectedPreset, setSelectedPreset] = useState<DiagramPreset>(PRESETS[0])
   const [copied, setCopied] = useState(false)
+  const [copiedSvg, setCopiedSvg] = useState(false)
   const [customMermaid, setCustomMermaid] = useState(PRESETS[0].mermaidCode)
+  const [svgContent, setSvgContent] = useState<string>('')
+  const [errorMsg, setErrorMsg] = useState<string | null>(null)
+
+  useEffect(() => {
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'dark',
+      securityLevel: 'loose',
+    })
+  }, [])
+
+  useEffect(() => {
+    let isMounted = true;
+    const renderDiagram = async () => {
+      try {
+        setErrorMsg(null);
+        const id = \`mermaid-svg-\${Math.random().toString(36).substr(2, 9)}\`;
+        const { svg } = await mermaid.render(id, customMermaid);
+        if (isMounted) setSvgContent(svg);
+      } catch (err: any) {
+        if (isMounted) {
+          setErrorMsg(err.message || 'Syntax Error in Mermaid code');
+        }
+      }
+    };
+    
+    const timeout = setTimeout(renderDiagram, 400);
+    return () => {
+      isMounted = false;
+      clearTimeout(timeout);
+    };
+  }, [customMermaid])
 
   const handleSelect = (p: DiagramPreset) => {
     setSelectedPreset(p)
@@ -103,6 +138,22 @@ export default function MermaidStudio() {
     navigator.clipboard.writeText(customMermaid)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
+  }
+  
+  const handleCopySvg = () => {
+    navigator.clipboard.writeText(svgContent)
+    setCopiedSvg(true)
+    setTimeout(() => setCopiedSvg(false), 2000)
+  }
+
+  const handleExportSvg = () => {
+    const blob = new Blob([svgContent], { type: 'image/svg+xml' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = \`\${selectedPreset.id}-diagram.svg\`
+    a.click()
+    URL.revokeObjectURL(url)
   }
 
   return (
@@ -121,11 +172,25 @@ export default function MermaidStudio() {
 
         <div className="flex items-center gap-2">
           <button
-            onClick={handleCopyCode}
+            onClick={handleCopySvg}
             className="px-3.5 py-2 bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-xs text-zinc-300 font-mono rounded-xl flex items-center gap-1.5 transition-colors"
           >
-            {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-            <span>{copied ? 'Copied' : 'Copy Mermaid Code'}</span>
+            {copiedSvg ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+            <span>{copiedSvg ? 'Copied SVG' : 'Copy SVG'}</span>
+          </button>
+          <button
+            onClick={handleExportSvg}
+            className="px-3.5 py-2 bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-xs text-zinc-300 font-mono rounded-xl flex items-center gap-1.5 transition-colors"
+          >
+            <Download className="w-3.5 h-3.5" />
+            <span>Export SVG</span>
+          </button>
+          <button
+            onClick={handleCopyCode}
+            className="px-3.5 py-2 bg-purple-500/10 border border-purple-500/30 hover:bg-purple-500/20 text-xs text-purple-300 font-mono rounded-xl flex items-center gap-1.5 transition-colors"
+          >
+            {copied ? <Check className="w-3.5 h-3.5 text-purple-400" /> : <Copy className="w-3.5 h-3.5" />}
+            <span>{copied ? 'Copied Code' : 'Copy Code'}</span>
           </button>
         </div>
       </div>
@@ -138,11 +203,11 @@ export default function MermaidStudio() {
             <div
               key={p.id}
               onClick={() => handleSelect(p)}
-              className={`bg-[#121215] border rounded-2xl p-4 cursor-pointer transition-all hover:scale-[1.01] ${
+              className={\`bg-[#121215] border rounded-2xl p-4 cursor-pointer transition-all hover:scale-[1.01] \${
                 isSelected
                   ? 'border-purple-500/60 ring-2 ring-purple-500/30 bg-purple-500/5'
                   : 'border-zinc-800/90 hover:border-zinc-700'
-              }`}
+              }\`}
             >
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-mono text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded">
@@ -186,102 +251,33 @@ export default function MermaidStudio() {
         </div>
 
         {/* Visual Diagram Representation Viewport */}
-        <div className="lg:col-span-2 bg-[#0a0a0f] border border-zinc-800/90 rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between shadow-2xl min-h-[460px]">
-          <div className="flex items-center justify-between pb-4 border-b border-zinc-800/80">
+        <div className="lg:col-span-2 bg-[#0a0a0f] border border-zinc-800/90 rounded-2xl p-6 relative overflow-hidden flex flex-col shadow-2xl min-h-[460px]">
+          <div className="flex items-center justify-between pb-4 border-b border-zinc-800/80 mb-4">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-purple-400 animate-pulse" />
               <span className="font-bold text-white text-sm">{selectedPreset.title}</span>
             </div>
             <span className="text-[10px] font-mono bg-zinc-900 border border-zinc-800 px-2.5 py-1 rounded-full text-zinc-400">
-              Interactive System Flow
+              Live Mermaid Render
             </span>
           </div>
 
           {/* Diagram Nodes Visual Flow */}
-          <div className="py-6 flex-1 flex flex-col items-center justify-center space-y-4 font-mono text-xs">
-            {selectedPreset.id === 'react-loop' && (
-              <div className="w-full space-y-3 max-w-md">
-                <div className="bg-cyan-500/10 border border-cyan-500/30 p-3 rounded-xl text-cyan-300 text-center font-bold">
-                  1. 👤 User Prompt Dispatch
-                </div>
-                <div className="text-center text-zinc-500">↓</div>
-                <div className="bg-purple-500/10 border border-purple-500/30 p-3 rounded-xl text-purple-300 text-center font-bold">
-                  2. 🧠 Multi-Agent Planner & Router
-                </div>
-                <div className="text-center text-zinc-500">↓</div>
-                <div className="bg-amber-500/10 border border-amber-500/30 p-3 rounded-xl text-amber-300 text-center font-bold">
-                  3. 🛡️ Permission Gate & Sandbox Execution
-                </div>
-                <div className="text-center text-zinc-500">↓</div>
-                <div className="bg-emerald-500/10 border border-emerald-500/30 p-3 rounded-xl text-emerald-300 text-center font-bold">
-                  4. 🚀 Immutable SQLite Ledger & Verified Output
-                </div>
+          <div className="flex-1 flex flex-col items-center justify-center overflow-auto bg-black/30 rounded-xl p-4 border border-zinc-800/50">
+            {errorMsg ? (
+              <div className="text-red-400 flex flex-col items-center gap-2 text-sm p-6 bg-red-950/20 rounded-xl border border-red-900/50">
+                <AlertTriangle className="w-6 h-6" />
+                <div className="font-mono text-xs whitespace-pre-wrap text-center">{errorMsg}</div>
               </div>
-            )}
-
-            {selectedPreset.id === 'knowledge-pipeline' && (
-              <div className="w-full space-y-3 max-w-md">
-                <div className="bg-zinc-800 border border-zinc-700 p-3 rounded-xl text-zinc-300 text-center font-bold">
-                  1. 📥 01_RAW/CAPTURE (Immutable Input)
-                </div>
-                <div className="text-center text-zinc-500">↓</div>
-                <div className="bg-cyan-500/10 border border-cyan-500/30 p-3 rounded-xl text-cyan-300 text-center font-bold">
-                  2. 🧹 01_RAW/PROCESS (Working Draft)
-                </div>
-                <div className="text-center text-zinc-500">↓</div>
-                <div className="bg-emerald-500/10 border border-emerald-500/30 p-3 rounded-xl text-emerald-300 text-center font-bold">
-                  3. 🪐 02_NODES/ (Flat Atomic Notes)
-                </div>
-                <div className="text-center text-zinc-500">↓</div>
-                <div className="bg-purple-500/10 border border-purple-500/30 p-3 rounded-xl text-purple-300 text-center font-bold">
-                  4. 🗺️ 03_MOC/ (Curated Navigation Layer)
-                </div>
-              </div>
-            )}
-
-            {selectedPreset.id === 'lightrag-flow' && (
-              <div className="w-full space-y-3 max-w-md">
-                <div className="bg-zinc-800 border border-zinc-700 p-3 rounded-xl text-zinc-300 text-center font-bold">
-                  1. 🔍 User Query Projector
-                </div>
-                <div className="text-center text-zinc-500">↓</div>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="bg-purple-500/10 border border-purple-500/30 p-2.5 rounded-xl text-purple-300 text-center text-[11px] font-bold">
-                    🟣 High-Level Themes (03_MOC)
-                  </div>
-                  <div className="bg-cyan-500/10 border border-cyan-500/30 p-2.5 rounded-xl text-cyan-300 text-center text-[11px] font-bold">
-                    🔵 Low-Level Entities (NODES)
-                  </div>
-                </div>
-                <div className="text-center text-zinc-500">↓</div>
-                <div className="bg-emerald-500/10 border border-emerald-500/30 p-3 rounded-xl text-emerald-300 text-center font-bold">
-                  2. ✨ Hybrid Context Synthesis & Answer
-                </div>
-              </div>
-            )}
-
-            {selectedPreset.id === 'youtube-studio' && (
-              <div className="w-full space-y-3 max-w-md">
-                <div className="bg-red-500/10 border border-red-500/30 p-3 rounded-xl text-red-300 text-center font-bold">
-                  1. 🎥 YouTube Creator Lecture Video
-                </div>
-                <div className="text-center text-zinc-500">↓</div>
-                <div className="bg-cyan-500/10 border border-cyan-500/30 p-3 rounded-xl text-cyan-300 text-center font-bold">
-                  2. 🧹 Code-Switch Translation & Timestamps
-                </div>
-                <div className="text-center text-zinc-500">↓</div>
-                <div className="bg-purple-500/10 border border-purple-500/30 p-3 rounded-xl text-purple-300 text-center font-bold">
-                  3. 📐 Mermaid Architecture Mindmap
-                </div>
-                <div className="text-center text-zinc-500">↓</div>
-                <div className="bg-emerald-500/10 border border-emerald-500/30 p-3 rounded-xl text-emerald-300 text-center font-bold">
-                  4. 📚 02_NEW-KNOWLEDGE/ Literature Study Note
-                </div>
-              </div>
+            ) : (
+              <div 
+                className="w-full flex justify-center text-zinc-200"
+                dangerouslySetInnerHTML={{ __html: svgContent }} 
+              />
             )}
           </div>
 
-          <div className="pt-3 border-t border-zinc-800/80 flex items-center justify-between text-[10px] font-mono text-zinc-500">
+          <div className="pt-4 mt-4 border-t border-zinc-800/80 flex items-center justify-between text-[10px] font-mono text-zinc-500">
             <span>Obsidian Mermaid v10 Compatible</span>
             <span className="text-zinc-400">Zero-RAM Vector Native</span>
           </div>

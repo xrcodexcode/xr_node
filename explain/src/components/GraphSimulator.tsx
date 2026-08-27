@@ -24,19 +24,19 @@ const INITIAL_NODES: Omit<NodeData, 'x' | 'y' | 'vx' | 'vy'>[] = [
     id: 'nexusdb',
     title: 'NexusDB Vault',
     category: 'pkm',
-    radius: 20,
+    radius: 22,
     color: '#c084fc',
-    summary: 'The main Infinity Brain container holding all atomic knowledge nodes, MOC maps, and AI governance.',
-    links: ['atomic-notes', 'moc-system', 'antigravity-ai', 'zettelkasten']
+    summary: 'The central Infinity Brain knowledge container holding flat atomic nodes, MOC maps, and multi-engine AI control planes.',
+    links: ['atomic-notes', 'moc-system', 'ai-ml-moc', 'claude-control', 'gemini-control', 'codex-control']
   },
   {
     id: 'atomic-notes',
     title: 'Flat Atomic Nodes',
     category: 'pkm',
-    radius: 16,
+    radius: 17,
     color: '#38bdf8',
-    summary: '1 Note = 1 Idea. Kept flat inside 02_NODES/ with zero subfolders.',
-    links: ['nexusdb', 'zettelkasten', 'deduplication']
+    summary: '1 Note = 1 Idea. Kept flat inside NODES/ with zero subfolders to maximize reusability and avoid folder siloing.',
+    links: ['nexusdb', 'zettelkasten', 'deduplication', 'backlinks']
   },
   {
     id: 'moc-system',
@@ -44,25 +44,97 @@ const INITIAL_NODES: Omit<NodeData, 'x' | 'y' | 'vx' | 'vy'>[] = [
     category: 'pkm',
     radius: 18,
     color: '#34d399',
-    summary: 'Higher-level navigation highways in 03_MOC/ connecting related concepts without folder clutter.',
-    links: ['nexusdb', 'atomic-notes', 'pkm-search']
+    summary: '4-level navigation highway system in 03_MOC/ connecting related concepts without deep directory nesting.',
+    links: ['nexusdb', 'ai-ml-moc', 'study-moc', 'books-moc', 'atomic-habits-moc', 'warren-buffett-moc']
   },
   {
-    id: 'antigravity-ai',
-    title: 'Antigravity AI Engine',
+    id: 'ai-ml-moc',
+    title: 'AI & Machine Learning MOC',
     category: 'ai',
-    radius: 18,
+    radius: 16,
     color: '#f43f5e',
-    summary: 'Gemini-powered control plane (.antigravity/) that automates note extraction, schema validation, and graph health.',
-    links: ['nexusdb', 'semantic-linker', 'schema-validator']
+    summary: 'Central domain MOC indexing artificial intelligence, LLM agents, RAG pipelines, and transformer architectures.',
+    links: ['moc-system', 'atomic-notes', 'yt-moc']
+  },
+  {
+    id: 'study-moc',
+    title: 'Study & Academics MOC',
+    category: 'productivity',
+    radius: 15,
+    color: '#fbbf24',
+    summary: 'Domain MOC for academics, Data Structures & Algorithms (DSA), exam prep, and cognitive science.',
+    links: ['moc-system', 'atomic-notes']
+  },
+  {
+    id: 'books-moc',
+    title: 'Books & Literature MOC',
+    category: 'pkm',
+    radius: 15,
+    color: '#a78bfa',
+    summary: 'Curated index of non-fiction book takeaways, chapter summaries, and literary analysis.',
+    links: ['moc-system', 'atomic-habits-moc']
+  },
+  {
+    id: 'atomic-habits-moc',
+    title: 'Atomic Habits MOC',
+    category: 'productivity',
+    radius: 14,
+    color: '#10b981',
+    summary: 'Specialized MOC indexing behavioral psychology, habit loops, and identity-based change notes from James Clear.',
+    links: ['books-moc', 'moc-system']
+  },
+  {
+    id: 'warren-buffett-moc',
+    title: 'Warren Buffett MOC',
+    category: 'productivity',
+    radius: 14,
+    color: '#eab308',
+    summary: 'Investment philosophy MOC indexing economic moats, margin of safety, and compounding capital principles.',
+    links: ['moc-system', 'books-moc']
+  },
+  {
+    id: 'yt-moc',
+    title: 'YouTube Transcripts MOC',
+    category: 'ai',
+    radius: 14,
+    color: '#ec4899',
+    summary: 'Synthesized knowledge notes extracted automatically from video transcripts and technical talks.',
+    links: ['moc-system', 'ai-ml-moc']
+  },
+  {
+    id: 'claude-control',
+    title: 'Claude Control Plane',
+    category: 'ai',
+    radius: 15,
+    color: '#818cf8',
+    summary: 'Anthropic Claude governance layer (CLAUDE.md & claude/) overseeing structural safety and vault invariants.',
+    links: ['nexusdb', 'gemini-control', 'codex-control']
+  },
+  {
+    id: 'gemini-control',
+    title: 'Gemini Antigravity Plane',
+    category: 'ai',
+    radius: 15,
+    color: '#06b6d4',
+    summary: 'Gemini Antigravity engine (.antigravity/) running graph health checks, automated note ingestion, and schema validation.',
+    links: ['nexusdb', 'claude-control', 'deduplication']
+  },
+  {
+    id: 'codex-control',
+    title: 'Codex Sidecar Engine',
+    category: 'ai',
+    radius: 15,
+    color: '#22c55e',
+    summary: 'OpenAI Codex automation plane (.codex/) running automated graph test suites and python sidecars.',
+    links: ['nexusdb', 'claude-control']
   },
   {
     id: 'zettelkasten',
     title: 'Zettelkasten Method',
     category: 'pkm',
-    radius: 14,
-    color: '#fbbf24',
-    summary: 'Classic German slip-box note system optimized for atomic linking and serendipitous idea discovery.',
+    radius: 13,
+    color: '#f59e0b',
+    summary: 'German slip-box note method optimized for atomic note linkages and emergent thought graph discovery.',
     links: ['atomic-notes', 'backlinks']
   },
   {
@@ -70,45 +142,18 @@ const INITIAL_NODES: Omit<NodeData, 'x' | 'y' | 'vx' | 'vy'>[] = [
     title: 'Explicit [[Backlinks]]',
     category: 'pkm',
     radius: 12,
-    color: '#a78bfa',
-    summary: 'Double bracket links establishing direct graph edges between related claims and definitions.',
+    color: '#c084fc',
+    summary: 'Double-bracket markdown links establishing direct graph edges between claims, definitions, and concepts.',
     links: ['zettelkasten', 'atomic-notes']
-  },
-  {
-    id: 'semantic-linker',
-    title: 'Semantic Link Engine',
-    category: 'ai',
-    radius: 14,
-    color: '#ec4899',
-    summary: 'Background vector & keyword matcher finding hidden connections between newly created notes.',
-    links: ['antigravity-ai', 'atomic-notes']
   },
   {
     id: 'deduplication',
     title: 'Auto-Deduplication',
     category: 'ai',
     radius: 13,
-    color: '#f59e0b',
-    summary: 'Prevents writing near-duplicate notes by comparing incoming concepts against existing 02_NODES.',
-    links: ['atomic-notes', 'antigravity-ai']
-  },
-  {
-    id: 'schema-validator',
-    title: 'Frontmatter Schema v4',
-    category: 'productivity',
-    radius: 13,
-    color: '#10b981',
-    summary: 'Enforces required fields: id, title, type, status, created, confidence, and owner_moc.',
-    links: ['antigravity-ai', 'nexusdb']
-  },
-  {
-    id: 'pkm-search',
-    title: 'Zero-RAM Local Search',
-    category: 'productivity',
-    radius: 14,
-    color: '#06b6d4',
-    summary: 'Direct file-based grep and MOC index search requiring 0 background memory usage.',
-    links: ['moc-system', 'nexusdb']
+    color: '#f43f5e',
+    summary: 'Prevents duplicate concept creation by comparing incoming claims against existing NODES/.',
+    links: ['atomic-notes', 'gemini-control']
   }
 ];
 

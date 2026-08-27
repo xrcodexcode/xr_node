@@ -42,7 +42,15 @@ export default function KnowledgeGraph() {
   const nodesRef = useRef<NodeItem[]>([])
   const edgesRef = useRef<EdgeItem[]>([])
   const alphaRef = useRef<number>(1.0) // Cooling factor (Obsidian graph cooling physics)
-  const animationFrameRef = useRef<number | null>(null)
+  const canvasContainerRef = useRef<HTMLDivElement | null>(null)
+  
+  const searchRef = useRef(search)
+  const folderRef = useRef(selectedFolder)
+
+  useEffect(() => {
+    searchRef.current = search
+    folderRef.current = selectedFolder
+  }, [search, selectedFolder])
 
   const fetchGraph = async (refresh: boolean = false) => {
     setLoading(true)
@@ -52,8 +60,9 @@ export default function KnowledgeGraph() {
       const rawNodes: any[] = res.nodes || []
       const rawEdges: EdgeItem[] = res.edges || []
 
-      const width = 850
-      const height = 550
+      const container = canvasContainerRef.current
+      const width = container ? container.getBoundingClientRect().width : 850
+      const height = container ? container.getBoundingClientRect().height : 550
 
       // Initial layout around center with spiral placement
       const initializedNodes: NodeItem[] = rawNodes.map((n, i) => {
@@ -88,6 +97,27 @@ export default function KnowledgeGraph() {
     fetchGraph(false)
   }, [])
 
+  // Canvas Responsive Setup
+  useEffect(() => {
+    const container = canvasContainerRef.current
+    const canvas = canvasRef.current
+    if (!container || !canvas) return
+
+    const resizeCanvas = () => {
+      const rect = container.getBoundingClientRect()
+      const dpr = window.devicePixelRatio || 1
+      canvas.width = rect.width * dpr
+      canvas.height = rect.height * dpr
+      canvas.style.width = `${rect.width}px`
+      canvas.style.height = `${rect.height}px`
+    }
+
+    resizeCanvas()
+    const observer = new ResizeObserver(resizeCanvas)
+    observer.observe(container)
+    return () => observer.disconnect()
+  }, [])
+
   // Obsidian Cooling Physics & Renderer
   useEffect(() => {
     const canvas = canvasRef.current
@@ -96,13 +126,16 @@ export default function KnowledgeGraph() {
     if (!ctx) return
 
     let running = true
-    const width = canvas.width
-    const height = canvas.height
-    const centerX = width / 2
-    const centerY = height / 2
 
     const render = () => {
       if (!running) return
+
+      const dpr = window.devicePixelRatio || 1
+      const rect = canvas.getBoundingClientRect()
+      const width = rect.width
+      const height = rect.height
+      const centerX = width / 2
+      const centerY = height / 2
 
       const currentNodes = nodesRef.current
       const currentEdges = edgesRef.current
@@ -176,11 +209,13 @@ export default function KnowledgeGraph() {
       }
 
       // Draw Canvas Frame
-      ctx.clearRect(0, 0, width, height)
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
       ctx.fillStyle = '#0b0b0e'
-      ctx.fillRect(0, 0, width, height)
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
 
       ctx.save()
+      ctx.scale(dpr, dpr)
+      
       const t = transformRef.current
       ctx.translate(t.x, t.y)
       ctx.scale(t.k, t.k)
@@ -193,6 +228,13 @@ export default function KnowledgeGraph() {
         const s = nodeMap.get(edge.source)
         const trg = nodeMap.get(edge.target)
         if (s && trg) {
+          const sMatches = (!searchRef.current || s.title.toLowerCase().includes(searchRef.current.toLowerCase())) &&
+            (folderRef.current === 'all' || s.folder === folderRef.current)
+          const trgMatches = (!searchRef.current || trg.title.toLowerCase().includes(searchRef.current.toLowerCase())) &&
+            (folderRef.current === 'all' || trg.folder === folderRef.current)
+          
+          if (!sMatches || !trgMatches) return;
+
           const isHighlighted = hoveredNode && (hoveredNode.id === s.id || hoveredNode.id === trg.id)
           ctx.strokeStyle = isHighlighted ? 'rgba(6, 182, 212, 0.85)' : 'rgba(255, 255, 255, 0.07)'
           ctx.lineWidth = isHighlighted ? 1.5 : 0.6
@@ -206,6 +248,9 @@ export default function KnowledgeGraph() {
 
       // Draw Nodes (Obsidian styling)
       currentNodes.forEach(n => {
+        const matches = (!searchRef.current || n.title.toLowerCase().includes(searchRef.current.toLowerCase())) &&
+            (folderRef.current === 'all' || n.folder === folderRef.current)
+            
         const isHovered = hoveredNode?.id === n.id
         const isSelected = selectedNode?.id === n.id
         const radius = Math.min(10, Math.max(3, 2.5 + Math.sqrt(n.val || 1) * 1.5))
@@ -216,6 +261,8 @@ export default function KnowledgeGraph() {
         else if (n.folder === '03_MOC') color = '#a855f7' // Purple
         else if (n.folder === '02_NEW-KNOWLEDGE') color = '#10b981' // Emerald
         else if (n.folder === 'NOTES') color = '#f59e0b' // Amber
+
+        ctx.globalAlpha = matches ? 1.0 : 0.15;
 
         ctx.beginPath()
         ctx.arc(n.x, n.y, radius + (isHovered || isSelected ? 2.5 : 0), 0, Math.PI * 2)
@@ -239,6 +286,8 @@ export default function KnowledgeGraph() {
           ctx.fillStyle = '#ffffff'
           ctx.fillText(n.title, n.x + radius + 5, n.y + 3)
         }
+        
+        ctx.globalAlpha = 1.0;
       })
 
       ctx.restore()
@@ -429,16 +478,14 @@ export default function KnowledgeGraph() {
       {/* Main Canvas Graph & Inspector */}
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         {/* Canvas Visualizer */}
-        <div className="col-span-1 lg:col-span-3 bg-[#0b0b0e] border border-zinc-800 rounded-2xl relative overflow-hidden flex flex-col justify-between shadow-2xl">
+        <div ref={canvasContainerRef} className="col-span-1 lg:col-span-3 bg-[#0b0b0e] border border-zinc-800 rounded-2xl relative overflow-hidden flex flex-col justify-between shadow-2xl min-h-[550px]">
           <canvas
             ref={canvasRef}
-            width={850}
-            height={550}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onWheel={handleWheel}
-            className="w-full h-[550px] cursor-grab active:cursor-grabbing"
+            className="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing"
           />
 
           {/* Floating Canvas Controls */}

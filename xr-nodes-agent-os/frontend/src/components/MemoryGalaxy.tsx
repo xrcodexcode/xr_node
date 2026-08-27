@@ -24,6 +24,7 @@ export default function MemoryGalaxy() {
   const [hoveredNode, setHoveredNode] = useState<GalaxyNode | null>(null)
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
+  const canvasContainerRef = useRef<HTMLDivElement | null>(null)
   const transformRef = useRef({ x: 0, y: 0, k: 1 })
   const isDraggingRef = useRef(false)
   const dragStartRef = useRef({ x: 0, y: 0 })
@@ -94,6 +95,27 @@ export default function MemoryGalaxy() {
     fetchGalaxyData(false)
   }, [])
 
+  // Canvas Responsive Setup
+  useEffect(() => {
+    const container = canvasContainerRef.current
+    const canvas = canvasRef.current
+    if (!container || !canvas) return
+
+    const resizeCanvas = () => {
+      const rect = container.getBoundingClientRect()
+      const dpr = window.devicePixelRatio || 1
+      canvas.width = rect.width * dpr
+      canvas.height = rect.height * dpr
+      canvas.style.width = `${rect.width}px`
+      canvas.style.height = `${rect.height}px`
+    }
+
+    resizeCanvas()
+    const observer = new ResizeObserver(resizeCanvas)
+    observer.observe(container)
+    return () => observer.disconnect()
+  }, [])
+
   // Solar System Orbital Physics & Starfield Renderer
   useEffect(() => {
     const canvas = canvasRef.current
@@ -102,21 +124,24 @@ export default function MemoryGalaxy() {
     if (!ctx) return
 
     let running = true
-    const width = canvas.width
-    const height = canvas.height
-    const sunX = width / 2
-    const sunY = height / 2
 
     // Pre-generate background stars
     const stars = Array.from({ length: 150 }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
+      x: Math.random() * 2000,
+      y: Math.random() * 2000,
       size: Math.random() * 1.5,
       alpha: 0.2 + Math.random() * 0.7
     }))
 
     const renderFrame = () => {
       if (!running) return
+
+      const dpr = window.devicePixelRatio || 1
+      const rect = canvas.getBoundingClientRect()
+      const width = rect.width
+      const height = rect.height
+      const sunX = width / 2
+      const sunY = height / 2
 
       const currentNodes = nodesRef.current
 
@@ -128,17 +153,22 @@ export default function MemoryGalaxy() {
       }
 
       // Draw Deep Space Canvas Background
-      ctx.clearRect(0, 0, width, height)
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
       ctx.fillStyle = '#050508'
-      ctx.fillRect(0, 0, width, height)
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+      ctx.save()
+      ctx.scale(dpr, dpr)
 
       // Draw Twinkling Background Stars
       stars.forEach(s => {
+        // Simple modulo to keep stars on screen if window resized bigger than 2000
+        const sx = s.x % width
+        const sy = s.y % height
         ctx.fillStyle = `rgba(255, 255, 255, ${s.alpha})`
-        ctx.fillRect(s.x, s.y, s.size, s.size)
+        ctx.fillRect(sx, sy, s.size, s.size)
       })
 
-      ctx.save()
       const t = transformRef.current
       ctx.translate(t.x, t.y)
       ctx.scale(t.k, t.k)
@@ -334,16 +364,14 @@ export default function MemoryGalaxy() {
       {/* Main Galaxy Canvas & Planetary Inspector */}
       <div className="grid grid-cols-4 gap-6">
         {/* Deep Space Solar System Canvas */}
-        <div className="col-span-3 bg-[#050508] border border-zinc-800 rounded-2xl relative overflow-hidden flex flex-col justify-between shadow-2xl">
+        <div ref={canvasContainerRef} className="col-span-3 bg-[#050508] border border-zinc-800 rounded-2xl relative overflow-hidden flex flex-col justify-between shadow-2xl min-h-[550px]">
           <canvas
             ref={canvasRef}
-            width={850}
-            height={550}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onWheel={handleWheel}
-            className="w-full h-[550px] cursor-grab active:cursor-grabbing"
+            className="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing"
           />
 
           <div className="absolute bottom-4 right-4 bg-zinc-900/80 backdrop-blur-md border border-zinc-800 px-3 py-1.5 rounded-lg flex items-center gap-4 text-[10px] font-mono text-zinc-400">

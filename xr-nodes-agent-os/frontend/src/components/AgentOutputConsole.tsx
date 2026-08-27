@@ -111,6 +111,12 @@ export default function AgentOutputConsole() {
     return () => clearInterval(timer)
   }, [])
 
+  useEffect(() => {
+    if (autoScroll && consoleBottomRef.current) {
+      consoleBottomRef.current.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [logs, autoScroll])
+
   const handleRunAgentPrompt = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!inputPrompt.trim()) return
@@ -325,6 +331,7 @@ export default function AgentOutputConsole() {
             </div>
           ))
         )}
+        <div ref={consoleBottomRef} />
       </div>
     </div>
   )

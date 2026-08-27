@@ -48,26 +48,38 @@ export default function SkillsView() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filtered.map(s => (
-          <div key={s.name} className="bg-[#121215] border border-zinc-800/90 rounded-2xl p-5 space-y-3 hover:border-zinc-700 transition-all hover:scale-[1.01] flex flex-col justify-between">
-            <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-cyan-400 font-semibold text-sm">{s.name}</span>
-                <span className="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded font-mono flex items-center gap-1">
-                  <CheckCircle className="w-3 h-3" />
-                  ACTIVE
-                </span>
-              </div>
-              <p className="text-xs text-zinc-300 leading-relaxed">{s.description}</p>
-            </div>
-            <div className="pt-2 border-t border-zinc-800/60 flex items-center justify-between text-[10px] text-zinc-500 font-mono">
-              <span className="bg-zinc-900 px-1.5 py-0.5 rounded text-zinc-400">{s.folder}</span>
-              <span className="text-zinc-500 truncate max-w-[150px]">{s.path || '.antigravity/skills'}</span>
-            </div>
+      {filtered.length === 0 ? (
+        <div className="bg-[#121215] border border-zinc-800/90 rounded-2xl p-12 flex flex-col items-center justify-center text-center space-y-4">
+          <div className="w-16 h-16 bg-zinc-900/80 rounded-full flex items-center justify-center border border-zinc-800">
+            <Search className="w-8 h-8 text-zinc-600" />
           </div>
-        ))}
-      </div>
+          <div>
+            <h3 className="text-zinc-300 font-bold text-lg">No Skills Found</h3>
+            <p className="text-zinc-500 text-sm mt-1 max-w-sm mx-auto">No agent skills match your search query. Try a different search or clear the filter.</p>
+          </div>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {filtered.map(s => (
+            <div key={s.name} className="bg-[#121215] border border-zinc-800/90 rounded-2xl p-5 space-y-3 hover:border-zinc-700 transition-all hover:scale-[1.01] flex flex-col justify-between">
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-cyan-400 font-semibold text-sm">{s.name}</span>
+                  <span className="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded font-mono flex items-center gap-1">
+                    <CheckCircle className="w-3 h-3" />
+                    ACTIVE
+                  </span>
+                </div>
+                <p className="text-xs text-zinc-300 leading-relaxed">{s.description}</p>
+              </div>
+              <div className="pt-2 border-t border-zinc-800/60 flex items-center justify-between text-[10px] text-zinc-500 font-mono">
+                <span className="bg-zinc-900 px-1.5 py-0.5 rounded text-zinc-400">{s.folder}</span>
+                <span className="text-zinc-500 truncate max-w-[150px]">{s.path || '.antigravity/skills'}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   )
 }

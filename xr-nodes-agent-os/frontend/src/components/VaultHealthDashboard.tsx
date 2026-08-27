@@ -6,6 +6,9 @@ export default function VaultHealthDashboard() {
   const [loading, setLoading] = useState(true);
   const [lastScanned, setLastScanned] = useState<Date | null>(null);
 
+  const [detailsModal, setDetailsModal] = useState<{ isOpen: boolean; title: string; data: string[] }>({ isOpen: false, title: '', data: [] });
+  const [fixing, setFixing] = useState(false);
+
   const fetchHealth = async () => {
     setLoading(true);
     try {
@@ -26,6 +29,12 @@ export default function VaultHealthDashboard() {
             broken_links: data.broken_links || 0,
             missing_frontmatter: data.missing_frontmatter || 0,
             stale_reviews: data.stale_reviews || 0
+          },
+          details: {
+            orphaned_list: data.orphaned_list || [],
+            broken_links_list: data.broken_links_list || [],
+            missing_frontmatter_list: data.missing_frontmatter_list || [],
+            stale_reviews_list: data.stale_reviews_list || []
           }
         });
         setLastScanned(new Date());
@@ -35,6 +44,25 @@ export default function VaultHealthDashboard() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleRunAutoFix = async () => {
+    setFixing(true);
+    try {
+      const res = await fetch('/api/v1/knowledge/automations/vault_health_sweep', { method: 'POST' });
+      if (res.ok) {
+        fetchHealth();
+      }
+    } catch (e) {
+      console.error('Failed to run auto-fix:', e);
+    } finally {
+      setFixing(false);
+    }
+  };
+
+  const openDetails = (title: string, listKey: string) => {
+    if (!health?.details) return;
+    setDetailsModal({ isOpen: true, title, data: health.details[listKey] || [] });
   };
 
   useEffect(() => {
@@ -70,6 +98,14 @@ export default function VaultHealthDashboard() {
             </span>
           )}
           <button 
+            onClick={handleRunAutoFix}
+            disabled={fixing}
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 text-xs font-medium rounded-lg border border-purple-500/30 transition-colors disabled:opacity-50"
+          >
+            <Activity className={`w-3.5 h-3.5 ${fixing ? 'animate-pulse' : ''}`} />
+            Run Auto-Fix
+          </button>
+          <button 
             onClick={fetchHealth}
             disabled={loading}
             className="flex items-center gap-1.5 px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-medium rounded-lg border border-zinc-700 transition-colors disabled:opacity-50"
@@ -83,7 +119,10 @@ export default function VaultHealthDashboard() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Overall Health Score */}
         <div className="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center min-h-[300px]">
-          <h3 className="text-sm font-semibold text-zinc-300 mb-6">Graph Integrity Score</h3>
+          <div className="flex justify-between w-full mb-6">
+            <h3 className="text-sm font-semibold text-zinc-300">Graph Integrity Score</h3>
+            <span className="text-xs text-zinc-500 font-mono">Previous: --</span>
+          </div>
           
           <div className="relative w-48 h-48 flex items-center justify-center">
             {/* CSS Circular Progress */}
@@ -125,45 +164,82 @@ export default function VaultHealthDashboard() {
             borderColor="border-cyan-500/30"
             status="info"
           />
-          <MetricCard 
-            icon={FileQuestion} 
-            label="Orphaned Notes" 
-            value={health?.metrics?.orphaned || 0} 
-            color="text-amber-400" 
-            bgColor="bg-amber-500/10" 
-            borderColor="border-amber-500/30"
-            status={health?.metrics?.orphaned > 10 ? 'warning' : 'good'}
-          />
-          <MetricCard 
-            icon={Link2} 
-            label="Broken Links" 
-            value={health?.metrics?.broken_links || 0} 
-            color="text-red-400" 
-            bgColor="bg-red-500/10" 
-            borderColor="border-red-500/30"
-            status={health?.metrics?.broken_links > 0 ? 'critical' : 'good'}
-          />
-          <MetricCard 
-            icon={AlertTriangle} 
-            label="Missing Frontmatter" 
-            value={health?.metrics?.missing_frontmatter || 0} 
-            color="text-purple-400" 
-            bgColor="bg-purple-500/10" 
-            borderColor="border-purple-500/30"
-            status={health?.metrics?.missing_frontmatter > 20 ? 'warning' : 'good'}
-          />
-          <MetricCard 
-            icon={Clock} 
-            label="Stale Reviews" 
-            value={health?.metrics?.stale_reviews || 0} 
-            color="text-emerald-400" 
-            bgColor="bg-emerald-500/10" 
-            borderColor="border-emerald-500/30"
-            status={health?.metrics?.stale_reviews > 50 ? 'warning' : 'good'}
-            className="sm:col-span-2"
-          />
+          <div onClick={() => openDetails('Orphaned Notes', 'orphaned_list')} className="cursor-pointer transition-transform hover:scale-[1.02]">
+            <MetricCard 
+              icon={FileQuestion} 
+              label="Orphaned Notes" 
+              value={health?.metrics?.orphaned || 0} 
+              color="text-amber-400" 
+              bgColor="bg-amber-500/10" 
+              borderColor="border-amber-500/30"
+              status={health?.metrics?.orphaned > 10 ? 'warning' : 'good'}
+            />
+          </div>
+          <div onClick={() => openDetails('Broken Links', 'broken_links_list')} className="cursor-pointer transition-transform hover:scale-[1.02]">
+            <MetricCard 
+              icon={Link2} 
+              label="Broken Links" 
+              value={health?.metrics?.broken_links || 0} 
+              color="text-red-400" 
+              bgColor="bg-red-500/10" 
+              borderColor="border-red-500/30"
+              status={health?.metrics?.broken_links > 0 ? 'critical' : 'good'}
+            />
+          </div>
+          <div onClick={() => openDetails('Missing Frontmatter', 'missing_frontmatter_list')} className="cursor-pointer transition-transform hover:scale-[1.02]">
+            <MetricCard 
+              icon={AlertTriangle} 
+              label="Missing Frontmatter" 
+              value={health?.metrics?.missing_frontmatter || 0} 
+              color="text-purple-400" 
+              bgColor="bg-purple-500/10" 
+              borderColor="border-purple-500/30"
+              status={health?.metrics?.missing_frontmatter > 20 ? 'warning' : 'good'}
+            />
+          </div>
+          <div onClick={() => openDetails('Stale Reviews', 'stale_reviews_list')} className="cursor-pointer transition-transform hover:scale-[1.02] sm:col-span-2">
+            <MetricCard 
+              icon={Clock} 
+              label="Stale Reviews" 
+              value={health?.metrics?.stale_reviews || 0} 
+              color="text-emerald-400" 
+              bgColor="bg-emerald-500/10" 
+              borderColor="border-emerald-500/30"
+              status={health?.metrics?.stale_reviews > 50 ? 'warning' : 'good'}
+              className="h-full"
+            />
+          </div>
         </div>
       </div>
+
+      {detailsModal.isOpen && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl w-full max-w-lg shadow-2xl flex flex-col max-h-[80vh]">
+            <div className="p-4 border-b border-zinc-800 flex justify-between items-center">
+              <h3 className="text-lg font-bold text-white">{detailsModal.title}</h3>
+              <button 
+                onClick={() => setDetailsModal({ isOpen: false, title: '', data: [] })}
+                className="text-zinc-400 hover:text-white"
+              >
+                <XCircle className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="p-4 overflow-y-auto flex-1">
+              {detailsModal.data.length > 0 ? (
+                <ul className="space-y-2">
+                  {detailsModal.data.map((item, idx) => (
+                    <li key={idx} className="text-sm font-mono text-zinc-300 bg-zinc-800/50 p-2 rounded">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-sm text-zinc-500 text-center py-8">No items found.</p>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -24,7 +24,11 @@ export default function TaskTimeline() {
 
   useEffect(() => {
     fetchTasks();
-    const interval = setInterval(fetchTasks, 5000);
+    const interval = setInterval(() => {
+      if (document.visibilityState === 'visible') {
+        fetchTasks();
+      }
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -46,6 +50,26 @@ export default function TaskTimeline() {
     } else {
       setExpandedTask(taskId);
       fetchTaskDetails(taskId);
+    }
+  };
+
+  const handleCancelTask = async (taskId: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    try {
+      await fetch(`/api/v1/tasks/${taskId}/cancel`, { method: 'POST' });
+      fetchTasks();
+    } catch (err) {
+      console.error('Failed to cancel task:', err);
+    }
+  };
+
+  const handleRerunTask = async (taskId: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    try {
+      await fetch(`/api/v1/tasks/${taskId}/rerun`, { method: 'POST' });
+      fetchTasks();
+    } catch (err) {
+      console.error('Failed to rerun task:', err);
     }
   };
 
@@ -141,6 +165,27 @@ export default function TaskTimeline() {
                       ) : (
                         <div className="text-[10px] text-zinc-500 animate-pulse">Loading details...</div>
                       )}
+
+                      <div className="mt-3 flex items-center justify-end gap-2 border-t border-zinc-800/50 pt-3">
+                        {(task.status === 'running' || task.status === 'created' || !task.status) && (
+                          <button
+                            onClick={(e) => handleCancelTask(task.id, e)}
+                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[10px] font-bold text-red-400 bg-red-500/10 border border-red-500/20 hover:bg-red-500/20 transition-colors"
+                          >
+                            <XCircle className="w-3.5 h-3.5" />
+                            CANCEL TASK
+                          </button>
+                        )}
+                        {(task.status === 'completed' || task.status === 'failed') && (
+                          <button
+                            onClick={(e) => handleRerunTask(task.id, e)}
+                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[10px] font-bold text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 hover:bg-cyan-500/20 transition-colors"
+                          >
+                            <Play className="w-3.5 h-3.5" />
+                            RERUN TASK
+                          </button>
+                        )}
+                      </div>
                     </div>
                   )}
                 </div>

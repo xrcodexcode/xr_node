@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Settings, Server, Database, Brain, Sliders, Clock, Terminal, Key, Info } from 'lucide-react';
+import { Settings, Server, Database, Brain, Sliders, Clock, Terminal, Key, Info, Save, CheckCircle, AlertCircle } from 'lucide-react';
 
 export default function SettingsPanel() {
   const [status, setStatus] = useState<any>(null);
@@ -10,6 +10,10 @@ export default function SettingsPanel() {
   const [logLevel, setLogLevel] = useState('INFO');
   const [provider, setProvider] = useState('Google');
   const [model, setModel] = useState('Gemini 1.5 Pro');
+
+  const [isDirty, setIsDirty] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [toast, setToast] = useState<{message: string, type: 'success' | 'error'} | null>(null);
 
   useEffect(() => {
     const fetchStatus = async () => {
@@ -25,16 +29,79 @@ export default function SettingsPanel() {
         setLoading(false);
       }
     };
+
+    const fetchConfig = async () => {
+      try {
+        const res = await fetch('/api/v1/config');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.agent_steps) setAgentSteps(data.agent_steps);
+          if (data.agent_timeout) setAgentTimeout(data.agent_timeout);
+          if (data.log_level) setLogLevel(data.log_level);
+          if (data.provider) setProvider(data.provider);
+          if (data.model) setModel(data.model);
+        }
+      } catch (error) {
+        console.error('Failed to fetch config:', error);
+      }
+    };
+
     fetchStatus();
+    fetchConfig();
   }, []);
+
+  const handleSave = async () => {
+    setSaving(true);
+    try {
+      const res = await fetch('/api/v1/config', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          agent_steps: agentSteps,
+          agent_timeout: agentTimeout,
+          log_level: logLevel,
+          provider: provider,
+          model: model
+        })
+      });
+      if (res.ok) {
+        setToast({ message: 'Settings saved successfully', type: 'success' });
+        setIsDirty(false);
+      } else {
+        setToast({ message: 'Failed to save settings', type: 'error' });
+      }
+    } catch (error) {
+      setToast({ message: 'Error saving settings', type: 'error' });
+    } finally {
+      setSaving(false);
+      setTimeout(() => setToast(null), 3000);
+    }
+  };
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
-      <div className="glass-panel p-6 rounded-2xl">
-        <h2 className="text-xl font-bold text-white flex items-center gap-2 mb-6">
-          <Settings className="w-5 h-5 text-cyan-400" />
-          System Settings
-        </h2>
+      <div className="glass-panel p-6 rounded-2xl relative">
+        {toast && (
+          <div className={`absolute top-4 right-4 flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium ${toast.type === 'success' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 'bg-red-500/20 text-red-400 border border-red-500/30'} z-10 shadow-lg`}>
+            {toast.type === 'success' ? <CheckCircle className="w-4 h-4" /> : <AlertCircle className="w-4 h-4" />}
+            {toast.message}
+          </div>
+        )}
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-xl font-bold text-white flex items-center gap-2">
+            <Settings className="w-5 h-5 text-cyan-400" />
+            System Settings
+            {isDirty && <span className="w-2 h-2 rounded-full bg-amber-400 ml-2" title="Unsaved changes"></span>}
+          </h2>
+          <button 
+            onClick={handleSave}
+            disabled={!isDirty || saving}
+            className="bg-cyan-500 hover:bg-cyan-400 disabled:bg-zinc-800 disabled:text-zinc-500 disabled:cursor-not-allowed text-black font-semibold text-xs px-4 py-2 rounded-xl transition-all shadow-[0_0_15px_rgba(6,182,212,0.15)] flex items-center gap-1.5"
+          >
+            <Save className="w-3.5 h-3.5" />
+            <span>{saving ? 'Saving...' : 'Save Settings'}</span>
+          </button>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Server Connection */}
@@ -74,7 +141,7 @@ export default function SettingsPanel() {
                 <label className="block text-xs text-zinc-400 mb-1.5">Active Provider</label>
                 <select 
                   value={provider}
-                  onChange={(e) => setProvider(e.target.value)}
+                  onChange={(e) => { setProvider(e.target.value); setIsDirty(true); }}
                   className="w-full bg-zinc-900 border border-zinc-800 text-xs text-white rounded-xl px-3 py-2.5 focus:outline-none focus:border-cyan-500"
                 >
                   <option value="Google">Google (Gemini)</option>
@@ -89,7 +156,7 @@ export default function SettingsPanel() {
                 <input 
                   type="text" 
                   value={model}
-                  onChange={(e) => setModel(e.target.value)}
+                  onChange={(e) => { setModel(e.target.value); setIsDirty(true); }}
                   className="w-full bg-zinc-900 border border-zinc-800 text-xs text-white rounded-xl px-3 py-2.5 focus:outline-none focus:border-cyan-500"
                 />
               </div>
@@ -113,7 +180,7 @@ export default function SettingsPanel() {
                   type="range" 
                   min="1" max="100" 
                   value={agentSteps}
-                  onChange={(e) => setAgentSteps(parseInt(e.target.value))}
+                  onChange={(e) => { setAgentSteps(parseInt(e.target.value)); setIsDirty(true); }}
                   className="w-full accent-cyan-400"
                 />
               </div>
@@ -127,7 +194,7 @@ export default function SettingsPanel() {
                   type="range" 
                   min="30" max="600" step="30"
                   value={agentTimeout}
-                  onChange={(e) => setAgentTimeout(parseInt(e.target.value))}
+                  onChange={(e) => { setAgentTimeout(parseInt(e.target.value)); setIsDirty(true); }}
                   className="w-full accent-cyan-400"
                 />
               </div>
@@ -146,7 +213,7 @@ export default function SettingsPanel() {
                 <label className="block text-xs text-zinc-400 mb-1.5">Log Level</label>
                 <select 
                   value={logLevel}
-                  onChange={(e) => setLogLevel(e.target.value)}
+                  onChange={(e) => { setLogLevel(e.target.value); setIsDirty(true); }}
                   className="w-full bg-zinc-900 border border-zinc-800 text-xs text-white rounded-xl px-3 py-2.5 focus:outline-none focus:border-cyan-500"
                 >
                   <option value="DEBUG">DEBUG</option>

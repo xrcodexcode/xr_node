@@ -13,6 +13,7 @@ from app.api.v1 import (
     tasks,
     tools,
     websocket,
+    config_api,
 )
 
 api_router = APIRouter()
@@ -28,3 +29,4 @@ api_router.include_router(hooks.router)
 api_router.include_router(approvals.router)
 api_router.include_router(creator.router)
 api_router.include_router(websocket.router)
+api_router.include_router(config_api.router)

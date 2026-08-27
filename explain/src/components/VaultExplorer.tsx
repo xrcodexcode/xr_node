@@ -19,40 +19,112 @@ const VAULT_ITEMS = [
     desc: 'Working drafts undergoing cleaning, code-switched translation, and AI formatting.'
   },
   {
-    path: '02_NODES/',
+    path: '01_RAW/SOURCE/',
+    type: 'folder',
+    category: 'ingestion',
+    desc: 'Archived original sources post-ingestion with provenance and content hashes preserved.'
+  },
+  {
+    path: '02_NEW-KNOWLEDGE/',
+    type: 'folder',
+    category: 'learning',
+    desc: 'Active study and understanding layer holding flashcards, active recall notes, and summaries.'
+  },
+  {
+    path: 'NODES/',
     type: 'folder',
     category: 'core',
-    desc: 'Flat permanent atomic notes. No subfolders allowed! Organized via tags & backlinks.'
+    desc: 'Flat permanent atomic notes (02_NODES). Zero subfolders allowed! Linked via [[backlinks]] and tags.'
+  },
+  {
+    path: 'NOTES/',
+    type: 'folder',
+    category: 'core',
+    desc: 'Polished evergreen synthesis notes connecting multiple atomic concepts.'
   },
   {
     path: '03_MOC/',
     type: 'folder',
     category: 'navigation',
-    desc: 'Maps of Content. Higher-level navigation highway notes indexing topics.'
+    desc: 'Maps of Content. 4-level navigation hierarchy (Index → Domain → Topic → Subtopic).'
   },
   {
-    path: '.antigravity/rules/tag-schema.md',
-    type: 'rule',
-    category: 'governance',
-    desc: 'Controlled tagging vocabulary preventing taxonomy drift.'
+    path: '03_MOC/ai-ml-moc.md',
+    type: 'moc',
+    category: 'navigation',
+    desc: 'AI & Machine Learning MOC — artificial intelligence, LLM agents, and deep learning architectures.'
   },
   {
-    path: '.antigravity/rules/node-schema.md',
-    type: 'rule',
+    path: '03_MOC/study-moc.md',
+    type: 'moc',
+    category: 'navigation',
+    desc: 'Study MOC — Academics, DSA, prep work, cognitive science, and psychology.'
+  },
+  {
+    path: '03_MOC/books-moc.md',
+    type: 'moc',
+    category: 'navigation',
+    desc: 'Books MOC — Curated literature summaries, non-fiction takeaways, and book indexes.'
+  },
+  {
+    path: '03_MOC/atomic-habits-moc.md',
+    type: 'moc',
+    category: 'navigation',
+    desc: 'Atomic Habits MOC — Dedicated index of notes from Atomic Habits by James Clear.'
+  },
+  {
+    path: '03_MOC/48-laws-of-power-moc.md',
+    type: 'moc',
+    category: 'navigation',
+    desc: '48 Laws of Power MOC — Dedicated index of strategic notes from 48 Laws of Power by Robert Greene.'
+  },
+  {
+    path: '03_MOC/warren-buffett-moc.md',
+    type: 'moc',
+    category: 'navigation',
+    desc: 'Warren Buffett MOC — Investment philosophy, compounding habits, and moat analysis notes.'
+  },
+  {
+    path: '03_MOC/tools-moc.md',
+    type: 'moc',
+    category: 'navigation',
+    desc: 'Tools MOC — Software, CLI tools, technical stacks, and developer workflows.'
+  },
+  {
+    path: '03_MOC/yt-moc.md',
+    type: 'moc',
+    category: 'navigation',
+    desc: 'YouTube MOC — Synthesized notes and takeaways extracted from video transcripts.'
+  },
+  {
+    path: 'CLAUDE.md',
+    type: 'contract',
     category: 'governance',
-    desc: 'Schema v4 requirements for atomic note metadata and required sections.'
+    desc: 'Bootstrap operating contract for Claude AI control plane (claude/ & .claude/).'
   },
   {
     path: 'GEMINI.md',
     type: 'contract',
     category: 'governance',
-    desc: 'Bootstrap operating contract for Gemini & Antigravity control planes.'
+    desc: 'Bootstrap operating contract for Gemini & Antigravity control plane (.antigravity/).'
+  },
+  {
+    path: 'CODEX.md',
+    type: 'contract',
+    category: 'governance',
+    desc: 'Bootstrap operating contract for OpenAI Codex control plane (codex/ & .codex/).'
+  },
+  {
+    path: 'AGENT.md',
+    type: 'contract',
+    category: 'governance',
+    desc: 'Universal AI Agent operating guide governing graph health, schema checks, and safety rules.'
   },
   {
     path: 'HOME-BASE.md',
     type: 'moc',
     category: 'navigation',
-    desc: 'Vault root entry point indexing all main domain MOCs.'
+    desc: 'Infinity Brain Home Base — Central root entry MOC linking all domain MOCs.'
   }
 ];
 
