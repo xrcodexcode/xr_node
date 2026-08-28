@@ -34,9 +34,19 @@
               "icon": "lucide-file",
               "title": "detailed-study-notes-build-sell-claude-code-operating-systems-part-01"
             }
+          },
+          {
+            "id": "58afb5ecb3d1e69c",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -98,8 +108,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "43d09af49b9b51ad",
@@ -213,14 +222,15 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "f1c3e189f25db631",
+  "active": "1a698b583bbbe23f",
   "lastOpenFiles": [
+    "02_NEW-KNOWLEDGE/detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-01.md",
+    "02_NEW-KNOWLEDGE/detailed-study-notes-build-sell-claude-code-operating-systems-part-01.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-04.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-03.md",
     "02_NEW-KNOWLEDGE/deepseek-r1-paper-deep-dive-pure-rl-reasoning-emergence.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-06.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-07.md",
-    "02_NEW-KNOWLEDGE/detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-01.md",
     "02_NEW-KNOWLEDGE/75-top-fails-of-modiji-part-1.md",
     "01 raw/The AIML Engineer Interview Guide for 2026 - Part 1 1.md",
     "01 raw/The AIML Engineer Interview Guide for 2026 - Part 1.md",
@@ -247,7 +257,6 @@
     "02_NEW-KNOWLEDGE/reality-of-20th-july-protest.md",
     "02_NEW-KNOWLEDGE/time-to-quit-claude-codex-is-the-new-chatgpt.md",
     "02_NEW-KNOWLEDGE/openai-just-changed-how-you-should-prompt-gpt-5-6-rules.md",
-    "02_NEW-KNOWLEDGE/python-101.md",
     "01_RAW/capture/research",
     "01_RAW/capture",
     "01_RAW",
