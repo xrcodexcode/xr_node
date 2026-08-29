@@ -83,6 +83,7 @@ class VaultService:
                     "links": links,
                     "content": body,
                     "raw_text": raw_text,
+                    "frontmatter": fm,
                 }
                 self.notes_cache[slug] = note_meta
             except Exception as e:

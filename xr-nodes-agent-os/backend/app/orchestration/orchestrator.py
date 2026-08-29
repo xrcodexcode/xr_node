@@ -64,6 +64,7 @@ class Orchestrator:
         ))
         logger.info("Created task '%s' [id=%s]", title, task_id)
         return {
+            "id": task_id,
             "task_id": task_id,
             "title": title,
             "status": TaskStatus.CREATED.value,
@@ -158,7 +159,7 @@ class Orchestrator:
                 final_status = TaskStatus.WAITING.value
             elif any_failed:
                 final_status = TaskStatus.FAILED.value
-            elif verification["verified"]:
+            elif verification.get("verified", verification.get("passed", False)):
                 final_status = TaskStatus.COMPLETED.value
             else:
                 final_status = TaskStatus.FAILED.value

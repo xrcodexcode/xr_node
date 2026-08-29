@@ -305,10 +305,13 @@ async def save_draft_note(req: SaveDraftRequest) -> Dict[str, Any]:
     
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(req.content)
-        
+
+    # Immediately refresh vault index so note appears in tree and search
+    vault_service.index_vault()
+
     return {
         "status": "SAVED",
         "path": str(file_path),
         "relative_path": f"{target_folder}/{safe_name}",
-        "bytes_written": len(req.content.encode('utf-8'))
+        "bytes_written": len(req.content.encode("utf-8")),
     }

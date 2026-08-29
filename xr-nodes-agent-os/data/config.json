@@ -1,0 +1,10 @@
+{
+    "provider": "Anthropic",
+    "ai_provider": "Anthropic",
+    "model": "Claude 3.5 Sonnet",
+    "ai_model": "Claude 3.5 Sonnet",
+    "agent_steps": 45,
+    "agent_max_steps": 45,
+    "agent_timeout": 240,
+    "log_level": "DEBUG"
+}

@@ -43,6 +43,7 @@ export default function KnowledgeGraph() {
   const edgesRef = useRef<EdgeItem[]>([])
   const alphaRef = useRef<number>(1.0) // Cooling factor (Obsidian graph cooling physics)
   const canvasContainerRef = useRef<HTMLDivElement | null>(null)
+  const animationFrameRef = useRef<number | null>(null)
   
   const searchRef = useRef(search)
   const folderRef = useRef(selectedFolder)

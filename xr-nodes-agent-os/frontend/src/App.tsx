@@ -209,7 +209,7 @@ export default function App() {
 
   const navItems = [
     { id: 'home', label: 'Home', icon: LayoutDashboard },
-    { id: 'obsidian', label: 'Obsidian Vault', icon: FileText, count: status?.vault_nodes || 373, isNew: true },
+    { id: 'obsidian', label: 'Obsidian Vault', icon: FileText, count: status?.vault_nodes ?? 373, isNew: true },
     { id: 'creator', label: 'Creator Studio', icon: Youtube },
     { id: 'diagrams', label: 'Mermaid Studio', icon: Workflow },
     { id: 'agents', label: 'Agents', icon: Bot, count: 4 },
@@ -328,11 +328,11 @@ export default function App() {
           <div className="grid grid-cols-2 gap-2 text-[11px] font-mono pt-2 text-zinc-400 border-t border-zinc-800/80">
             <div>
               <p className="text-[9px] text-zinc-500 uppercase tracking-wider">Nodes</p>
-              <p className="text-zinc-100 font-bold text-sm">{status?.vault_nodes || 373}</p>
+              <p className="text-zinc-100 font-bold text-sm">{status?.vault_nodes ?? 373}</p>
             </div>
             <div>
               <p className="text-[9px] text-zinc-500 uppercase tracking-wider">MOCs</p>
-              <p className="text-zinc-100 font-bold text-sm">{status?.vault_mocs || 22}</p>
+              <p className="text-zinc-100 font-bold text-sm">{status?.vault_mocs ?? 22}</p>
             </div>
           </div>
         </div>

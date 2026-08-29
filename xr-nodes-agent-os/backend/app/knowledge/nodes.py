@@ -4,6 +4,7 @@ from __future__ import annotations
 from datetime import datetime
 from uuid import uuid4
 from typing import Any, Dict, List, Optional
+import re
 import yaml
 
 from app.core.config import settings
@@ -69,7 +70,8 @@ def create_atomic_node(
     body_parts.extend(["", "## Source", "Original thought / Derived via Agent OS"])
     full_markdown = "\n".join(body_parts)
 
-    file_path = settings.vault_nodes / f"{title}.md"
+    clean_filename = re.sub(r'[\/:*?"<>|]', '', title).strip() or "Untitled-Node"
+    file_path = settings.vault_nodes / f"{clean_filename}.md"
     if file_path.exists():
         raise ValidationError(f"Node file '{file_path.name}' already exists in NODES/.")
 
@@ -78,4 +80,10 @@ def create_atomic_node(
 
     # Refresh vault index
     vault_service.index_vault()
-    return vault_service.get_note(title.lower().replace(" ", "-")) or {}
+    slug = clean_filename.lower().replace(" ", "-")
+    return vault_service.get_note(slug) or {
+        "slug": slug,
+        "title": title,
+        "filename": file_path.name,
+        "status": "created",
+    }

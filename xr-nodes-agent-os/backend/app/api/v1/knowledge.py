@@ -109,59 +109,100 @@ async def run_automation(name: str) -> Dict[str, Any]:
     """Run an existing Python automation script (e.g. validate_tags, graph_health)."""
     return await automations_wrapper.run_automation(name)
 
+
+def _convert_markdown_to_html(md_text: str) -> str:
+    """Safely convert Markdown to HTML using available library or built-in fallback."""
+    try:
+        import markdown
+        return markdown.markdown(md_text)
+    except ImportError:
+        pass
+    try:
+        from markdown_it import MarkdownIt
+        return MarkdownIt().render(md_text)
+    except ImportError:
+        pass
+    import html as html_lib
+    escaped = html_lib.escape(md_text)
+    escaped = re.sub(r"^### (.*?)$", r"<h3>\1</h3>", escaped, flags=re.MULTILINE)
+    escaped = re.sub(r"^## (.*?)$", r"<h2>\1</h2>", escaped, flags=re.MULTILINE)
+    escaped = re.sub(r"^# (.*?)$", r"<h1>\1</h1>", escaped, flags=re.MULTILINE)
+    escaped = re.sub(r"\*\*(.*?)\*\*", r"<strong>\1</strong>", escaped)
+    escaped = re.sub(r"\*(.*?)\*", r"<em>\1</em>", escaped)
+    paragraphs = escaped.split("\n\n")
+    return "".join(f"<p>{p.replace(chr(10), '<br>')}</p>" for p in paragraphs if p.strip())
+
+
 @router.get("/health")
 async def get_vault_health() -> Dict[str, Any]:
     """Perform health checks on the vault."""
     import re
-    notes = list(vault_service._index.values())
+    from datetime import date
+    vault_service.ensure_indexed()
+    notes = list(vault_service.notes_cache.values())
     total_notes_per_folder = {}
     missing_frontmatter = []
     stale_review = []
     duplicate_titles = []
     titles_seen = set()
-    
+    today_str = date.today().isoformat()
+
     for note in notes:
         folder = note.get("folder", "root")
         total_notes_per_folder[folder] = total_notes_per_folder.get(folder, 0) + 1
-        
-        if not note.get("frontmatter"):
-            missing_frontmatter.append(note["slug"])
-            
+
+        fm = note.get("frontmatter")
+        if not fm:
+            missing_frontmatter.append(note.get("title") or note["slug"])
+        else:
+            review_date = str(fm.get("review", ""))
+            if review_date and review_date < today_str:
+                stale_review.append(note.get("title") or note["slug"])
+
         title = note.get("title", "")
         if title in titles_seen:
             duplicate_titles.append(title)
         else:
             titles_seen.add(title)
-            
+
     orphaned_notes = []
-    for slug, note in vault_service._index.items():
+    for slug, note in vault_service.notes_cache.items():
         links = vault_service.backlinks_map.get(slug, [])
         if not links:
-            orphaned_notes.append(slug)
-            
+            orphaned_notes.append(note.get("title") or slug)
+
     broken_wikilinks = []
     for note in notes:
         content = note.get("content", "")
-        # Very basic check for wikilinks
-        for match in re.findall(r'\[\[(.*?)\]\]', content):
-            target = match.split('|')[0]
-            if not vault_service.get_note(target):
-                broken_wikilinks.append(f"{note['slug']} -> {target}")
+        for match in re.findall(r"\[\[(.*?)\]\]", content):
+            target = match.split("|")[0].strip()
+            target_slug = target.lower().replace(" ", "-")
+            if not vault_service.get_note(target_slug) and not vault_service.get_note(target):
+                broken_wikilinks.append(f"{note.get('title') or note['slug']} -> [[{target}]]")
 
     score = 100 - len(orphaned_notes) - len(broken_wikilinks) - len(missing_frontmatter)
-    score = max(0, score)
-    
+    score = max(0, min(100, score))
+
     return {
+        "health_score": score,
+        "score": score,
+        "overall_health_score": score,
+        "total_notes": len(notes),
         "total_notes_per_folder": total_notes_per_folder,
-        "orphaned_notes": orphaned_notes,
-        "broken_wikilinks": broken_wikilinks,
-        "notes_missing_frontmatter": missing_frontmatter,
-        "notes_with_stale_review_dates": stale_review,
+        "orphaned_notes": len(orphaned_notes),
+        "orphaned_list": orphaned_notes,
+        "broken_links": len(broken_wikilinks),
+        "broken_links_list": broken_wikilinks,
+        "missing_frontmatter": len(missing_frontmatter),
+        "missing_frontmatter_list": missing_frontmatter,
+        "stale_reviews": len(stale_review),
+        "stale_reviews_list": stale_review,
         "duplicate_title_candidates": duplicate_titles,
-        "overall_health_score": score
     }
 
+
 from fastapi.responses import HTMLResponse, PlainTextResponse
+
 
 @router.get("/notes/{slug}/export")
 async def export_note(slug: str, format: str = "html"):
@@ -169,12 +210,10 @@ async def export_note(slug: str, format: str = "html"):
     note = vault_service.get_note(slug)
     if not note:
         raise HTTPException(status_code=404, detail="Note not found")
-        
+
     content = note.get("content", "")
     if format == "html":
-        # Basic markdown to HTML conversion
-        import markdown
-        html = markdown.markdown(content)
+        html = _convert_markdown_to_html(content)
         styled_html = f"<html><head><style>body {{ font-family: sans-serif; max-width: 800px; margin: auto; padding: 20px; }}</style></head><body>{html}</body></html>"
         return HTMLResponse(content=styled_html)
     elif format == "md":

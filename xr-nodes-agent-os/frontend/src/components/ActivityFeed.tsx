@@ -16,22 +16,26 @@ export default function ActivityFeed() {
   const [selectedSource, setSelectedSource] = useState('all')
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set())
 
-  const fetchEvents = async () => {
-    setLoading(true)
+  const fetchEvents = async (silent: boolean = false) => {
+    if (!silent) setLoading(true)
     try {
       const res = await fetch('/api/v1/events').then(r => r.json())
       setEvents(Array.isArray(res) ? res : [])
     } catch (e) {
       console.error('Failed to fetch events:', e)
     } finally {
-      setLoading(false)
+      if (!silent) setLoading(false)
     }
   }
 
   useEffect(() => {
-    fetchEvents()
-    const timer = setInterval(fetchEvents, 3500)
-    return () => clearInterval(timer)
+    fetchEvents(false)
+    const interval = setInterval(() => {
+      if (typeof document !== 'undefined' && !document.hidden) {
+        fetchEvents(true)
+      }
+    }, 3500)
+    return () => clearInterval(interval)
   }, [])
 
   const toggleExpand = (id: string) => {
@@ -68,7 +72,7 @@ export default function ActivityFeed() {
         </div>
 
         <button
-          onClick={fetchEvents}
+          onClick={() => fetchEvents(false)}
           className="bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-xs text-zinc-300 font-medium px-3.5 py-2 rounded-xl flex items-center gap-1.5 transition-colors font-mono"
         >
           <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />

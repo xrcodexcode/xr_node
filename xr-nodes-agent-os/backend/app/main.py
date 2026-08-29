@@ -3,8 +3,10 @@ from __future__ import annotations
 
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
 from app.core.config import settings
 from app.core.errors import AppError, app_error_handler, generic_exception_handler
@@ -109,15 +111,41 @@ def create_app() -> FastAPI:
     # API routes
     app.include_router(api_router, prefix=settings.API_V1_STR)
 
-    # Root redirect
+    dist_dir = settings.project_root / "frontend" / "dist"
+    assets_dir = dist_dir / "assets"
+    if assets_dir.exists():
+        app.mount("/assets", StaticFiles(directory=str(assets_dir)), name="assets")
+
+    # Root route: returns JSON for API/test clients, or serves index.html for browsers
     @app.get("/", include_in_schema=False)
-    async def root():
+    async def root(request: Request):
+        accept = request.headers.get("accept", "")
+        # Browsers send Accept: text/html,... while API and test clients send */* or application/json
+        if "text/html" in accept:
+            index_file = dist_dir / "index.html"
+            if index_file.exists():
+                return FileResponse(str(index_file))
         return {
             "service": settings.PROJECT_NAME,
             "version": settings.VERSION,
             "docs": "/docs",
             "health": f"{settings.API_V1_STR}/health",
         }
+
+    # SPA catch-all route for frontend navigation
+    @app.get("/{full_path:path}", include_in_schema=False)
+    async def spa_catch_all(full_path: str):
+        if full_path.startswith("api/") or full_path.startswith("docs") or full_path.startswith("openapi.json"):
+            from fastapi import HTTPException
+            raise HTTPException(status_code=404, detail="Not found")
+        target = dist_dir / full_path
+        if target.is_file():
+            return FileResponse(str(target))
+        index_file = dist_dir / "index.html"
+        if index_file.exists():
+            return FileResponse(str(index_file))
+        from fastapi import HTTPException
+        raise HTTPException(status_code=404, detail="Not found")
 
     return app
 

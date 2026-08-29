@@ -36,9 +36,10 @@ class ResultVerifier:
                     checks.append(f"Step {step.get('id', 'unknown')} output does not mention objective keywords.")
                     score -= 10
 
-        score = max(0, score)
+        is_verified = score >= 70
         return {
-            "passed": score >= 70,
+            "verified": is_verified,
+            "passed": is_verified,
             "score": score,
             "checks": checks,
             "recommendations": ["Expand output length"] if score < 100 else []

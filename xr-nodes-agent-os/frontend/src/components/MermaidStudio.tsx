@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react'
-import mermaid from 'mermaid'
 import {
   Layers,
   Sparkles,
@@ -15,6 +14,37 @@ import {
   Maximize2,
   AlertTriangle
 } from 'lucide-react'
+
+declare global {
+  interface Window {
+    mermaid?: any;
+  }
+}
+
+async function getMermaidInstance() {
+  if (typeof window !== 'undefined' && window.mermaid) {
+    return window.mermaid;
+  }
+  if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+    let script = document.getElementById('mermaid-cdn-script') as HTMLScriptElement | null;
+    if (!script) {
+      script = document.createElement('script');
+      script.id = 'mermaid-cdn-script';
+      script.src = 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js';
+      document.head.appendChild(script);
+      await new Promise<void>((resolve) => {
+        if (script) {
+          script.onload = () => resolve();
+          script.onerror = () => resolve();
+        } else {
+          resolve();
+        }
+      });
+    }
+    return window.mermaid || null;
+  }
+  return null;
+}
 
 interface DiagramPreset {
   id: string;
@@ -100,34 +130,48 @@ export default function MermaidStudio() {
   const [errorMsg, setErrorMsg] = useState<string | null>(null)
 
   useEffect(() => {
-    mermaid.initialize({
-      startOnLoad: false,
-      theme: 'dark',
-      securityLevel: 'loose',
-    })
-  }, [])
-
-  useEffect(() => {
     let isMounted = true;
     const renderDiagram = async () => {
       try {
         setErrorMsg(null);
-        const id = \`mermaid-svg-\${Math.random().toString(36).substr(2, 9)}\`;
-        const { svg } = await mermaid.render(id, customMermaid);
-        if (isMounted) setSvgContent(svg);
+        const m = await getMermaidInstance();
+        if (m) {
+          try {
+            m.initialize({
+              startOnLoad: false,
+              theme: 'dark',
+              securityLevel: 'loose',
+            });
+          } catch (_) {}
+          const id = `mermaid-svg-${Math.random().toString(36).substr(2, 9)}`;
+          const { svg } = await m.render(id, customMermaid);
+          if (isMounted) setSvgContent(svg);
+        } else {
+          // Dynamic offline/loading fallback SVG
+          const fallback = `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="240" viewBox="0 0 700 240">
+            <rect width="100%" height="100%" fill="#121215" rx="16" stroke="#27272a" stroke-width="1"/>
+            <circle cx="350" cy="75" r="28" fill="#8b5cf6" opacity="0.15"/>
+            <path d="M350 62 L350 88 M337 75 L363 75" stroke="#a78bfa" stroke-width="3" stroke-linecap="round"/>
+            <text x="350" y="132" fill="#f4f4f5" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Mermaid Architecture Visualizer</text>
+            <text x="350" y="158" fill="#a1a1aa" font-family="JetBrains Mono, monospace" font-size="12" text-anchor="middle">Code parsed and ready • Connect network or install mermaid to view vector graphics</text>
+            <rect x="200" y="180" width="300" height="30" rx="8" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+            <text x="350" y="200" fill="#06b6d4" font-family="JetBrains Mono, monospace" font-size="11" font-weight="bold" text-anchor="middle">${selectedPreset.title}</text>
+          </svg>`;
+          if (isMounted) setSvgContent(fallback);
+        }
       } catch (err: any) {
         if (isMounted) {
           setErrorMsg(err.message || 'Syntax Error in Mermaid code');
         }
       }
     };
-    
-    const timeout = setTimeout(renderDiagram, 400);
+
+    const timeout = setTimeout(renderDiagram, 300);
     return () => {
       isMounted = false;
       clearTimeout(timeout);
     };
-  }, [customMermaid])
+  }, [customMermaid, selectedPreset])
 
   const handleSelect = (p: DiagramPreset) => {
     setSelectedPreset(p)
@@ -151,7 +195,7 @@ export default function MermaidStudio() {
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = \`\${selectedPreset.id}-diagram.svg\`
+    a.download = `${selectedPreset.id}-diagram.svg`
     a.click()
     URL.revokeObjectURL(url)
   }
@@ -203,11 +247,11 @@ export default function MermaidStudio() {
             <div
               key={p.id}
               onClick={() => handleSelect(p)}
-              className={\`bg-[#121215] border rounded-2xl p-4 cursor-pointer transition-all hover:scale-[1.01] \${
+              className={`bg-[#121215] border rounded-2xl p-4 cursor-pointer transition-all hover:scale-[1.01] ${
                 isSelected
                   ? 'border-purple-500/60 ring-2 ring-purple-500/30 bg-purple-500/5'
                   : 'border-zinc-800/90 hover:border-zinc-700'
-              }\`}
+              }`}
             >
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-mono text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded">
