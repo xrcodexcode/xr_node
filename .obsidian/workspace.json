@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "02_NEW-KNOWLEDGE/detailed-study-notes-build-sell-claude-code-operating-systems-part-01.md",
+                "file": "lightrag-server/README.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "detailed-study-notes-build-sell-claude-code-operating-systems-part-01"
+              "title": "README"
             }
           }
         ],
@@ -214,6 +214,7 @@
   },
   "active": "f1c3e189f25db631",
   "lastOpenFiles": [
+    "02_NEW-KNOWLEDGE/detailed-study-notes-build-sell-claude-code-operating-systems-part-01.md",
     "Untitled 1.md",
     "NODES/d.md",
     "xr-nodes-agent-os/data/xr-nodes.db-journal",
@@ -222,7 +223,6 @@
     "xr-nodes-agent-os/data/config.json",
     "xr-nodes-agent-os/data/xr-nodes-test.db-journal",
     "02_NEW-KNOWLEDGE/detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-01.md",
-    "02_NEW-KNOWLEDGE/detailed-study-notes-build-sell-claude-code-operating-systems-part-01.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-04.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-03.md",
     "02_NEW-KNOWLEDGE/deepseek-r1-paper-deep-dive-pure-rl-reasoning-emergence.md",
