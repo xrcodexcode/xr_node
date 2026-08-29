@@ -34,19 +34,9 @@
               "icon": "lucide-file",
               "title": "detailed-study-notes-build-sell-claude-code-operating-systems-part-01"
             }
-          },
-          {
-            "id": "58afb5ecb3d1e69c",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
-            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -222,8 +212,9 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "1a698b583bbbe23f",
+  "active": "f1c3e189f25db631",
   "lastOpenFiles": [
+    "Untitled 1.md",
     "NODES/d.md",
     "xr-nodes-agent-os/data/xr-nodes.db-journal",
     "xr-nodes-agent-os/frontend/dist/assets/index-jlaKcvH8.css",
@@ -259,7 +250,6 @@
     "02_NEW-KNOWLEDGE/python-standard-library-gems.md",
     "02_NEW-KNOWLEDGE/python-syntax-power-moves.md",
     "02_NEW-KNOWLEDGE/reality-of-20th-july-protest.md",
-    "02_NEW-KNOWLEDGE/time-to-quit-claude-codex-is-the-new-chatgpt.md",
     "AREAS/newsletter/site/assets/abstraction_trap_vs_fundamentals.jpg",
     "AREAS/newsletter/site/assets/ai_fundamentals_hero.jpg",
     "AREAS/newsletter/site/assets/ai_stack_pyramid.jpg",
