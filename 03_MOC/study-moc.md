@@ -93,6 +93,10 @@ Index of core academic studies, DSA, NIMCET prep, and psychology notes.
 | Reciprocity Tendency | [[reciprocity-tendency\|Reciprocity Tendency]] | `atomic-note` | #psychology | **2** |
 
 ### 📖 Active Literature & Study Notes (`02_NEW-KNOWLEDGE`)
+- **Frontend Systems & Modern Web Standards (2026)**:
+  - [[javascript-zero-to-hero|JavaScript Zero to Hero: The Complete Pragmatic Guide (From Foundations to Hero Tier Architecture)]]
+  - [[javascript-101|JavaScript 101: The Senior Engineer's Runtime Manual (Advanced Functions, V8, Asynchronous & Metaprogramming)]]
+  - [[html-css-101|HTML & CSS 101: The Senior UI Systems Engineer's Manual (CRP, Subgrid, Layers, Houdini & Web Components)]]
 - **JavaScript Complete Tutorial Series (2026)**:
   - [[detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-01|Part 01: Core Architecture, Engines, Execution Models & Scoping]]
   - [[detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-02|Part 02: Primitive vs Reference Types, Memory Heap/Stack & Call Stack]]
@@ -104,4 +108,5 @@ Index of core academic studies, DSA, NIMCET prep, and psychology notes.
 - **Mindset & Strategic Growth**:
   - [[detailed-study-notes-how-to-make-rich-friends|How to Make Rich Friends]]
   - [[detailed-study-notes-watch-this-before-you-waste-another-year|Watch This Before You Waste Another Year]]
+
 
