@@ -35,9 +35,10 @@ ollama serve &
 
 # 5. Start the LightRAG server
 cd lightrag-server
-lightrag-server
+python run_server.py
 # Server now at http://127.0.0.1:9621
 # WebUI at  http://127.0.0.1:9621/webui
+
 ```
 
 ## Endpoints used by rag/

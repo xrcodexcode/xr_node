@@ -1,7 +1,9 @@
 data/
+data_corrupted_backup/
 logs/
 *.log
 lightrag.log
 .env.local
 __pycache__/
 *.pyc
+
