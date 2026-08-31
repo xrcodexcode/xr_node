@@ -79,7 +79,7 @@ Every single layer still starts with a prompt underneath. Always.
 
 Imagine you ask an AI:
 
-> "Summarize my company's revenue growth."
+> "Summarize my company's revenue growth...."
 
 **Just a prompt:** The AI gives you a generic textbook answer. It's never seen your data.
 
