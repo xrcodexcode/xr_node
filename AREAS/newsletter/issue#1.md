@@ -34,7 +34,7 @@ That skill didn't go away. It became the foundation for everything that came aft
 
 ![The AI Engineering Stack — each layer builds on the one below](./assets/issue%231/3.jpg)
 
-Think of AI engineering like constructing a building.
+Think of AI engineering like constructing a buildings.
 
 **Prompt engineering is the foundation.** It's the concrete slab everything else sits on.
 
