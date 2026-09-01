@@ -20,8 +20,19 @@
               "icon": "lucide-file",
               "title": "AGENT"
             }
+          },
+          {
+            "id": "e4fec90e06af4f2e",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -197,8 +208,12 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "6e1a5b67e5659de4",
+  "active": "e4fec90e06af4f2e",
   "lastOpenFiles": [
+    "02_NEW-KNOWLEDGE/NOTES/Second Brain Comprehensive Review Report.md",
+    "02_NEW-KNOWLEDGE/NOTES/Second Brain Comprehensive Review Report.md.tmp.13748.c64abdf6cb3b",
+    "02_NEW-KNOWLEDGE/NOTES",
+    "AGENT.md",
     "AREAS/newsletter/issue#1.md",
     "AREAS/newsletter/site/assets/issue#1/5.jpg",
     "ALWAYS-WITHIN-ME/QUOTES/18-07-2026.md",
@@ -212,7 +227,6 @@
     "02_NEW-KNOWLEDGE/html-css-101.md",
     "02_NEW-KNOWLEDGE/13-hobbies-that-replace-scrolling-and-improve-your-life.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-01.md",
-    "AGENT.md",
     "raw",
     "lightrag-server/README.md",
     "lightrag-server/data_corrupted_backup/vdb_entities.json",
@@ -222,8 +236,6 @@
     "lightrag-server/data_corrupted_backup/kv_store_llm_response_cache.json",
     "lightrag-server/data_corrupted_backup/kv_store_full_relations.json",
     "lightrag-server/data_corrupted_backup/kv_store_full_entities.json",
-    "lightrag-server/data_corrupted_backup/kv_store_full_docs.json",
-    "lightrag-server/data_corrupted_backup/graph_chunk_entity_relation.graphml",
     "02_NEW-KNOWLEDGE/detailed-study-notes-build-sell-claude-code-operating-systems-part-01.md",
     "NODES/d.md",
     "02_NEW-KNOWLEDGE/detailed-study-notes-2026-12-plus-hours-complete-js-tutorial-for-beginners-part-04.md",
@@ -235,7 +247,6 @@
     "01 raw/The AIML Engineer Interview Guide for 2026 - Part 1 1.md",
     "01 raw/The AIML Engineer Interview Guide for 2026 - Part 1.md",
     "01 raw/HTML Complete Tutorial Your First Step into Web Development 1.md",
-    "01 raw/End of Modi Regime  How Medical Mafia turned Doctor Shortage into a ₹4000 CR Business.md",
     "AREAS/newsletter/site/assets/abstraction_trap_vs_fundamentals.jpg",
     "AREAS/newsletter/site/assets/ai_fundamentals_hero.jpg",
     "AREAS/newsletter/site/assets/ai_stack_pyramid.jpg",
