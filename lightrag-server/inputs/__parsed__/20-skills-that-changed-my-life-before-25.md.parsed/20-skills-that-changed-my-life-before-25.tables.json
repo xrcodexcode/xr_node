@@ -1,0 +1,88 @@
+{
+  "version": "1.0",
+  "tables": {
+    "tb-4db7dc542aaf1d174490a6012762c4aa-0001": {
+      "id": "tb-4db7dc542aaf1d174490a6012762c4aa-0001",
+      "blockid": "9bc9da5d546771ff84d9e91154fc0c26",
+      "heading": "Detailed Study Notes — 20 Skills That Changed My Life Before 25",
+      "parent_headings": [],
+      "dimension": [
+        7,
+        2
+      ],
+      "format": "json",
+      "content": "[[\"**Creator**\", \"[[Ishan Sharma]]\"], [\"**Platform**\", \"YouTube\"], [\"**Watch Link**\", \"[YouTube](https://www.youtube.com/watch?v=hKFiQiHYvK0)\"], [\"**Duration**\", \"~31 minutes\"], [\"**Published**\", \"2026-07-13\"], [\"**Language**\", \"Hindi-English code-switched (Hinglish), translated to English\"], [\"**Source File**\", \"[[01_RAW/SOURCE/20 Skills That Changed My Life Before 25.md]]\"]]",
+      "caption": "",
+      "footnotes": [],
+      "table_header": "[[\"Field\", \"Value\"]]"
+    },
+    "tb-4db7dc542aaf1d174490a6012762c4aa-0002": {
+      "id": "tb-4db7dc542aaf1d174490a6012762c4aa-0002",
+      "blockid": "f64bef6588dd3bcf1211aff3a533a0e8",
+      "heading": "Complete Skills Overview",
+      "parent_headings": [
+        "Detailed Study Notes — 20 Skills That Changed My Life Before 25"
+      ],
+      "dimension": [
+        21,
+        4
+      ],
+      "format": "json",
+      "content": "[[\"1\", \"Travel as much as possible\", \"Broader worldview, empathy, open-mindedness\", \"00:55\"], [\"2\", \"Pick up a sport\", \"Flow states, fitness, friendships, identity\", \"02:07\"], [\"3\", \"Email is everything\", \"Career opportunities, professional communication\", \"03:23\"], [\"4\", \"Improve communication skills\", \"Clarity, confidence, career advancement\", \"05:29\"], [\"5\", \"Dressing sense\", \"First impressions, confidence, approachability\", \"07:33\"], [\"6\", \"Fitness as a mindset\", \"Holistic health, energy, discipline\", \"08:50\"], [\"7\", \"Live in a big city\", \"Access to opportunities, ambitious peer network\", \"10:06\"], [\"8\", \"Meet new people\", \"Connections, resourcefulness, collaboration\", \"12:14\"], [\"9\", \"Sleep maxxing\", \"Energy management, recovery, daily performance\", \"13:41\"], [\"10\", \"Use AI as an employee\", \"Automation, time savings, creative leverage\", \"14:43\"], [\"11\", \"Learn to live alone\", \"Self-sufficiency, responsibility, independence\", \"16:11\"], [\"12\", \"Read fiction books\", \"Creativity, imagination, broader perspective\", \"17:37\"], [\"13\", \"Be shameless in asking\", \"Opportunity creation, follow-up persistence\", \"18:48\"], [\"14\", \"Ace the first impression\", \"Memorable personal pitch, curiosity-building\", \"20:29\"], [\"15\", \"Write and journal daily\", \"Memory, clarity, writing skill, competitive edge\", \"22:10\"], [\"16\", \"Multiple income sources\", \"Financial growth, investment capacity\", \"23:28\"], [\"17\", \"Use X / build in public\", \"Global networking, attracting opportunities\", \"25:05\"], [\"18\", \"Replace reels with Substack\", \"Depth of knowledge, conversational ability\", \"26:27\"], [\"19\", \"Learn to cook\", \"Health, savings, enjoyable life skill\", \"27:50\"], [\"20\", \"Do deep work blocks\", \"Focus, meaningful output, exponential productivity\", \"29:00\"], [\"21*\", \"Learn to write well\", \"Independent thinking, personal voice, AI-era skill\", \"30:21\"]]",
+      "caption": "",
+      "footnotes": [],
+      "table_header": "[[\"#\", \"Skill\", \"Core Benefit\", \"Timestamp\"]]"
+    },
+    "tb-4db7dc542aaf1d174490a6012762c4aa-0003": {
+      "id": "tb-4db7dc542aaf1d174490a6012762c4aa-0003",
+      "blockid": "f26d7c5e277ac63d9e1ae03659503fb1",
+      "heading": "Entities Mentioned",
+      "parent_headings": [
+        "Detailed Study Notes — 20 Skills That Changed My Life Before 25"
+      ],
+      "dimension": [
+        12,
+        3
+      ],
+      "format": "json",
+      "content": "[[\"Ishan Sharma\", \"Person\", \"Speaker / Creator\"], [\"Sindhu\", \"Person\", \"Guest on Ishan's dressing podcast\"], [\"Matthew Walker\", \"Person\", \"Author of *Why We Sleep*\"], [\"Superhuman Mail\", \"Product\", \"Email productivity tool (sponsored)\"], [\"Claude\", \"Product\", \"AI assistant recommended for automation\"], [\"ChatGPT\", \"Product\", \"AI assistant mentioned for reading assistance\"], [\"Zomato\", \"Company\", \"Food delivery platform (India)\"], [\"Twitter / X\", \"Platform\", \"Professional networking and learning in public\"], [\"Substack\", \"Platform\", \"Long-form newsletter platform\"], [\"Medium\", \"Platform\", \"Long-form article platform\"], [\"Instagram\", \"Platform\", \"Used for outreach and networking\"], [\"LinkedIn\", \"Platform\", \"Used for professional outreach\"]]",
+      "caption": "",
+      "footnotes": [],
+      "table_header": "[[\"Entity\", \"Type\", \"Context\"]]"
+    },
+    "tb-4db7dc542aaf1d174490a6012762c4aa-0004": {
+      "id": "tb-4db7dc542aaf1d174490a6012762c4aa-0004",
+      "blockid": "58625043c6ff0d7617d1775236b52d40",
+      "heading": "Books Recommended",
+      "parent_headings": [
+        "Detailed Study Notes — 20 Skills That Changed My Life Before 25"
+      ],
+      "dimension": [
+        4,
+        3
+      ],
+      "format": "json",
+      "content": "[[\"*Why We Sleep*\", \"Matthew Walker\", \"Understanding sleep science, caffeine/alcohol impact (14:26)\"], [\"*Psychology of Money*\", \"Morgan Housel\", \"Listed in video description\"], [\"*Subtle Art of Not Giving a F\\\\*ck*\", \"Mark Manson\", \"Listed in video description\"], [\"*Rework*\", \"Jason Fried & DHH\", \"Listed in video description\"]]",
+      "caption": "",
+      "footnotes": [],
+      "table_header": "[[\"Book\", \"Author\", \"Context\"]]"
+    },
+    "tb-4db7dc542aaf1d174490a6012762c4aa-0005": {
+      "id": "tb-4db7dc542aaf1d174490a6012762c4aa-0005",
+      "blockid": "040282910ed31757c3e7072294f806b1",
+      "heading": "Glossary",
+      "parent_headings": [
+        "Detailed Study Notes — 20 Skills That Changed My Life Before 25"
+      ],
+      "dimension": [
+        7,
+        3
+      ],
+      "format": "json",
+      "content": "[[\"Sleep Maxxing\", \"Optimizing sleep quality and duration (7–8 hours) for maximum daily energy\", \"13:41\"], [\"Deep Work Blocks\", \"2-hour focused work sessions without notifications or distractions\", \"29:00\"], [\"Capsule Wardrobe\", \"A minimal, versatile collection of clothing that can be mixed and matched\", \"08:25\"], [\"Flow State\", \"Complete mental immersion in an activity, losing awareness of other thoughts\", \"02:43\"], [\"Learning in Public\", \"Sharing your learning journey and project progress on public platforms\", \"25:05\"], [\"Gig Work\", \"Part-time freelance tasks done for others, usually on weekends\", \"23:35\"], [\"Context Switching\", \"The cognitive cost of shifting between tasks or between work and leisure\", \"29:49\"]]",
+      "caption": "",
+      "footnotes": [],
+      "table_header": "[[\"Term\", \"Definition (as used in video)\", \"First Appearance\"]]"
+    }
+  }
+}

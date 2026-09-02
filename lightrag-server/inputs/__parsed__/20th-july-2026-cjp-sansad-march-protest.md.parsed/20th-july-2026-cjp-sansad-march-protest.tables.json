@@ -1,0 +1,41 @@
+{
+  "version": "1.0",
+  "tables": {
+    "tb-a524303575a2516cbd07452843918285-0001": {
+      "id": "tb-a524303575a2516cbd07452843918285-0001",
+      "blockid": "fd4342266ec30fe22cb134c32ffe1c80",
+      "heading": "Table 1: Official State Claims vs. Eyewitness Field Evidence",
+      "parent_headings": [
+        "Detailed Study Notes — 20th July 2026 CJP Sansad March & Jantar Mantar Protest",
+        "4. Key Comparative Matrices"
+      ],
+      "dimension": [
+        6,
+        4
+      ],
+      "format": "json",
+      "content": "[[\"**Baton Charge (Lathi Charge)**\", \"Denied via official police tweets; claimed no force was used.\", \"Verified video footage of police striking seated/retreating students.\", \"`00:11`, `07:01`\"], [\"**Crowd Size**\", \"Reported at 5,000 to 10,000 protesters.\", \"Estimated at 50,000+ spread across CP, Jantar Mantar, & Sansad Marg.\", \"`02:01`, `05:14`\"], [\"**Protester Identity**\", \"Framed by broadcast channels (NDTV) as \\\"Pakistani elements\\\".\", \"Verified Indian students protesting exam paper leaks and education reforms.\", \"`00:29`, `02:01`, `13:26`\"], [\"**Riot Control Munitions**\", \"Standard non-lethal crowd control deployed.\", \"Tear gas canisters deployed were expired (marked expiry `12/25`).\", \"`01:37`\"], [\"**Personnel Identification**\", \"Standard uniformed police deployment.\", \"Plainclothes individuals carrying batons without mandatory name tags.\", \"`05:58`, `06:26`\"], [\"**Internet Status**\", \"Standard operational network conditions.\", \"Localized data shutdown and jammer deployment within a 2 km radius.\", \"`08:42`, `09:01`\"]]",
+      "caption": "",
+      "footnotes": [],
+      "table_header": "[[\"Metric / Event Topic\", \"Official Police / Media Stance\", \"Eyewitness & Video Field Evidence\", \"Timestamp Citation\"]]"
+    },
+    "tb-a524303575a2516cbd07452843918285-0002": {
+      "id": "tb-a524303575a2516cbd07452843918285-0002",
+      "blockid": "cd8124a49427feb7826fc8b4bdd4c5cb",
+      "heading": "Table 2: Key Stakeholders & Roles",
+      "parent_headings": [
+        "Detailed Study Notes — 20th July 2026 CJP Sansad March & Jantar Mantar Protest",
+        "4. Key Comparative Matrices"
+      ],
+      "dimension": [
+        9,
+        4
+      ],
+      "format": "json",
+      "content": "[[\"**Cockroach Janta Party (CJP)**\", \"Organizing political/student entity\", \"Called the Jantar Mantar protest and Sansad March for educational reform.\", \"`00:15`, `04:45`\"], [\"**[[Aditya Kakkar]]**\", \"Independent creator & eyewitness reporter\", \"Documented ground reality, barricades, police actions, and user support.\", \"`00:29`, `03:07`, `18:38`\"], [\"**Sonam Wangchuk**\", \"Climate activist & CJP aligned figure\", \"Detained by police early; wife assaulted; continued hunger strike from hospital.\", \"`00:29`, `05:58`, `16:56`\"], [\"**Abhijit Dipke**\", \"CJP Leader\", \"Trapped inside vehicle by police barriers at Jantar Mantar during protest.\", \"`05:28`, `05:58`\"], [\"**Saurav Das**\", \"CJP Representative\", \"Summoned to meeting with J.P. Nadda; held in negotiation hold for 2.5 hours.\", \"`05:28`, `10:49`\"], [\"**J.P. Nadda**\", \"BJP National President\", \"Held CJP leadership in prolonged meeting while police contained streets.\", \"`05:28`\"], [\"**Mallikarjun Kharge**\", \"Leader of Opposition (Parliament)\", \"Raised police violence against students in Parliament, leading to adjournment.\", \"`10:18`\"], [\"**Dharmendra Pradhan**\", \"Union Minister of Education\", \"Targeted by protest; resignation demanded as primary condition for clearance.\", \"`17:16`, `18:38`\"], [\"**Delhi Police & Security Forces**\", \"State Law Enforcement\", \"Executed multi-tier barricades, signal jamming, tear gas, and baton charges.\", \"`01:20`, `04:45`, `11:24`\"]]",
+      "caption": "",
+      "footnotes": [],
+      "table_header": "[[\"Stakeholder / Entity\", \"Role / Position\", \"Key Actions & Impact on 20th July 2026\", \"Timestamp Citation\"]]"
+    }
+  }
+}

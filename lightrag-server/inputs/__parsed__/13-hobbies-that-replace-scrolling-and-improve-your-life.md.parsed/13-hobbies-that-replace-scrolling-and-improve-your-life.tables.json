@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "tables": {
+    "tb-4089a2e28ddfc7eabedc10471e59fe80-0001": {
+      "id": "tb-4089a2e28ddfc7eabedc10471e59fe80-0001",
+      "blockid": "d2d7cd5ed98f319881980b679d91d597",
+      "heading": "Comprehensive Comparative Matrix",
+      "parent_headings": [
+        "Detailed Study Notes — 13 Hobbies That Replace Scrolling and Improve Your Life",
+        "Strategic Synthesis & Frameworks"
+      ],
+      "dimension": [
+        13,
+        6
+      ],
+      "format": "json",
+      "content": "[[\"1\", \"**AI Tools**\", \"Technology & Automation\", \"Passive Consumer $\\\\rightarrow$ AI Operator\", \"Exponential output per hour; team-scale execution\", \"`(0:00)`\"], [\"2\", \"**Strength Training**\", \"Physical Hardening\", \"Avoid Discomfort $\\\\rightarrow$ Physical Proof\", \"High stress resilience; physical discipline track record\", \"`(0:35)`\"], [\"3\", \"**Reading Biographies**\", \"Asymmetric Wisdom\", \"Trial-and-Error $\\\\rightarrow$ Blueprint Learning\", \"Prevention of major strategic errors via history\", \"`(0:51)`\"], [\"4\", \"**Chess**\", \"Tactical Cognition\", \"Impulsive Reaction $\\\\rightarrow$ Strategic Planning\", \"Long-term consequence forecasting under pressure\", \"`(1:12)`\"], [\"5\", \"**Combat Sports**\", \"Stress Resilience\", \"Panic & Avoidance $\\\\rightarrow$ Calm Under Pressure\", \"Extreme composure in real-world crisis & conflict\", \"`(1:39)`\"], [\"6\", \"**Writing**\", \"Mental Clarity\", \"Flawed Mental Ideas $\\\\rightarrow$ Logical Rigor\", \"Sharp articulation & cognitive audit capability\", \"`(1:51)`\"], [\"7\", \"**Exploring Nature**\", \"Neural Recovery\", \"Sensory Overload $\\\\rightarrow$ Baseline Recovery\", \"Prefrontal cortex recovery & long-term perspective\", \"`(2:02)`\"], [\"8\", \"**Teaching**\", \"Knowledge Mastery\", \"Illusion of Depth $\\\\rightarrow$ Feynman Simplicity\", \"Immediate identification & patching of knowledge gaps\", \"`(2:14)`\"], [\"9\", \"**Negotiation**\", \"Wealth & Influence\", \"Settling for Less $\\\\rightarrow$ Value Capture\", \"Maximized financial terms, salaries, & boundaries\", \"`(2:37)`\"], [\"10\", \"**Public Speaking**\", \"Social & Leadership\", \"Fear of Judgment $\\\\rightarrow$ Authority Projection\", \"Extinction of social anxiety & influence scale\", \"`(2:55)`\"], [\"11\", \"**Learning to Think**\", \"Metacognition\", \"Consensus Copying $\\\\rightarrow$ First-Principles\", \"High-accuracy decision making & bias immunity\", \"`(3:07)`\"], [\"12\", \"**Video Editing**\", \"Digital Trade Skill\", \"Media Victim $\\\\rightarrow$ Attention Architect\", \"High-income digital skill; attention control\", \"`(3:23)`\"], [\"13\", \"**Building Online**\", \"Asset Entrepreneurship\", \"Passive Viewer $\\\\rightarrow$ Digital Asset Owner\", \"Scalable global distribution & laptop income streams\", \"`(3:41)`\"]]",
+      "caption": "",
+      "footnotes": [],
+      "table_header": "[[\"#\", \"Hobby\", \"Domain Category\", \"Cognitive & Behavioral Shift\", \"Primary Real-World Leverage\", \"Timestamp\"]]"
+    }
+  }
+}
