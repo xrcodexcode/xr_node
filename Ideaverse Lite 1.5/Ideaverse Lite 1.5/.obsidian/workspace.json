@@ -1,0 +1,365 @@
+{
+  "main": {
+    "id": "c4f7fdb608baf8e1",
+    "type": "split",
+    "children": [
+      {
+        "id": "0b3085712ef39795",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ed620ff772ae2275",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Home.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Home"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "440b3841429709ed",
+    "type": "split",
+    "children": [
+      {
+        "id": "b208c03cadd231ee",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dddbab8b18fd423a",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "77966b04a7f238ed",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "byModifiedTime"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 296.5026054382324
+  },
+  "right": {
+    "id": "7a43a6c530e72e44",
+    "type": "split",
+    "children": [
+      {
+        "id": "ea89fdbc5439f479",
+        "type": "tabs",
+        "dimension": 62.64916467780429,
+        "children": [
+          {
+            "id": "2ca57d6199b2f8d5",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "file-properties",
+              "state": {
+                "file": "Home.md"
+              },
+              "icon": "lucide-info",
+              "title": "File properties for Home"
+            }
+          },
+          {
+            "id": "1dc0cb1cebc39098",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          },
+          {
+            "id": "4f6e4ddebde66a86",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "alphabetical",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "90d026528dc7103b",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Home.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Home"
+            }
+          },
+          {
+            "id": "ecdb0a392a024342",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          }
+        ]
+      },
+      {
+        "id": "8e15cd93a6a4be64",
+        "type": "tabs",
+        "dimension": 37.3508353221957,
+        "children": [
+          {
+            "id": "d535bd36dbc98e0b",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Home.md",
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Home"
+            }
+          },
+          {
+            "id": "ae0aed29d208c352",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 252.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "daily-notes:Open today's daily note": false,
+      "publish:Publish changes...": false,
+      "switcher:Open quick switcher": false,
+      "command-palette:Open command palette": false,
+      "templates:Insert template": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "workspaces:Manage workspace layouts": false,
+      "periodic-notes:Open today's daily note": false,
+      "darlal-switcher-plus:Open in Headings Mode": false,
+      "darlal-switcher-plus:Open Symbols for the active editor": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "cmdr:Toggle stacked tabs": false,
+      "obsidian42-brat:BRAT": false
+    }
+  },
+  "active": "dddbab8b18fd423a",
+  "lastOpenFiles": [
+    "Ideaverse Lite - Release Notes.md",
+    "Atlas/Dots/Statements/Our environment shapes us more than we realize.md",
+    "Home.md",
+    "Atlas/Maps/Communicate.md",
+    "x/Templates/Template, Properties, Base + In (Kit).md",
+    "+/Test note.md",
+    "x/Templates/Template, Properties, Base.md",
+    "x/Templates/Template, Properties, Daily Note (Kit).md",
+    "x/Templates/Nick Milo's Custom Callouts.md",
+    "Atlas/Maps/Views.md",
+    "Atlas/Maps/Thinking Map.md",
+    "Atlas/Maps/Systems MOC (kit).md",
+    "Atlas/Maps/Speeches.md",
+    "Atlas/Maps/Sources.md",
+    "Atlas/Dots/Sources/Writing Original Works.md",
+    "Atlas/Dots/Sources/Ideaverse Pro.md",
+    "Atlas/Maps/Songs.md",
+    "Atlas/Maps/Relate.md",
+    "Atlas/Maps/Psychology MOC (kit).md",
+    "Atlas/Maps/Plan and Review.md",
+    "Atlas/Maps/Places MOC.md",
+    "Atlas/Maps/Philosophy MOC (kit).md",
+    "Atlas/Maps/People Map.md",
+    "Atlas/Maps/Papers.md",
+    "Atlas/Maps/My Virtues (starter).md",
+    "Atlas/Maps/Movies.md",
+    "Atlas/Dots/Statements",
+    "Efforts/Notes/My Videos",
+    "x/Images/lyt-kit-example-cooling-pad-.png",
+    "Atlas/Utilities/Images/lyt-kit-example-cooling-pad-.jpg",
+    "Calendar/Notes/Past Years",
+    "Calendar/Logs",
+    "Calendar/Notes",
+    "x/Images/mckie-ship-and-sea-mid-narrow-.jpg",
+    "Atlas/Utilities/Images/mckie-ship-and-sea-mid-narrower.jpg",
+    "x/Images/robert-mccall-space-ship-launch-narrower.png",
+    "Atlas/Dots/X",
+    "Atlas/Dots/X",
+    "Atlas/Dots/People",
+    "Atlas/Dots",
+    "x/Images/whelan-space-station-1978-mod.jpg",
+    "x/Images/flight-school-hotkey-wide.jpg",
+    "x/Images/McCall-pen-sketch-narrow.jpg",
+    "x/Images/whelan-the-wave-1994.jpg",
+    "x/Images/robert-mccall-black-hole-concept-art-bottom.jpg",
+    "Atlas/Sources/+/Tweets (Readwise)",
+    "Atlas/Utilities/Canvases/2023-03-20 - Review, Brain Dump, Imagine, Prioritize.canvas",
+    "Atlas/Utilities/Canvases/LYT W10 Calendar Canvas.canvas",
+    "Atlas/Utilities/Canvases/LYT Ship Dashboard.canvas",
+    "Atlas/Utilities/Canvases/LYT W11 Calendar Canvas.canvas",
+    "Atlas/Utilities/Canvases/Obsidian Canvas MOC.canvas",
+    "Atlas/Utilities/Canvases/Ship of the Sensemaker.canvas",
+    "Atlas/Utilities/Canvases/LYT 2023 Rules.canvas",
+    "Atlas/Utilities/Canvases/LYT Book Framing.canvas",
+    "Atlas/Utilities/Canvases/LYT Nick Weekly Schedule.canvas",
+    "Atlas/Utilities/Canvases/LYT Website Ideaverse.canvas"
+  ]
+}
