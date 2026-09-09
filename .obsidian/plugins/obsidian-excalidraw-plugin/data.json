@@ -118,7 +118,7 @@
   "addDummyTextElement": false,
   "zoteroCompatibility": false,
   "fieldSuggester": true,
-  "enableOnloadScripts": false,
+  "enableOnloadScripts": true,
   "enableCommandLinks": false,
   "compatibilityMode": false,
   "drawingOpenCount": 0,
