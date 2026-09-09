@@ -25,10 +25,14 @@
             "id": "0a07fc4b32ace999",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "javascript-mastery/01-fundamentals/notes.md",
+                "mode": "preview",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "notes"
             }
           }
         ],
@@ -210,6 +214,9 @@
   },
   "active": "0a07fc4b32ace999",
   "lastOpenFiles": [
+    "javascript-mastery/01-fundamentals/exercises.md",
+    "javascript-mastery/04-strings/exercises.md",
+    "javascript-mastery/04-strings/cheat-sheet.md",
     "javascript-mastery/06-objects/notes.md",
     "javascript-mastery/07-dom/notes.md",
     "javascript-mastery/05-arrays/exercises.md",
@@ -233,9 +240,6 @@
     "javascript-mastery/08-events/cheat-sheet.md",
     "javascript-mastery/06-objects/cheat-sheet.md",
     "javascript-mastery/04-strings/notes.md",
-    "javascript-mastery/05-arrays/notes.md",
-    "03_MOC/48-laws-of-power-moc.md",
-    "02_NEW-KNOWLEDGE/NOTES/Cron Job Automation Plan.md",
     "02_NEW-KNOWLEDGE/NOTES/Second Brain Comprehensive Review Report.md.tmp.13748.c64abdf6cb3b",
     "02_NEW-KNOWLEDGE/NOTES",
     "AREAS/newsletter/site/assets/issue#1/5.jpg",
