@@ -27,8 +27,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "javascript-mastery/01-fundamentals/notes.md",
-                "mode": "preview",
+                "file": "javascript-mastery/04-strings/notes.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -98,7 +98,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "43d09af49b9b51ad",
@@ -214,6 +215,8 @@
   },
   "active": "0a07fc4b32ace999",
   "lastOpenFiles": [
+    "javascript-mastery/01-fundamentals/recall.md",
+    "javascript-mastery/01-fundamentals/notes.md",
     "javascript-mastery/01-fundamentals/exercises.md",
     "javascript-mastery/04-strings/exercises.md",
     "javascript-mastery/04-strings/cheat-sheet.md",
@@ -238,8 +241,6 @@
     "Ideaverse Lite 1.5/Ideaverse Lite 1.5/Atlas/Dots/X/+ About Atlas.md",
     "Ideaverse Lite 1.5/Ideaverse Lite 1.5/Atlas/Dots/Statements/A deeper dive into how ACE works.md",
     "javascript-mastery/08-events/cheat-sheet.md",
-    "javascript-mastery/06-objects/cheat-sheet.md",
-    "javascript-mastery/04-strings/notes.md",
     "02_NEW-KNOWLEDGE/NOTES/Second Brain Comprehensive Review Report.md.tmp.13748.c64abdf6cb3b",
     "02_NEW-KNOWLEDGE/NOTES",
     "AREAS/newsletter/site/assets/issue#1/5.jpg",

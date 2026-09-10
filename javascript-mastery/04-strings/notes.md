@@ -6,7 +6,7 @@
 
 ### What is a String?
 A string is a sequence of characters used to represent text. 
-
+It is also an array of characters.
 ### Why do we need Strings?
 To store and manipulate text like names, emails, descriptions, messages, and HTML content.
 
